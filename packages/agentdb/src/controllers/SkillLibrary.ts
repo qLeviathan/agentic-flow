@@ -11,6 +11,14 @@
 // Database type from db-fallback
 type Database = any;
 import { EmbeddingService } from './EmbeddingService.js';
+import {
+  extractSequencesFromText,
+  detectSequencePattern,
+  validateSequence,
+  validateSequencePattern,
+  calculateSequenceSimilarity,
+  type OEISSequencePattern
+} from '../security/input-validation.js';
 
 export interface Skill {
   id?: number;
@@ -27,6 +35,13 @@ export interface Skill {
   avgLatencyMs: number;
   createdFromEpisode?: number;
   metadata?: Record<string, any>;
+}
+
+/**
+ * Extended skill interface with OEIS sequence patterns
+ */
+export interface SkillWithOEIS extends Skill {
+  oeisPatterns?: OEISSequencePattern[];
 }
 
 export interface SkillLink {
@@ -626,5 +641,362 @@ export class SkillLibrary {
       Math.min(skill.uses / 1000, 1.0) * 0.1 +
       skill.avgReward * 0.2
     );
+  }
+
+  // ========================================================================
+  // OEIS Pattern Detection and Integration
+  // ========================================================================
+
+  /**
+   * Detect OEIS patterns in skill output
+   * Analyzes skill code, description, and signature for numeric sequences
+   *
+   * @param skill - The skill to analyze
+   * @returns Array of detected OEIS patterns
+   *
+   * @example
+   * const patterns = await detectOEISPatterns(skill);
+   * // Returns: [{ sequence: [1,1,2,3,5,8], confidence: 0.95, source: 'code-analysis' }]
+   */
+  async detectOEISPatterns(skill: Skill): Promise<OEISSequencePattern[]> {
+    const patterns: OEISSequencePattern[] = [];
+
+    // Analyze code output
+    if (skill.code) {
+      const codeSequences = extractSequencesFromText(skill.code, {
+        minLength: 4,
+        maxLength: 50,
+        allowNegative: true
+      });
+
+      for (const sequence of codeSequences) {
+        const patternInfo = detectSequencePattern(sequence);
+        if (patternInfo) {
+          patterns.push({
+            sequence,
+            confidence: patternInfo.confidence,
+            source: 'code-analysis',
+            metadata: {
+              patternType: patternInfo.type,
+              description: patternInfo.description,
+              skillId: skill.id,
+              skillName: skill.name
+            }
+          });
+        }
+      }
+    }
+
+    // Analyze description
+    if (skill.description) {
+      const descSequences = extractSequencesFromText(skill.description, {
+        minLength: 3,
+        maxLength: 30,
+        allowNegative: true
+      });
+
+      for (const sequence of descSequences) {
+        const patternInfo = detectSequencePattern(sequence);
+        patterns.push({
+          sequence,
+          confidence: patternInfo ? patternInfo.confidence : 0.5,
+          source: 'description',
+          metadata: {
+            patternType: patternInfo?.type,
+            description: patternInfo?.description,
+            skillId: skill.id,
+            skillName: skill.name
+          }
+        });
+      }
+    }
+
+    // Analyze signature outputs
+    if (skill.signature?.outputs) {
+      const outputStr = JSON.stringify(skill.signature.outputs);
+      const sigSequences = extractSequencesFromText(outputStr, {
+        minLength: 3,
+        maxLength: 20,
+        allowNegative: true
+      });
+
+      for (const sequence of sigSequences) {
+        patterns.push({
+          sequence,
+          confidence: 0.6,
+          source: 'signature-outputs',
+          metadata: {
+            skillId: skill.id,
+            skillName: skill.name
+          }
+        });
+      }
+    }
+
+    return patterns;
+  }
+
+  /**
+   * Link a skill to an OEIS sequence pattern
+   * Stores the OEIS metadata in the skill's metadata field
+   *
+   * @param skillId - The skill ID
+   * @param pattern - The OEIS sequence pattern
+   */
+  linkSkillToOEISPattern(skillId: number, pattern: OEISSequencePattern): void {
+    // Validate the pattern
+    const validatedPattern = validateSequencePattern(pattern);
+
+    // Get current skill
+    const skill = this.getSkillById(skillId);
+    const currentMetadata = skill.metadata || {};
+
+    // Add or update OEIS patterns in metadata
+    const oeisPatterns = currentMetadata.oeisPatterns || [];
+    oeisPatterns.push({
+      sequence: validatedPattern.sequence,
+      confidence: validatedPattern.confidence,
+      source: validatedPattern.source,
+      detectedAt: Date.now(),
+      metadata: validatedPattern.metadata
+    });
+
+    // Update skill with new metadata
+    const stmt = this.db.prepare(`
+      UPDATE skills
+      SET metadata = ?
+      WHERE id = ?
+    `);
+
+    const updatedMetadata = {
+      ...currentMetadata,
+      oeisPatterns,
+      hasOEISPatterns: true,
+      lastOEISUpdate: Date.now()
+    };
+
+    stmt.run(JSON.stringify(updatedMetadata), skillId);
+  }
+
+  /**
+   * Get skills that contain a specific OEIS sequence pattern
+   * Useful for finding skills that generate or work with specific sequences
+   *
+   * @param targetSequence - The sequence to search for
+   * @param options - Search options
+   * @returns Skills with matching OEIS patterns
+   *
+   * @example
+   * const fibonacciSkills = getSkillsWithSequencePattern([1, 1, 2, 3, 5, 8], {
+   *   minSimilarity: 0.8,
+   *   limit: 10
+   * });
+   */
+  getSkillsWithSequencePattern(
+    targetSequence: number[],
+    options: {
+      minSimilarity?: number;
+      minSuccessRate?: number;
+      limit?: number;
+    } = {}
+  ): SkillWithOEIS[] {
+    const {
+      minSimilarity = 0.7,
+      minSuccessRate = 0.5,
+      limit = 10
+    } = options;
+
+    // Validate target sequence
+    const validatedSequence = validateSequence(targetSequence, {
+      minLength: 3,
+      maxLength: 100
+    });
+
+    // Get all skills with OEIS patterns
+    const stmt = this.db.prepare(`
+      SELECT * FROM skills
+      WHERE success_rate >= ?
+        AND metadata IS NOT NULL
+        AND json_extract(metadata, '$.hasOEISPatterns') = true
+      ORDER BY success_rate DESC, uses DESC
+    `);
+
+    const rows = stmt.all(minSuccessRate) as any[];
+    const matchingSkills: (SkillWithOEIS & { similarity: number })[] = [];
+
+    for (const row of rows) {
+      const skill = this.rowToSkill(row);
+      const metadata = skill.metadata || {};
+      const oeisPatterns = metadata.oeisPatterns || [];
+
+      // Calculate best similarity match for this skill
+      let bestSimilarity = 0;
+      const matchedPatterns: OEISSequencePattern[] = [];
+
+      for (const pattern of oeisPatterns) {
+        const similarity = calculateSequenceSimilarity(
+          validatedSequence,
+          pattern.sequence
+        );
+
+        if (similarity >= minSimilarity) {
+          matchedPatterns.push(pattern);
+          bestSimilarity = Math.max(bestSimilarity, similarity);
+        }
+      }
+
+      if (matchedPatterns.length > 0) {
+        matchingSkills.push({
+          ...skill,
+          oeisPatterns: matchedPatterns,
+          similarity: bestSimilarity
+        });
+      }
+    }
+
+    // Sort by similarity and return top matches
+    matchingSkills.sort((a, b) => b.similarity - a.similarity);
+    return matchingSkills.slice(0, limit);
+  }
+
+  /**
+   * Automatically detect and link OEIS patterns for all skills
+   * Can be run as a batch process to enrich existing skills
+   *
+   * @param options - Processing options
+   * @returns Statistics about patterns detected
+   *
+   * @example
+   * const stats = await autoDetectOEISPatterns({ minSuccessRate: 0.6 });
+   * // Returns: { processed: 50, patternsFound: 23, skillsUpdated: 15 }
+   */
+  async autoDetectOEISPatterns(options: {
+    minSuccessRate?: number;
+    batchSize?: number;
+  } = {}): Promise<{
+    processed: number;
+    patternsFound: number;
+    skillsUpdated: number;
+  }> {
+    const { minSuccessRate = 0.5, batchSize = 100 } = options;
+
+    // Get skills to process
+    const stmt = this.db.prepare(`
+      SELECT * FROM skills
+      WHERE success_rate >= ?
+      ORDER BY uses DESC, success_rate DESC
+      LIMIT ?
+    `);
+
+    const rows = stmt.all(minSuccessRate, batchSize) as any[];
+    let processed = 0;
+    let patternsFound = 0;
+    let skillsUpdated = 0;
+
+    for (const row of rows) {
+      const skill = this.rowToSkill(row);
+      processed++;
+
+      // Detect patterns
+      const patterns = await this.detectOEISPatterns(skill);
+
+      if (patterns.length > 0) {
+        patternsFound += patterns.length;
+
+        // Link each pattern to the skill
+        for (const pattern of patterns) {
+          try {
+            this.linkSkillToOEISPattern(skill.id!, pattern);
+          } catch (error) {
+            // Skip invalid patterns
+            console.warn(`Failed to link pattern for skill ${skill.id}:`, error);
+          }
+        }
+
+        skillsUpdated++;
+      }
+    }
+
+    return {
+      processed,
+      patternsFound,
+      skillsUpdated
+    };
+  }
+
+  /**
+   * Get OEIS pattern statistics across all skills
+   * Useful for understanding what types of sequences are commonly generated
+   *
+   * @returns Statistics about OEIS patterns in the skill library
+   *
+   * @example
+   * const stats = getOEISPatternStats();
+   * // Returns: { totalSkills: 100, skillsWithPatterns: 35, commonPatterns: [...] }
+   */
+  getOEISPatternStats(): {
+    totalSkills: number;
+    skillsWithPatterns: number;
+    totalPatterns: number;
+    patternsByType: Record<string, number>;
+    topSequences: Array<{ sequence: number[]; count: number }>;
+  } {
+    // Get total skills
+    const totalStmt = this.db.prepare('SELECT COUNT(*) as count FROM skills');
+    const totalSkills = (totalStmt.get() as any).count;
+
+    // Get skills with OEIS patterns
+    const patternsStmt = this.db.prepare(`
+      SELECT COUNT(*) as count FROM skills
+      WHERE metadata IS NOT NULL
+        AND json_extract(metadata, '$.hasOEISPatterns') = true
+    `);
+    const skillsWithPatterns = (patternsStmt.get() as any).count;
+
+    // Get all patterns
+    const allPatternsStmt = this.db.prepare(`
+      SELECT metadata FROM skills
+      WHERE metadata IS NOT NULL
+        AND json_extract(metadata, '$.hasOEISPatterns') = true
+    `);
+    const rows = allPatternsStmt.all() as any[];
+
+    let totalPatterns = 0;
+    const patternsByType: Record<string, number> = {};
+    const sequenceMap = new Map<string, number>();
+
+    for (const row of rows) {
+      const metadata = JSON.parse(row.metadata);
+      const patterns = metadata.oeisPatterns || [];
+
+      for (const pattern of patterns) {
+        totalPatterns++;
+
+        // Count by type
+        const patternType = pattern.metadata?.patternType || 'unknown';
+        patternsByType[patternType] = (patternsByType[patternType] || 0) + 1;
+
+        // Track sequence frequency
+        const seqKey = JSON.stringify(pattern.sequence);
+        sequenceMap.set(seqKey, (sequenceMap.get(seqKey) || 0) + 1);
+      }
+    }
+
+    // Get top sequences
+    const topSequences = Array.from(sequenceMap.entries())
+      .map(([seqKey, count]) => ({
+        sequence: JSON.parse(seqKey),
+        count
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+
+    return {
+      totalSkills,
+      skillsWithPatterns,
+      totalPatterns,
+      patternsByType,
+      topSequences
+    };
   }
 }

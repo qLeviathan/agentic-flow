@@ -1,7 +1,7 @@
 // CLI argument parsing and help utilities
 
 export interface CliOptions {
-  mode: 'agent' | 'parallel' | 'list' | 'mcp' | 'mcp-manager' | 'config' | 'agent-manager' | 'proxy' | 'quic' | 'claude-code' | 'reasoningbank';
+  mode: 'agent' | 'parallel' | 'list' | 'mcp' | 'mcp-manager' | 'config' | 'agent-manager' | 'proxy' | 'quic' | 'claude-code' | 'reasoningbank' | 'oeis';
   agent?: string;
   task?: string;
 
@@ -103,6 +103,12 @@ export function parseArgs(): CliOptions {
   // Check for reasoningbank command
   if (args[0] === 'reasoningbank') {
     options.mode = 'reasoningbank';
+    return options;
+  }
+
+  // Check for oeis command
+  if (args[0] === 'oeis') {
+    options.mode = 'oeis';
     return options;
   }
 
@@ -238,6 +244,7 @@ USAGE:
 
 COMMANDS:
   reasoningbank <cmd>     Memory system that learns from experience (demo, test, init)
+  oeis <command>          OEIS sequence validation and pattern detection
   claude-code [options]   Spawn Claude Code with proxy + Agent Booster (57x faster edits)
   mcp <command> [server]  Manage MCP servers (start, stop, status, list)
   config [command]        Configuration wizard (set, get, list, delete, reset)
@@ -252,6 +259,15 @@ REASONINGBANK COMMANDS:
   npx agentic-flow reasoningbank init         Initialize database
   npx agentic-flow reasoningbank benchmark    Run performance benchmarks
   npx agentic-flow reasoningbank status       Show memory statistics
+
+OEIS COMMANDS:
+  npx agentic-flow oeis validate <sequence>   Validate sequence against OEIS
+  npx agentic-flow oeis search <terms>        Search OEIS database
+  npx agentic-flow oeis pattern <sequence>    Detect mathematical patterns
+  npx agentic-flow oeis link <skill> <id>     Link skill to OEIS sequence
+  npx agentic-flow oeis analyze <skill>       Analyze skill for patterns
+  npx agentic-flow oeis stats                 Show usage statistics
+  npx agentic-flow oeis cache [clear|stats]   Manage cache
 
 MCP COMMANDS:
   npx agentic-flow mcp start [server]    Start MCP server(s)
@@ -303,6 +319,12 @@ EXAMPLES:
   npx agentic-flow reasoningbank test       # Run 27 validation tests
   npx agentic-flow reasoningbank init       # Setup memory database
   export ANTHROPIC_API_KEY=sk-ant-...      # Enable LLM-based learning
+
+  # OEIS Validation (Validate mathematical sequences!)
+  npx agentic-flow oeis validate 1,1,2,3,5,8,13    # Validate Fibonacci
+  npx agentic-flow oeis search "prime numbers"     # Search OEIS
+  npx agentic-flow oeis pattern 1,4,9,16,25        # Detect patterns
+  npx agentic-flow oeis link my-skill A000045      # Link to sequence
 
   # Agent Booster Integration (200x faster code edits!)
   npx agentic-flow --agent coder --task "Convert var to const in utils.js" --agent-booster

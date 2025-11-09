@@ -11,6 +11,13 @@
 // Database type from db-fallback
 type Database = any;
 import { EmbeddingService } from './EmbeddingService.js';
+import {
+  extractSequencesFromText,
+  detectSequencePattern,
+  validateSequence,
+  calculateSequenceSimilarity,
+  type OEISSequencePattern
+} from '../security/input-validation.js';
 
 export interface Episode {
   id?: number;
@@ -31,6 +38,19 @@ export interface Episode {
 export interface EpisodeWithEmbedding extends Episode {
   embedding?: Float32Array;
   similarity?: number;
+}
+
+/**
+ * Episode with OEIS sequence validation results
+ */
+export interface EpisodeWithOEIS extends Episode {
+  oeisPatterns?: OEISSequencePattern[];
+  sequenceValidation?: {
+    hasSequences: boolean;
+    sequenceCount: number;
+    validated: boolean;
+    validationErrors?: string[];
+  };
 }
 
 export interface ReflexionQuery {
@@ -350,5 +370,500 @@ export class ReflexionMemory {
     }
 
     return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
+  }
+
+  // ========================================================================
+  // OEIS Sequence Validation
+  // ========================================================================
+
+  /**
+   * Validate episode output for numeric sequences
+   * Detects and validates OEIS-compatible sequences in the episode output
+   *
+   * @param episode - The episode to validate
+   * @returns Validation results with detected sequences
+   *
+   * @example
+   * const validation = validateEpisodeSequences(episode);
+   * // Returns: { hasSequences: true, patterns: [...], validated: true }
+   */
+  validateEpisodeSequences(episode: Episode): {
+    hasSequences: boolean;
+    patterns: OEISSequencePattern[];
+    validated: boolean;
+    validationErrors: string[];
+  } {
+    const patterns: OEISSequencePattern[] = [];
+    const validationErrors: string[] = [];
+    let hasSequences = false;
+
+    // Analyze output for sequences
+    if (episode.output) {
+      try {
+        const sequences = extractSequencesFromText(episode.output, {
+          minLength: 3,
+          maxLength: 50,
+          allowNegative: true
+        });
+
+        hasSequences = sequences.length > 0;
+
+        for (const sequence of sequences) {
+          try {
+            // Validate sequence
+            const validatedSeq = validateSequence(sequence, {
+              minLength: 3,
+              maxLength: 50,
+              allowNegative: true,
+              allowFloats: false
+            });
+
+            // Detect pattern
+            const patternInfo = detectSequencePattern(validatedSeq);
+
+            patterns.push({
+              sequence: validatedSeq,
+              confidence: patternInfo ? patternInfo.confidence : 0.5,
+              source: 'episode-output',
+              metadata: {
+                episodeId: episode.id,
+                sessionId: episode.sessionId,
+                task: episode.task,
+                patternType: patternInfo?.type,
+                description: patternInfo?.description,
+                reward: episode.reward,
+                success: episode.success
+              }
+            });
+          } catch (error) {
+            validationErrors.push(`Invalid sequence: ${error instanceof Error ? error.message : 'Unknown error'}`);
+          }
+        }
+      } catch (error) {
+        validationErrors.push(`Sequence extraction failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      }
+    }
+
+    // Also check critique for sequences (might contain expected outputs)
+    if (episode.critique) {
+      try {
+        const critiqueSequences = extractSequencesFromText(episode.critique, {
+          minLength: 3,
+          maxLength: 30,
+          allowNegative: true
+        });
+
+        for (const sequence of critiqueSequences) {
+          try {
+            const validatedSeq = validateSequence(sequence);
+            patterns.push({
+              sequence: validatedSeq,
+              confidence: 0.6,
+              source: 'episode-critique',
+              metadata: {
+                episodeId: episode.id,
+                task: episode.task
+              }
+            });
+          } catch (error) {
+            // Skip invalid critique sequences
+          }
+        }
+      } catch (error) {
+        // Skip critique validation errors
+      }
+    }
+
+    return {
+      hasSequences,
+      patterns,
+      validated: validationErrors.length === 0,
+      validationErrors
+    };
+  }
+
+  /**
+   * Store episode with automatic OEIS sequence validation
+   * Extends the standard storeEpisode to include sequence validation
+   *
+   * @param episode - The episode to store
+   * @returns Episode ID and validation results
+   *
+   * @example
+   * const result = await storeEpisodeWithValidation(episode);
+   * // Returns: { episodeId: 123, validation: {...} }
+   */
+  async storeEpisodeWithValidation(episode: Episode): Promise<{
+    episodeId: number;
+    validation: {
+      hasSequences: boolean;
+      patterns: OEISSequencePattern[];
+      validated: boolean;
+    };
+  }> {
+    // Validate sequences before storing
+    const validation = this.validateEpisodeSequences(episode);
+
+    // Add validation results to metadata
+    const enhancedMetadata = {
+      ...(episode.metadata || {}),
+      sequenceValidation: {
+        hasSequences: validation.hasSequences,
+        sequenceCount: validation.patterns.length,
+        validated: validation.validated,
+        validationErrors: validation.validationErrors
+      },
+      oeisPatterns: validation.patterns
+    };
+
+    // Store episode with enhanced metadata
+    const episodeId = await this.storeEpisode({
+      ...episode,
+      metadata: enhancedMetadata
+    });
+
+    return {
+      episodeId,
+      validation: {
+        hasSequences: validation.hasSequences,
+        patterns: validation.patterns,
+        validated: validation.validated
+      }
+    };
+  }
+
+  /**
+   * Get episodes that match a specific OEIS sequence
+   * Useful for finding episodes that generated specific numeric sequences
+   *
+   * @param targetSequence - The sequence to search for
+   * @param options - Search options
+   * @returns Episodes with matching sequences
+   *
+   * @example
+   * const episodes = getEpisodesWithOeisMatch([1, 1, 2, 3, 5, 8], {
+   *   minSimilarity: 0.8,
+   *   onlySuccesses: true
+   * });
+   */
+  getEpisodesWithOeisMatch(
+    targetSequence: number[],
+    options: {
+      minSimilarity?: number;
+      minReward?: number;
+      onlySuccesses?: boolean;
+      timeWindowDays?: number;
+      limit?: number;
+    } = {}
+  ): EpisodeWithOEIS[] {
+    const {
+      minSimilarity = 0.7,
+      minReward = 0.0,
+      onlySuccesses = false,
+      timeWindowDays,
+      limit = 10
+    } = options;
+
+    // Validate target sequence
+    const validatedSequence = validateSequence(targetSequence, {
+      minLength: 3,
+      maxLength: 100
+    });
+
+    // Build query filters
+    const filters: string[] = ['reward >= ?'];
+    const params: any[] = [minReward];
+
+    if (onlySuccesses) {
+      filters.push('success = 1');
+    }
+
+    if (timeWindowDays) {
+      filters.push('ts > strftime("%s", "now") - ?');
+      params.push(timeWindowDays * 86400);
+    }
+
+    // Query episodes with OEIS patterns
+    filters.push('metadata IS NOT NULL');
+    filters.push('json_extract(metadata, "$.sequenceValidation.hasSequences") = true');
+
+    const whereClause = filters.join(' AND ');
+
+    const stmt = this.db.prepare(`
+      SELECT * FROM episodes
+      WHERE ${whereClause}
+      ORDER BY reward DESC, ts DESC
+    `);
+
+    const rows = stmt.all(...params) as any[];
+    const matchingEpisodes: (EpisodeWithOEIS & { similarity: number })[] = [];
+
+    for (const row of rows) {
+      const episode: Episode = {
+        id: row.id,
+        ts: row.ts,
+        sessionId: row.session_id,
+        task: row.task,
+        input: row.input,
+        output: row.output,
+        critique: row.critique,
+        reward: row.reward,
+        success: row.success === 1,
+        latencyMs: row.latency_ms,
+        tokensUsed: row.tokens_used,
+        tags: row.tags ? JSON.parse(row.tags) : undefined,
+        metadata: row.metadata ? JSON.parse(row.metadata) : undefined
+      };
+
+      const metadata = episode.metadata || {};
+      const oeisPatterns = metadata.oeisPatterns || [];
+
+      // Calculate best similarity match
+      let bestSimilarity = 0;
+      const matchedPatterns: OEISSequencePattern[] = [];
+
+      for (const pattern of oeisPatterns) {
+        const similarity = calculateSequenceSimilarity(
+          validatedSequence,
+          pattern.sequence
+        );
+
+        if (similarity >= minSimilarity) {
+          matchedPatterns.push(pattern);
+          bestSimilarity = Math.max(bestSimilarity, similarity);
+        }
+      }
+
+      if (matchedPatterns.length > 0) {
+        matchingEpisodes.push({
+          ...episode,
+          oeisPatterns: matchedPatterns,
+          sequenceValidation: metadata.sequenceValidation,
+          similarity: bestSimilarity
+        });
+      }
+    }
+
+    // Sort by similarity and return top matches
+    matchingEpisodes.sort((a, b) => b.similarity - a.similarity);
+    return matchingEpisodes.slice(0, limit);
+  }
+
+  /**
+   * Get statistics about OEIS sequences in episodes
+   * Useful for understanding what types of sequences are being generated
+   *
+   * @param options - Filter options
+   * @returns Statistics about sequences in episodes
+   *
+   * @example
+   * const stats = getSequenceStats({ onlySuccesses: true });
+   * // Returns: { totalEpisodes: 500, episodesWithSequences: 45, commonPatterns: [...] }
+   */
+  getSequenceStats(options: {
+    onlySuccesses?: boolean;
+    minReward?: number;
+    timeWindowDays?: number;
+  } = {}): {
+    totalEpisodes: number;
+    episodesWithSequences: number;
+    totalSequences: number;
+    patternsByType: Record<string, number>;
+    averageConfidence: number;
+    topSequences: Array<{ sequence: number[]; count: number; avgReward: number }>;
+  } {
+    const { onlySuccesses = false, minReward = 0.0, timeWindowDays } = options;
+
+    // Build filters
+    const filters: string[] = ['reward >= ?'];
+    const params: any[] = [minReward];
+
+    if (onlySuccesses) {
+      filters.push('success = 1');
+    }
+
+    if (timeWindowDays) {
+      filters.push('ts > strftime("%s", "now") - ?');
+      params.push(timeWindowDays * 86400);
+    }
+
+    const whereClause = filters.join(' AND ');
+
+    // Get total episodes
+    const totalStmt = this.db.prepare(`
+      SELECT COUNT(*) as count FROM episodes WHERE ${whereClause}
+    `);
+    const totalEpisodes = (totalStmt.get(...params) as any).count;
+
+    // Get episodes with sequences
+    const seqFilters = [...filters, 'metadata IS NOT NULL', 'json_extract(metadata, "$.sequenceValidation.hasSequences") = true'];
+    const seqWhereClause = seqFilters.join(' AND ');
+
+    const seqStmt = this.db.prepare(`
+      SELECT COUNT(*) as count FROM episodes WHERE ${seqWhereClause}
+    `);
+    const episodesWithSequences = (seqStmt.get(...params) as any).count;
+
+    // Get all patterns
+    const patternsStmt = this.db.prepare(`
+      SELECT metadata, reward FROM episodes WHERE ${seqWhereClause}
+    `);
+    const rows = patternsStmt.all(...params) as any[];
+
+    let totalSequences = 0;
+    let totalConfidence = 0;
+    const patternsByType: Record<string, number> = {};
+    const sequenceMap = new Map<string, { count: number; totalReward: number }>();
+
+    for (const row of rows) {
+      const metadata = JSON.parse(row.metadata);
+      const patterns = metadata.oeisPatterns || [];
+
+      for (const pattern of patterns) {
+        totalSequences++;
+        totalConfidence += pattern.confidence || 0.5;
+
+        // Count by type
+        const patternType = pattern.metadata?.patternType || 'unknown';
+        patternsByType[patternType] = (patternsByType[patternType] || 0) + 1;
+
+        // Track sequence frequency and reward
+        const seqKey = JSON.stringify(pattern.sequence);
+        const existing = sequenceMap.get(seqKey) || { count: 0, totalReward: 0 };
+        sequenceMap.set(seqKey, {
+          count: existing.count + 1,
+          totalReward: existing.totalReward + row.reward
+        });
+      }
+    }
+
+    // Get top sequences
+    const topSequences = Array.from(sequenceMap.entries())
+      .map(([seqKey, data]) => ({
+        sequence: JSON.parse(seqKey),
+        count: data.count,
+        avgReward: data.totalReward / data.count
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+
+    return {
+      totalEpisodes,
+      episodesWithSequences,
+      totalSequences,
+      patternsByType,
+      averageConfidence: totalSequences > 0 ? totalConfidence / totalSequences : 0,
+      topSequences
+    };
+  }
+
+  /**
+   * Batch validate sequences for existing episodes
+   * Useful for retroactively adding sequence validation to historical episodes
+   *
+   * @param options - Processing options
+   * @returns Statistics about validation results
+   *
+   * @example
+   * const stats = await batchValidateSequences({ batchSize: 100 });
+   * // Returns: { processed: 100, validated: 87, sequencesFound: 23 }
+   */
+  async batchValidateSequences(options: {
+    batchSize?: number;
+    minReward?: number;
+    onlySuccesses?: boolean;
+  } = {}): Promise<{
+    processed: number;
+    validated: number;
+    sequencesFound: number;
+    errors: number;
+  }> {
+    const { batchSize = 100, minReward = 0.5, onlySuccesses = true } = options;
+
+    // Build filters
+    const filters: string[] = ['reward >= ?'];
+    const params: any[] = [minReward];
+
+    if (onlySuccesses) {
+      filters.push('success = 1');
+    }
+
+    // Only process episodes without validation
+    filters.push('(metadata IS NULL OR json_extract(metadata, "$.sequenceValidation") IS NULL)');
+
+    const whereClause = filters.join(' AND ');
+
+    const stmt = this.db.prepare(`
+      SELECT * FROM episodes
+      WHERE ${whereClause}
+      ORDER BY reward DESC, ts DESC
+      LIMIT ?
+    `);
+
+    const rows = stmt.all(...params, batchSize) as any[];
+
+    let processed = 0;
+    let validated = 0;
+    let sequencesFound = 0;
+    let errors = 0;
+
+    for (const row of rows) {
+      processed++;
+
+      try {
+        const episode: Episode = {
+          id: row.id,
+          ts: row.ts,
+          sessionId: row.session_id,
+          task: row.task,
+          input: row.input,
+          output: row.output,
+          critique: row.critique,
+          reward: row.reward,
+          success: row.success === 1,
+          latencyMs: row.latency_ms,
+          tokensUsed: row.tokens_used,
+          tags: row.tags ? JSON.parse(row.tags) : undefined,
+          metadata: row.metadata ? JSON.parse(row.metadata) : undefined
+        };
+
+        // Validate sequences
+        const validation = this.validateEpisodeSequences(episode);
+
+        if (validation.validated) {
+          validated++;
+          sequencesFound += validation.patterns.length;
+
+          // Update episode metadata
+          const enhancedMetadata = {
+            ...(episode.metadata || {}),
+            sequenceValidation: {
+              hasSequences: validation.hasSequences,
+              sequenceCount: validation.patterns.length,
+              validated: validation.validated,
+              validationErrors: validation.validationErrors
+            },
+            oeisPatterns: validation.patterns,
+            batchValidated: true,
+            validatedAt: Date.now()
+          };
+
+          const updateStmt = this.db.prepare(`
+            UPDATE episodes SET metadata = ? WHERE id = ?
+          `);
+          updateStmt.run(JSON.stringify(enhancedMetadata), episode.id);
+        }
+      } catch (error) {
+        errors++;
+        console.warn(`Failed to validate episode ${row.id}:`, error);
+      }
+    }
+
+    return {
+      processed,
+      validated,
+      sequencesFound,
+      errors
+    };
   }
 }

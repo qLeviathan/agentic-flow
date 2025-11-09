@@ -14,8 +14,20 @@ export { CausalMemoryGraph } from './controllers/CausalMemoryGraph.js';
 export { CausalRecall } from './controllers/CausalRecall.js';
 export { ExplainableRecall } from './controllers/ExplainableRecall.js';
 export { NightlyLearner } from './controllers/NightlyLearner.js';
-export { ReflexionMemory } from './controllers/ReflexionMemory.js';
-export { SkillLibrary } from './controllers/SkillLibrary.js';
+export {
+  ReflexionMemory,
+  type Episode,
+  type EpisodeWithEmbedding,
+  type EpisodeWithOEIS,
+  type ReflexionQuery
+} from './controllers/ReflexionMemory.js';
+export {
+  SkillLibrary,
+  type Skill,
+  type SkillWithOEIS,
+  type SkillLink,
+  type SkillQuery
+} from './controllers/SkillLibrary.js';
 export { LearningSystem } from './controllers/LearningSystem.js';
 export { ReasoningBank } from './controllers/ReasoningBank.js';
 
@@ -33,15 +45,33 @@ export { createDatabase } from './db-fallback.js';
 export { BatchOperations } from './optimizations/BatchOperations.js';
 export { QueryOptimizer } from './optimizations/QueryOptimizer.js';
 
-// Security
+// Security and Validation
 export {
   validateTableName,
   validateColumnName,
   validatePragmaCommand,
   buildSafeWhereClause,
   buildSafeSetClause,
-  ValidationError
+  ValidationError,
+  // OEIS sequence validation
+  validateSequence,
+  validateSequencePattern,
+  extractSequencesFromText,
+  calculateSequenceSimilarity,
+  detectSequencePattern,
+  type OEISSequencePattern
 } from './security/input-validation.js';
+
+// OEIS Integration
+export * from './oeis/index.js';
+
+// OEIS Integration - Migrations
+export {
+  applyOEISMigration,
+  rollbackOEISMigration,
+  isOEISMigrationApplied,
+  getOEISMigrationInfo
+} from './migrations/add-oeis-support.js';
 
 // Re-export all controllers for convenience
 export * from './controllers/index.js';

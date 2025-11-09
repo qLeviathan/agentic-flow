@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-// FastMCP implementation of claude-flow-sdk server (in-process, 6 tools)
+// FastMCP implementation of claude-flow-sdk server (in-process, with OEIS tools)
 // Phase 1: Migration from claudeFlowSdkServer.ts to fastmcp
 import { FastMCP } from 'fastmcp';
 import { z } from 'zod';
 import { execSync } from 'child_process';
 import { logger } from '../../../utils/logger.js';
+import { oeisTools } from '../tools/oeis/index.js';
 
 console.error('🚀 Starting FastMCP claude-flow-sdk Server...');
 
@@ -199,12 +200,30 @@ server.addTool({
   }
 });
 
-console.error('📦 Registered 6 tools: memory_store, memory_retrieve, memory_search, swarm_init, agent_spawn, task_orchestrate');
+// Register OEIS tools (4 additional tools)
+console.error('📊 Registering OEIS tools...');
+for (const tool of oeisTools) {
+  server.addTool({
+    name: tool.name,
+    description: tool.description,
+    parameters: tool.parameters,
+    execute: async (args: any) => {
+      const result = await tool.execute(args, {
+        onProgress: (update) => logger.info(`[${tool.name}] ${update.message}`),
+        auth: undefined
+      });
+      return JSON.stringify(result, null, 2);
+    }
+  });
+}
+
+console.error('📦 Registered 10 tools: memory (3), swarm (2), task (1), oeis (4)');
 console.error('🔌 Starting stdio transport...');
 
 // Start with stdio transport
 server.start({ transportType: 'stdio' }).then(() => {
   console.error('✅ FastMCP claude-flow-sdk server running on stdio');
+  console.error('🧮 OEIS tools: oeis_validate_sequence, oeis_match_pattern, oeis_link_skill, oeis_search_sequences');
 }).catch((error) => {
   console.error('❌ Failed to start server:', error);
   process.exit(1);

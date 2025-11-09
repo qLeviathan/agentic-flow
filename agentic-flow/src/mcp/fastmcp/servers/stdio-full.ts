@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-// Full FastMCP server with stdio transport - All 11 claude-flow-sdk tools
+// Full FastMCP server with stdio transport - All tools including OEIS
 import { FastMCP } from 'fastmcp';
 import { z } from 'zod';
 import { execSync } from 'child_process';
+import { oeisTools } from '../tools/oeis/index.js';
 
 console.error('🚀 Starting FastMCP Full Server (stdio transport)...');
-console.error('📦 Loading 11 tools: memory (3), swarm (3), agent (5)');
+console.error('📦 Loading 15 tools: memory (3), swarm (3), agent (5), oeis (4)');
 
 // Create server
 const server = new FastMCP({
@@ -432,12 +433,30 @@ ${examples && examples.length > 0 ? `## Examples\n\n${examples.map((ex, i) => `#
   }
 });
 
-console.error('✅ Registered 11 tools successfully');
+// Register OEIS tools (4 tools)
+console.error('📊 Registering OEIS tools...');
+for (const tool of oeisTools) {
+  server.addTool({
+    name: tool.name,
+    description: tool.description,
+    parameters: tool.parameters,
+    execute: async (args: any) => {
+      const result = await tool.execute(args, {
+        onProgress: (update) => console.error(`[${tool.name}] ${update.message}`),
+        auth: undefined
+      });
+      return JSON.stringify(result, null, 2);
+    }
+  });
+}
+
+console.error('✅ Registered 15 tools successfully (11 base + 4 OEIS)');
 console.error('🔌 Starting stdio transport...');
 
 // Start with stdio transport
 server.start({ transportType: 'stdio' }).then(() => {
   console.error('✅ FastMCP Full Server running on stdio');
+  console.error('🧮 OEIS tools available: oeis_validate_sequence, oeis_match_pattern, oeis_link_skill, oeis_search_sequences');
 }).catch((error) => {
   console.error('❌ Failed to start server:', error);
   process.exit(1);
