@@ -28,7 +28,11 @@
     "performance",
     "benchmark"
   ],
-  "author": "Performance Benchmarker Agent",
+  "author": "qLeviathan",
+  "contributors": [
+    "Performance Benchmarker Agent",
+    "AI Swarm Development Team"
+  ],
   "license": "MIT",
   "dependencies": {
     "@fails-components/webtransport": "^0.3.0",
