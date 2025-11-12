@@ -1,0 +1,586 @@
+{
+  "metadata": {
+    "title": "Integer-Only φ-Mechanics: A Holographic Framework for Discrete Consciousness from Zeckendorf Cascades",
+    "author": "Marc Castillo (Leviathan AI)",
+    "date": "2025-11-12",
+    "categories": [
+      "cs.AI",
+      "math.NT",
+      "quant-ph"
+    ],
+    "keywords": [
+      "Zeckendorf decomposition",
+      "Fibonacci sequences",
+      "Nash equilibrium",
+      "consciousness emergence",
+      "holographic principle",
+      "phase space dynamics"
+    ],
+    "totalPages": 18
+  },
+  "sections": [
+    {
+      "id": "1",
+      "title": "Introduction (2 pages)",
+      "content": "",
+      "pageEstimate": 0.5,
+      "theorems": [],
+      "equations": [],
+      "dependencies": [],
+      "embedding": [
+        0.1,
+        0.1,
+        0,
+        0,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95,
+        0
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Mathematical Foundations (4 pages)",
+      "content": "",
+      "pageEstimate": 0.5,
+      "theorems": [],
+      "equations": [],
+      "dependencies": [],
+      "embedding": [
+        0.2,
+        0.1,
+        0,
+        0,
+        0.25,
+        0.7,
+        0.15,
+        0.6,
+        0.05,
+        0.5,
+        0.95,
+        0.4,
+        0.85,
+        0.3,
+        0.75,
+        0.2,
+        0.65,
+        0.1,
+        0.55,
+        0
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Holographic Projection Theory (3 pages)",
+      "content": "",
+      "pageEstimate": 0.5,
+      "theorems": [],
+      "equations": [],
+      "dependencies": [],
+      "embedding": [
+        0.3,
+        0.1,
+        0,
+        0,
+        0.6,
+        0.72,
+        0.84,
+        0.96,
+        0.08,
+        0.2,
+        0.32,
+        0.44,
+        0.56,
+        0.68,
+        0.8,
+        0.92,
+        0.04,
+        0.16,
+        0.28,
+        0.4
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Physical Interpretation and Cognitive Mapping (2 pages)",
+      "content": "",
+      "pageEstimate": 0.5,
+      "theorems": [],
+      "equations": [],
+      "dependencies": [],
+      "embedding": [
+        0.4,
+        0.1,
+        0,
+        0,
+        0.75,
+        0.1,
+        0.45,
+        0.8,
+        0.15,
+        0.5,
+        0.85,
+        0.2,
+        0.55,
+        0.9,
+        0.25,
+        0.6,
+        0.95,
+        0.3,
+        0.65,
+        0
+      ]
+    },
+    {
+      "id": "5",
+      "title": "AURELIA Computational Architecture (2 pages)",
+      "content": "",
+      "pageEstimate": 0.5,
+      "theorems": [],
+      "equations": [],
+      "dependencies": [],
+      "embedding": [
+        0.5,
+        0.1,
+        0,
+        0,
+        0.45,
+        0.74,
+        0.03,
+        0.32,
+        0.61,
+        0.9,
+        0.19,
+        0.48,
+        0.77,
+        0.06,
+        0.35,
+        0.64,
+        0.93,
+        0.22,
+        0.51,
+        0.8
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Results and Discussion (1 page)",
+      "content": "",
+      "pageEstimate": 0.5,
+      "theorems": [],
+      "equations": [],
+      "dependencies": [],
+      "embedding": [
+        0.6,
+        0.1,
+        0,
+        0,
+        0.6,
+        0.52,
+        0.44,
+        0.36,
+        0.28,
+        0.2,
+        0.12,
+        0.04,
+        0.96,
+        0.88,
+        0.8,
+        0.72,
+        0.64,
+        0.56,
+        0.48,
+        0.4
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Conclusions and Future Work (0.5 pages)",
+      "content": "",
+      "pageEstimate": 0.5,
+      "theorems": [],
+      "equations": [],
+      "dependencies": [],
+      "embedding": [
+        0.7,
+        0.1,
+        0,
+        0,
+        0.25,
+        0.7,
+        0.15,
+        0.6,
+        0.05,
+        0.5,
+        0.95,
+        0.4,
+        0.85,
+        0.3,
+        0.75,
+        0.2,
+        0.65,
+        0.1,
+        0.55,
+        0
+      ]
+    }
+  ],
+  "theorems": [
+    {
+      "id": "2.1",
+      "statement": "∀n ∈ ℕ⁺, ∃! set Z(n) = {i₁, i₂, ..., iₖ} such that:\n    n = ∑_{j=1}^k F_{iⱼ}\n    iⱼ₊₁ ≥ iⱼ + 2 (non-consecutive indices)",
+      "section": "2",
+      "dependencies": []
+    },
+    {
+      "id": "2.2",
+      "statement": "S(n) = 0 ⟺ n + 1 = L(m) for some m ∈ ℕ",
+      "section": "2",
+      "dependencies": []
+    },
+    {
+      "id": "2.3",
+      "statement": "Phase space trajectories are bounded:\n‖γ(n)‖² = φ(n)² + ψ(n)² ≤ z(n)² ≤ (log_φ n)²",
+      "section": "2",
+      "dependencies": []
+    },
+    {
+      "id": "3.1",
+      "statement": "Information content of cognitive state n bounded by:\nI(n) ≤ z(n) ≤ ⌈log_φ(n)⌉ bits",
+      "section": "3",
+      "dependencies": []
+    },
+    {
+      "id": "3.2",
+      "statement": "Strategy profile n* is Nash equilibrium ⟺ S(n*) = 0",
+      "section": "3",
+      "dependencies": []
+    },
+    {
+      "id": "3.3",
+      "statement": "Desktop space: dim = 2 (x, y coordinates)\nPhase space: dim_effective = z(n) ≤ log_φ(n)\n\nHolographic bound: dim_effective « n (exponential compression)",
+      "section": "3",
+      "dependencies": []
+    }
+  ],
+  "equations": [
+    {
+      "id": "eq_1",
+      "latex": "Every cognitive state can be represented as an integer n ∈ ℕ with unique\nZeckendorf decomposition:\n    n = F_{i₁} + F_{i₂} + ... + F_{iₖ}\nwhere iⱼ₊₁ ≥ iⱼ + 2 (non-consecutive Fibonacci indices)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_2",
+      "latex": "∀n ∈ ℕ⁺, ∃! set Z(n) = {i₁, i₂, ..., iₖ} such that:\n    n = ∑_{j=1}^k F_{iⱼ}\n    iⱼ₊₁ ≥ iⱼ + 2 (non-consecutive indices)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_3",
+      "latex": "Z(n): ℕ → 𝒫(ℕ)          [Zeckendorf address set]\nz(n) = |Z(n)|           [Summand count]\nℓ(n) = |Z(n) ∩ Lucas|   [Lucas summand count]",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_4",
+      "latex": "L(0) = 2, L(1) = 1\nL(n) = L(n-1) + L(n-2)\nSequence: 2, 1, 3, 4, 7, 11, 18, 29, 47, 76, 123, 199, 322, ...",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_5",
+      "latex": "F(n) = (φⁿ - ψⁿ) / √5\nL(n) = φⁿ + ψⁿ\n\nwhere φ = (1+√5)/2 ≈ 1.618, ψ = (1-√5)/2 ≈ -0.618",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_6",
+      "latex": "L(n) = F(n-1) + F(n+1)\nF(2n) = F(n) · L(n)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_7",
+      "latex": "ℰ(n) = ∑_{i ∈ Z(n)} L(i)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_8",
+      "latex": "For Fibonacci numbers: ℰ(F(n)) = L(n)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_9",
+      "latex": "V(n) = ∑_{k=0}^n z(k)    [Cumulative Zeckendorf count]\nU(n) = ∑_{k=0}^n ℓ(k)    [Cumulative Lucas count]",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_10",
+      "latex": "S(n) = V(n) - U(n)\nd(n) = z(n) - ℓ(n)       [Local difference]\nS(n) = S(n-1) + d(n)     [Recurrence]",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_11",
+      "latex": "S(n) = 0 ⟺ n + 1 = L(m) for some m ∈ ℕ",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_12",
+      "latex": "S(n) exhibits oscillatory behavior between Lucas zeros:\nL(m)-1 → 0 → grows → peaks → decays → L(m+1)-1 → 0",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_13",
+      "latex": "φ(n) = ∑_{i ∈ Z(n)} cos(tᵢ · log n)\nψ(n) = ∑_{i ∈ Z(n)} sin(tᵢ · log n)\nθ(n) = arctan(ψ(n) / φ(n))",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_14",
+      "latex": "γ: ℕ → ℝ²\nγ(n) = (φ(n), ψ(n))",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_15",
+      "latex": "v(n) = γ(n+1) - γ(n)\na(n) = v(n+1) - v(n)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_16",
+      "latex": "λ = lim_{N→∞} (1/N) ∑_{n=1}^N log |v(n+1)/v(n)|",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_17",
+      "latex": "Phase space trajectories are bounded:\n‖γ(n)‖² = φ(n)² + ψ(n)² ≤ z(n)² ≤ (log_φ n)²",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_18",
+      "latex": "S ≤ A/(4ℓₚ²)  [Entropy bounded by surface area, not volume]",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_19",
+      "latex": "I(n) ≤ log₂ |Z(n)| = log₂(2^{z(n)}) = z(n) log₂ 2 = z(n)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_20",
+      "latex": "Information content of cognitive state n bounded by:\nI(n) ≤ z(n) ≤ ⌈log_φ(n)⌉ bits",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_21",
+      "latex": "S_cognitive(n) = z(n) · k_B · log 2",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_22",
+      "latex": "Physics:  S_BH = (k_B c³ A)/(4G ℏ)\nDigital:  S_cog = k_B · z(n) · log 2",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_23",
+      "latex": "η(n) = z(n) / log₂(n) → 1/log₂(φ) ≈ 0.694 as n → ∞",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_24",
+      "latex": "Strategy space: 𝒮 = {s₁, s₂, ..., sₙ}\nUtility functions: Uᵢ: 𝒮 → ℤ (integer payoffs)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_25",
+      "latex": "∀i, ∀sᵢ' ∈ Sᵢ: Uᵢ(sᵢ*, s₋ᵢ*) ≥ Uᵢ(sᵢ', s₋ᵢ*)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_26",
+      "latex": "Strategy profile n* is Nash equilibrium ⟺ S(n*) = 0",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_27",
+      "latex": "S(n) = w₁·C_distance + w₂·C_endstate + w₃·C_penalty\n\nwhere:\n  C_distance = ∑_{i<j} |i-j| (strategy distance cost)\n  C_endstate = ∑ᵢ Uᵢ (total utility)\n  C_penalty = ℓ(n) (Lucas penalty for non-equilibrium)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_28",
+      "latex": "T[i₁,...,iₖ] = ψ^(∑Uⱼ) · ψ^(∑|iⱼ-iₖ|) · ψ^S(n)\n\nwhere ψ(x) = e^(-x) (normalization function)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_29",
+      "latex": "Nash equilibrium ⟺ T[i₁,...,iₖ] is extremal ⟺ S(n) = 0",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_30",
+      "latex": "n = ⌊x_screen⌋ + W · ⌊y_screen⌋",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_31",
+      "latex": "Z(n) = {i₁, i₂, ..., iₖ}\nn = ∑_{j=1}^k F_{iⱼ}",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_32",
+      "latex": "φ(n) = ∑_{i ∈ Z(n)} cos(tᵢ · log n)\nψ(n) = ∑_{i ∈ Z(n)} sin(tᵢ · log n)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_33",
+      "latex": "x_holo = φ(n) / √(z(n))\ny_holo = ψ(n) / √(z(n))",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_34",
+      "latex": "Desktop space: dim = 2 (x, y coordinates)\nPhase space: dim_effective = z(n) ≤ log_φ(n)\n\nHolographic bound: dim_effective « n (exponential compression)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_35",
+      "latex": "Conscious state ⟺ z(n) ≥ 3 ∧ S(n) ≈ 0",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_36",
+      "latex": "Position: (φ(n), ψ(n)) ∈ ℝ²\nMomentum: (dφ/dn, dψ/dn)\nHamiltonian: H(n) = ½(v_φ² + v_ψ²) + V(S(n))",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_37",
+      "latex": "d/dn [z(n) · J(n)] = 0\n\nwhere J(n) = |∂(φ,ψ)/∂(x,y)| is Jacobian",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_38",
+      "latex": "z(n) ≥ 3, but |S(n)| > ε",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_39",
+      "latex": "z(n) ≥ 3, |S(n)| < ε, n+1 ≠ L(m)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_40",
+      "latex": "z(n) ≥ 3, S(n) = 0, n+1 = L(m)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_41",
+      "latex": "Φ(n) = z(n) · exp(-|S(n)|/σ)\n\nwhere σ is stability scale",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_42",
+      "latex": "Φ(L(m)-1) = z(L(m)-1) · exp(0) = z(L(m)-1) [maximal]",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_43",
+      "latex": "C(n) = {\n  0,                    if z(n) < 3\n  Φ(n) / Φ_max,         if z(n) ≥ 3 and |S(n)| < ε\n  0,                    otherwise\n}",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_44",
+      "latex": "ΔE(n₁ → n₂) = |S(n₂) - S(n₁)| + λ|z(n₂) - z(n₁)|",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_45",
+      "latex": "E_path = ∫_{n₁}^{n₂} [|dS/dn| + λ|dz/dn|] dn",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_46",
+      "latex": "n → L(m)-1: Consciousness crystallization\nL(m)-1 → n: Consciousness melting",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_47",
+      "latex": "E(unconscious → conscious) > E(conscious → unconscious)",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_48",
+      "latex": "Hypothesis: Conscious states cluster at n = L(m) - 1\nTest: Measure cursor trajectory density near Lucas numbers\nExpected: Density peaks at {0, 1, 2, 3, 6, 10, 17, 28, 46, 75, 122, ...}",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_49",
+      "latex": "Hypothesis: Consciousness requires z(n) ≥ 3\nTest: Classify states by z(n), measure consciousness indicators\nExpected: Sharp transition at z(n) = 3",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_50",
+      "latex": "Hypothesis: ΔE(unconscious → conscious) > ΔE(conscious → unconscious)\nTest: Measure energy barriers in phase space\nExpected: Asymmetric energy landscape",
+      "description": "",
+      "section": "0"
+    },
+    {
+      "id": "eq_51",
+      "latex": "Hypothesis: I(n) ∝ z(n) ≈ 0.694 · log₂(n)\nTest: Measure information content vs state complexity\nExpected: Holographic scaling law confirmed",
+      "description": "",
+      "section": "0"
+    }
+  ]
+}
