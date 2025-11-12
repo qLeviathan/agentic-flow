@@ -1,0 +1,250 @@
+{
+  "validation": {
+    "valid": false,
+    "errors": [
+      {
+        "type": "level-violation",
+        "message": "ψ (level 0) depends on φ (level 0), but dependencies must be at lower levels",
+        "symbols": [
+          "ψ",
+          "φ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "ℤ (level 1) depends on ℕ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "ℤ",
+          "ℕ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "ℝ (level 1) depends on ℤ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "ℝ",
+          "ℤ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "ℂ (level 1) depends on ℝ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "ℂ",
+          "ℝ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "+ (level 1) depends on ℝ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "+",
+          "ℝ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "+ (level 1) depends on ℂ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "+",
+          "ℂ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "· (level 1) depends on ℝ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "·",
+          "ℝ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "· (level 1) depends on ℂ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "·",
+          "ℂ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "^ (level 1) depends on ℝ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "^",
+          "ℝ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "^ (level 1) depends on · (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "^",
+          "·"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "√ (level 1) depends on ℝ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "√",
+          "ℝ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "√ (level 1) depends on ℂ (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "√",
+          "ℂ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "Q^n (level 2) depends on Q (level 2), but dependencies must be at lower levels",
+        "symbols": [
+          "Q^n",
+          "Q"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "- (level 1) depends on + (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "-",
+          "+"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "level-violation",
+        "message": "/ (level 1) depends on · (level 1), but dependencies must be at lower levels",
+        "symbols": [
+          "/",
+          "·"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "invalid-independence",
+        "message": "Independence claim φ ⊥ ψ is invalid: Path exists: φ → ψ",
+        "symbols": [
+          "φ",
+          "ψ"
+        ],
+        "severity": "error"
+      },
+      {
+        "type": "invalid-independence",
+        "message": "Independence claim F ⊥ L is invalid: Path exists: F → L",
+        "symbols": [
+          "F",
+          "L"
+        ],
+        "severity": "error"
+      }
+    ],
+    "warnings": [
+      {
+        "type": "potential-issue",
+        "message": "Some symbols have high dependency count (7)",
+        "symbols": [
+          "F(7)"
+        ]
+      }
+    ],
+    "computationOrder": [
+      "φ",
+      "e",
+      "π",
+      "√5",
+      "ψ",
+      "ℕ",
+      "ℤ",
+      "ℝ",
+      "ℂ",
+      "+",
+      "·",
+      "√",
+      "-",
+      "^",
+      "/",
+      "Q",
+      "Q^n",
+      "F_rec",
+      "F_matrix",
+      "L_binet"
+    ],
+    "cycles": [],
+    "independenceResults": [
+      {
+        "symbolA": "φ",
+        "symbolB": "ψ",
+        "claimed": true,
+        "actual": false,
+        "valid": false,
+        "reason": "Path exists: φ → ψ"
+      },
+      {
+        "symbolA": "F",
+        "symbolB": "L",
+        "claimed": true,
+        "actual": false,
+        "valid": false,
+        "reason": "Path exists: F → L"
+      },
+      {
+        "symbolA": "z",
+        "symbolB": "ℓ",
+        "claimed": true,
+        "actual": true,
+        "valid": true
+      }
+    ],
+    "levelConsistency": false,
+    "graphMetrics": {
+      "totalSymbols": 26,
+      "totalEdges": 46,
+      "levels": 7,
+      "maxDependencies": 7,
+      "averageDependencies": 1.7692307692307692,
+      "leafNodes": 11,
+      "rootNodes": 5,
+      "longestPath": 8
+    }
+  },
+  "computationOrder": [
+    "φ",
+    "e",
+    "π",
+    "√5",
+    "ψ",
+    "ℕ",
+    "ℤ",
+    "ℝ",
+    "ℂ",
+    "+",
+    "·",
+    "√",
+    "-",
+    "^",
+    "/",
+    "Q",
+    "Q^n",
+    "F_rec",
+    "F_matrix",
+    "L_binet"
+  ]
+}

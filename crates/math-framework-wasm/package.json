@@ -1,0 +1,38 @@
+{
+  "name": "@agentic-flow/math-framework-wasm",
+  "version": "0.1.0",
+  "description": "High-performance WASM bindings for mathematical framework operations",
+  "main": "pkg/math_framework_wasm.js",
+  "types": "pkg/math_framework_wasm.d.ts",
+  "files": [
+    "pkg"
+  ],
+  "scripts": {
+    "build": "./build.sh all",
+    "build:nodejs": "./build.sh nodejs",
+    "build:web": "./build.sh web",
+    "build:bundler": "./build.sh bundler",
+    "test": "wasm-pack test --node",
+    "test:browser": "wasm-pack test --headless --chrome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruvnet/agentic-flow.git",
+    "directory": "crates/math-framework-wasm"
+  },
+  "keywords": [
+    "wasm",
+    "fibonacci",
+    "zeckendorf",
+    "bk-divergence",
+    "phase-space",
+    "nash-equilibrium",
+    "mathematics",
+    "number-theory"
+  ],
+  "author": "Agentic Flow Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}
