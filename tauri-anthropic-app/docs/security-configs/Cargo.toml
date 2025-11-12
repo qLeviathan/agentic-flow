@@ -1,0 +1,80 @@
+[package]
+name = "tauri-anthropic-app"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+
+[dependencies]
+# Tauri - Desktop application framework
+tauri = { version = "=1.5.4", features = ["shell-open"] }
+
+# HTTP client with TLS
+reqwest = { version = "=0.11.23", features = ["json", "rustls-tls"], default-features = false }
+
+# Secure keychain storage
+keyring = "=2.3.0"
+
+# Async runtime
+tokio = { version = "=1.35.1", features = ["full"] }
+
+# Error handling
+anyhow = "=1.0.79"
+thiserror = "=1.0.56"
+
+# Serialization
+serde = { version = "=1.0.195", features = ["derive"] }
+serde_json = "=1.0.111"
+
+# Security: Secret management
+secrecy = { version = "=0.8.0", features = ["serde"] }
+zeroize = "=1.7.0"
+
+# Logging
+log = "=0.4.20"
+env_logger = "=0.11.0"
+
+# Validation
+regex = "=1.10.2"
+lazy_static = "=1.4.0"
+
+# URL parsing
+url = "=2.5.0"
+
+# Environment variables (dev only)
+dotenv = "=0.15.0"
+
+[build-dependencies]
+tauri-build = { version = "=1.5.0", features = [] }
+
+[dev-dependencies]
+# Testing
+tokio-test = "=0.4.3"
+mockito = "=1.2.0"
+assert_matches = "=1.5.0"
+
+[profile.release]
+# Optimize for size and security
+opt-level = "z"      # Optimize for size
+lto = true           # Link-time optimization
+codegen-units = 1    # Better optimization
+strip = true         # Strip symbols
+panic = "abort"      # Smaller binary
+
+[profile.dev]
+# Faster compilation in dev
+opt-level = 0
+
+# Security features
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
+
+# Deny warnings in CI
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"
+cargo = "warn"

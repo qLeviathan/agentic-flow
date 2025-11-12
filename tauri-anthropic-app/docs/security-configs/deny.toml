@@ -1,0 +1,59 @@
+# cargo-deny configuration for supply chain security
+# Install: cargo install cargo-deny
+# Run: cargo deny check
+
+[advisories]
+# Deny crates with security vulnerabilities
+vulnerability = "deny"
+# Warn about unmaintained crates
+unmaintained = "warn"
+# Warn about crates with unsound code
+unsound = "warn"
+# Deny yanked crates
+yanked = "deny"
+# Ignore specific advisories (use sparingly)
+ignore = []
+
+[licenses]
+# Allow these licenses only
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Unicode-DFS-2016",
+]
+# Deny these licenses
+deny = [
+    "GPL-3.0",
+    "AGPL-3.0",
+]
+# Confidence threshold for license detection
+confidence-threshold = 0.8
+# Allow license exceptions for specific crates
+exceptions = []
+
+[bans]
+# Warn if multiple versions of same crate
+multiple-versions = "warn"
+# Deny wildcard dependencies
+wildcards = "deny"
+# Allow these specific crates
+allow = []
+# Deny these crates
+deny = []
+# Skip checking these crates
+skip = []
+# Skip checking build dependencies
+skip-tree = []
+
+[sources]
+# Deny crates from unknown registries
+unknown-registry = "deny"
+# Deny crates from unknown git sources
+unknown-git = "deny"
+# Allow only these git sources
+allow-git = []
+# Allow crates.io registry
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
