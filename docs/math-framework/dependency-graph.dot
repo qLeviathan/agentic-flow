@@ -1,0 +1,140 @@
+digraph MathFramework {
+  rankdir=TB;
+  node [shape=box, style=rounded];
+  
+  subgraph cluster_level0 {
+    label="Level 0";
+    style=dashed;
+    color=blue;
+    
+    "φ" [label="φ\nGolden Ratio: φ = (1 + √5) / 2", fillcolor="#FFE5E5", style="filled,rounded", shape=ellipse];
+    "ψ" [label="ψ\nGolden Ratio Conjugate: ψ = (1 - √5) / 2", fillcolor="#FFE5E5", style="filled,rounded", shape=ellipse];
+    "e" [label="e\nEuler's Number", fillcolor="#FFE5E5", style="filled,rounded", shape=ellipse];
+    "π" [label="π\nPi - Circle Constant", fillcolor="#FFE5E5", style="filled,rounded", shape=ellipse];
+    "√5" [label="√5\nSquare root of 5", fillcolor="#FFE5E5", style="filled,rounded", shape=ellipse];
+  }
+  
+  subgraph cluster_level1 {
+    label="Level 1";
+    style=dashed;
+    color=green;
+    
+    "ℕ" [label="ℕ\nNatural Numbers", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "ℤ" [label="ℤ\nIntegers (extends Natural Numbers)", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "ℝ" [label="ℝ\nReal Numbers (extends Integers)", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "ℂ" [label="ℂ\nComplex Numbers (extends Real Numbers)", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "+" [label="+\nAddition", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "·" [label="·\nMultiplication", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "^" [label="^\nExponentiation", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "√" [label="√\nSquare Root", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "-" [label="-\nSubtraction (derived from addition)", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "/" [label="/\nDivision (derived from multiplication)", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+  }
+  
+  subgraph cluster_level2 {
+    label="Level 2";
+    style=dashed;
+    color=orange;
+    
+    "Q" [label="Q\nQ-Matrix: [[1, 1], [1, 0]]", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+    "Q^n" [label="Q^n\nQ-Matrix Power (fast exponentiation)", fillcolor="#E5F5FF", style="filled,rounded", shape=box];
+  }
+  
+  subgraph cluster_level3 {
+    label="Level 3";
+    style=dashed;
+    color=red;
+    
+    "F" [label="F\nFibonacci Sequence: F(n) = (φⁿ - ψⁿ)/√5", fillcolor="#E5FFE5", style="filled,rounded", shape=box];
+    "F_rec" [label="F_rec\nFibonacci Recurrence: F(n) = F(n-1) + F(", fillcolor="#E5FFE5", style="filled,rounded", shape=box];
+    "F_matrix" [label="F_matrix\nFibonacci via Q-Matrix: F(n) = Q^n[0][1]", fillcolor="#E5FFE5", style="filled,rounded", shape=box];
+  }
+  
+  subgraph cluster_level4 {
+    label="Level 4";
+    style=dashed;
+    color=purple;
+    
+    "L" [label="L\nLucas Sequence: L(n) = F(n-1) + F(n+1)", fillcolor="#E5FFE5", style="filled,rounded", shape=box];
+    "L_binet" [label="L_binet\nLucas via Binet: L(n) = φⁿ + ψⁿ", fillcolor="#E5FFE5", style="filled,rounded", shape=box];
+  }
+  
+  subgraph cluster_level5 {
+    label="Level 5";
+    style=dashed;
+    color=brown;
+    
+    "z" [label="z\nZeckendorf Representation", fillcolor="#FFF5E5", style="filled,rounded", shape=diamond];
+    "ℓ" [label="ℓ\nLucas Representation", fillcolor="#FFF5E5", style="filled,rounded", shape=diamond];
+  }
+  
+  subgraph cluster_level6 {
+    label="Level 6";
+    style=dashed;
+    color=pink;
+    
+    "φ_phase" [label="φ_phase\nPhase Space Analysis", fillcolor="#F5E5FF", style="filled,rounded", shape=hexagon];
+    "divergence" [label="divergence\nBehrend-Kimberling Divergence", fillcolor="#F5E5FF", style="filled,rounded", shape=hexagon];
+  }
+  
+  // Dependencies
+  "φ" -> "ψ" [color=black];
+  "ℕ" -> "ℤ" [color=black];
+  "ℤ" -> "ℝ" [color=black];
+  "ℝ" -> "ℂ" [color=black];
+  "ℝ" -> "+" [color=black];
+  "ℂ" -> "+" [color=black];
+  "ℝ" -> "·" [color=black];
+  "ℂ" -> "·" [color=black];
+  "ℝ" -> "^" [color=black];
+  "·" -> "^" [color=black];
+  "ℝ" -> "√" [color=black];
+  "ℂ" -> "√" [color=black];
+  "ℤ" -> "Q" [color=black];
+  "·" -> "Q" [color=black];
+  "+" -> "Q" [color=black];
+  "Q" -> "Q^n" [color=black];
+  "^" -> "Q^n" [color=black];
+  "·" -> "Q^n" [color=black];
+  "φ" -> "F" [color=black];
+  "ψ" -> "F" [color=black];
+  "√5" -> "F" [color=black];
+  "+" -> "F" [color=black];
+  "-" -> "F" [color=black];
+  "^" -> "F" [color=black];
+  "/" -> "F" [color=black];
+  "ℕ" -> "F_rec" [color=black];
+  "+" -> "F_rec" [color=black];
+  "Q^n" -> "F_matrix" [color=black];
+  "F" -> "L" [color=black];
+  "+" -> "L" [color=black];
+  "φ" -> "L_binet" [color=black];
+  "ψ" -> "L_binet" [color=black];
+  "^" -> "L_binet" [color=black];
+  "+" -> "L_binet" [color=black];
+  "F" -> "z" [color=black];
+  "ℕ" -> "z" [color=black];
+  "L" -> "ℓ" [color=black];
+  "ℕ" -> "ℓ" [color=black];
+  "φ" -> "φ_phase" [color=black];
+  "F" -> "φ_phase" [color=black];
+  "L" -> "φ_phase" [color=black];
+  "F" -> "divergence" [color=black];
+  "L" -> "divergence" [color=black];
+  "z" -> "divergence" [color=black];
+  "+" -> "-" [color=black];
+  "·" -> "/" [color=black];
+  
+  // Legend
+  subgraph cluster_legend {
+    label="Legend";
+    style=filled;
+    color=lightgrey;
+    
+    legend_const [label="Constant", fillcolor="#FFE5E5", style=filled, shape=ellipse];
+    legend_op [label="Operation", fillcolor="#E5F5FF", style=filled, shape=box];
+    legend_seq [label="Sequence", fillcolor="#E5FFE5", style=filled, shape=box];
+    legend_decomp [label="Decomposition", fillcolor="#FFF5E5", style=filled, shape=diamond];
+    legend_prop [label="Property", fillcolor="#F5E5FF", style=filled, shape=hexagon];
+  }
+}

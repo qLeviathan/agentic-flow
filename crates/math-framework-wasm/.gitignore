@@ -1,0 +1,28 @@
+# Rust build artifacts
+/target/
+Cargo.lock
+
+# WASM build outputs
+/pkg/
+/pkg-nodejs/
+/pkg-web/
+/pkg-bundler/
+
+# Node.js
+node_modules/
+package-lock.json
+yarn.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+wasm-pack.log
