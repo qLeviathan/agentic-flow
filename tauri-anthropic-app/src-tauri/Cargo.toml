@@ -38,6 +38,9 @@ lru = "0.12"
 regex = "1.10"
 async-trait = "0.1"
 
+# φ-Memory System Dependencies
+rand = "0.8"
+
 # Note: Full vision system implementation requires platform-specific dependencies:
 # Windows: windows = { version = "0.51", features = ["Graphics_Capture"] }
 # macOS: core-graphics = "0.23"

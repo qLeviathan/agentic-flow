@@ -11,6 +11,8 @@ pub mod wasm;
 pub mod overlay;
 pub mod vision;
 pub mod aurelia_integration;
+pub mod aurelia;
+pub mod phi_memory;
 
 use commands::{AppState, init_client, init_with_keychain, is_initialized, send_message, send_text};
 use keychain::KeychainStorage;
@@ -18,6 +20,8 @@ use wasm::WasmState;
 use overlay::OverlayState;
 use vision::VisionSystemState;
 use aurelia_integration::AureliaState;
+use aurelia::commands::AureliaChatState;
+use phi_memory::commands::PhiMemoryState;
 use std::sync::Mutex;
 use tauri::State;
 
@@ -138,6 +142,8 @@ pub fn run() {
         .manage(OverlayState::default())
         .manage(VisionSystemState::new())
         .manage(AureliaState::new())
+        .manage(AureliaChatState::new())
+        .manage(PhiMemoryState::new())
         .invoke_handler(tauri::generate_handler![
             // Keychain commands
             save_api_key,
@@ -201,6 +207,33 @@ pub fn run() {
             aurelia_integration::aurelia_subscribe_events,
             aurelia_integration::aurelia_get_performance_metrics,
             aurelia_integration::aurelia_shutdown,
+            // AURELIA Chat commands
+            aurelia::commands::aurelia_chat_init,
+            aurelia::commands::aurelia_chat,
+            aurelia::commands::aurelia_chat_stream,
+            aurelia::commands::aurelia_get_context,
+            aurelia::commands::aurelia_learn,
+            aurelia::commands::aurelia_get_personality,
+            aurelia::commands::aurelia_get_learning_progress,
+            aurelia::commands::aurelia_reset_context,
+            aurelia::commands::aurelia_get_history,
+            aurelia::commands::aurelia_set_market_context,
+            // φ-Memory System commands
+            phi_memory::commands::store_knowledge,
+            phi_memory::commands::query_knowledge,
+            phi_memory::commands::get_consciousness,
+            phi_memory::commands::cascade_memory,
+            phi_memory::commands::add_document,
+            phi_memory::commands::get_knowledge_graph,
+            phi_memory::commands::get_memory_stats,
+            phi_memory::commands::create_checkpoint,
+            phi_memory::commands::load_latest_checkpoint,
+            phi_memory::commands::get_entities,
+            phi_memory::commands::get_concepts,
+            phi_memory::commands::get_documents,
+            phi_memory::commands::query_with_context,
+            phi_memory::commands::export_memory,
+            phi_memory::commands::import_memory,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
