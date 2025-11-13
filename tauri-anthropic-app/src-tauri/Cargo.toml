@@ -1,0 +1,64 @@
+[package]
+name = "tauri-anthropic-app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Tauri
+tauri = { version = "1.5", features = ["shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Anthropic API
+reqwest = { version = "0.11", features = ["json", "rustls-tls", "stream"], default-features = false }
+anyhow = "1.0"
+
+# Secure storage
+keyring = "2.3"
+
+# Async runtime and streaming
+tokio = { version = "1.35", features = ["full"] }
+futures = "0.3"
+eventsource-stream = "0.2"
+
+# WASM Performance Modules
+reasoningbank-wasm = { path = "../../reasoningbank/crates/reasoningbank-wasm" }
+agent-booster-wasm = { path = "../../agent-booster/crates/agent-booster-wasm" }
+math-framework-wasm = { path = "../../crates/math-framework-wasm" }
+uuid = { version = "1.6", features = ["v4", "serde"] }
+thiserror = "1.0"
+tracing = "0.1"
+log = "0.4"
+env_logger = "0.11"
+
+[dev-dependencies]
+# Testing dependencies
+tokio-test = "0.4"
+mockito = "1.2"
+serial_test = "3.0"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[[test]]
+name = "anthropic_client_test"
+path = "tests/unit/anthropic_client_test.rs"
+
+[[test]]
+name = "keychain_test"
+path = "tests/unit/keychain_test.rs"
+
+[[test]]
+name = "tauri_commands_test"
+path = "tests/integration/tauri_commands_test.rs"
+
+[[test]]
+name = "wasm_integration_test"
+path = "tests/integration/wasm_integration_test.rs"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "z"
+strip = true

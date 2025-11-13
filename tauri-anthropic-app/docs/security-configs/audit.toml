@@ -1,0 +1,43 @@
+# cargo-audit configuration
+# Place in .cargo/audit.toml
+
+[advisories]
+# Ignore these advisories (use very sparingly)
+ignore = []
+
+# Warn for unmaintained crates
+unmaintained = "warn"
+
+# Warn for unsound crates
+unsound = "warn"
+
+# Informational advisories
+informational = "warn"
+
+# Severity threshold
+severity-threshold = "low"
+
+[output]
+# Output format: json, toml, or human
+format = "human"
+
+# Show full advisory info
+verbose = true
+
+# Colorize output
+color = "auto"
+
+[database]
+# Path to advisory database
+path = "~/.cargo/advisory-db"
+
+# Update database before checking
+fetch = true
+
+# URL of advisory database
+url = "https://github.com/RustSec/advisory-db.git"
+
+[yanked]
+# Check for yanked crates
+enabled = true
+update-index = true

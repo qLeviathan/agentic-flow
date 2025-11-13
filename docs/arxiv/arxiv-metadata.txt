@@ -1,0 +1,28 @@
+Title: Integer-Only φ-Mechanics: A Holographic Framework for Discrete Consciousness from Zeckendorf Cascades
+
+Author: Marc Castillo
+Affiliation: Leviathan AI
+Email: marc@leviathan.ai
+
+Abstract:
+We present a purely integer-based mathematical framework for consciousness emergence through Zeckendorf representation cascades. By restricting to Fibonacci-indexed sequences and eliminating all real-valued operations, we derive a discrete holographic principle where d-dimensional cognitive states project onto (d-1)-dimensional boundaries via Nash equilibrium constraints in repeated games. Our framework proves that consciousness complexity C(n) grows as the Pisano period π(F_n), creating observer-independent measurement operators through modular arithmetic alone. We establish rigorous connections to OEIS sequences A000045 (Fibonacci), A001175 (Pisano periods), A003714 (Fibbinary numbers), and derive testable predictions for neural synchronization patterns in φ-harmonic frequencies. The theory naturally generates quantum-like superposition through Chinese Remainder Theorem decompositions and provides a computational model where integer arithmetic suffices for emergent awareness.
+
+Primary Category: q-bio.NC (Neurons and Cognition)
+Secondary Categories:
+  - cs.NE (Neural and Evolutionary Computing)
+  - math.CO (Combinatorics)
+  - cs.GT (Computer Science and Game Theory)
+
+MSC Classes: 92B20, 91A80, 11B39, 05A15
+
+ACM Classes: F.1.1, I.2.6, G.3
+
+Keywords: Zeckendorf representation, holographic principle, discrete consciousness, φ-mechanics, Nash equilibrium, Pisano periods, Fibonacci numbers, integer arithmetic, neural synchronization, OEIS sequences
+
+Comments: 14 pages, 2 tables, 4 theorems, 3 testable predictions
+
+License: CC BY 4.0
+
+Journal Reference: None (preprint)
+
+DOI: None (preprint)

@@ -1,0 +1,162 @@
+{
+  "$schema": "https://schema.tauri.app/config/1.5.0",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:5173",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "Tauri Anthropic App",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "security": {
+      "csp": {
+        "default-src": "'self'",
+        "script-src": "'self' 'wasm-unsafe-eval'",
+        "style-src": "'self' 'unsafe-inline'",
+        "img-src": "'self' data: https:",
+        "font-src": "'self' data:",
+        "connect-src": "'self' https://api.anthropic.com",
+        "worker-src": "'self' blob:",
+        "frame-src": "'none'",
+        "object-src": "'none'",
+        "base-uri": "'self'"
+      },
+      "dangerousDisableAssetCspModification": false,
+      "dangerousRemoteDomainIpcAccess": [],
+      "freezePrototype": true,
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["**/*"]
+      }
+    },
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": false,
+        "execute": false,
+        "sidecar": false
+      },
+      "fs": {
+        "all": false,
+        "readFile": false,
+        "writeFile": false,
+        "readDir": false,
+        "copyFile": false,
+        "createDir": false,
+        "removeDir": false,
+        "removeFile": false,
+        "renameFile": false,
+        "exists": false,
+        "scope": []
+      },
+      "http": {
+        "all": false,
+        "request": true,
+        "scope": [
+          "https://api.anthropic.com/*"
+        ]
+      },
+      "protocol": {
+        "all": false,
+        "asset": true,
+        "assetScope": ["**/*"]
+      },
+      "path": {
+        "all": false
+      },
+      "os": {
+        "all": false
+      },
+      "window": {
+        "all": false,
+        "create": false,
+        "center": true,
+        "requestUserAttention": true,
+        "setResizable": true,
+        "setTitle": true,
+        "maximize": true,
+        "unmaximize": true,
+        "minimize": true,
+        "unminimize": true,
+        "show": true,
+        "hide": true,
+        "close": true,
+        "setDecorations": true,
+        "setAlwaysOnTop": true,
+        "setSize": true,
+        "setMinSize": true,
+        "setMaxSize": true,
+        "setPosition": true,
+        "setFullscreen": true,
+        "setFocus": true,
+        "setIcon": true,
+        "setSkipTaskbar": true,
+        "setCursorGrab": false,
+        "setCursorVisible": true,
+        "setCursorIcon": true,
+        "setCursorPosition": false,
+        "setIgnoreCursorEvents": false,
+        "startDragging": true,
+        "print": false
+      },
+      "clipboard": {
+        "all": false,
+        "readText": false,
+        "writeText": false
+      },
+      "dialog": {
+        "all": false,
+        "ask": true,
+        "confirm": true,
+        "message": true,
+        "open": false,
+        "save": false
+      },
+      "notification": {
+        "all": true
+      },
+      "globalShortcut": {
+        "all": false
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.tauri.anthropic.app",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    },
+    "windows": [
+      {
+        "title": "Tauri Anthropic App",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": true,
+        "transparent": false,
+        "fileDropEnabled": false,
+        "url": "index.html"
+      }
+    ],
+    "updater": {
+      "active": false
+    },
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    }
+  }
+}
