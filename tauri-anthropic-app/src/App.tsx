@@ -4,6 +4,7 @@ import { ChatInterface } from './components/ChatInterface';
 import { ApiKeySetup } from './components/ApiKeySetup';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { LoadingScreen } from './components/LoadingScreen';
+import { HolographicOverlay } from './components/HolographicOverlay';
 
 export function App() {
   const [hasApiKey, setHasApiKey] = useState<boolean | null>(null);
@@ -22,6 +23,9 @@ export function App() {
       // Check if API key exists
       const keyExists = await invoke<boolean>('check_api_key');
       setHasApiKey(keyExists);
+
+      // Start ticker stream
+      await invoke('start_ticker_stream');
 
       // Small delay for smooth UX
       await new Promise(resolve => setTimeout(resolve, 500));
@@ -72,10 +76,12 @@ export function App() {
     );
   }
 
-  // Main chat interface
+  // Main chat interface with holographic overlay
   return (
     <ErrorBoundary>
-      <ChatInterface />
+      <HolographicOverlay>
+        <ChatInterface />
+      </HolographicOverlay>
     </ErrorBoundary>
   );
 }
