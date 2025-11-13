@@ -30,6 +30,23 @@ thiserror = "1.0"
 tracing = "0.1"
 log = "0.4"
 env_logger = "0.11"
+chrono = { version = "0.4.42", features = ["serde"] }
+
+# Vision System Dependencies
+# Performance and caching
+lru = "0.12"
+regex = "1.10"
+async-trait = "0.1"
+
+# φ-Memory System Dependencies
+rand = "0.8"
+
+# Note: Full vision system implementation requires platform-specific dependencies:
+# Windows: windows = { version = "0.51", features = ["Graphics_Capture"] }
+# macOS: core-graphics = "0.23"
+# Linux: x11rb = "0.12"
+# OCR: tesseract = "0.14", image = "0.24", imageproc = "0.23"
+# These are commented out for now to enable compilation without system dependencies
 
 [dev-dependencies]
 # Testing dependencies

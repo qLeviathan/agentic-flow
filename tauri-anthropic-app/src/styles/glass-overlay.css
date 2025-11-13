@@ -1,0 +1,276 @@
+/* AURELIA Holographic Glass Overlay CSS
+ * Design Philosophy: Cold, clean glass aesthetic with high contrast
+ * Target: 60fps animations with GPU acceleration
+ */
+
+/* ========================================
+   Base Overlay Container
+   ======================================== */
+
+.holographic-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.holographic-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ========================================
+   Glass Background Effect
+   ======================================== */
+
+.glass-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 30, 48, 0.7) 0%,
+    rgba(36, 59, 85, 0.6) 50%,
+    rgba(20, 30, 48, 0.7) 100%
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================
+   Glass Window (Individual Components)
+   ======================================== */
+
+.glass-window {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%) brightness(110%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(110%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-window:hover {
+  border-color: rgba(100, 200, 255, 0.3);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(100, 200, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   Glass Popup (Modal Windows)
+   ======================================== */
+
+.glass-popup {
+  background: rgba(15, 25, 40, 0.85);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 2px solid rgba(100, 200, 255, 0.2);
+  border-radius: 20px;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(100, 200, 255, 0.15),
+    inset 0 2px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   Text Styling (High Contrast)
+   ======================================== */
+
+.glass-text {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.glass-text-muted {
+  color: rgba(200, 220, 240, 0.7);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   Accent Colors (Interactive Elements)
+   ======================================== */
+
+.glass-accent {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 200, 255, 0.2) 0%,
+    rgba(80, 160, 220, 0.15) 100%
+  );
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-accent:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 200, 255, 0.3) 0%,
+    rgba(80, 160, 220, 0.25) 100%
+  );
+  border-color: rgba(100, 200, 255, 0.5);
+  box-shadow: 0 0 20px rgba(100, 200, 255, 0.2);
+}
+
+/* ========================================
+   Borders (High Contrast Separators)
+   ======================================== */
+
+.glass-border-top {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.glass-border {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ========================================
+   Custom Scrollbar
+   ======================================== */
+
+.glass-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.glass-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.glass-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(100, 200, 255, 0.3);
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  transition: background 0.2s;
+}
+
+.glass-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 200, 255, 0.5);
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(100, 200, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(100, 200, 255, 0.6);
+  }
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+/* ========================================
+   GPU Acceleration
+   ======================================== */
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* ========================================
+   Accessibility & Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .holographic-overlay,
+  .glass-window,
+  .glass-accent,
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus indicators for accessibility */
+.glass-window:focus-visible,
+.glass-accent:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(100, 200, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+  .glass-popup {
+    width: calc(100vw - 32px) !important;
+    max-width: 100%;
+    left: 16px !important;
+    right: 16px !important;
+    transform: none !important;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .holographic-overlay,
+  .glass-background {
+    display: none !important;
+  }
+}
