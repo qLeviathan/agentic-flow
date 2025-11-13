@@ -18,6 +18,7 @@
 | [Quick Start](#-quick-start) | [Agent Booster](#-core-components) | [Agent List](#-agent-types) |
 | [Deployment Options](#-deployment-options) | [ReasoningBank](#-core-components) | [MCP Tools](#-mcp-tools-213-total) |
 | [Model Optimization](#-model-optimization) | [Multi-Model Router](#-using-the-multi-model-router) | [Complete Docs](https://github.com/ruvnet/agentic-flow/tree/main/docs) |
+| [OEIS Integration](./docs/oeis/README.md) | [Sequence Validation](./docs/oeis/EXAMPLES.md) | [API Reference](./docs/oeis/API.md) |
 
 ---
 
@@ -57,6 +58,7 @@ Most AI coding agents are **painfully slow** and **frustratingly forgetful**. Th
 | **ReasoningBank** | Persistent learning memory system with semantic search | 46% faster, 100% success | [Docs](https://github.com/ruvnet/agentic-flow/tree/main/agentic-flow/src/reasoningbank) |
 | **Multi-Model Router** | Intelligent cost optimization across 100+ LLMs | 85-99% cost savings | [Docs](https://github.com/ruvnet/agentic-flow/tree/main/agentic-flow/src/router) |
 | **QUIC Transport** | Ultra-low latency agent communication via Rust/WASM QUIC protocol | 50-70% faster than TCP, 0-RTT | [Docs](https://github.com/ruvnet/agentic-flow/tree/main/crates/agentic-flow-quic) |
+| **OEIS Integration** | Online Encyclopedia of Integer Sequences with pattern recognition, validation, and caching | <1ms patterns, <5ms cache | [Docs](./docs/oeis/README.md) |
 
 **CLI Usage**:
 - **AgentDB**: Full CLI with 17 commands (`npx agentdb <command>`)
@@ -64,6 +66,7 @@ Most AI coding agents are **painfully slow** and **frustratingly forgetful**. Th
 - **Agent Booster**: Automatic on code edits
 - **ReasoningBank**: API only
 - **QUIC Transport**: API only
+- **OEIS Integration**: Sequence validation CLI commands
 
 **Programmatic**: All components importable: `agentic-flow/agentdb`, `agentic-flow/router`, `agentic-flow/reasoningbank`, `agentic-flow/agent-booster`, `agentic-flow/transport/quic`
 
@@ -80,6 +83,7 @@ npx agentic-flow --agent coder --task "Build a REST API" --optimize
 
 # Programmatic: Import any component
 import { ReflexionMemory, SkillLibrary, CausalMemoryGraph } from 'agentic-flow/agentdb';
+import { SequenceValidator, MathematicalValidators } from 'agentic-flow/agentdb';
 import { ModelRouter } from 'agentic-flow/router';
 import * as reasoningbank from 'agentic-flow/reasoningbank';
 import { AgentBooster } from 'agentic-flow/agent-booster';

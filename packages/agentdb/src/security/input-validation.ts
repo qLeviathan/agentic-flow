@@ -375,3 +375,417 @@ export function handleSecurityError(error: any): string {
   console.error('Security error:', error);
   return 'An error occurred while processing your request. Please check your input and try again.';
 }
+
+// ========================================================================
+// OEIS Sequence Validation
+// ========================================================================
+
+/**
+ * OEIS sequence pattern interface
+ */
+export interface OEISSequencePattern {
+  sequence: number[];
+  confidence: number;
+  source: string;
+  metadata?: Record<string, any>;
+}
+
+/**
+ * Validate a numeric sequence for OEIS compatibility
+ *
+ * @param sequence - Array of numbers to validate
+ * @param options - Validation options
+ * @returns Validated sequence
+ * @throws {ValidationError} If sequence is invalid
+ *
+ * @example
+ * const validSeq = validateSequence([1, 1, 2, 3, 5, 8]); // Fibonacci
+ * const invalidSeq = validateSequence([NaN, 1, 2]); // Throws error
+ */
+export function validateSequence(
+  sequence: any,
+  options: {
+    minLength?: number;
+    maxLength?: number;
+    allowNegative?: boolean;
+    allowFloats?: boolean;
+    maxValue?: number;
+  } = {}
+): number[] {
+  const {
+    minLength = 3,
+    maxLength = 10000,
+    allowNegative = true,
+    allowFloats = false,
+    maxValue = Number.MAX_SAFE_INTEGER
+  } = options;
+
+  if (!Array.isArray(sequence)) {
+    throw new ValidationError('Sequence must be an array', 'INVALID_SEQUENCE', 'sequence');
+  }
+
+  if (sequence.length < minLength) {
+    throw new ValidationError(
+      `Sequence must have at least ${minLength} elements`,
+      'SEQUENCE_TOO_SHORT',
+      'sequence'
+    );
+  }
+
+  if (sequence.length > maxLength) {
+    throw new ValidationError(
+      `Sequence exceeds maximum length (${maxLength})`,
+      'SEQUENCE_TOO_LONG',
+      'sequence'
+    );
+  }
+
+  const validated: number[] = [];
+
+  for (let i = 0; i < sequence.length; i++) {
+    const value = Number(sequence[i]);
+
+    if (!Number.isFinite(value)) {
+      throw new ValidationError(
+        `Sequence element at index ${i} is not a valid number`,
+        'INVALID_SEQUENCE_ELEMENT',
+        `sequence[${i}]`
+      );
+    }
+
+    if (!allowFloats && !Number.isInteger(value)) {
+      throw new ValidationError(
+        `Sequence element at index ${i} must be an integer`,
+        'INVALID_SEQUENCE_ELEMENT',
+        `sequence[${i}]`
+      );
+    }
+
+    if (!allowNegative && value < 0) {
+      throw new ValidationError(
+        `Sequence element at index ${i} must be non-negative`,
+        'INVALID_SEQUENCE_ELEMENT',
+        `sequence[${i}]`
+      );
+    }
+
+    if (Math.abs(value) > maxValue) {
+      throw new ValidationError(
+        `Sequence element at index ${i} exceeds maximum value`,
+        'INVALID_SEQUENCE_ELEMENT',
+        `sequence[${i}]`
+      );
+    }
+
+    validated.push(value);
+  }
+
+  return validated;
+}
+
+/**
+ * Validate and normalize an OEIS sequence pattern
+ *
+ * @param pattern - The sequence pattern to validate
+ * @returns Validated pattern
+ * @throws {ValidationError} If pattern is invalid
+ *
+ * @example
+ * const pattern = validateSequencePattern({
+ *   sequence: [1, 1, 2, 3, 5],
+ *   confidence: 0.95,
+ *   source: 'output-analysis'
+ * });
+ */
+export function validateSequencePattern(pattern: any): OEISSequencePattern {
+  if (!pattern || typeof pattern !== 'object') {
+    throw new ValidationError(
+      'Sequence pattern must be an object',
+      'INVALID_PATTERN',
+      'pattern'
+    );
+  }
+
+  // Validate sequence array
+  const sequence = validateSequence(pattern.sequence, {
+    minLength: 3,
+    maxLength: 100,
+    allowNegative: true,
+    allowFloats: false
+  });
+
+  // Validate confidence (0-1)
+  let confidence = Number(pattern.confidence);
+  if (!Number.isFinite(confidence) || confidence < 0 || confidence > 1) {
+    confidence = 0.5; // Default confidence
+  }
+
+  // Validate source string
+  if (!pattern.source || typeof pattern.source !== 'string') {
+    throw new ValidationError(
+      'Pattern source must be a non-empty string',
+      'INVALID_PATTERN',
+      'pattern.source'
+    );
+  }
+
+  const source = sanitizeText(pattern.source, 500, 'pattern.source');
+
+  // Validate metadata if present
+  let metadata: Record<string, any> | undefined;
+  if (pattern.metadata) {
+    if (typeof pattern.metadata !== 'object') {
+      throw new ValidationError(
+        'Pattern metadata must be an object',
+        'INVALID_PATTERN',
+        'pattern.metadata'
+      );
+    }
+    metadata = pattern.metadata;
+  }
+
+  return {
+    sequence,
+    confidence,
+    source,
+    metadata
+  };
+}
+
+/**
+ * Extract numeric sequences from text output
+ * Detects comma-separated, space-separated, or newline-separated numbers
+ *
+ * @param text - Text to analyze
+ * @param options - Extraction options
+ * @returns Array of detected sequences
+ *
+ * @example
+ * const sequences = extractSequencesFromText("Results: 1, 1, 2, 3, 5, 8, 13");
+ * // Returns: [[1, 1, 2, 3, 5, 8, 13]]
+ */
+export function extractSequencesFromText(
+  text: string,
+  options: {
+    minLength?: number;
+    maxLength?: number;
+    allowNegative?: boolean;
+  } = {}
+): number[][] {
+  const { minLength = 3, maxLength = 100, allowNegative = true } = options;
+
+  if (typeof text !== 'string' || text.length === 0) {
+    return [];
+  }
+
+  const sequences: number[][] = [];
+
+  // Pattern 1: Match comma-separated numbers (e.g., "1, 2, 3, 5, 8")
+  const commaPattern = /(-?\d+)(?:\s*,\s*(-?\d+))+/g;
+  let match;
+
+  while ((match = commaPattern.exec(text)) !== null) {
+    const sequenceText = match[0];
+    const numbers = sequenceText.split(',').map(s => parseInt(s.trim(), 10));
+
+    if (numbers.length >= minLength && numbers.length <= maxLength) {
+      if (allowNegative || numbers.every(n => n >= 0)) {
+        sequences.push(numbers);
+      }
+    }
+  }
+
+  // Pattern 2: Match space-separated numbers in brackets/parens (e.g., "[1 2 3 5 8]")
+  const bracketPattern = /[\[\(](-?\d+(?:\s+-?\d+)+)[\]\)]/g;
+
+  while ((match = bracketPattern.exec(text)) !== null) {
+    const sequenceText = match[1];
+    const numbers = sequenceText.trim().split(/\s+/).map(s => parseInt(s, 10));
+
+    if (numbers.length >= minLength && numbers.length <= maxLength) {
+      if (allowNegative || numbers.every(n => n >= 0)) {
+        sequences.push(numbers);
+      }
+    }
+  }
+
+  // Pattern 3: Match newline-separated numbers
+  const lines = text.split('\n');
+  const lineNumbers: number[] = [];
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (/^-?\d+$/.test(trimmed)) {
+      lineNumbers.push(parseInt(trimmed, 10));
+    } else if (lineNumbers.length >= minLength) {
+      // End of sequence
+      if (lineNumbers.length <= maxLength) {
+        if (allowNegative || lineNumbers.every(n => n >= 0)) {
+          sequences.push([...lineNumbers]);
+        }
+      }
+      lineNumbers.length = 0;
+    } else {
+      lineNumbers.length = 0;
+    }
+  }
+
+  // Check final sequence
+  if (lineNumbers.length >= minLength && lineNumbers.length <= maxLength) {
+    if (allowNegative || lineNumbers.every(n => n >= 0)) {
+      sequences.push(lineNumbers);
+    }
+  }
+
+  return sequences;
+}
+
+/**
+ * Calculate sequence similarity using multiple metrics
+ * Returns a score between 0 and 1
+ *
+ * @param seq1 - First sequence
+ * @param seq2 - Second sequence
+ * @returns Similarity score (0-1)
+ *
+ * @example
+ * const similarity = calculateSequenceSimilarity([1,2,3,5,8], [1,2,3,5,8,13]);
+ * // Returns: ~0.95 (high similarity despite different lengths)
+ */
+export function calculateSequenceSimilarity(seq1: number[], seq2: number[]): number {
+  if (seq1.length === 0 || seq2.length === 0) {
+    return 0;
+  }
+
+  // Exact match
+  if (seq1.length === seq2.length && seq1.every((val, i) => val === seq2[i])) {
+    return 1.0;
+  }
+
+  // Use longest common subsequence approach
+  const minLen = Math.min(seq1.length, seq2.length);
+  let matchCount = 0;
+
+  for (let i = 0; i < minLen; i++) {
+    if (seq1[i] === seq2[i]) {
+      matchCount++;
+    }
+  }
+
+  // Calculate similarity based on matches and length difference
+  const matchRatio = matchCount / minLen;
+  const lengthRatio = minLen / Math.max(seq1.length, seq2.length);
+
+  // Weighted average: 70% match quality, 30% length similarity
+  return matchRatio * 0.7 + lengthRatio * 0.3;
+}
+
+/**
+ * Detect common mathematical sequence patterns
+ *
+ * @param sequence - The numeric sequence to analyze
+ * @returns Pattern description or null if no pattern detected
+ *
+ * @example
+ * const pattern = detectSequencePattern([1, 1, 2, 3, 5, 8]);
+ * // Returns: { type: 'fibonacci', confidence: 0.95, description: 'Fibonacci sequence' }
+ */
+export function detectSequencePattern(sequence: number[]): {
+  type: string;
+  confidence: number;
+  description: string;
+} | null {
+  if (sequence.length < 3) {
+    return null;
+  }
+
+  // Check for arithmetic sequence (constant difference)
+  if (sequence.length >= 3) {
+    const diff = sequence[1] - sequence[0];
+    let isArithmetic = true;
+
+    for (let i = 2; i < sequence.length; i++) {
+      if (sequence[i] - sequence[i - 1] !== diff) {
+        isArithmetic = false;
+        break;
+      }
+    }
+
+    if (isArithmetic) {
+      return {
+        type: 'arithmetic',
+        confidence: 1.0,
+        description: `Arithmetic sequence with difference ${diff}`
+      };
+    }
+  }
+
+  // Check for geometric sequence (constant ratio)
+  if (sequence.length >= 3 && sequence[0] !== 0) {
+    const ratio = sequence[1] / sequence[0];
+    let isGeometric = true;
+
+    for (let i = 2; i < sequence.length; i++) {
+      if (sequence[i - 1] === 0 || Math.abs(sequence[i] / sequence[i - 1] - ratio) > 0.0001) {
+        isGeometric = false;
+        break;
+      }
+    }
+
+    if (isGeometric) {
+      return {
+        type: 'geometric',
+        confidence: 1.0,
+        description: `Geometric sequence with ratio ${ratio}`
+      };
+    }
+  }
+
+  // Check for Fibonacci-like (each term is sum of previous two)
+  if (sequence.length >= 4) {
+    let isFibonacci = true;
+
+    for (let i = 2; i < sequence.length; i++) {
+      if (sequence[i] !== sequence[i - 1] + sequence[i - 2]) {
+        isFibonacci = false;
+        break;
+      }
+    }
+
+    if (isFibonacci) {
+      return {
+        type: 'fibonacci',
+        confidence: 1.0,
+        description: 'Fibonacci-like sequence (a(n) = a(n-1) + a(n-2))'
+      };
+    }
+  }
+
+  // Check for powers (squares, cubes, etc.)
+  if (sequence.length >= 3) {
+    const powers = [2, 3, 4, 5];
+
+    for (const power of powers) {
+      let isPowerSequence = true;
+
+      for (let i = 0; i < sequence.length; i++) {
+        const expected = Math.pow(i + 1, power);
+        if (Math.abs(sequence[i] - expected) > 0.0001) {
+          isPowerSequence = false;
+          break;
+        }
+      }
+
+      if (isPowerSequence) {
+        const powerName = power === 2 ? 'squares' : power === 3 ? 'cubes' : `${power}th powers`;
+        return {
+          type: `power-${power}`,
+          confidence: 1.0,
+          description: `Sequence of ${powerName}`
+        };
+      }
+    }
+  }
+
+  return null;
+}

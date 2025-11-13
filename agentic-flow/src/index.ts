@@ -12,6 +12,7 @@ import { parseArgs, printHelp, validateOptions } from "./utils/cli.js";
 import { getAgent, listAgents } from "./utils/agentLoader.js";
 import { handleMCPCommand } from "./utils/mcpCommands.js";
 import { handleReasoningBankCommand } from "./utils/reasoningbankCommands.js";
+import { handleOeisCommand } from "./utils/oeisCommands.js";
 
 // Re-export ReasoningBank plugin for npm package users
 export * as reasoningbank from "./reasoningbank/index.js";
@@ -165,6 +166,13 @@ async function main() {
   if (options.mode === 'reasoningbank') {
     const subcommand = process.argv[3] || 'help';
     await handleReasoningBankCommand(subcommand);
+    process.exit(0);
+  }
+
+  // Handle OEIS mode
+  if (options.mode === 'oeis') {
+    const subcommand = process.argv[3] || 'help';
+    await handleOeisCommand(subcommand);
     process.exit(0);
   }
 
