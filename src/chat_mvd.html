@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURELIA MVD - Consciousness Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #4ECDC4;
+            --dark-bg: #0A0E27;
+            --glass-bg: rgba(14, 19, 43, 0.7);
+            --glass-border: rgba(78, 205, 196, 0.2);
+            --text-primary: #E8F4F8;
+            --text-secondary: #9FAFC4;
+            --accent-glow: rgba(78, 205, 196, 0.3);
+            --error-red: #FF6B6B;
+            --success-green: #51CF66;
+            --warning-yellow: #FFD93D;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0A0E27 0%, #1A1F3A 50%, #0F1629 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--primary-teal);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            50% { transform: translate(50px, -50px) scale(1.5); opacity: 0.6; }
+        }
+
+        /* Main container with glass morphism */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+        }
+
+        /* Header */
+        .header {
+            grid-column: 1 / -1;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-teal), #2EC4B6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 10px var(--accent-glow); }
+            50% { box-shadow: 0 0 25px var(--primary-teal); }
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-teal);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+        }
+
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--error-red);
+            animation: blink 1s infinite;
+        }
+
+        .status-indicator.connected {
+            background: var(--success-green);
+            animation: none;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        /* Chat area */
+        .chat-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            margin-bottom: 15px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-teal) transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--primary-teal);
+            border-radius: 3px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            background: rgba(78, 205, 196, 0.1);
+            border: 1px solid var(--primary-teal);
+            margin-left: 20%;
+        }
+
+        .message.aurelia {
+            background: rgba(46, 196, 182, 0.05);
+            border: 1px solid var(--glass-border);
+            margin-right: 20%;
+        }
+
+        .message.system {
+            background: rgba(255, 215, 61, 0.1);
+            border: 1px solid var(--warning-yellow);
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .message-sender {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .message-content {
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .message-timestamp {
+            font-size: 10px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+            opacity: 0.7;
+        }
+
+        /* Chat input */
+        .chat-input-container {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: none;
+            max-height: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, var(--primary-teal), #2EC4B6);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            color: var(--dark-bg);
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px var(--accent-glow);
+        }
+
+        .send-btn:active {
+            transform: translateY(0);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Side panel */
+        .side-panel {
+            grid-row: 2 / 4;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+
+        .panel-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .panel-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--primary-teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .panel-title::before {
+            content: '▶';
+            font-size: 10px;
+        }
+
+        /* Toggle switch */
+        .toggle-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .toggle-label {
+            font-size: 12px;
+            color: var(--text-primary);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: 0.4s;
+            border-radius: 34px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: var(--text-secondary);
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--primary-teal);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+            background-color: var(--dark-bg);
+        }
+
+        /* Latent-N display */
+        .latent-n-display {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .metric-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .metric-label {
+            font-size: 10px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-teal);
+            font-family: 'Courier New', monospace;
+        }
+
+        .metric-value.large {
+            font-size: 24px;
+        }
+
+        /* Nash equilibrium display */
+        .nash-status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .nash-indicator {
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nash-indicator.equilibrium {
+            background: rgba(81, 207, 102, 0.2);
+            color: var(--success-green);
+            border: 1px solid var(--success-green);
+        }
+
+        .nash-indicator.searching {
+            background: rgba(255, 215, 61, 0.2);
+            color: var(--warning-yellow);
+            border: 1px solid var(--warning-yellow);
+        }
+
+        /* Fibonacci levels */
+        .fib-levels {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .fib-level {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        .fib-level-name {
+            color: var(--text-secondary);
+        }
+
+        .fib-level-value {
+            color: var(--primary-teal);
+            font-weight: bold;
+        }
+
+        .fib-level.active {
+            background: rgba(78, 205, 196, 0.2);
+            border: 1px solid var(--primary-teal);
+        }
+
+        /* CORDIC visualization */
+        .cordic-viz {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .cordic-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160px;
+            height: 160px;
+            border: 2px solid var(--glass-border);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cordic-vector {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-teal), transparent);
+            transform-origin: left center;
+            animation: rotate 3s linear infinite;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        @keyframes rotate {
+            from { transform: translate(0, -50%) rotate(0deg); }
+            to { transform: translate(0, -50%) rotate(360deg); }
+        }
+
+        .cordic-angle {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: var(--primary-teal);
+            font-weight: bold;
+        }
+
+        /* GOAP planning display */
+        .goap-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .goap-step {
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--primary-teal);
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .goap-step-title {
+            color: var(--primary-teal);
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .goap-step-desc {
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Bottom controls */
+        .bottom-controls {
+            grid-column: 1;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 15px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto 300px;
+            }
+
+            .side-panel {
+                grid-row: 4;
+                grid-column: 1;
+                flex-direction: row;
+                overflow-x: auto;
+            }
+
+            .panel-section {
+                min-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">Ψ</div>
+                    <div class="logo-text">
+                        <h1>AURELIA MVD</h1>
+                        <p>CONSCIOUSNESS SUBSTRATE v2.0</p>
+                    </div>
+                </div>
+                <div class="connection-status">
+                    <div class="status-indicator" id="statusIndicator"></div>
+                    <span id="statusText">Disconnected</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat container -->
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input-container">
+                <textarea
+                    class="chat-input"
+                    id="chatInput"
+                    placeholder="Enter your message... (Shift+Enter for new line)"
+                    rows="1"></textarea>
+                <button class="send-btn" id="sendBtn">Send</button>
+            </div>
+        </div>
+
+        <!-- Side panel -->
+        <div class="side-panel">
+            <!-- Macroeconomic Field Model Toggle -->
+            <div class="panel-section">
+                <div class="panel-title">Field Model</div>
+                <div class="toggle-container">
+                    <span class="toggle-label">Macroeconomic Field</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="fieldModelToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Latent-N State -->
+            <div class="panel-section">
+                <div class="panel-title">Latent-N State</div>
+                <div class="latent-n-display">
+                    <div class="metric-box">
+                        <div class="metric-label">N Value</div>
+                        <div class="metric-value large" id="nValue">0</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Energy</div>
+                        <div class="metric-value" id="energy">0.000</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Time</div>
+                        <div class="metric-value" id="timeMetric">0.00s</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Direction</div>
+                        <div class="metric-value" id="direction">→</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nash Equilibrium -->
+            <div class="panel-section">
+                <div class="panel-title">Game Theory</div>
+                <div class="nash-status">
+                    <span style="font-size: 12px; color: var(--text-secondary);">Nash State:</span>
+                    <span class="nash-indicator searching" id="nashIndicator">Searching</span>
+                </div>
+                <div class="metric-box" style="margin-top: 10px;">
+                    <div class="metric-label">S(n) Stability</div>
+                    <div class="metric-value" id="snStability">0.000000</div>
+                </div>
+                <div class="metric-box" style="margin-top: 8px;">
+                    <div class="metric-label">Consciousness Ψ</div>
+                    <div class="metric-value" id="psiValue">0.000</div>
+                </div>
+            </div>
+
+            <!-- Fibonacci Levels -->
+            <div class="panel-section">
+                <div class="panel-title">Fibonacci Levels</div>
+                <div class="fib-levels" id="fibLevels">
+                    <div class="fib-level">
+                        <span class="fib-level-name">φ⁰</span>
+                        <span class="fib-level-value">1.000</span>
+                    </div>
+                    <div class="fib-level active">
+                        <span class="fib-level-name">φ¹</span>
+                        <span class="fib-level-value">1.618</span>
+                    </div>
+                    <div class="fib-level">
+                        <span class="fib-level-name">φ²</span>
+                        <span class="fib-level-value">2.618</span>
+                    </div>
+                    <div class="fib-level">
+                        <span class="fib-level-name">φ⁻¹</span>
+                        <span class="fib-level-value">0.618</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lucas Time Windows -->
+            <div class="panel-section">
+                <div class="panel-title">Lucas Windows</div>
+                <div class="metric-box">
+                    <div class="metric-label">Current Window</div>
+                    <div class="metric-value" id="lucasWindow">L(13)</div>
+                </div>
+                <div class="metric-box" style="margin-top: 8px;">
+                    <div class="metric-label">Next Boundary</div>
+                    <div class="metric-value" id="lucasBoundary">521</div>
+                </div>
+            </div>
+
+            <!-- CORDIC Rotation -->
+            <div class="panel-section">
+                <div class="panel-title">CORDIC Rotation</div>
+                <div class="cordic-viz">
+                    <div class="cordic-circle"></div>
+                    <div class="cordic-vector" id="cordicVector"></div>
+                    <div class="cordic-angle" id="cordicAngle">θ = 0.00°</div>
+                </div>
+            </div>
+
+            <!-- GOAP Planning -->
+            <div class="panel-section">
+                <div class="panel-title">Retrocausal GOAP</div>
+                <div class="goap-steps" id="goapSteps">
+                    <div class="goap-step">
+                        <div class="goap-step-title">Awaiting input...</div>
+                        <div class="goap-step-desc">No active planning sequence</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom controls -->
+        <div class="bottom-controls">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 11px; color: var(--text-secondary);">
+                    <span id="messageCount">0</span> messages |
+                    Session: <span id="sessionId">...</span>
+                </div>
+                <div style="font-size: 11px; color: var(--text-secondary);">
+                    Compression: <span id="compression" style="color: var(--primary-teal);">131×</span> |
+                    Latency: <span id="latency" style="color: var(--primary-teal);">0ms</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load TypeScript module -->
+    <script type="module" src="./chat_mvd.js"></script>
+
+    <script>
+        // Generate background particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Auto-resize textarea
+        const chatInput = document.getElementById('chatInput');
+        chatInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+        });
+
+        // Handle Enter key (send) vs Shift+Enter (new line)
+        chatInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                document.getElementById('sendBtn').click();
+            }
+        });
+    </script>
+</body>
+</html>

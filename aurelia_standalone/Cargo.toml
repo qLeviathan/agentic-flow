@@ -1,0 +1,99 @@
+[package]
+name = "aurelia"
+version = "2.0.0"
+edition = "2021"
+authors = ["qLeviathan <leviathan@aurelia.dev>"]
+description = "Autonomous Recursive Entity with Logarithmic Intelligence Architecture"
+license = "MIT"
+repository = "https://github.com/qLeviathan/agentic-flow"
+keywords = ["trading", "ai", "fibonacci", "wasm", "tauri"]
+categories = ["algorithms", "mathematics", "finance", "wasm", "gui"]
+
+[workspace]
+members = [
+    "crates/phi-core",
+    "crates/cosmos-physics",
+    "crates/holographic-memory",
+    "crates/macro-field",
+    "crates/backtesting",
+    "crates/webull-integration",
+]
+
+[dependencies]
+# Core Rust dependencies
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+
+# WASM runtime
+wasmtime = "16.0"
+wasmer = "4.2"
+
+# Tauri for desktop/mobile
+tauri = { version = "2.0.0-beta", features = ["wry"] }
+tauri-plugin-shell = "2.0.0-beta"
+
+# UI framework (Pure Rust, no web dependencies)
+egui = "0.24"
+eframe = "0.24"
+wgpu = "0.19"
+
+# Networking (QUIC for agent sync)
+quinn = "0.10"
+rustls = "0.21"
+
+# Mathematics (integer-only, no floating point)
+num-bigint = "0.4"
+num-integer = "0.1"
+num-traits = "0.2"
+
+# ML framework (Pure Rust)
+burn = { version = "0.14", features = ["wgpu", "ndarray"] }
+burn-ndarray = "0.14"
+
+# AgentDB client
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "sqlite"] }
+
+# Cryptography
+chacha20poly1305 = "0.10"
+blake3 = "1.5"
+
+# Trading API
+reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
+
+# Utilities
+tracing = "0.1"
+tracing-subscriber = "0.3"
+chrono = "0.4"
+
+[dev-dependencies]
+criterion = "0.5"
+proptest = "1.4"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.release-wasm]
+inherits = "release"
+opt-level = "z"     # Optimize for size
+lto = true
+codegen-units = 1
+
+[[bin]]
+name = "aurelia"
+path = "src/main.rs"
+
+[[bin]]
+name = "aurelia-headless"
+path = "src/headless.rs"
+
+[lib]
+name = "aurelia_lib"
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
