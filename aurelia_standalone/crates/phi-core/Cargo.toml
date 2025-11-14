@@ -1,0 +1,21 @@
+[package]
+name = "phi-core"
+version = "2.0.0"
+edition = "2021"
+description = "φ-arithmetic and Zeckendorf bit cascade engine"
+license = "MIT"
+
+[dependencies]
+num-bigint = "0.4"
+num-integer = "0.1"
+num-traits = "0.2"
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "1.0"
+
+[dev-dependencies]
+criterion = "0.5"
+proptest = "1.4"
+
+[[bench]]
+name = "phi_arithmetic"
+harness = false
