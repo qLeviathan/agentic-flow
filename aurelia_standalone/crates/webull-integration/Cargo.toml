@@ -1,0 +1,59 @@
+[package]
+name = "webull-integration"
+version = "0.1.0"
+edition = "2021"
+authors = ["qLeviathan <leviathan@aurelia.dev>"]
+description = "Webull API integration for AURELIA live/co-trading with Latent-N encoding"
+license = "MIT"
+
+[dependencies]
+# Core dependencies
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+
+# HTTP client for Webull API
+reqwest = { version = "0.11", features = ["json", "rustls-tls", "cookies"] }
+url = "2.5"
+
+# Time and date handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Cryptography for API authentication
+sha2 = "0.10"
+hmac = "0.12"
+base64 = "0.21"
+uuid = { version = "1.6", features = ["v4", "serde"] }
+
+# Logging and tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Environment variables
+dotenv = "0.15"
+
+# Async runtime utilities
+futures = "0.3"
+async-trait = "0.1"
+
+# Phi-core for Latent-N encoding
+phi-core = { path = "../phi-core" }
+
+# WebSocket for real-time data
+tokio-tungstenite = { version = "0.21", features = ["rustls-tls-native-roots"] }
+
+# Rate limiting
+governor = "0.6"
+
+[dev-dependencies]
+tokio-test = "0.4"
+wiremock = "0.6"
+mockito = "1.2"
+proptest = "1.4"
+
+[features]
+default = ["live-trading"]
+live-trading = []
+paper-trading = []

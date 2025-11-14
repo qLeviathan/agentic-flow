@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:mvd": "tsc && cp src/chat_mvd.html dist/",
     "test": "jest",
     "test:phase-space": "jest tests/phase-space.test.ts",
     "test:validation": "jest tests/math-framework/validation",
@@ -21,6 +22,9 @@
     "test:aurelia:invariants": "jest tests/validation/consciousness-validation",
     "test:aurelia:coverage": "jest tests/trading tests/integration tests/validation --coverage",
     "demo:phase-space": "ts-node examples/phase-space-demo.ts",
+    "demo:mvd": "npm run build:mvd && npm run mvd:server",
+    "mvd:server": "ts-node examples/aurelia-mvd-server.ts",
+    "mvd:serve": "npx serve src -p 3000",
     "graph:generate": "ts-node scripts/generate-dependency-graph.ts",
     "graph:render": "ts-node scripts/generate-dependency-graph.ts --render",
     "graph:svg": "ts-node scripts/generate-dependency-graph.ts --render --format=svg",

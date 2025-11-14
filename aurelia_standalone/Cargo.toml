@@ -12,10 +12,11 @@ categories = ["algorithms", "mathematics", "finance", "wasm", "gui"]
 [workspace]
 members = [
     "crates/phi-core",
-    "crates/chart-vision",
-    "crates/webull-pod",
-    "crates/agentdb-client",
-    "crates/holographic-ui",
+    "crates/cosmos-physics",
+    "crates/holographic-memory",
+    "crates/macro-field",
+    "crates/backtesting",
+    "crates/webull-integration",
 ]
 
 [dependencies]
@@ -37,7 +38,7 @@ tauri-plugin-shell = "2.0.0-beta"
 # UI framework (Pure Rust, no web dependencies)
 egui = "0.24"
 eframe = "0.24"
-wgpu = "0.18"
+wgpu = "0.19"
 
 # Networking (QUIC for agent sync)
 quinn = "0.10"
@@ -49,8 +50,8 @@ num-integer = "0.1"
 num-traits = "0.2"
 
 # ML framework (Pure Rust)
-burn = { version = "0.11", features = ["wgpu", "ndarray"] }
-burn-ndarray = "0.11"
+burn = { version = "0.14", features = ["wgpu", "ndarray"] }
+burn-ndarray = "0.14"
 
 # AgentDB client
 sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "sqlite"] }

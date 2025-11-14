@@ -14,6 +14,8 @@ pub mod phi_arithmetic;
 pub mod boundary;
 pub mod memory;
 pub mod constants;
+pub mod cordic;
+pub mod retrocausal_goap;
 
 pub use latent_n::LatentN;
 pub use zeckendorf::{ZeckendorfDecomposer, ZeckendorfBits};
