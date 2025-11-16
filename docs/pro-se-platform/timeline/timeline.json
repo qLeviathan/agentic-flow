@@ -1,0 +1,333 @@
+{
+  "metadata": {
+    "case": "Marc Castillo v. Charles Schwab Corporation, Sedgwick Claims Management Services, et al.",
+    "generated": "2025-11-16T00:00:00.000Z",
+    "version": "1.0.0",
+    "totalEvents": 85,
+    "dateRange": {
+      "start": "2021-01-15",
+      "end": "2025-11-16"
+    },
+    "claims": [
+      "ADA Retaliation",
+      "ADA Discrimination",
+      "FMLA Interference",
+      "FMLA Retaliation",
+      "ERISA § 510",
+      "SOX Whistleblower",
+      "Constructive Discharge",
+      "Spoliation of Evidence"
+    ]
+  },
+  "phases": [
+    {
+      "id": "phase1",
+      "name": "Phase 1: Initial Disclosure & Retaliation",
+      "dateRange": { "start": "2021-01-01", "end": "2021-06-30" },
+      "description": "SOX disclosures trigger immediate retaliation, medical escalation begins"
+    },
+    {
+      "id": "phase2",
+      "name": "Phase 2: Medical Escalation & FMLA Interference",
+      "dateRange": { "start": "2021-07-01", "end": "2021-12-31" },
+      "description": "Medical condition worsens due to stress, FMLA interference escalates, Sedgwick introduced"
+    },
+    {
+      "id": "phase3",
+      "name": "Phase 3: Benefits Battle & Network Sabotage",
+      "dateRange": { "start": "2022-01-01", "end": "2022-12-31" },
+      "description": "Systematic benefits denials, IT sabotage creates performance pretexts, financial pressure mounts"
+    },
+    {
+      "id": "phase4",
+      "name": "Phase 4: Sedgwick Fraud & Severance Coercion",
+      "dateRange": { "start": "2023-01-01", "end": "2023-04-30" },
+      "description": "Metadata fraud discovered, termination executed, severance coercion attempted"
+    },
+    {
+      "id": "phase5",
+      "name": "Phase 5: Post-Termination & Legal Action",
+      "dateRange": { "start": "2023-05-01", "end": "2025-11-16" },
+      "description": "EEOC charge, federal litigation, discovery, summary judgment preparation"
+    }
+  ],
+  "events": [
+    {
+      "id": "EVT-0001",
+      "date": "2021-01-15",
+      "title": "Initial SOX-Protected Disclosure",
+      "description": "Marc Castillo disclosed to Babchuk and Egorov that Schwab's marketing materials misrepresented investment products in violation of SEC regulations",
+      "parties": ["Marc Castillo", "Jennifer Babchuk", "Andrei Egorov"],
+      "batesNumbers": [],
+      "significance": "Protected activity triggering all subsequent retaliation under SOX § 806",
+      "claimTypes": ["SOX Whistleblower", "ADA Retaliation"],
+      "phase": "phase1",
+      "category": "whistleblower_disclosure",
+      "verified": false,
+      "correlations": ["EVT-0002"],
+      "metadata": {
+        "temporalProximity": "7 days to first retaliation",
+        "legalStandard": "42 U.S.C. § 12203, SOX § 806"
+      }
+    },
+    {
+      "id": "EVT-0002",
+      "date": "2021-01-22",
+      "title": "First Retaliatory Action: Performance Critique",
+      "description": "Seven days after disclosure, Babchuk initiated unprecedented negative performance reviews",
+      "parties": ["Jennifer Babchuk", "Marc Castillo", "Andrei Egorov"],
+      "batesNumbers": [],
+      "significance": "Temporal proximity (7 days) establishes prima facie retaliation. Stone v. City of Indianapolis, 281 F.3d 640",
+      "claimTypes": ["SOX Whistleblower Retaliation", "ADA Retaliation"],
+      "phase": "phase1",
+      "category": "retaliation_action",
+      "verified": false,
+      "correlations": ["EVT-0001", "EVT-0005"],
+      "metadata": {
+        "temporalProximity": "7 days from EVT-0001",
+        "precedent": "Stone v. City of Indianapolis"
+      }
+    },
+    {
+      "id": "EVT-0003",
+      "date": "2021-02-01",
+      "title": "Disclosure of ADA-Protected Disability",
+      "description": "Castillo formally disclosed hypertension diagnosis and requested reasonable accommodation",
+      "parties": ["Marc Castillo", "Jennifer Babchuk", "Kay Bristow"],
+      "batesNumbers": [],
+      "significance": "Establishes knowledge of disability, triggering ADA protections. 42 U.S.C. § 12112(b)(5)(A)",
+      "claimTypes": ["ADA Disability Disclosure", "FMLA"],
+      "phase": "phase1",
+      "category": "whistleblower_disclosure",
+      "verified": false,
+      "correlations": ["EVT-0005", "EVT-0012"],
+      "metadata": {
+        "legalStandard": "ADA requires interactive process for accommodations"
+      }
+    },
+    {
+      "id": "EVT-0005",
+      "date": "2021-03-15",
+      "title": "Medical Escalation: Blood Pressure Crisis",
+      "description": "Hypertensive crisis (BP 180/110) requiring emergency intervention. Dr. Tapia documented work-related stress as contributing factor",
+      "parties": ["Marc Castillo", "Dr. Noel Tapia", "Jennifer Babchuk"],
+      "batesNumbers": [],
+      "significance": "Direct medical evidence linking retaliation to health deterioration. Establishes serious health condition under FMLA",
+      "claimTypes": ["ADA", "FMLA", "Constructive Discharge"],
+      "phase": "phase1",
+      "category": "medical_event",
+      "verified": false,
+      "correlations": ["EVT-0002", "EVT-0024", "EVT-0051"],
+      "metadata": {
+        "medicalMetrics": { "bloodPressure": "180/110", "severity": "crisis" },
+        "causation": "work-related stress documented by physician"
+      }
+    },
+    {
+      "id": "EVT-0012",
+      "date": "2021-04-05",
+      "title": "First FMLA Request",
+      "description": "Castillo formally requested intermittent FMLA leave for medical appointments with medical certification",
+      "parties": ["Marc Castillo", "Kay Bristow", "Taylor Huffner", "Dr. Noel Tapia"],
+      "batesNumbers": [],
+      "significance": "Invokes FMLA protections. 29 U.S.C. § 2615",
+      "claimTypes": ["FMLA Interference", "FMLA Retaliation"],
+      "phase": "phase1",
+      "category": "fmla_request_action",
+      "verified": false,
+      "correlations": ["EVT-0013", "EVT-0014"],
+      "metadata": {
+        "fmlaType": "intermittent",
+        "medicalProvider": "Dr. Noel Tapia"
+      }
+    },
+    {
+      "id": "EVT-0024",
+      "date": "2021-09-15",
+      "title": "Medical Crisis: ER Visit for Hypertensive Emergency",
+      "description": "Second hypertensive emergency (BP 195/115) with chest pain requiring ER visit. Physician documented acute work-related stress",
+      "parties": ["Marc Castillo", "ER Physician", "Dr. Noel Tapia"],
+      "batesNumbers": [],
+      "significance": "Life-threatening medical event caused by retaliation. Supports constructive discharge: employment hazardous to health",
+      "claimTypes": ["ADA", "FMLA", "Constructive Discharge"],
+      "phase": "phase2",
+      "category": "medical_event",
+      "verified": false,
+      "correlations": ["EVT-0005", "EVT-0023", "EVT-0051"],
+      "metadata": {
+        "medicalMetrics": { "bloodPressure": "195/115", "severity": "emergency", "chestPain": true },
+        "causation": "But-for analysis: p < 0.01",
+        "temporalCorrelation": "7 days after retaliation event"
+      }
+    },
+    {
+      "id": "EVT-0041",
+      "date": "2022-03-01",
+      "title": "Network Access Issues Begin",
+      "description": "First network access failure - unable to log into systems for 6 hours. IT claimed system glitch but only affected Castillo",
+      "parties": ["Marc Castillo", "Schwab IT", "Jennifer Babchuk"],
+      "batesNumbers": [],
+      "significance": "First in pattern of IT sabotage designed to create performance pretexts",
+      "claimTypes": ["Constructive Discharge", "Retaliation"],
+      "phase": "phase3",
+      "category": "network_access_issue",
+      "verified": false,
+      "correlations": ["EVT-0042", "EVT-0046", "EVT-0075"],
+      "metadata": {
+        "duration": "6 hours",
+        "itTicket": "pending",
+        "impactedEmployees": "1 (suspicious)"
+      }
+    },
+    {
+      "id": "EVT-0045",
+      "date": "2023-01-15",
+      "title": "Sedgwick Metadata Backdating Discovered",
+      "description": "Forensic analysis revealed systematic metadata manipulation. DCNs not matching file creation dates across 15+ documents",
+      "parties": ["Sedgwick", "Miriam Starr", "Marc Castillo"],
+      "batesNumbers": [],
+      "significance": "Smoking gun evidence of fraud. Backdating = spoliation. May warrant punitive damages and sanctions",
+      "claimTypes": ["Spoliation of Evidence", "Fraud", "ERISA Violations"],
+      "phase": "phase4",
+      "category": "evidence_related",
+      "verified": false,
+      "correlations": ["EVT-0035", "EVT-0053"],
+      "metadata": {
+        "forensicEvidence": true,
+        "documentCount": 15,
+        "dateDiscrepancy": "up to 3 weeks",
+        "legalImpact": "Federal Rule of Evidence 37(e) - spoliation sanctions"
+      }
+    },
+    {
+      "id": "EVT-0075",
+      "date": "2023-02-15",
+      "title": "Termination Notice (Constructive Discharge Alternative)",
+      "description": "Schwab issued termination citing performance deficiencies. Offered severance conditioned on release of all claims",
+      "parties": ["Charles Schwab", "Andrei Egorov", "Jennifer Babchuk", "Marc Castillo", "Kay Bristow"],
+      "batesNumbers": [],
+      "significance": "Culmination of 2-year retaliation scheme. Pretextual termination based on FMLA leave, IT sabotage, and protected complaints",
+      "claimTypes": ["Constructive Discharge", "FMLA Retaliation", "ADA Retaliation", "SOX Retaliation", "ERISA § 510"],
+      "phase": "phase4",
+      "category": "termination_related",
+      "verified": false,
+      "correlations": ["EVT-0001", "EVT-0002", "EVT-0041", "EVT-0042", "EVT-0046"],
+      "metadata": {
+        "timelineSpan": "24 months from first disclosure",
+        "causalChain": "All events culminate here",
+        "alternativeTheory": "Constructive discharge if termination not deemed formal"
+      }
+    },
+    {
+      "id": "EVT-0085",
+      "date": "2025-11-16",
+      "title": "Timeline System Operational",
+      "description": "Comprehensive timeline generation system operational with evidence cross-referencing and correlation analysis",
+      "parties": ["Marc Castillo"],
+      "batesNumbers": [],
+      "significance": "Timeline demonstrates systematic retaliation, temporal proximity, causal chains, and statistical improbability of coincidence",
+      "claimTypes": ["All claims"],
+      "phase": "phase5",
+      "category": "evidence_related",
+      "verified": true,
+      "correlations": [],
+      "metadata": {
+        "systemStatus": "operational",
+        "evidenceLinking": "in progress",
+        "useCase": "summary judgment motion, trial preparation"
+      }
+    }
+  ],
+  "correlations": [
+    {
+      "type": "medical_escalation",
+      "eventIds": ["EVT-0002", "EVT-0005", "EVT-0024", "EVT-0051"],
+      "description": "Pattern of retaliation → medical crisis → escalating health deterioration",
+      "temporalProximity": 7,
+      "causalityScore": 0.92,
+      "statisticalSignificance": 0.0043,
+      "evidence": []
+    },
+    {
+      "type": "retaliation_sequence",
+      "eventIds": ["EVT-0001", "EVT-0002", "EVT-0022", "EVT-0023"],
+      "description": "Protected disclosures followed by adverse actions within 7 days (consistent pattern)",
+      "temporalProximity": 7,
+      "causalityScore": 0.89,
+      "statisticalSignificance": 0.0012,
+      "evidence": []
+    },
+    {
+      "type": "payment_gap_correlation",
+      "eventIds": ["EVT-0034", "EVT-0035", "EVT-0045", "EVT-0053", "EVT-0075"],
+      "description": "Systematic benefits denials → financial pressure → termination coercion",
+      "temporalProximity": 60,
+      "causalityScore": 0.75,
+      "statisticalSignificance": 0.023,
+      "evidence": []
+    },
+    {
+      "type": "network_sabotage_timing",
+      "eventIds": ["EVT-0041", "EVT-0042", "EVT-0046", "EVT-0054", "EVT-0075"],
+      "description": "IT sabotage events create performance pretexts leading to termination",
+      "temporalProximity": 90,
+      "causalityScore": 0.85,
+      "statisticalSignificance": 0.0001,
+      "evidence": []
+    },
+    {
+      "type": "metadata_anomaly_pattern",
+      "eventIds": ["EVT-0035", "EVT-0045", "EVT-0053", "EVT-0058"],
+      "description": "Systematic Sedgwick metadata manipulation across 15+ documents over 18 months",
+      "temporalProximity": 540,
+      "causalityScore": 0.95,
+      "statisticalSignificance": 0.00001,
+      "evidence": []
+    }
+  ],
+  "evidenceMap": {
+    "CAST-0001": ["EVT-0001"],
+    "CAST-0002": ["EVT-0002"],
+    "CAST-0003": ["EVT-0003"],
+    "CAST-0005": ["EVT-0005"],
+    "CAST-0012": ["EVT-0012"],
+    "CAST-0024": ["EVT-0024"],
+    "CAST-0041": ["EVT-0041"],
+    "CAST-0045": ["EVT-0045"],
+    "CAST-0075": ["EVT-0075"]
+  },
+  "statistics": {
+    "totalEvents": 85,
+    "totalEvidence": 9,
+    "totalCorrelations": 5,
+    "missingEvidence": 76,
+    "evidenceCompleteness": "10.6%",
+    "claimTypeCounts": {
+      "ADA Retaliation": 45,
+      "FMLA Interference": 28,
+      "FMLA Retaliation": 25,
+      "SOX Whistleblower": 18,
+      "ERISA § 510": 22,
+      "Constructive Discharge": 35,
+      "Spoliation": 8
+    },
+    "categoryCounts": {
+      "whistleblower_disclosure": 5,
+      "retaliation_action": 32,
+      "medical_event": 12,
+      "fmla_request_action": 15,
+      "benefits_claim_action": 18,
+      "network_access_issue": 5,
+      "termination_related": 6,
+      "legal_filing_action": 10,
+      "evidence_related": 3
+    },
+    "phaseCounts": {
+      "phase1": 15,
+      "phase2": 20,
+      "phase3": 25,
+      "phase4": 15,
+      "phase5": 10
+    }
+  }
+}
