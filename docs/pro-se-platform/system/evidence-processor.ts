@@ -323,11 +323,17 @@ export class EvidenceProcessor {
  * Main execution
  */
 async function main() {
-  const evidenceDir = process.argv[2] || './docs/pro-se-platform/evidence';
+  const evidenceDir = process.argv[2] || './docs/pro-se-platform/evidence-raw';
+  const outputDir = process.argv[3] || './docs/pro-se-platform/evidence';
 
   console.log('🏛️  Pro Se Evidence Processor - Castillo v. Schwab & Sedgwick');
   console.log('=' .repeat(70));
   console.log(`Processing directory: ${evidenceDir}\n`);
+
+  // Ensure output directory exists
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
 
   const processor = new EvidenceProcessor({
     prefix: 'CAST',
@@ -347,7 +353,6 @@ async function main() {
   console.log(`   Bates Range: ${stats.batesRange.first} → ${stats.batesRange.last}`);
 
   // Export catalogs
-  const outputDir = './docs/pro-se-platform/evidence';
   processor.exportCatalog(path.join(outputDir, 'catalog.json'));
   processor.exportMarkdownCatalog(path.join(outputDir, 'BATES-CATALOG.md'));
 

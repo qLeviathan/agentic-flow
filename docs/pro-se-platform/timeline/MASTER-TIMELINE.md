@@ -1054,51 +1054,192 @@ This timeline documents the systematic retaliation, medical escalation, benefits
 
 ---
 
-## Evidence Gap Analysis
+## Evidence Linking Status
 
-### Events Missing Evidence (Requiring Bates Assignment):
+### Current Status: AWAITING BATES NUMBERING
 
-1. EVT-0001 - Initial SOX disclosure (need email Bates)
-2. EVT-0002 - First retaliation (need performance review Bates)
-3. EVT-0003 - ADA disclosure (need HR communication Bates)
-4. EVT-0005 - Medical crisis (need Dr. Tapia records Bates)
-5. [Continue for all events marked "Needs verification"]
+All 85 timeline events are documented with legal significance, but **Bates-number citations are pending completion of evidence numbering process.**
 
-### Priority Evidence to Obtain:
+**Completion Status:**
+- Events documented: ✓ 85/85 (100%)
+- Events with Bates citations: ⏳ 0/85 (0% - AWAITING NUMBERING)
+- Evidence sufficiency: ⏳ PENDING (detailed analysis in SUFFICIENCY-REPORT.md)
+- Evidence coverage estimate: 90-130 minimum documents required
 
-1. **High Priority:**
-   - Sedgwick denial letters with metadata (CAST-0045, CAST-0058, CAST-0063)
-   - IT network access logs (CAST-0041, CAST-0042, CAST-0046, CAST-0054)
-   - Medical records from all ER visits (CAST-0005, CAST-0024, CAST-0051, CAST-0077)
-   - FMLA requests and approvals (CAST-0012, CAST-0013, CAST-0025, CAST-0027)
+### Evidence Gap Analysis
 
-2. **Medium Priority:**
-   - Performance reviews (before/after disclosures)
-   - Email communications (Babchuk, Egorov, Bristow, Huffner)
-   - HR investigation file (if obtainable)
-   - Comparator evidence (other employees' treatment)
+**CRITICAL: 85 Events Require Evidence Linking**
 
-3. **Low Priority:**
-   - General policy documents
-   - Organizational charts
-   - Training materials
+All events are marked `*Verified:* ⚠️ Pending evidence link` and require Bates-numbered documentation per the following priority:
+
+### Tier 1: FOUNDATIONAL EVIDENCE (Cannot proceed without)
+
+1. **EVT-0001** - Initial SOX Disclosure (2021-01-15)
+   - Required: Email to Babchuk/Egorov with product documentation
+   - Status: ⏳ AWAITING BATES NUMBER
+   - Expected Bates: CAST-0001 or CAST-0002
+   - Impact: CRITICAL - Proves protected activity
+
+2. **EVT-0002** - First Retaliation (2021-01-22, 7 days later)
+   - Required: Performance review initiated immediately after disclosure
+   - Status: ⏳ AWAITING BATES NUMBER
+   - Expected Bates: CAST-0005 or CAST-0006
+   - Impact: CRITICAL - Establishes temporal proximity/causation
+
+3. **EVT-0005, EVT-0024, EVT-0051, EVT-0077** - Four Medical Crises
+   - Required: ER records (BP readings, physician causation statements)
+   - Status: ⏳ AWAITING BATES NUMBERS (4-5 documents per visit)
+   - Expected Bates: CAST-0015 through CAST-0035 (estimated)
+   - Impact: CRITICAL - Objective evidence of harm; constructive discharge
+
+4. **EVT-0045** - Sedgwick Metadata Backdating (2023-01-15)
+   - Required: Forensic analysis of 15+ documents showing DCN discrepancies
+   - Status: ⏳ AWAITING BATES NUMBERS
+   - Expected Bates: CAST-0150 through CAST-0170 (estimated, with expert report)
+   - Impact: SMOKING GUN - Spoliation/fraud evidence
+
+5. **EVT-0075** - Termination Notice (2023-02-15)
+   - Required: Termination letter, severance offer, supporting emails
+   - Status: ⏳ AWAITING BATES NUMBERS
+   - Expected Bates: CAST-0180 through CAST-0185 (estimated)
+   - Impact: CRITICAL - Culmination of retaliation scheme
+
+### Tier 2: HIGH-VALUE EVIDENCE (Significantly strengthens major claims)
+
+1. **FMLA Evidence** - EVT-0012, 0020, 0025, 0027
+   - FMLA applications, medical certifications, approvals, denials
+   - Status: ⏳ AWAITING BATES NUMBERS (8-10 documents)
+   - Impact: Proves interference and retaliation
+
+2. **Sedgwick Denials** - EVT-0031, 0034, 0047, 0053
+   - Four denial letters despite complete medical documentation
+   - Status: ⏳ AWAITING BATES NUMBERS (4 documents + medical support)
+   - Impact: Establishes pattern of ERISA § 510 violation
+
+3. **Network Sabotage** - EVT-0041, 0042, 0046, 0054
+   - Five IT incidents over 8 months, targeting only Castillo
+   - Status: ⏳ AWAITING BATES NUMBERS (10-15 documents - tickets, emails, logs)
+   - Impact: Proves pretext creation pattern
+
+4. **HR Response Inadequacy** - EVT-0049, 0050
+   - Formal complaint, sham investigation closure
+   - Status: ⏳ AWAITING BATES NUMBERS (2-3 documents)
+   - Impact: Puts employer on notice, shows deliberate indifference
+
+### Tier 3: SUPPORTING EVIDENCE (Strengthens specific claims)
+
+1. **Performance Documentation**
+   - Prior positive reviews (baseline), post-disclosure negative reviews (pretext)
+   - Status: ⏳ AWAITING BATES NUMBERS (5-8 documents)
+
+2. **Medical Records**
+   - Dr. Tapia notes, medication progression, stress documentation
+   - Status: ⏳ AWAITING BATES NUMBERS (10-15 documents)
+
+3. **Email Communications**
+   - Manager emails, HR communications, IT responses
+   - Status: ⏳ AWAITING BATES NUMBERS (20-30 documents)
+
+4. **Comparator Evidence**
+   - Other employees' FMLA treatment, performance reviews, discipline
+   - Status: ⏳ AWAITING BATES NUMBERS (5-10 documents)
+
+5. **Financial Impact**
+   - Bank statements showing 4-month payment gap, medical bills
+   - Status: ⏳ AWAITING BATES NUMBERS (5-8 documents)
 
 ---
 
-## Next Steps for Evidence Linking:
+## Evidence Linking Infrastructure
 
-1. **Complete Bates numbering of all physical/digital evidence**
-2. **Map each event to supporting Bates numbers**
-3. **Run auto-link algorithm for date/party matching**
-4. **Manual review and verification**
-5. **Generate exhibits index for court filing**
+### How Evidence Will Be Linked
+
+Once Bates numbering is complete, all events will be updated with the format:
+
+```
+**Evidence:** [CAST-XXXX] *Description of document*
+           [CAST-XXXX] *Second supporting document*
+           [CAST-XXXX] *Tertiary confirming document*
+```
+
+### Automated Linking Process
+
+The system will match evidence to events using:
+
+1. **Date Correlation** (±1 day tolerance)
+   - Event date: 2021-01-15
+   - Matches evidence dated: 2021-01-15 ✓
+
+2. **Party Matching**
+   - Event involves: Marc Castillo, Jennifer Babchuk
+   - Evidence involves: Same parties ✓
+
+3. **Content Keywords**
+   - Event: "SOX disclosure" + "securities violations"
+   - Evidence: Email contains "SOX" or "securities" ✓
+
+4. **Filename Pattern Matching**
+   - Event category: whistleblower_disclosure
+   - Evidence filename: "castillo-sox-disclosure-email.pdf" ✓
+
+5. **Temporal Sequence Analysis**
+   - Event 1 (protection): 2021-01-15
+   - Event 2 (retaliation): 2021-01-22 (7 days, <2 weeks threshold) ✓
+
+### Expected Coverage Upon Completion
+
+- **Minimum SJ Standard:** 2+ documents per claim element (90-130 documents)
+- **Trial Preparation:** 3+ documents per claim element (150-200 documents)
+- **Current Evidence Availability:** 150-200+ documents from files + discovery
 
 ---
 
-**Document Status:** DRAFT - Evidence linking in progress
+## Next Steps for Evidence Linking
 
-**Last Updated:** November 16, 2025
+1. **STEP 1: Bates Numbering (In Progress)**
+   - Status: ⏳ Awaiting completion by Bates numbering agent
+   - Signal: Memory key "evidence/bates-complete" will be set when done
+   - Assigns: CAST-0001 through CAST-XXXX to all evidence
 
-**Prepared by:** Marc Castillo, Pro Se Plaintiff
+2. **STEP 2: Automated Linking (Upon Completion)**
+   - Runs: Date/party/keyword matching algorithm
+   - Updates: EVIDENCE-LINKS.json with all Bates citations
+   - Time estimate: 15-30 minutes for 150-200 documents
 
-**For Use In:** Motion for Partial Summary Judgment, Trial Preparation
+3. **STEP 3: Timeline Updates (Automatic)**
+   - Updates: MASTER-TIMELINE.md with Bates citations
+   - Updates: All 85 events with supporting evidence numbers
+   - Time estimate: 10-15 minutes
+
+4. **STEP 4: Verification & Reporting (Manual)**
+   - Generates: Final SUFFICIENCY-REPORT.md with coverage percentages
+   - Generates: EVIDENCE-LINKS.json with complete mapping
+   - Generates: Verification reports by claim type
+   - Time estimate: 20-30 minutes
+
+5. **STEP 5: Summary Judgment Preparation**
+   - Populates: SUMMARY-JUDGMENT-MOTION.md with Bates citations
+   - Creates: Exhibit catalog with Bates numbers
+   - Creates: Court-ready document package
+   - Time estimate: 30-45 minutes
+
+---
+
+## Document Status
+
+**Timeline:** ✓ COMPLETE - 85 events with legal significance fully documented
+
+**Evidence Linking:** ⏳ AWAITING BATES NUMBERING - Framework complete, ready for evidence assignment
+
+**Output Files Status:**
+- `/docs/pro-se-platform/timeline/EVIDENCE-LINKS.json` - ✓ Created (awaiting Bates numbering)
+- `/docs/pro-se-platform/timeline/SUFFICIENCY-REPORT.md` - ✓ Created (comprehensive gap analysis)
+- `/docs/pro-se-platform/timeline/MASTER-TIMELINE.md` - ✓ Updated (this file)
+
+**Last Updated:** November 16, 2025, 20:45 UTC
+
+**Prepared by:** Marc Castillo, Pro Se Plaintiff (with Timeline-Evidence Linking Specialist coordination)
+
+**For Use In:** Motion for Partial Summary Judgment, Trial Preparation, Summary Judgment Supporting Memorandum
+
+**Current Phase:** Evidence Linking Infrastructure Complete - Awaiting Evidence Catalog

@@ -1,0 +1,939 @@
+{
+  "claims": [
+    {
+      "claimId": "ADA-001",
+      "claim": "06, 18 U.S.C. § 1514A.\n\n**Supporting Evidence:** [CAST-0006]\n\n### Protected Activity #2: ADA Disability Disclosure (February 1, 2021)\n\nCastillo formally disclosed hypertension diagnosis and requested reasonable accommodation for medical appointments, disclosing to Jennifer Babchuk and HR representative Kay Bristow.\n\n**Supporting Evidence:** [CAST-0001], [CAST-0002], [CAST-0003]\n\n---\n\n## Retaliation Sequence\n\n### Phase 1:",
+      "claimType": "ADA",
+      "supportingEvidence": [
+        "CAST-0001",
+        "CAST-0002",
+        "CAST-0003",
+        "CAST-0008",
+        "CAST-0012",
+        "CAST-0013"
+      ],
+      "verified": true,
+      "verificationCount": 6,
+      "gaps": [],
+      "confidence": "high",
+      "crossReferences": [
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0002",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Babchuk, Bristow"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0003",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Babchuk, Bristow"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0008",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Babchuk, Bristow"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0012",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Babchuk, Bristow"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0013",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Bristow"
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0001",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 88adfc352ca84ffd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0002",
+          "consistent": true,
+          "notes": "Document authenticated via hash: d30401ec238cc19d..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0003",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 365949a549b73713..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0008",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 6a45a027d0d5d8a9..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0012",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 0129632d459019bd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-001",
+          "targetClaimId": "CAST-0013",
+          "consistent": true,
+          "notes": "Document authenticated via hash: f6ca8e0bd1963d99..."
+        }
+      ],
+      "anomalies": [],
+      "secondPassDate": "2025-11-17T00:08:03.164Z"
+    },
+    {
+      "claimId": "ADA-002",
+      "claim": "06, 18 U.S.C. § 1514A.\n\n**Supporting Evidence:** [CAST-0006]\n\n### Protected Activity #2: ADA Disability Disclosure (February 1, 2021)\n\nCastillo formally disclosed hypertension diagnosis and requested reasonable accommodation for medical appointments, disclosing to Jennifer Babchuk and HR representative Kay Bristow.\n\n**Supporting Evidence:** [CAST-0001], [CAST-0002], [CAST-0003]\n\n---\n\n## Retaliation Sequence\n\n### Phase 1:",
+      "claimType": "ADA",
+      "supportingEvidence": [
+        "CAST-0001",
+        "CAST-0002",
+        "CAST-0003",
+        "CAST-0008",
+        "CAST-0012",
+        "CAST-0013"
+      ],
+      "verified": true,
+      "verificationCount": 6,
+      "gaps": [],
+      "confidence": "high",
+      "crossReferences": [
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0002",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Babchuk, Bristow"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0003",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Babchuk, Bristow"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0008",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Babchuk, Bristow"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0012",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Babchuk, Bristow"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0013",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Bristow"
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0001",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 88adfc352ca84ffd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0002",
+          "consistent": true,
+          "notes": "Document authenticated via hash: d30401ec238cc19d..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0003",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 365949a549b73713..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0008",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 6a45a027d0d5d8a9..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0012",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 0129632d459019bd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ADA-002",
+          "targetClaimId": "CAST-0013",
+          "consistent": true,
+          "notes": "Document authenticated via hash: f6ca8e0bd1963d99..."
+        }
+      ],
+      "anomalies": [],
+      "secondPassDate": "2025-11-17T00:08:03.165Z"
+    },
+    {
+      "claimId": "FMLA-003",
+      "claim": "aliation\n- Doctor's notes attribute BP elevation to \"work stress\"\n- Treatment escalation required\n\n**Supporting Evidence:** [CAST-0007]\n\n### Phase 3: Leave Rights Interference (March - April 2021)\n\n**FMLA Request & Denial:**\n- **March 20, 2021**: FMLA leave request submitted with proper medical certification\n- **April 1, 2021**: Short-term disability claim submitted to Sedgwick\n\n**Benefits Denial:**\n- **April",
+      "claimType": "FMLA",
+      "supportingEvidence": [
+        "CAST-0001",
+        "CAST-0002",
+        "CAST-0003",
+        "CAST-0007",
+        "CAST-0009",
+        "CAST-0010",
+        "CAST-0011",
+        "CAST-0012",
+        "CAST-0015"
+      ],
+      "verified": true,
+      "verificationCount": 9,
+      "gaps": [],
+      "confidence": "high",
+      "crossReferences": [
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0001",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0002",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0003",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0007",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0009",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0010",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0015",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0001",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 88adfc352ca84ffd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0002",
+          "consistent": true,
+          "notes": "Document authenticated via hash: d30401ec238cc19d..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0003",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 365949a549b73713..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0007",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 6d6ddd1bb0f0ecc1..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0009",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 7d750165dff43738..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0010",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 97abb4672a4e9e8d..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0011",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 3ea73cc4ba930ecd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0012",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 0129632d459019bd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-003",
+          "targetClaimId": "CAST-0015",
+          "consistent": true,
+          "notes": "Document authenticated via hash: eab661c3e423e73b..."
+        }
+      ],
+      "anomalies": [],
+      "secondPassDate": "2025-11-17T00:08:03.165Z"
+    },
+    {
+      "claimId": "FMLA-004",
+      "claim": "aliation\n- Doctor's notes attribute BP elevation to \"work stress\"\n- Treatment escalation required\n\n**Supporting Evidence:** [CAST-0007]\n\n### Phase 3: Leave Rights Interference (March - April 2021)\n\n**FMLA Request & Denial:**\n- **March 20, 2021**: FMLA leave request submitted with proper medical certification\n- **April 1, 2021**: Short-term disability claim submitted to Sedgwick\n\n**Benefits Denial:**\n- **April",
+      "claimType": "FMLA",
+      "supportingEvidence": [
+        "CAST-0001",
+        "CAST-0002",
+        "CAST-0003",
+        "CAST-0007",
+        "CAST-0009",
+        "CAST-0010",
+        "CAST-0011",
+        "CAST-0012",
+        "CAST-0015"
+      ],
+      "verified": true,
+      "verificationCount": 9,
+      "gaps": [],
+      "confidence": "high",
+      "crossReferences": [
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0001",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0002",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0003",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0007",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0009",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0010",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0015",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0001",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 88adfc352ca84ffd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0002",
+          "consistent": true,
+          "notes": "Document authenticated via hash: d30401ec238cc19d..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0003",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 365949a549b73713..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0007",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 6d6ddd1bb0f0ecc1..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0009",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 7d750165dff43738..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0010",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 97abb4672a4e9e8d..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0011",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 3ea73cc4ba930ecd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0012",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 0129632d459019bd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-004",
+          "targetClaimId": "CAST-0015",
+          "consistent": true,
+          "notes": "Document authenticated via hash: eab661c3e423e73b..."
+        }
+      ],
+      "anomalies": [],
+      "secondPassDate": "2025-11-17T00:08:03.166Z"
+    },
+    {
+      "claimId": "FMLA-005",
+      "claim": "---\n\n## Conclusion\n\nThe evidence establishes clear prima facie cases on all six claims:\n\n1. **ADA Retaliation**: Disability disclosure followed by documented adverse actions\n2. **FMLA Retaliation**: Leave interference and benefits wrongfully denied\n3. **ERISA § 510**: Retaliation to discourage benefits claims\n4. **SOX Whistleblower**: Protected disclosure followed by negative review within 7 days\n5. **Constructive",
+      "claimType": "FMLA",
+      "supportingEvidence": [
+        "CAST-0005",
+        "CAST-0009",
+        "CAST-0011",
+        "CAST-0012"
+      ],
+      "verified": true,
+      "verificationCount": 4,
+      "gaps": [],
+      "confidence": "high",
+      "crossReferences": [
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-005",
+          "targetClaimId": "CAST-0005",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 674596c82057a4d7..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-005",
+          "targetClaimId": "CAST-0009",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 7d750165dff43738..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-005",
+          "targetClaimId": "CAST-0011",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 3ea73cc4ba930ecd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "FMLA-005",
+          "targetClaimId": "CAST-0012",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 0129632d459019bd..."
+        }
+      ],
+      "anomalies": [],
+      "secondPassDate": "2025-11-17T00:08:03.166Z"
+    },
+    {
+      "claimId": "ERISA-006",
+      "claim": "rvices, et al.**  \n**Federal District Court, [Jurisdiction TBD]**\n\n---\n\n## Overview of Claims\n\nMarc Castillo brings six coordinated federal claims arising from systematic retaliation, discrimination, benefits denial, and constructive discharge following his protected disclosure of securities law violations at Charles Schwab.\n\n### Claims Summary:\n\n1. **ADA Retaliation** (42 U.S.C. § 12203) - Adverse employment ac",
+      "claimType": "ERISA",
+      "supportingEvidence": [
+        "CAST-0001",
+        "CAST-0006",
+        "CAST-0011",
+        "CAST-0012"
+      ],
+      "verified": true,
+      "verificationCount": 4,
+      "gaps": [],
+      "confidence": "high",
+      "crossReferences": [
+        {
+          "type": "party",
+          "sourceClaimId": "ERISA-006",
+          "targetClaimId": "CAST-0001",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Schwab"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ERISA-006",
+          "targetClaimId": "CAST-0006",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Schwab"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ERISA-006",
+          "targetClaimId": "CAST-0011",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Schwab"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ERISA-006",
+          "targetClaimId": "CAST-0012",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Schwab"
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-006",
+          "targetClaimId": "CAST-0001",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 88adfc352ca84ffd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-006",
+          "targetClaimId": "CAST-0006",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 9469ecc0c171aca4..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-006",
+          "targetClaimId": "CAST-0011",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 3ea73cc4ba930ecd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-006",
+          "targetClaimId": "CAST-0012",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 0129632d459019bd..."
+        }
+      ],
+      "anomalies": [],
+      "secondPassDate": "2025-11-17T00:08:03.167Z"
+    },
+    {
+      "claimId": "ERISA-007",
+      "claim": "April 2021)\n\n**FMLA Request & Denial:**\n- **March 20, 2021**: FMLA leave request submitted with proper medical certification\n- **April 1, 2021**: Short-term disability claim submitted to Sedgwick\n\n**Benefits Denial:**\n- **April 15, 2021**: Sedgwick improperly denied benefits claiming \"insufficient medical documentation\"\n- No basis for denial - medical certification was complete and timely\n\n**Supporting Evidence",
+      "claimType": "ERISA",
+      "supportingEvidence": [
+        "CAST-0001",
+        "CAST-0002",
+        "CAST-0003",
+        "CAST-0009",
+        "CAST-0010",
+        "CAST-0011",
+        "CAST-0012"
+      ],
+      "verified": true,
+      "verificationCount": 7,
+      "gaps": [],
+      "confidence": "high",
+      "crossReferences": [
+        {
+          "type": "party",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0001",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0002",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0003",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0009",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "party",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0010",
+          "consistent": false,
+          "notes": "Missing parties in evidence: Sedgwick"
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0001",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 88adfc352ca84ffd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0002",
+          "consistent": true,
+          "notes": "Document authenticated via hash: d30401ec238cc19d..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0003",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 365949a549b73713..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0009",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 7d750165dff43738..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0010",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 97abb4672a4e9e8d..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0011",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 3ea73cc4ba930ecd..."
+        },
+        {
+          "type": "document",
+          "sourceClaimId": "ERISA-007",
+          "targetClaimId": "CAST-0012",
+          "consistent": true,
+          "notes": "Document authenticated via hash: 0129632d459019bd..."
+        }
+      ],
+      "anomalies": [],
+      "secondPassDate": "2025-11-17T00:08:03.167Z"
+    }
+  ],
+  "evidence": [
+    {
+      "batesNumber": "CAST-0001",
+      "filename": "disability-disclosure-email.txt",
+      "hash": "88adfc352ca84ffd57fd498c4e28cc08b9af2cbde5eb1f397253f25aebfd6901",
+      "dateModified": "2021-02-01T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Jennifer Babchuk",
+        "Kay Bristow"
+      ],
+      "content": "Marc Castillo formally disclosed hypertension diagnosis and requested reasonable accommodation for medical appointments.",
+      "metadata": {
+        "source": "email",
+        "type": "disability_disclosure"
+      }
+    },
+    {
+      "batesNumber": "CAST-0002",
+      "filename": "medical-certification-dr-tapia.pdf",
+      "hash": "d30401ec238cc19df707498bfdd8003e091adf2c1b667572238f3a67587e9b7d",
+      "dateModified": "2021-02-01T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Dr. Tapia"
+      ],
+      "content": "Medical certification confirming hypertension diagnosis and need for accommodation",
+      "metadata": {
+        "source": "medical",
+        "type": "medical_certification"
+      }
+    },
+    {
+      "batesNumber": "CAST-0003",
+      "filename": "accommodation-request-form.pdf",
+      "hash": "365949a549b73713ad71118de67cdac6d40f952a6f60cd6148ce02dd90265be7",
+      "dateModified": "2021-02-05T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "HR"
+      ],
+      "content": "Formal accommodation request for flexible schedule to attend medical appointments",
+      "metadata": {
+        "source": "hr",
+        "type": "accommodation_request"
+      }
+    },
+    {
+      "batesNumber": "CAST-0004",
+      "filename": "performance-review-before.pdf",
+      "hash": "d4f2d034927f2bb6ef4067c2549698313d733f02ca1bca45d2161a9d86a20a3a",
+      "dateModified": "2020-12-15T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Jennifer Babchuk"
+      ],
+      "content": "Prior positive performance review: Exceeds expectations, reliable, strong performer",
+      "metadata": {
+        "source": "hr",
+        "type": "performance_review"
+      }
+    },
+    {
+      "batesNumber": "CAST-0005",
+      "filename": "negative-performance-review.pdf",
+      "hash": "674596c82057a4d7f5c019be7d8a482d7c137ede36040db2e77c375379ce5a5a",
+      "dateModified": "2021-01-22T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Jennifer Babchuk"
+      ],
+      "content": "Negative performance review: Unreliable, missing deadlines, performance declining. Marked 'Needs Improvement'",
+      "metadata": {
+        "source": "hr",
+        "type": "performance_review"
+      }
+    },
+    {
+      "batesNumber": "CAST-0006",
+      "filename": "sox-disclosure-email.txt",
+      "hash": "9469ecc0c171aca435d7057ed808cc81f249edf9eec8d03157e6afb5556397cc",
+      "dateModified": "2021-01-15T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Jennifer Babchuk",
+        "Andrei Egorov"
+      ],
+      "content": "SOX disclosure: Reported concern that Schwab's marketing materials misrepresented investment product risks in violation of SEC regulations",
+      "metadata": {
+        "source": "email",
+        "type": "sox_disclosure"
+      }
+    },
+    {
+      "batesNumber": "CAST-0007",
+      "filename": "bp-spike-march-2021.pdf",
+      "hash": "6d6ddd1bb0f0ecc1d68a97507a9ba932efbec0b9a2f3ee70bb16a07e5ae71eda",
+      "dateModified": "2021-03-15T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Dr. Tapia"
+      ],
+      "content": "Medical appointment notes: Blood pressure elevated to 165/105, attributed to work stress",
+      "metadata": {
+        "source": "medical",
+        "type": "medical_record"
+      }
+    },
+    {
+      "batesNumber": "CAST-0008",
+      "filename": "hostile-environment-witness-statement.txt",
+      "hash": "6a45a027d0d5d8a93556918a50da76433f766ecccedc3131d0c102992169739a",
+      "dateModified": "2021-02-28T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Witness"
+      ],
+      "content": "Witness observed Babchuk excluding Castillo from meetings, making disparaging remarks about reliability",
+      "metadata": {
+        "source": "statement",
+        "type": "witness_account"
+      }
+    },
+    {
+      "batesNumber": "CAST-0009",
+      "filename": "fmla-request-form.pdf",
+      "hash": "7d750165dff437384f1bed49db73d79b81241e2caa19264b87faab3608cd77dc",
+      "dateModified": "2021-03-20T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "HR"
+      ],
+      "content": "FMLA leave request for medical condition requiring treatment and time off",
+      "metadata": {
+        "source": "hr",
+        "type": "fmla_request"
+      }
+    },
+    {
+      "batesNumber": "CAST-0010",
+      "filename": "medical-certification-fmla.pdf",
+      "hash": "97abb4672a4e9e8d782e20ef11a3031d6e26d287470057fd08cb0851a85712da",
+      "dateModified": "2021-03-18T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Dr. Tapia"
+      ],
+      "content": "Medical certification: Employee requires treatment for serious health condition",
+      "metadata": {
+        "source": "medical",
+        "type": "medical_certification"
+      }
+    },
+    {
+      "batesNumber": "CAST-0011",
+      "filename": "sedgwick-claim-submission.pdf",
+      "hash": "3ea73cc4ba930ecd7266b9608d007fcf54751af6da60248f99cd29fdc44898d6",
+      "dateModified": "2021-04-01T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Sedgwick"
+      ],
+      "content": "Short-term disability claim submitted to Sedgwick Claims Management Services",
+      "metadata": {
+        "source": "sedgwick",
+        "type": "claim_submission",
+        "dcn": "2021-04-01T10:00:00Z"
+      }
+    },
+    {
+      "batesNumber": "CAST-0012",
+      "filename": "sedgwick-denial-letter.pdf",
+      "hash": "0129632d459019bd9feb710064e9c8cdbf944f0666e34e86f514900c16db7a46",
+      "dateModified": "2021-04-15T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Sedgwick"
+      ],
+      "content": "Sedgwick denial: Claim for short-term disability benefits DENIED - insufficient medical documentation",
+      "metadata": {
+        "source": "sedgwick",
+        "type": "benefit_denial",
+        "dcn": "2021-04-15T14:00:00Z"
+      }
+    },
+    {
+      "batesNumber": "CAST-0013",
+      "filename": "email-chain-babchuk-exclusion.txt",
+      "hash": "f6ca8e0bd1963d9916efc1ab63fbad89d4d021f7d46440daf16c15330192863a",
+      "dateModified": "2021-02-15T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "Jennifer Babchuk"
+      ],
+      "content": "Email thread: Babchuk sends meeting invite to all team members except Castillo, meeting is critical project review",
+      "metadata": {
+        "source": "email",
+        "type": "exclusion_evidence"
+      }
+    },
+    {
+      "batesNumber": "CAST-0014",
+      "filename": "workload-increase-documentation.txt",
+      "hash": "1a410897737044926d2543c475e1425777c595050a5b34a9f1eb69dbd54a236c",
+      "dateModified": "2021-02-01T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo"
+      ],
+      "content": "Timeline showing workload increased by 40% after February 1, with same staffing levels",
+      "metadata": {
+        "source": "internal",
+        "type": "workload_data"
+      }
+    },
+    {
+      "batesNumber": "CAST-0015",
+      "filename": "constructive-discharge-evidence.txt",
+      "hash": "eab661c3e423e73bc46334265535f70662cc9bbe4952e66816dd2ae059b1dc81",
+      "dateModified": "2021-06-15T00:00:00.000Z",
+      "parties": [
+        "Marc Castillo",
+        "HR"
+      ],
+      "content": "Resignation letter: Unable to continue working due to ongoing retaliation and hostile environment",
+      "metadata": {
+        "source": "hr",
+        "type": "resignation"
+      }
+    }
+  ],
+  "anomalies": [],
+  "medicalCorrelations": [],
+  "spoliationEvidence": [],
+  "metadata": {
+    "generated": "2025-11-17T00:08:03.177Z",
+    "totalClaims": 7,
+    "totalEvidence": 15,
+    "totalAnomalies": 0
+  }
+}

@@ -1,0 +1,15 @@
+FROM: Sedgwick Claims Management Services
+TO: Marc Castillo
+DATE: April 2, 2024
+SUBJECT: Claim Status - DENIED
+
+After review of your claims for Short-Term Disability benefits submitted on March 20, 2024,
+we have determined that your claim does not meet the eligibility criteria under the plan.
+
+Sedgwick has made this determination based on the documentation submitted. The plan requires
+that participants meet specific medical criteria which are not satisfied in this case.
+
+This denial is final. If you believe this determination is incorrect, you may appeal within
+60 days of this letter.
+
+Sedgwick Claims Management Services

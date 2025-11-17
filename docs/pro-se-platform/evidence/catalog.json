@@ -1,0 +1,177 @@
+[
+  {
+    "batesNumber": "CAST-0001",
+    "originalPath": "babchuk-email-response.txt",
+    "filename": "babchuk-email-response.txt",
+    "fileType": ".txt",
+    "dateCreated": "1970-01-01T00:00:00.000Z",
+    "dateModified": "2025-11-17T00:07:08.623Z",
+    "hash": "7a5f2d94e5ed108fb5ea30b06e7be53fbed6b3df3484f12a31126e6530b949e2",
+    "size": 474,
+    "parties": [
+      "Babchuk",
+      "Marc Castillo",
+      "Castillo",
+      "Jennifer Babchuk",
+      "Sara Fowler",
+      "Fowler"
+    ],
+    "content": "From: Jennifer Babchuk <jbabchuk@example.com>\nTo: Marc Castillo <castillo@example.com>\nDate: March 20, 2024\nSubject: Re: Accommodation Request\n\nMarc,\n\nI have reviewed your accommodation request with H...",
+    "metadata": {
+      "processed": "2025-11-17T00:08:24.447Z",
+      "sourceFolder": "."
+    }
+  },
+  {
+    "batesNumber": "CAST-0002",
+    "originalPath": "disability-medical-documentation.txt",
+    "filename": "disability-medical-documentation.txt",
+    "fileType": ".txt",
+    "dateCreated": "1970-01-01T00:00:00.000Z",
+    "dateModified": "2025-11-17T00:07:08.636Z",
+    "hash": "afab639bed1ad48f5a76695cf15114df4dca3d4984ba14f74a1705353246d16f",
+    "size": 485,
+    "parties": [
+      "Marc Castillo",
+      "Castillo",
+      "Andrei Egorov",
+      "Egorov"
+    ],
+    "content": "MEDICAL DOCUMENTATION\nPatient: Marc Castillo\nPhysician: Dr. Andrei Egorov\nDate: February 2024\n\nDIAGNOSIS: Chronic condition requiring workplace accommodation\nRESTRICTIONS: Must have flexible schedule ...",
+    "metadata": {
+      "processed": "2025-11-17T00:08:24.450Z",
+      "sourceFolder": "."
+    }
+  },
+  {
+    "batesNumber": "CAST-0003",
+    "originalPath": "eeoc-charge-narrative.txt",
+    "filename": "eeoc-charge-narrative.txt",
+    "fileType": ".txt",
+    "dateCreated": "1970-01-01T00:00:00.000Z",
+    "dateModified": "2025-11-17T00:07:08.611Z",
+    "hash": "4af841936e1d58322f68617a64f92d7e4870cca54e3b96b4e1dd32748d662110",
+    "size": 944,
+    "parties": [
+      "EEOC",
+      "Marc Castillo",
+      "Castillo",
+      "Sedgwick",
+      "Schwab",
+      "Charles Schwab"
+    ],
+    "content": "EEOC CHARGE NARRATIVE\nCase: Castillo v. Charles Schwab & Sedgwick Claims Management Services\nCharging Party: Marc Castillo\n\nALLEGATIONS OF DISCRIMINATION AND RETALIATION:\n\nI am filing this charge to f...",
+    "metadata": {
+      "processed": "2025-11-17T00:08:24.451Z",
+      "sourceFolder": "."
+    }
+  },
+  {
+    "batesNumber": "CAST-0004",
+    "originalPath": "email-castillo-march-2024.txt",
+    "filename": "email-castillo-march-2024.txt",
+    "fileType": ".txt",
+    "dateCreated": "1970-01-01T00:00:00.000Z",
+    "dateModified": "2025-11-17T00:07:08.576Z",
+    "hash": "49369a99e9d48c41646ac7068fb18fd5c82c0b5e1fb8b7756341954475f86fbe",
+    "size": 593,
+    "parties": [
+      "Castillo",
+      "Marc Castillo",
+      "Jennifer Babchuk",
+      "Babchuk",
+      "Schwab"
+    ],
+    "content": "From: Marc Castillo <castillo@example.com>\nTo: Jennifer Babchuk <jbabchuk@example.com>\nDate: March 15, 2024\nSubject: Request for Accommodation\n\nJennifer,\n\nI am writing to formally request a reasonable...",
+    "metadata": {
+      "processed": "2025-11-17T00:08:24.452Z",
+      "sourceFolder": "."
+    }
+  },
+  {
+    "batesNumber": "CAST-0005",
+    "originalPath": "fmla-interference-memo.txt",
+    "filename": "fmla-interference-memo.txt",
+    "fileType": ".txt",
+    "dateCreated": "1970-01-01T00:00:00.000Z",
+    "dateModified": "2025-11-17T00:07:08.600Z",
+    "hash": "534f409737ac6a6b8dcdbbf169252f2e0a2b16cb2c4cab4388047060e18b8c21",
+    "size": 498,
+    "parties": [
+      "Marc Castillo",
+      "Castillo",
+      "Sara Fowler",
+      "Fowler"
+    ],
+    "content": "INTERNAL MEMORANDUM\nTO: File\nFROM: Sara Fowler, HR Department\nDATE: May 10, 2024\nRE: Employee Performance Issue - Marc Castillo\n\nDuring today's discussion with Marc Castillo regarding his approved FML...",
+    "metadata": {
+      "processed": "2025-11-17T00:08:24.453Z",
+      "sourceFolder": "."
+    }
+  },
+  {
+    "batesNumber": "CAST-0006",
+    "originalPath": "schwab-company-policy.txt",
+    "filename": "schwab-company-policy.txt",
+    "fileType": ".txt",
+    "dateCreated": "1970-01-01T00:00:00.000Z",
+    "dateModified": "2025-11-17T00:07:08.653Z",
+    "hash": "61d5f651be1cf52c5e6d07dd23294262676ccc69eb11a230a0cf1ff33285a7db",
+    "size": 578,
+    "parties": [
+      "Schwab",
+      "Charles Schwab"
+    ],
+    "content": "CHARLES SCHWAB - EMPLOYMENT POLICIES\nSection 4.5: Disability Accommodations\n\nCharles Schwab is committed to providing reasonable accommodations to employees\nwith disabilities as required by the Americ...",
+    "metadata": {
+      "processed": "2025-11-17T00:08:24.454Z",
+      "sourceFolder": "."
+    }
+  },
+  {
+    "batesNumber": "CAST-0007",
+    "originalPath": "sedgwick-denial-response-april.txt",
+    "filename": "sedgwick-denial-response-april.txt",
+    "fileType": ".txt",
+    "dateCreated": "1970-01-01T00:00:00.000Z",
+    "dateModified": "2025-11-17T00:07:08.587Z",
+    "hash": "9329dc1efca1c313dd764a64a7e50e8225d24d8ff26dc89127562fcf4a7a6791",
+    "size": 629,
+    "parties": [
+      "Sedgwick",
+      "Marc Castillo",
+      "Castillo"
+    ],
+    "content": "FROM: Sedgwick Claims Management Services\nTO: Marc Castillo\nDATE: April 2, 2024\nSUBJECT: Claim Status - DENIED\n\nAfter review of your claims for Short-Term Disability benefits submitted on March 20, 20...",
+    "metadata": {
+      "processed": "2025-11-17T00:08:24.456Z",
+      "sourceFolder": "."
+    }
+  },
+  {
+    "batesNumber": "CAST-0008",
+    "originalPath": "timeline-of-events.txt",
+    "filename": "timeline-of-events.txt",
+    "fileType": ".txt",
+    "dateCreated": "1970-01-01T00:00:00.000Z",
+    "dateModified": "2025-11-17T00:07:08.670Z",
+    "hash": "2b72c30b90f9cc3c2916f40d93faf37779f0b61ed50e97170cdcc3312cadd52b",
+    "size": 489,
+    "parties": [
+      "Marc Castillo",
+      "Castillo",
+      "Jennifer Babchuk",
+      "Babchuk",
+      "Sedgwick",
+      "Schwab",
+      "Sara Fowler",
+      "Fowler",
+      "EEOC"
+    ],
+    "content": "TIMELINE OF KEY EVENTS\nCastillo v. Schwab & Sedgwick\n\nMarch 15, 2024 - Marc Castillo submits formal accommodation request\nMarch 20, 2024 - Jennifer Babchuk responds indicating HR involvement\nApril 2, ...",
+    "metadata": {
+      "processed": "2025-11-17T00:08:24.457Z",
+      "sourceFolder": "."
+    }
+  }
+]
