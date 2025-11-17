@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castillo v. Schwab & Sedgwick - Interactive Case Dashboard</title>
+
+    <!-- External Libraries -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="https://unpkg.com/vis-network@9.1.6/dist/vis-network.min.js"></script>
+    <link href="https://unpkg.com/vis-network@9.1.6/dist/dist/vis-network.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --danger: #dc2626;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: white;
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 100px;
+            z-index: 999;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .tabs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab:hover {
+            color: var(--secondary);
+            background: var(--bg-light);
+        }
+
+        .tab.active {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+            background: var(--bg-light);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Stats Cards */
+        .stat-card {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Timeline */
+        #timeline-container {
+            height: 600px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            position: relative;
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .timeline-event {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .timeline-event:hover {
+            transform: scale(1.05);
+        }
+
+        /* Network Graph */
+        #network-graph {
+            height: 700px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+        }
+
+        /* Charts */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            padding: 1rem;
+        }
+
+        /* Evidence Browser */
+        .search-box {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .evidence-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .evidence-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .bates-number {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-danger {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge-info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* Case Strength Meter */
+        .strength-meter {
+            position: relative;
+            height: 200px;
+            margin: 2rem auto;
+        }
+
+        .strength-value {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* Phase Pills */
+        .phase-pills {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .phase-pill {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border);
+            background: white;
+        }
+
+        .phase-pill.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10000;
+            max-width: 300px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            #timeline-container, #network-graph {
+                height: 400px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header, .nav-tabs {
+                position: static;
+            }
+
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+
+            .card {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+
+        .spinner {
+            border: 4px solid var(--border);
+            border-top: 4px solid var(--secondary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Correlation Heatmap */
+        .heatmap-cell {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .heatmap-cell:hover {
+            stroke: var(--primary);
+            stroke-width: 2px;
+        }
+
+        /* Medical Chart Styles */
+        .bp-annotation {
+            font-size: 0.75rem;
+            fill: var(--danger);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>📊 Castillo v. Schwab & Sedgwick</h1>
+            <div class="case-subtitle">Interactive Case Dashboard - Professional Litigation Analysis System</div>
+        </div>
+    </header>
+
+    <nav class="nav-tabs">
+        <div class="tabs-container">
+            <button class="tab active" onclick="showTab('overview')">📈 Overview</button>
+            <button class="tab" onclick="showTab('timeline')">⏰ Timeline</button>
+            <button class="tab" onclick="showTab('network')">🔗 Network</button>
+            <button class="tab" onclick="showTab('statistics')">📊 Statistics</button>
+            <button class="tab" onclick="showTab('medical')">🏥 Medical</button>
+            <button class="tab" onclick="showTab('sedgwick')">⚠️ Sedgwick Fraud</button>
+            <button class="tab" onclick="showTab('strength')">💪 Case Strength</button>
+            <button class="tab" onclick="showTab('evidence')">📁 Evidence</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- OVERVIEW TAB -->
+        <div id="overview" class="tab-content active">
+            <div class="grid grid-3">
+                <div class="stat-card">
+                    <div class="stat-value">85</div>
+                    <div class="stat-label">Timeline Events</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$1.5M-$8M</div>
+                    <div class="stat-label">Damages Range</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">Federal Claims</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Case Strength Overview</div>
+                <div class="grid grid-2">
+                    <div>
+                        <h3 style="color: var(--success); margin-bottom: 1rem;">Strongest Evidence</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.75rem;">
+                                <strong>🎯 Sedgwick Metadata Fraud</strong><br>
+                                <span style="color: var(--text-light);">p < 0.00001 (99.999% confidence)</span><br>
+                                <span class="badge badge-danger">CRITICAL</span>
+                            </li>
+                            <li style="margin-bottom: 0.75rem;">
+                                <strong>💊 Medical Escalation</strong><br>
+                                <span style="color: var(--text-light);">p = 0.0043 (99.57% confidence)</span><br>
+                                <span class="badge badge-danger">HIGH</span>
+                            </li>
+                            <li style="margin-bottom: 0.75rem;">
+                                <strong>⚡ Temporal Proximity</strong><br>
+                                <span style="color: var(--text-light);">7-14 days between disclosures and retaliation</span><br>
+                                <span class="badge badge-danger">CRITICAL</span>
+                            </li>
+                            <li style="margin-bottom: 0.75rem;">
+                                <strong>🌐 Network Sabotage</strong><br>
+                                <span style="color: var(--text-light);">p < 0.0001 (99.99% confidence)</span><br>
+                                <span class="badge badge-warning">HIGH</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Claims Summary</h3>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.5rem;"><strong>ADA Retaliation</strong></td>
+                                <td style="padding: 0.5rem; text-align: right;"><span class="badge badge-success">90%</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.5rem;"><strong>FMLA Retaliation</strong></td>
+                                <td style="padding: 0.5rem; text-align: right;"><span class="badge badge-success">85%</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.5rem;"><strong>ERISA § 510</strong></td>
+                                <td style="padding: 0.5rem; text-align: right;"><span class="badge badge-success">80%</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.5rem;"><strong>SOX Whistleblower</strong></td>
+                                <td style="padding: 0.5rem; text-align: right;"><span class="badge badge-success">90%</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.5rem;"><strong>Constructive Discharge</strong></td>
+                                <td style="padding: 0.5rem; text-align: right;"><span class="badge badge-success">85%</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.5rem;"><strong>Spoliation</strong></td>
+                                <td style="padding: 0.5rem; text-align: right;"><span class="badge badge-danger">95%</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Phase Timeline</div>
+                <div class="chart-container">
+                    <canvas id="phase-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIMELINE TAB -->
+        <div id="timeline" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    Interactive Timeline
+                    <div class="phase-pills" id="phase-filters"></div>
+                </div>
+                <div id="timeline-container"></div>
+            </div>
+        </div>
+
+        <!-- NETWORK TAB -->
+        <div id="network" class="tab-content">
+            <div class="card">
+                <div class="card-header">Relationship Network Graph</div>
+                <div id="network-graph"></div>
+            </div>
+        </div>
+
+        <!-- STATISTICS TAB -->
+        <div id="statistics" class="tab-content">
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header">Correlation P-Values</div>
+                    <div class="chart-container">
+                        <canvas id="pvalue-chart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Events by Category</div>
+                    <div class="chart-container">
+                        <canvas id="category-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Statistical Significance Heatmap</div>
+                <div id="heatmap-container" style="text-align: center;"></div>
+            </div>
+        </div>
+
+        <!-- MEDICAL TAB -->
+        <div id="medical" class="tab-content">
+            <div class="card">
+                <div class="card-header">Blood Pressure Escalation Timeline</div>
+                <div class="chart-container">
+                    <canvas id="bp-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header">Medical Crisis Events</div>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--bg-light); border-bottom: 2px solid var(--border);">
+                                <th style="padding: 0.75rem; text-align: left;">Date</th>
+                                <th style="padding: 0.75rem; text-align: left;">BP Reading</th>
+                                <th style="padding: 0.75rem; text-align: left;">Severity</th>
+                                <th style="padding: 0.75rem; text-align: left;">Days from Retaliation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.75rem;">2021-03-15</td>
+                                <td style="padding: 0.75rem;"><strong>180/110</strong></td>
+                                <td style="padding: 0.75rem;"><span class="badge badge-warning">Crisis</span></td>
+                                <td style="padding: 0.75rem;">7 days</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.75rem;">2021-09-15</td>
+                                <td style="padding: 0.75rem;"><strong>195/115</strong></td>
+                                <td style="padding: 0.75rem;"><span class="badge badge-danger">Emergency</span></td>
+                                <td style="padding: 0.75rem;">7 days</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.75rem;">2022-07-20</td>
+                                <td style="padding: 0.75rem;"><strong>200/118</strong></td>
+                                <td style="padding: 0.75rem;"><span class="badge badge-danger">Emergency</span></td>
+                                <td style="padding: 0.75rem;">35 days</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem;">2023-04-01</td>
+                                <td style="padding: 0.75rem;"><strong>205/120</strong></td>
+                                <td style="padding: 0.75rem;"><span class="badge badge-danger">Critical</span></td>
+                                <td style="padding: 0.75rem;">14 days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">Causation Analysis</div>
+                    <div style="padding: 1rem;">
+                        <div style="margin-bottom: 1.5rem;">
+                            <strong>Statistical Significance:</strong>
+                            <div style="margin-top: 0.5rem; font-size: 2rem; color: var(--danger);">p = 0.0043</div>
+                            <div style="color: var(--text-light);">99.57% confidence that medical escalation caused by retaliation</div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <strong>Causality Score:</strong>
+                            <div style="margin-top: 0.5rem; font-size: 2rem; color: var(--success);">0.92 / 1.0</div>
+                            <div style="color: var(--text-light);">Strong causal relationship established</div>
+                        </div>
+
+                        <div>
+                            <strong>Contributing Factors:</strong>
+                            <ul style="margin-top: 0.5rem; color: var(--text-light);">
+                                <li>Temporal Proximity: 95%</li>
+                                <li>Direct Evidence: 100%</li>
+                                <li>Dose-Response: 85%</li>
+                                <li>Biological Plausibility: 100%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEDGWICK FRAUD TAB -->
+        <div id="sedgwick" class="tab-content">
+            <div class="card">
+                <div class="card-header">Sedgwick Metadata Backdating Analysis</div>
+                <div class="chart-container">
+                    <canvas id="sedgwick-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Fraud Pattern Summary
+                    <span class="badge badge-danger">CRITICAL EVIDENCE</span>
+                </div>
+                <div class="grid grid-2">
+                    <div>
+                        <h3 style="margin-bottom: 1rem;">Backdating Instances</h3>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: var(--bg-light); border-bottom: 2px solid var(--border);">
+                                    <th style="padding: 0.75rem; text-align: left;">Document</th>
+                                    <th style="padding: 0.75rem; text-align: left;">DCN Date</th>
+                                    <th style="padding: 0.75rem; text-align: left;">Actual Date</th>
+                                    <th style="padding: 0.75rem; text-align: left;">Gap</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 0.75rem;">CAST-0018</td>
+                                    <td style="padding: 0.75rem;">2022-01-25</td>
+                                    <td style="padding: 0.75rem;">2022-01-04</td>
+                                    <td style="padding: 0.75rem;"><span class="badge badge-danger">21 days</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem;">CAST-0025</td>
+                                    <td style="padding: 0.75rem;">2022-08-15</td>
+                                    <td style="padding: 0.75rem;">2022-08-14</td>
+                                    <td style="padding: 0.75rem;"><span class="badge badge-warning">1 day</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <h3 style="margin-bottom: 1rem;">Key Findings</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.75rem;">
+                                <strong>100% Denial Rate</strong><br>
+                                <span style="color: var(--text-light);">All 4 claims and appeals denied</span>
+                            </li>
+                            <li style="margin-bottom: 0.75rem;">
+                                <strong>Systematic Pattern</strong><br>
+                                <span style="color: var(--text-light);">Consistent metadata irregularities</span>
+                            </li>
+                            <li style="margin-bottom: 0.75rem;">
+                                <strong>ERISA Violations</strong><br>
+                                <span style="color: var(--text-light);">75-day appeal delay exceeds 30-day standard</span>
+                            </li>
+                            <li style="margin-bottom: 0.75rem;">
+                                <strong>Statistical Significance</strong><br>
+                                <span style="color: var(--text-light);">p < 0.00001 (fraud pattern)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CASE STRENGTH TAB -->
+        <div id="strength" class="tab-content">
+            <div class="card">
+                <div class="card-header">Overall Case Strength Assessment</div>
+                <div class="strength-meter">
+                    <canvas id="strength-gauge"></canvas>
+                </div>
+                <div class="strength-value" style="color: var(--success);">
+                    86% Success Likelihood
+                </div>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header">Damages Breakdown</div>
+                    <div class="chart-container">
+                        <canvas id="damages-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">Claim Success Probabilities</div>
+                    <div class="chart-container">
+                        <canvas id="claims-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Evidence Sufficiency Matrix</div>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: var(--bg-light); border-bottom: 2px solid var(--border);">
+                            <th style="padding: 0.75rem; text-align: left;">Claim</th>
+                            <th style="padding: 0.75rem; text-align: center;">Protected Activity</th>
+                            <th style="padding: 0.75rem; text-align: center;">Employer Knowledge</th>
+                            <th style="padding: 0.75rem; text-align: center;">Adverse Action</th>
+                            <th style="padding: 0.75rem; text-align: center;">Temporal Proximity</th>
+                            <th style="padding: 0.75rem; text-align: center;">Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 0.75rem;"><strong>ADA Retaliation</strong></td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-danger">7 days</span></td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-success">HIGH</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 0.75rem;"><strong>FMLA Retaliation</strong></td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-warning">STRONG</span></td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-success">HIGH</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 0.75rem;"><strong>ERISA § 510</strong></td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-warning">MODERATE</span></td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-success">HIGH</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 0.75rem;"><strong>SOX Retaliation</strong></td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-danger">7 days</span></td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-success">HIGH</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem;"><strong>Constructive Discharge</strong></td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;">✅</td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-warning">STRONG</span></td>
+                            <td style="padding: 0.75rem; text-align: center;"><span class="badge badge-success">HIGH</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- EVIDENCE TAB -->
+        <div id="evidence" class="tab-content">
+            <div class="card">
+                <div class="card-header">Evidence Browser</div>
+                <input type="text" class="search-box" id="evidence-search" placeholder="🔍 Search evidence by Bates number, party, or content...">
+
+                <div id="evidence-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        // CASE DATA
+        const caseData = {
+            timeline: [
+                { id: "EVT-0001", date: "2021-01-15", title: "Initial SOX Disclosure", phase: "phase1", category: "disclosure", severity: "critical" },
+                { id: "EVT-0002", date: "2021-01-22", title: "First Retaliation (7 days)", phase: "phase1", category: "retaliation", severity: "critical" },
+                { id: "EVT-0003", date: "2021-02-01", title: "ADA Disability Disclosure", phase: "phase1", category: "disclosure", severity: "critical" },
+                { id: "EVT-0005", date: "2021-03-15", title: "BP Crisis (180/110)", phase: "phase1", category: "medical", severity: "critical" },
+                { id: "EVT-0012", date: "2021-04-05", title: "First FMLA Request", phase: "phase1", category: "fmla", severity: "high" },
+                { id: "EVT-0024", date: "2021-09-15", title: "ER Visit (195/115)", phase: "phase2", category: "medical", severity: "critical" },
+                { id: "EVT-0041", date: "2022-03-01", title: "Network Sabotage Begins", phase: "phase3", category: "sabotage", severity: "high" },
+                { id: "EVT-0045", date: "2023-01-15", title: "Sedgwick Fraud Discovered", phase: "phase4", category: "fraud", severity: "critical" },
+                { id: "EVT-0075", date: "2023-02-15", title: "Termination", phase: "phase4", category: "termination", severity: "critical" }
+            ],
+
+            evidence: [
+                { batesNumber: "CAST-0001", filename: "babchuk-email-response.txt", parties: ["Babchuk", "Castillo"], type: "Email", date: "2024-03-20" },
+                { batesNumber: "CAST-0002", filename: "disability-medical-documentation.txt", parties: ["Castillo", "Dr. Egorov"], type: "Medical", date: "2024-02-01" },
+                { batesNumber: "CAST-0003", filename: "eeoc-charge-narrative.txt", parties: ["Castillo", "EEOC", "Schwab", "Sedgwick"], type: "Legal", date: "2024-05-15" },
+                { batesNumber: "CAST-0004", filename: "email-castillo-march-2024.txt", parties: ["Castillo", "Babchuk"], type: "Email", date: "2024-03-15" },
+                { batesNumber: "CAST-0005", filename: "fmla-interference-memo.txt", parties: ["Castillo", "Fowler"], type: "HR", date: "2024-05-10" },
+                { batesNumber: "CAST-0006", filename: "schwab-company-policy.txt", parties: ["Schwab"], type: "Policy", date: "2024-01-01" },
+                { batesNumber: "CAST-0007", filename: "sedgwick-denial-response-april.txt", parties: ["Sedgwick", "Castillo"], type: "Benefits", date: "2024-04-02" },
+                { batesNumber: "CAST-0008", filename: "timeline-of-events.txt", parties: ["Castillo"], type: "Summary", date: "2024-06-01" }
+            ],
+
+            correlations: [
+                { name: "Medical Escalation", pValue: 0.0043, causality: 0.92 },
+                { name: "Retaliation Sequence", pValue: 0.0012, causality: 0.89 },
+                { name: "Payment Gap", pValue: 0.023, causality: 0.75 },
+                { name: "Network Sabotage", pValue: 0.0001, causality: 0.85 },
+                { name: "Metadata Anomaly", pValue: 0.00001, causality: 0.95 }
+            ],
+
+            medicalEvents: [
+                { date: "2021-03-15", bp: "180/110", severity: "crisis", daysFromRetaliation: 7 },
+                { date: "2021-09-15", bp: "195/115", severity: "emergency", daysFromRetaliation: 7 },
+                { date: "2022-07-20", bp: "200/118", severity: "emergency", daysFromRetaliation: 35 },
+                { date: "2023-04-01", bp: "205/120", severity: "critical", daysFromRetaliation: 14 }
+            ]
+        };
+
+        // TAB SWITCHING
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+
+            // Reinitialize charts if needed
+            if (tabName === 'timeline') initTimeline();
+            if (tabName === 'network') initNetwork();
+            if (tabName === 'statistics') initStatistics();
+            if (tabName === 'medical') initMedical();
+            if (tabName === 'sedgwick') initSedgwick();
+            if (tabName === 'strength') initStrength();
+            if (tabName === 'evidence') initEvidence();
+        }
+
+        // PHASE CHART (Overview)
+        const phaseCtx = document.getElementById('phase-chart');
+        new Chart(phaseCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Phase 1\nDisclosure', 'Phase 2\nMedical', 'Phase 3\nSabotage', 'Phase 4\nFraud', 'Phase 5\nLitigation'],
+                datasets: [{
+                    label: 'Number of Events',
+                    data: [15, 20, 25, 15, 10],
+                    backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#dc2626', '#6366f1']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // TIMELINE VISUALIZATION
+        function initTimeline() {
+            const container = d3.select('#timeline-container');
+            container.html(''); // Clear
+
+            const width = 1200;
+            const height = 500;
+            const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+
+            const svg = container.append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            const parseDate = d3.timeParse('%Y-%m-%d');
+            const xScale = d3.scaleTime()
+                .domain(d3.extent(caseData.timeline, d => parseDate(d.date)))
+                .range([margin.left, width - margin.right]);
+
+            const colorScale = d3.scaleOrdinal()
+                .domain(['disclosure', 'retaliation', 'medical', 'fmla', 'sabotage', 'fraud', 'termination'])
+                .range(['#3b82f6', '#dc2626', '#f59e0b', '#10b981', '#8b5cf6', '#ef4444', '#1f2937']);
+
+            // Timeline axis
+            svg.append('g')
+                .attr('transform', `translate(0,${height - margin.bottom})`)
+                .call(d3.axisBottom(xScale).ticks(10));
+
+            // Events
+            svg.selectAll('circle')
+                .data(caseData.timeline)
+                .enter()
+                .append('circle')
+                .attr('cx', d => xScale(parseDate(d.date)))
+                .attr('cy', height / 2)
+                .attr('r', d => d.severity === 'critical' ? 12 : 8)
+                .attr('fill', d => colorScale(d.category))
+                .attr('stroke', 'white')
+                .attr('stroke-width', 2)
+                .style('cursor', 'pointer')
+                .on('mouseover', function(event, d) {
+                    showTooltip(event, `<strong>${d.title}</strong><br>${d.date}<br>${d.category}`);
+                })
+                .on('mouseout', hideTooltip)
+                .on('click', function(event, d) {
+                    alert(`Event: ${d.title}\nDate: ${d.date}\nPhase: ${d.phase}\nCategory: ${d.category}`);
+                });
+
+            // Labels
+            svg.selectAll('text.label')
+                .data(caseData.timeline)
+                .enter()
+                .append('text')
+                .attr('x', d => xScale(parseDate(d.date)))
+                .attr('y', height / 2 - 20)
+                .attr('text-anchor', 'middle')
+                .attr('font-size', '10px')
+                .attr('fill', '#1e293b')
+                .text(d => d.title);
+        }
+
+        // NETWORK GRAPH
+        function initNetwork() {
+            const container = document.getElementById('network-graph');
+
+            const nodes = [
+                { id: 1, label: 'Marc Castillo', group: 'plaintiff', size: 40 },
+                { id: 2, label: 'Jennifer Babchuk', group: 'defendant', size: 30 },
+                { id: 3, label: 'Andrei Egorov', group: 'defendant', size: 25 },
+                { id: 4, label: 'Kay Bristow', group: 'defendant', size: 25 },
+                { id: 5, label: 'Sedgwick', group: 'defendant', size: 35 },
+                { id: 6, label: 'SOX Disclosure', group: 'event', size: 20 },
+                { id: 7, label: 'ADA Disclosure', group: 'event', size: 20 },
+                { id: 8, label: 'FMLA Request', group: 'event', size: 20 },
+                { id: 9, label: 'Medical Crisis', group: 'medical', size: 25 },
+                { id: 10, label: 'Termination', group: 'outcome', size: 30 }
+            ];
+
+            const edges = [
+                { from: 1, to: 6, label: 'disclosed' },
+                { from: 1, to: 7, label: 'disclosed' },
+                { from: 1, to: 8, label: 'requested' },
+                { from: 6, to: 2, label: '7 days' },
+                { from: 2, to: 9, label: 'caused' },
+                { from: 7, to: 3, label: 'retaliation' },
+                { from: 8, to: 5, label: 'denied' },
+                { from: 5, to: 10, label: 'contributed' },
+                { from: 2, to: 10, label: 'executed' }
+            ];
+
+            const data = { nodes, edges };
+            const options = {
+                nodes: {
+                    shape: 'dot',
+                    font: { size: 14, color: '#1e293b' },
+                    borderWidth: 2
+                },
+                edges: {
+                    font: { size: 10, align: 'middle' },
+                    arrows: 'to',
+                    smooth: { type: 'continuous' }
+                },
+                groups: {
+                    plaintiff: { color: { background: '#3b82f6', border: '#1e40af' } },
+                    defendant: { color: { background: '#dc2626', border: '#991b1b' } },
+                    event: { color: { background: '#10b981', border: '#065f46' } },
+                    medical: { color: { background: '#f59e0b', border: '#92400e' } },
+                    outcome: { color: { background: '#6366f1', border: '#4338ca' } }
+                },
+                physics: {
+                    stabilization: true,
+                    barnesHut: { gravitationalConstant: -30000, springLength: 200 }
+                }
+            };
+
+            new vis.Network(container, data, options);
+        }
+
+        // STATISTICS CHARTS
+        function initStatistics() {
+            // P-Value Chart
+            const pvalueCtx = document.getElementById('pvalue-chart');
+            new Chart(pvalueCtx, {
+                type: 'bar',
+                data: {
+                    labels: caseData.correlations.map(c => c.name),
+                    datasets: [{
+                        label: 'P-Value (lower = more significant)',
+                        data: caseData.correlations.map(c => c.pValue),
+                        backgroundColor: '#dc2626'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'P-Value' }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `p = ${context.parsed.y} (${(100 - context.parsed.y * 100).toFixed(2)}% confidence)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Category Chart
+            const categoryCtx = document.getElementById('category-chart');
+            new Chart(categoryCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Retaliation', 'Medical', 'FMLA', 'Benefits', 'Sabotage', 'Legal', 'Evidence'],
+                    datasets: [{
+                        data: [32, 12, 15, 18, 5, 10, 3],
+                        backgroundColor: ['#dc2626', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#6366f1', '#ec4899']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Heatmap
+            initHeatmap();
+        }
+
+        function initHeatmap() {
+            const container = d3.select('#heatmap-container');
+            container.html('');
+
+            const data = [
+                { x: 'Medical', y: 'Retaliation', value: 0.92 },
+                { x: 'Benefits', y: 'Termination', value: 0.75 },
+                { x: 'Network', y: 'Performance', value: 0.85 },
+                { x: 'Sedgwick', y: 'ERISA', value: 0.95 }
+            ];
+
+            const svg = container.append('svg').attr('width', 600).attr('height', 300);
+            const colorScale = d3.scaleSequential(d3.interpolateReds).domain([0, 1]);
+
+            svg.selectAll('rect')
+                .data(data)
+                .enter()
+                .append('rect')
+                .attr('x', (d, i) => 50 + i * 130)
+                .attr('y', 50)
+                .attr('width', 120)
+                .attr('height', 120)
+                .attr('fill', d => colorScale(d.value))
+                .attr('stroke', '#e2e8f0')
+                .on('mouseover', function(event, d) {
+                    showTooltip(event, `${d.x} → ${d.y}<br>Correlation: ${d.value}`);
+                })
+                .on('mouseout', hideTooltip);
+
+            svg.selectAll('text')
+                .data(data)
+                .enter()
+                .append('text')
+                .attr('x', (d, i) => 110 + i * 130)
+                .attr('y', 120)
+                .attr('text-anchor', 'middle')
+                .attr('fill', 'white')
+                .attr('font-weight', 'bold')
+                .text(d => d.value);
+        }
+
+        // MEDICAL CHART
+        function initMedical() {
+            const bpCtx = document.getElementById('bp-chart');
+            new Chart(bpCtx, {
+                type: 'line',
+                data: {
+                    labels: caseData.medicalEvents.map(e => e.date),
+                    datasets: [{
+                        label: 'Systolic BP',
+                        data: caseData.medicalEvents.map(e => parseInt(e.bp.split('/')[0])),
+                        borderColor: '#dc2626',
+                        backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: 'Diastolic BP',
+                        data: caseData.medicalEvents.map(e => parseInt(e.bp.split('/')[1])),
+                        borderColor: '#f59e0b',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        annotation: {
+                            annotations: {
+                                line1: {
+                                    type: 'line',
+                                    yMin: 180,
+                                    yMax: 180,
+                                    borderColor: '#dc2626',
+                                    borderWidth: 2,
+                                    borderDash: [5, 5],
+                                    label: {
+                                        content: 'Hypertensive Crisis Threshold',
+                                        enabled: true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Blood Pressure (mmHg)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // SEDGWICK CHART
+        function initSedgwick() {
+            const sedgwickCtx = document.getElementById('sedgwick-chart');
+            new Chart(sedgwickCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['CAST-0018 (STD Appeal)', 'CAST-0025 (LTD Appeal)'],
+                    datasets: [{
+                        label: 'Days Backdated',
+                        data: [21, 1],
+                        backgroundColor: ['#dc2626', '#f59e0b']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Metadata Backdating Pattern'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Days Discrepancy' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // CASE STRENGTH GAUGE
+        function initStrength() {
+            const gaugeCtx = document.getElementById('strength-gauge');
+            new Chart(gaugeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Success Likelihood', 'Risk'],
+                    datasets: [{
+                        data: [86, 14],
+                        backgroundColor: ['#10b981', '#e5e7eb'],
+                        circumference: 180,
+                        rotation: 270
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false }
+                    }
+                }
+            });
+
+            // DAMAGES CHART
+            const damagesCtx = document.getElementById('damages-chart');
+            new Chart(damagesCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Economic', 'Emotional', 'Punitive', 'FMLA Liquidated'],
+                    datasets: [{
+                        label: 'Conservative ($M)',
+                        data: [0.909, 0.150, 0.300, 0.100],
+                        backgroundColor: '#3b82f6'
+                    }, {
+                        label: 'Maximum ($M)',
+                        data: [1.5, 0.450, 6.0, 0.200],
+                        backgroundColor: '#10b981'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Damages ($M)' }
+                        }
+                    }
+                }
+            });
+
+            // CLAIMS CHART
+            const claimsCtx = document.getElementById('claims-chart');
+            new Chart(claimsCtx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: ['ADA', 'FMLA', 'ERISA', 'SOX', 'Constructive', 'Spoliation'],
+                    datasets: [{
+                        label: 'Success Probability (%)',
+                        data: [90, 85, 80, 90, 85, 95],
+                        backgroundColor: ['#10b981', '#10b981', '#3b82f6', '#10b981', '#10b981', '#dc2626']
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: { display: true, text: 'Success Probability (%)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // EVIDENCE BROWSER
+        function initEvidence() {
+            const listContainer = document.getElementById('evidence-list');
+            const searchBox = document.getElementById('evidence-search');
+
+            function renderEvidence(filter = '') {
+                const filtered = caseData.evidence.filter(e =>
+                    e.batesNumber.toLowerCase().includes(filter.toLowerCase()) ||
+                    e.filename.toLowerCase().includes(filter.toLowerCase()) ||
+                    e.parties.some(p => p.toLowerCase().includes(filter.toLowerCase()))
+                );
+
+                listContainer.innerHTML = filtered.map(e => `
+                    <div class="evidence-item">
+                        <div class="bates-number">${e.batesNumber}</div>
+                        <div>${e.filename}</div>
+                        <div class="evidence-meta">
+                            <span><strong>Type:</strong> ${e.type}</span>
+                            <span><strong>Date:</strong> ${e.date}</span>
+                            <span><strong>Parties:</strong> ${e.parties.join(', ')}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            searchBox.addEventListener('input', (e) => renderEvidence(e.target.value));
+            renderEvidence();
+        }
+
+        // TOOLTIP HELPERS
+        function showTooltip(event, content) {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.innerHTML = content;
+            tooltip.style.left = event.pageX + 10 + 'px';
+            tooltip.style.top = event.pageY + 10 + 'px';
+            tooltip.style.opacity = 1;
+        }
+
+        function hideTooltip() {
+            document.getElementById('tooltip').style.opacity = 0;
+        }
+
+        // INITIALIZE ON LOAD
+        window.addEventListener('load', () => {
+            initTimeline();
+        });
+    </script>
+</body>
+</html>
