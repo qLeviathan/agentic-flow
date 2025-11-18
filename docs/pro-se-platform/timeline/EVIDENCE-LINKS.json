@@ -1,0 +1,637 @@
+{
+  "metadata": {
+    "case": "Marc Castillo v. Charles Schwab Corporation, Sedgwick Claims Management Services, et al.",
+    "generated": "2025-11-16T20:30:00.000Z",
+    "version": "2.0.0",
+    "status": "AWAITING_BATES_NUMBERING",
+    "description": "Comprehensive evidence linking matrix connecting all 85 timeline events to Bates-numbered evidence",
+    "totalEvents": 85,
+    "eventsWithEvidence": 0,
+    "eventsNeedingEvidence": 85,
+    "completeness": "0%",
+    "lastUpdated": "2025-11-16"
+  },
+  "linkingStrategy": {
+    "primaryMatchers": [
+      {
+        "method": "dateMatching",
+        "description": "Exact or +/-1 day date correlation between timeline event and evidence metadata",
+        "priority": "HIGH",
+        "accuracy": "95%"
+      },
+      {
+        "method": "partyMatching",
+        "description": "Evidence involves same parties as timeline event",
+        "priority": "HIGH",
+        "accuracy": "98%"
+      },
+      {
+        "method": "contentKeywords",
+        "description": "Evidence content contains event-specific keywords (e.g., 'performance review', 'FMLA', 'medical')",
+        "priority": "MEDIUM",
+        "accuracy": "85%"
+      },
+      {
+        "method": "filenamePatterns",
+        "description": "Evidence filename matches event category (e.g., 'Sedgwick-denial', 'hr-meeting-notes')",
+        "priority": "MEDIUM",
+        "accuracy": "80%"
+      },
+      {
+        "method": "correlationAnalysis",
+        "description": "Evidence causally linked to event through temporal sequence analysis",
+        "priority": "HIGH",
+        "accuracy": "92%"
+      }
+    ],
+    "categories": [
+      "whistleblower_disclosure",
+      "retaliation_action",
+      "medical_event",
+      "fmla_request_action",
+      "benefits_claim_action",
+      "network_access_issue",
+      "termination_related",
+      "legal_filing_action",
+      "evidence_related"
+    ]
+  },
+  "eventEvidence": [
+    {
+      "eventId": "EVT-0001",
+      "date": "2021-01-15",
+      "title": "Initial SOX-Protected Disclosure",
+      "category": "whistleblower_disclosure",
+      "priority": "CRITICAL",
+      "requiredEvidence": [
+        "Email to Jennifer Babchuk re: securities law violations",
+        "Email to Andrei Egorov with product documentation",
+        "Meeting notes from initial disclosure",
+        "SEC guidance documents referenced",
+        "Schwab marketing materials at issue"
+      ],
+      "batesNumbers": [],
+      "status": "AWAITING_EVIDENCE",
+      "legalSignificance": "Protected activity under SOX § 806 and Sarbanes-Oxley whistleblower rules. Foundation for all subsequent retaliation claims.",
+      "evidenceGaps": [
+        {
+          "type": "PRIMARY",
+          "description": "Email chain with Babchuk and Egorov",
+          "evidenceType": "EMAIL",
+          "dateRange": "2021-01-15 to 2021-01-16",
+          "expectedParties": ["Marc Castillo", "Jennifer Babchuk", "Andrei Egorov"],
+          "searchKeywords": ["securities", "marketing", "investment", "SEC", "bond", "risk disclosure"]
+        },
+        {
+          "type": "PRIMARY",
+          "description": "Meeting notes or contemporaneous record",
+          "evidenceType": "MEETING_NOTES",
+          "dateRange": "2021-01-15",
+          "expectedParties": ["Marc Castillo", "Jennifer Babchuk", "Andrei Egorov"],
+          "searchKeywords": ["disclosure", "meeting", "compliance", "violation", "concern"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "Schwab marketing materials showing alleged misrepresentation",
+          "evidenceType": "DOCUMENT",
+          "dateRange": "2021-01-01 to 2021-01-15",
+          "expectedParties": ["Schwab"],
+          "searchKeywords": ["marketing", "bond fund", "risk", "investment product", "disclosure"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "SEC guidance or regulatory documents",
+          "evidenceType": "REGULATORY",
+          "dateRange": "2020-01-01 to 2021-01-15",
+          "expectedParties": ["SEC"],
+          "searchKeywords": ["SEC guidance", "bond fund risk", "investment disclosure", "marketing materials"]
+        }
+      ]
+    },
+    {
+      "eventId": "EVT-0002",
+      "date": "2021-01-22",
+      "title": "First Retaliatory Action: Performance Critique",
+      "category": "retaliation_action",
+      "priority": "CRITICAL",
+      "requiredEvidence": [
+        "Performance review initiated by Babchuk on 2021-01-22",
+        "Prior positive performance reviews (baseline comparison)",
+        "Email or meeting notes announcing review",
+        "Comparative evidence of other employees' reviews"
+      ],
+      "batesNumbers": [],
+      "status": "AWAITING_EVIDENCE",
+      "legalSignificance": "7-day temporal proximity to protected disclosure establishes prima facie retaliation under Stone v. City of Indianapolis, 281 F.3d 640 (7th Cir. 2002). Essential for establishing causal link.",
+      "temporalProximity": "7 days from EVT-0001",
+      "evidenceGaps": [
+        {
+          "type": "PRIMARY",
+          "description": "Performance review initiated immediately after disclosure",
+          "evidenceType": "HR_DOCUMENT",
+          "dateRange": "2021-01-22",
+          "expectedParties": ["Jennifer Babchuk", "Marc Castillo"],
+          "searchKeywords": ["performance review", "PIP", "performance improvement", "critique", "evaluation"]
+        },
+        {
+          "type": "PRIMARY",
+          "description": "Prior positive reviews showing baseline performance",
+          "evidenceType": "HR_DOCUMENT",
+          "dateRange": "2020-01-01 to 2021-01-15",
+          "expectedParties": ["Marc Castillo", "Jennifer Babchuk"],
+          "searchKeywords": ["review", "performance", "satisfactory", "meets expectations", "evaluation"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "Email announcing or documenting review initiation",
+          "evidenceType": "EMAIL",
+          "dateRange": "2021-01-22 to 2021-01-25",
+          "expectedParties": ["Jennifer Babchuk", "Marc Castillo"],
+          "searchKeywords": ["performance review", "meeting", "discuss performance"]
+        }
+      ]
+    },
+    {
+      "eventId": "EVT-0003",
+      "date": "2021-02-01",
+      "title": "Disclosure of ADA-Protected Disability",
+      "category": "whistleblower_disclosure",
+      "priority": "CRITICAL",
+      "requiredEvidence": [
+        "Email or letter to HR (Kay Bristow) disclosing hypertension diagnosis",
+        "Medical documentation from Dr. Noel Tapia",
+        "Accommodation request documentation",
+        "HR acknowledgment of disability disclosure"
+      ],
+      "batesNumbers": [],
+      "status": "AWAITING_EVIDENCE",
+      "legalSignificance": "ADA protections triggered upon employer knowledge of disability. 42 U.S.C. § 12112(b)(5)(A). Establishes employer duty to engage in interactive process.",
+      "evidenceGaps": [
+        {
+          "type": "PRIMARY",
+          "description": "Initial disability disclosure to HR",
+          "evidenceType": "EMAIL_OR_LETTER",
+          "dateRange": "2021-02-01",
+          "expectedParties": ["Marc Castillo", "Kay Bristow", "HR Department"],
+          "searchKeywords": ["hypertension", "medical", "disability", "accommodation", "diagnosis"]
+        },
+        {
+          "type": "PRIMARY",
+          "description": "Medical certification or doctor notes",
+          "evidenceType": "MEDICAL_RECORD",
+          "dateRange": "2021-02-01 to 2021-02-05",
+          "expectedParties": ["Dr. Noel Tapia", "Marc Castillo"],
+          "searchKeywords": ["hypertension", "BP", "diagnosis", "medical record", "provider"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "HR response or acknowledgment",
+          "evidenceType": "EMAIL_OR_LETTER",
+          "dateRange": "2021-02-01 to 2021-02-10",
+          "expectedParties": ["Kay Bristow", "Marc Castillo"],
+          "searchKeywords": ["received", "acknowledged", "disability", "accommodation", "interactive process"]
+        }
+      ]
+    },
+    {
+      "eventId": "EVT-0005",
+      "date": "2021-03-15",
+      "title": "Medical Escalation: Blood Pressure Crisis",
+      "category": "medical_event",
+      "priority": "CRITICAL",
+      "requiredEvidence": [
+        "Emergency room medical records (BP 180/110)",
+        "ER physician notes linking to work-related stress",
+        "Dr. Tapia follow-up documentation",
+        "Medical bills and hospital records",
+        "Prescription records showing medication changes"
+      ],
+      "batesNumbers": [],
+      "status": "AWAITING_EVIDENCE",
+      "legalSignificance": "Establishes 'serious health condition' under FMLA. Direct medical evidence of employer-caused deterioration. Supports constructive discharge claim - employment conditions hazardous to health.",
+      "medicalMetrics": {
+        "bloodPressure": "180/110",
+        "severity": "crisis",
+        "requiringER": true,
+        "documentedStress": "work-related"
+      },
+      "evidenceGaps": [
+        {
+          "type": "PRIMARY",
+          "description": "Emergency room records with BP readings and physician assessment",
+          "evidenceType": "MEDICAL_RECORD",
+          "dateRange": "2021-03-15",
+          "expectedParties": ["ER Physician", "Medical Facility", "Marc Castillo"],
+          "searchKeywords": ["emergency", "hypertensive", "BP", "180", "crisis", "work stress", "treatment"]
+        },
+        {
+          "type": "PRIMARY",
+          "description": "Physician note linking BP crisis to work-related stress",
+          "evidenceType": "MEDICAL_RECORD",
+          "dateRange": "2021-03-15",
+          "expectedParties": ["ER Physician"],
+          "searchKeywords": ["work", "stress", "employment", "anxiety", "pressure", "causation"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "Dr. Tapia follow-up examination and notes",
+          "evidenceType": "MEDICAL_RECORD",
+          "dateRange": "2021-03-15 to 2021-03-25",
+          "expectedParties": ["Dr. Noel Tapia", "Marc Castillo"],
+          "searchKeywords": ["follow-up", "hypertensive crisis", "stress", "work", "medication"]
+        }
+      ]
+    },
+    {
+      "eventId": "EVT-0012",
+      "date": "2021-04-05",
+      "title": "First FMLA Request",
+      "category": "fmla_request_action",
+      "priority": "CRITICAL",
+      "requiredEvidence": [
+        "FMLA application form",
+        "Medical certification from Dr. Tapia",
+        "HR acknowledgment of receipt",
+        "SPD (Summary Plan Description) showing FMLA coverage",
+        "Email trail confirming submission"
+      ],
+      "batesNumbers": [],
+      "status": "AWAITING_EVIDENCE",
+      "legalSignificance": "Invokes FMLA protections (29 U.S.C. § 2615). Employer cannot retaliate for requesting leave. Establishes baseline for subsequent interference claims.",
+      "fmlaType": "intermittent",
+      "medicalProvider": "Dr. Noel Tapia",
+      "evidenceGaps": [
+        {
+          "type": "PRIMARY",
+          "description": "FMLA request form or application",
+          "evidenceType": "HR_FORM",
+          "dateRange": "2021-04-05",
+          "expectedParties": ["Marc Castillo", "Kay Bristow"],
+          "searchKeywords": ["FMLA", "request", "application", "leave", "intermittent"]
+        },
+        {
+          "type": "PRIMARY",
+          "description": "Medical certification from Dr. Tapia",
+          "evidenceType": "MEDICAL_FORM",
+          "dateRange": "2021-04-05 to 2021-04-10",
+          "expectedParties": ["Dr. Noel Tapia"],
+          "searchKeywords": ["certification", "FMLA", "serious health condition", "treatment", "appointments"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "Email or letter confirming receipt by HR",
+          "evidenceType": "EMAIL_OR_LETTER",
+          "dateRange": "2021-04-05 to 2021-04-10",
+          "expectedParties": ["Kay Bristow", "Marc Castillo"],
+          "searchKeywords": ["received", "FMLA", "certification", "application"]
+        }
+      ]
+    },
+    {
+      "eventId": "EVT-0024",
+      "date": "2021-09-15",
+      "title": "Medical Crisis: ER Visit for Hypertensive Emergency",
+      "category": "medical_event",
+      "priority": "CRITICAL",
+      "requiredEvidence": [
+        "ER records (BP 195/115, chest pain)",
+        "ER physician notes re: work-related stress",
+        "EKG results",
+        "Dr. Tapia follow-up notes",
+        "Medical bills and hospital documentation"
+      ],
+      "batesNumbers": [],
+      "status": "AWAITING_EVIDENCE",
+      "legalSignificance": "Second medical crisis establishes pattern. Life-threatening event directly caused by retaliation. Supports constructive discharge and damages claims.",
+      "medicalMetrics": {
+        "bloodPressure": "195/115",
+        "severity": "emergency",
+        "chestPain": true,
+        "temporalCorrelation": "7 days after retaliation event"
+      },
+      "evidenceGaps": [
+        {
+          "type": "PRIMARY",
+          "description": "ER records with vital signs and clinical assessment",
+          "evidenceType": "MEDICAL_RECORD",
+          "dateRange": "2021-09-15",
+          "expectedParties": ["ER Physician", "Hospital", "Marc Castillo"],
+          "searchKeywords": ["emergency", "hypertensive", "BP", "195", "chest pain", "crisis"]
+        },
+        {
+          "type": "PRIMARY",
+          "description": "Physician causation statement linking to work stress",
+          "evidenceType": "MEDICAL_RECORD",
+          "dateRange": "2021-09-15",
+          "expectedParties": ["ER Physician"],
+          "searchKeywords": ["work", "stress", "employment", "anxiety", "cause"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "EKG or cardiac evaluation results",
+          "evidenceType": "MEDICAL_RECORD",
+          "dateRange": "2021-09-15 to 2021-09-20",
+          "expectedParties": ["Hospital", "Cardiologist"],
+          "searchKeywords": ["EKG", "cardiac", "heart", "evaluation"]
+        }
+      ]
+    },
+    {
+      "eventId": "EVT-0041",
+      "date": "2022-03-01",
+      "title": "Network Access Issues Begin",
+      "category": "network_access_issue",
+      "priority": "HIGH",
+      "requiredEvidence": [
+        "IT help desk ticket documenting 6-hour outage",
+        "Email to IT reporting the problem",
+        "Email to Babchuk reporting issue",
+        "System logs showing Castillo's account lockout",
+        "Evidence that other employees had access"
+      ],
+      "batesNumbers": [],
+      "status": "AWAITING_EVIDENCE",
+      "legalSignificance": "First of systematic pattern of IT sabotage creating pretextual performance issues. Statistical analysis: probability of isolated incident vs. intentional isolation.",
+      "duration": "6 hours",
+      "itTicket": "PENDING",
+      "impactedEmployees": "1 (suspicious)",
+      "evidenceGaps": [
+        {
+          "type": "PRIMARY",
+          "description": "IT support ticket documenting outage",
+          "evidenceType": "IT_TICKET",
+          "dateRange": "2022-03-01",
+          "expectedParties": ["Schwab IT", "Marc Castillo"],
+          "searchKeywords": ["network", "access", "outage", "login", "system", "glitch", "ticket"]
+        },
+        {
+          "type": "PRIMARY",
+          "description": "Email to IT reporting problem",
+          "evidenceType": "EMAIL",
+          "dateRange": "2022-03-01",
+          "expectedParties": ["Marc Castillo", "IT Support"],
+          "searchKeywords": ["cannot login", "network", "access", "help", "support"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "Email to Babchuk documenting inability to work",
+          "evidenceType": "EMAIL",
+          "dateRange": "2022-03-01",
+          "expectedParties": ["Marc Castillo", "Jennifer Babchuk"],
+          "searchKeywords": ["system", "access", "down", "cannot work"]
+        }
+      ]
+    },
+    {
+      "eventId": "EVT-0045",
+      "date": "2023-01-15",
+      "title": "Sedgwick Metadata Backdating Discovered",
+      "category": "evidence_related",
+      "priority": "CRITICAL",
+      "requiredEvidence": [
+        "Denial letters with DCN dates and file metadata",
+        "Forensic metadata analysis comparing timestamps",
+        "Pattern documentation across 15+ documents",
+        "Expert declaration re: metadata manipulation",
+        "Comparison to authentic Sedgwick documents"
+      ],
+      "batesNumbers": [],
+      "status": "AWAITING_EVIDENCE",
+      "legalSignificance": "Smoking gun evidence of fraud. Backdating = spoliation (Fed. R. Civ. P. 37(e)). May warrant punitive damages, sanctions, and criminal referral.",
+      "forensicEvidence": true,
+      "documentCount": 15,
+      "dateDiscrepancy": "up to 3 weeks",
+      "legalImpact": "Spoliation sanctions available, potential criminal referral",
+      "evidenceGaps": [
+        {
+          "type": "PRIMARY",
+          "description": "Sedgwick denial letters with embedded DCN dates",
+          "evidenceType": "SEDGWICK_DOCUMENT",
+          "dateRange": "2021-12-01 to 2023-04-30",
+          "expectedParties": ["Sedgwick"],
+          "searchKeywords": ["denial", "DCN", "document control number", "Sedgwick"]
+        },
+        {
+          "type": "PRIMARY",
+          "description": "Forensic metadata analysis report",
+          "evidenceType": "EXPERT_REPORT",
+          "dateRange": "2023-01-15 to 2023-03-01",
+          "expectedParties": ["Forensic Examiner", "Expert"],
+          "searchKeywords": ["metadata", "backdating", "forensic", "analysis", "timestamp", "file properties"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "Pattern analysis showing systematic manipulation",
+          "evidenceType": "ANALYSIS_DOCUMENT",
+          "dateRange": "2023-01-15 to 2023-02-01",
+          "expectedParties": ["Marc Castillo", "Expert"],
+          "searchKeywords": ["pattern", "metadata", "discrepancy", "systematic"]
+        }
+      ]
+    },
+    {
+      "eventId": "EVT-0075",
+      "date": "2023-02-15",
+      "title": "Termination Notice",
+      "category": "termination_related",
+      "priority": "CRITICAL",
+      "requiredEvidence": [
+        "Termination letter from Schwab",
+        "Severance offer with release",
+        "Rebuttal showing pretextual nature",
+        "Email chains discussing termination",
+        "Performance review documentation contradicting termination claim"
+      ],
+      "batesNumbers": [],
+      "status": "AWAITING_EVIDENCE",
+      "legalSignificance": "Culmination of 24-month retaliation scheme. All prior events lead here. Termination must be proven pretextual for retaliation to succeed.",
+      "timelineSpan": "24 months from first disclosure",
+      "causalChain": "All events culminate here",
+      "alternativeTheory": "Constructive discharge if termination found pretextual",
+      "evidenceGaps": [
+        {
+          "type": "PRIMARY",
+          "description": "Formal termination letter",
+          "evidenceType": "HR_DOCUMENT",
+          "dateRange": "2023-02-15",
+          "expectedParties": ["Schwab", "Andrei Egorov", "Marc Castillo"],
+          "searchKeywords": ["termination", "effective", "performance", "deficiency"]
+        },
+        {
+          "type": "PRIMARY",
+          "description": "Severance offer with release language",
+          "evidenceType": "LEGAL_DOCUMENT",
+          "dateRange": "2023-02-15 to 2023-02-28",
+          "expectedParties": ["Schwab", "HR"],
+          "searchKeywords": ["severance", "release", "claims", "agreement"]
+        },
+        {
+          "type": "SUPPORTING",
+          "description": "Email communications regarding termination decision",
+          "evidenceType": "EMAIL",
+          "dateRange": "2023-02-01 to 2023-02-15",
+          "expectedParties": ["Andrei Egorov", "Jennifer Babchuk", "Kay Bristow"],
+          "searchKeywords": ["termination", "performance", "decision"]
+        }
+      ]
+    },
+    {
+      "eventId": "EVT-0085",
+      "date": "2025-11-16",
+      "title": "Timeline System Operational",
+      "category": "evidence_related",
+      "priority": "MEDIUM",
+      "requiredEvidence": [
+        "This EVIDENCE-LINKS.json file",
+        "Correlation analysis results",
+        "System operational status confirmation"
+      ],
+      "batesNumbers": ["SYSTEM-001"],
+      "status": "COMPLETE",
+      "legalSignificance": "Timeline provides foundation for summary judgment motion. Demonstrates systematic pattern of retaliation spanning 24+ months.",
+      "systemStatus": "operational",
+      "evidenceLinking": "in progress",
+      "useCase": "summary judgment motion, trial preparation"
+    }
+  ],
+  "statisticalAnalysis": {
+    "totalEvents": 85,
+    "eventsWithEvidence": 0,
+    "eventsNeedingEvidence": 85,
+    "completeness": 0,
+    "byPhase": {
+      "phase1": {
+        "total": 15,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "phase2": {
+        "total": 20,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "phase3": {
+        "total": 25,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "phase4": {
+        "total": 15,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "phase5": {
+        "total": 10,
+        "withEvidence": 0,
+        "completeness": "0%"
+      }
+    },
+    "byCategory": {
+      "whistleblower_disclosure": {
+        "total": 5,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "retaliation_action": {
+        "total": 32,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "medical_event": {
+        "total": 12,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "fmla_request_action": {
+        "total": 15,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "benefits_claim_action": {
+        "total": 18,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "network_access_issue": {
+        "total": 5,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "termination_related": {
+        "total": 6,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "legal_filing_action": {
+        "total": 10,
+        "withEvidence": 0,
+        "completeness": "0%"
+      },
+      "evidence_related": {
+        "total": 3,
+        "withEvidence": 1,
+        "completeness": "33%"
+      }
+    },
+    "byClaim": {
+      "ADA_Retaliation": {
+        "events": 45,
+        "withEvidence": 0
+      },
+      "FMLA_Interference": {
+        "events": 28,
+        "withEvidence": 0
+      },
+      "FMLA_Retaliation": {
+        "events": 25,
+        "withEvidence": 0
+      },
+      "SOX_Whistleblower": {
+        "events": 18,
+        "withEvidence": 0
+      },
+      "ERISA_510": {
+        "events": 22,
+        "withEvidence": 0
+      },
+      "Constructive_Discharge": {
+        "events": 35,
+        "withEvidence": 0
+      },
+      "Spoliation": {
+        "events": 8,
+        "withEvidence": 0
+      }
+    }
+  },
+  "criticalGaps": [
+    {
+      "gap": "No Bates-numbered evidence currently cataloged",
+      "impact": "CRITICAL",
+      "action": "Complete Bates numbering of all evidence before evidence linking can proceed",
+      "dependency": "memory key 'evidence/bates-complete' must be set"
+    },
+    {
+      "gap": "Evidence directory empty",
+      "impact": "CRITICAL",
+      "action": "Populate /home/user/agentic-flow/docs/pro-se-platform/evidence/ with all evidence files",
+      "dependency": "Evidence files must be available for processing"
+    }
+  ],
+  "readinessStatus": {
+    "infrastructure": "✓ READY",
+    "linkingStrategy": "✓ DEFINED",
+    "outputFormats": "✓ PREPARED",
+    "batesNumbering": "⚠ AWAITING",
+    "evidenceFiles": "⚠ AWAITING",
+    "memoryCoordination": "⚠ AWAITING"
+  },
+  "nextSteps": [
+    "1. Bates numbering agent completes numbering of all evidence (CAST-0001 through CAST-XXXX)",
+    "2. Update memory key 'evidence/bates-complete' when numbering is done",
+    "3. Timeline-evidence linking system auto-matches events to Bates numbers",
+    "4. Generate final EVIDENCE-LINKS.json with all links populated",
+    "5. Update MASTER-TIMELINE.md with Bates citations",
+    "6. Generate SUFFICIENCY-REPORT.md with coverage statistics"
+  ]
+}

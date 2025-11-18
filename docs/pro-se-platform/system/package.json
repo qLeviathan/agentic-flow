@@ -1,0 +1,53 @@
+{
+  "name": "agentdb-legal-assistant",
+  "version": "1.0.0",
+  "description": "AgentDB-powered legal assistant for pro se litigation - Castillo v. Schwab & Sedgwick",
+  "main": "agentdb-legal-cli.js",
+  "bin": {
+    "agentdb-legal": "./agentdb-legal-cli.js"
+  },
+  "scripts": {
+    "build": "tsc query-interface.ts --lib es2020 --target es2020 --module commonjs --esModuleInterop && tsc agentdb-legal-cli.ts --lib es2020 --target es2020 --module commonjs --esModuleInterop",
+    "init": "./init-database.sh",
+    "process-evidence": "node evidence-processor.js",
+    "test": "node --test",
+    "lint": "eslint *.ts"
+  },
+  "keywords": [
+    "legal",
+    "pro-se",
+    "evidence-management",
+    "agentdb",
+    "vector-search",
+    "litigation",
+    "claude-ai"
+  ],
+  "author": "Marc Castillo",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "better-sqlite3": "^11.0.0",
+    "chalk": "^4.1.2",
+    "commander": "^12.0.0",
+    "dotenv": "^16.4.0",
+    "table": "^6.8.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "eslint": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruvnet/agentic-flow.git",
+    "directory": "docs/pro-se-platform/system"
+  }
+}
