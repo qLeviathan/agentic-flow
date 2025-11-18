@@ -1,0 +1,56 @@
+{
+  "name": "youtube-vision-bot",
+  "version": "1.0.0",
+  "description": "AI-powered YouTube video analysis using AgentDB swarm and computer vision",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "swarm:init": "node dist/agents/swarm-coordinator.js",
+    "analyze:video": "node dist/examples/analyze-video.js"
+  },
+  "keywords": [
+    "youtube",
+    "computer-vision",
+    "agentdb",
+    "ai-agents",
+    "video-analysis",
+    "swarm-intelligence"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "agentdb": "^1.6.0",
+    "agentic-flow": "^2.0.0",
+    "@anthropic-ai/claude-agent-sdk": "^1.0.0",
+    "youtube-transcript": "^1.2.1",
+    "ytdl-core": "^4.11.5",
+    "@google-cloud/video-intelligence": "^5.0.0",
+    "opencv4nodejs": "^5.6.0",
+    "tesseract.js": "^5.0.0",
+    "sharp": "^0.33.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "dotenv": "^16.4.5",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/jest": "^29.5.11",
+    "@types/fluent-ffmpeg": "^2.1.24",
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,29 @@
+node_modules/
+dist/
+*.log
+.env
+.DS_Store
+
+# YouTube downloads
+youtube-downloads/
+*.mp4
+*.mp3
+
+# AgentDB
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+logs/
+*.log
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
