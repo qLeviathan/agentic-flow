@@ -1,0 +1,51 @@
+{
+  "name": "zordic-music-studio-agentdb",
+  "version": "1.0.0",
+  "description": "AgentDB-powered music creation framework with intelligent agent fleet coordination",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:integration": "jest tests/integration",
+    "lint": "eslint .",
+    "hooks:init": "npx claude-flow@alpha hooks session-restore --session-id music-agentdb-session",
+    "hooks:end": "npx claude-flow@alpha hooks session-end --export-metrics true --session-id music-agentdb-session"
+  },
+  "keywords": [
+    "music",
+    "agentdb",
+    "ai",
+    "agents",
+    "coordination",
+    "vector-database",
+    "machine-learning",
+    "music-creation"
+  ],
+  "author": "Zordic Music Studio Team",
+  "license": "MIT",
+  "dependencies": {
+    "@antiwork/agentdb": "latest",
+    "express": "^4.18.2",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "eslint": "^8.52.0",
+    "axios": "^1.6.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
