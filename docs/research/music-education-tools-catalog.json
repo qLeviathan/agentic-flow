@@ -1,0 +1,1364 @@
+{
+  "catalog_metadata": {
+    "title": "Free Beat Maker Software & Music Education Tools Catalog",
+    "target_audience": "High School Music Education",
+    "created_date": "2025-11-21",
+    "version": "1.0.0",
+    "total_tools": 25
+  },
+  "categories": {
+    "web_based_beat_makers": {
+      "description": "JavaScript frameworks for creating interactive music in the browser",
+      "tools": [
+        {
+          "name": "Tone.js",
+          "version": "14.x",
+          "type": "Web Audio Framework",
+          "url": "https://tonejs.github.io/",
+          "github": "https://github.com/Tonejs/Tone.js",
+          "license": "MIT",
+          "capabilities": {
+            "synthesis": "Built-in synths for complex sound generation",
+            "sampling": "Sample playback with Tone.Player and Tone.Sampler",
+            "effects": "Reverb, delay, distortion, and more",
+            "scheduling": "Sample-accurate timing with Transport system",
+            "sequencing": "Tools for creating rhythmic patterns",
+            "tempo": "Beats per minute (BPM) control with musical notation (4n, 8t, 1m)"
+          },
+          "limitations": [
+            "Requires JavaScript knowledge",
+            "Steeper learning curve than visual tools",
+            "Mobile browser performance varies"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "Music theory (notes, rhythms, tempo)",
+              "Audio synthesis fundamentals",
+              "Programming logic and timing",
+              "Digital audio workstation concepts"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Moderate to Steep"
+          },
+          "integration_potential": {
+            "rating": "Excellent",
+            "use_cases": [
+              "Core framework for beat maker applications",
+              "Interactive music theory lessons",
+              "Composition and arrangement exercises",
+              "Real-time performance instruments"
+            ],
+            "combines_well_with": ["p5.js", "NexusUI", "WEBMIDI.js", "Three.js"]
+          },
+          "documentation": "Comprehensive with examples",
+          "community_support": "Active and large",
+          "browser_compatibility": "All modern browsers",
+          "installation": "npm install tone or CDN",
+          "code_example": "const synth = new Tone.Synth().toDestination(); synth.triggerAttackRelease('C4', '8n');"
+        },
+        {
+          "name": "Howler.js",
+          "version": "2.x",
+          "type": "Audio Library",
+          "url": "https://howlerjs.com/",
+          "github": "https://github.com/goldfire/howler.js",
+          "license": "MIT",
+          "capabilities": {
+            "playback": "Simple audio file playback",
+            "format_support": "MP3, MPEG, OPUS, OGG, WAV, AAC, M4A, MP4, WEBM, FLAC",
+            "volume_control": "0.0 to 1.0 range",
+            "looping": "Automatic loop functionality",
+            "playback_rate": "0.5x to 4.0x speed control",
+            "spatial_audio": "3D positioning and panning",
+            "sprites": "Sound sprite support for multiple clips in one file",
+            "fading": "Built-in fade in/out"
+          },
+          "limitations": [
+            "Not designed for synthesis (playback only)",
+            "Less comprehensive than Tone.js for music creation",
+            "Limited audio processing capabilities"
+          ],
+          "educational_value": {
+            "rating": "High",
+            "concepts_taught": [
+              "Audio file management",
+              "Playback control and timing",
+              "Sound design basics",
+              "Spatial audio concepts"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Easy to Moderate"
+          },
+          "integration_potential": {
+            "rating": "Good",
+            "use_cases": [
+              "Sample-based beat makers",
+              "Drum machines with pre-recorded sounds",
+              "Audio playback interfaces",
+              "Simple music players"
+            ],
+            "combines_well_with": ["p5.js", "NexusUI", "Canvas API"]
+          },
+          "documentation": "Clear and concise",
+          "community_support": "Active",
+          "browser_compatibility": "All modern browsers, good mobile support",
+          "installation": "npm install howler or CDN",
+          "code_example": "const sound = new Howl({ src: ['sound.mp3'] }); sound.play();"
+        },
+        {
+          "name": "Web Audio API",
+          "version": "W3C Standard",
+          "type": "Native Browser API",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API",
+          "license": "Open Web Standard",
+          "capabilities": {
+            "synthesis": "Oscillator nodes for waveform generation",
+            "processing": "Filter, gain, compression, convolution nodes",
+            "analysis": "AnalyserNode for frequency and waveform data",
+            "routing": "Flexible audio graph with connect/disconnect",
+            "scheduling": "Sample-accurate timing",
+            "spatial": "3D positional audio with PannerNode",
+            "low_level": "Complete control over audio processing"
+          },
+          "limitations": [
+            "Low-level API requires significant coding",
+            "Verbose syntax for simple tasks",
+            "Steep learning curve",
+            "Cross-browser inconsistencies (minor)"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "Digital signal processing fundamentals",
+              "Audio graph architecture",
+              "Real-time audio processing",
+              "Computer science and mathematics integration"
+            ],
+            "grade_level": "11-12 (advanced students)",
+            "learning_curve": "Steep"
+          },
+          "integration_potential": {
+            "rating": "Excellent (Foundation)",
+            "use_cases": [
+              "Foundation for all web audio applications",
+              "Custom audio processors with AudioWorklets",
+              "Advanced synthesis and effects",
+              "Audio analysis and visualization"
+            ],
+            "combines_well_with": ["All web audio libraries build on this"]
+          },
+          "documentation": "Comprehensive (MDN)",
+          "community_support": "Large ecosystem",
+          "browser_compatibility": "All modern browsers",
+          "installation": "Built into browsers",
+          "code_example": "const audioCtx = new AudioContext(); const oscillator = audioCtx.createOscillator(); oscillator.connect(audioCtx.destination); oscillator.start();"
+        }
+      ]
+    },
+    "visual_music_tools": {
+      "description": "Libraries for creating music visualizations and interactive audio-visual experiences",
+      "tools": [
+        {
+          "name": "p5.js Sound Library",
+          "version": "1.x (p5.sound addon)",
+          "type": "Creative Coding + Audio",
+          "url": "https://p5js.org/reference/p5.sound/",
+          "github": "https://github.com/processing/p5.js-sound",
+          "license": "LGPL",
+          "capabilities": {
+            "audio_input": "Microphone and file input",
+            "playback": "Audio file playback with control",
+            "analysis": "Amplitude tracking (p5.Amplitude), FFT analysis (p5.FFT)",
+            "synthesis": "Basic oscillators and envelopes",
+            "effects": "Reverb, delay, filters",
+            "visualization": "Waveform and frequency spectrum data",
+            "integration": "Seamless with p5.js drawing functions"
+          },
+          "limitations": [
+            "Less comprehensive than Tone.js for music production",
+            "Primarily focused on visualization and interaction",
+            "Performance can be slower than optimized libraries"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "Visual representation of sound",
+              "Frequency and amplitude concepts",
+              "Creative coding fundamentals",
+              "Mathematics and art integration",
+              "Signal processing basics"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Easy to Moderate"
+          },
+          "integration_potential": {
+            "rating": "Excellent",
+            "use_cases": [
+              "Music visualization projects",
+              "Interactive audio-visual instruments",
+              "Sound analysis demonstrations",
+              "Creative coding assignments",
+              "Audio-reactive art"
+            ],
+            "combines_well_with": ["Tone.js", "Howler.js", "Web Audio API"]
+          },
+          "documentation": "Excellent with tutorials",
+          "community_support": "Very large and active",
+          "browser_compatibility": "All modern browsers",
+          "installation": "Include p5.sound.js after p5.js",
+          "code_example": "let fft = new p5.FFT(); let spectrum = fft.analyze(); for (let i = 0; i < spectrum.length; i++) { line(i, height, i, height - spectrum[i]); }"
+        },
+        {
+          "name": "Three.js",
+          "version": "0.160+",
+          "type": "3D Graphics Library",
+          "url": "https://threejs.org/",
+          "github": "https://github.com/mrdoob/three.js",
+          "license": "MIT",
+          "capabilities": {
+            "3d_rendering": "WebGL-based 3D scene rendering",
+            "audio_reactive": "Create audio-reactive 3D visualizations",
+            "shaders": "Custom GLSL shaders for advanced effects",
+            "particles": "Particle systems for music visualization",
+            "animation": "GSAP integration for smooth animations",
+            "performance": "Hardware-accelerated rendering"
+          },
+          "limitations": [
+            "Requires 3D graphics knowledge",
+            "Steeper learning curve",
+            "Needs separate audio library for sound analysis",
+            "Performance varies on older hardware"
+          ],
+          "educational_value": {
+            "rating": "High",
+            "concepts_taught": [
+              "3D graphics and coordinate systems",
+              "Audio-visual correlation",
+              "Mathematical transformations",
+              "Shader programming (advanced)",
+              "Performance optimization"
+            ],
+            "grade_level": "10-12",
+            "learning_curve": "Steep"
+          },
+          "integration_potential": {
+            "rating": "Very Good",
+            "use_cases": [
+              "3D music visualizers",
+              "Audio-reactive 3D environments",
+              "Advanced visualization projects",
+              "Virtual concert experiences",
+              "Educational demonstrations of sound waves"
+            ],
+            "combines_well_with": ["Web Audio API", "Tone.js", "p5.js"]
+          },
+          "documentation": "Comprehensive with examples",
+          "community_support": "Very large and active",
+          "browser_compatibility": "All modern browsers with WebGL",
+          "installation": "npm install three or CDN",
+          "code_example": "const geometry = new THREE.SphereGeometry(1, 32, 32); // Modulate vertices based on audio frequency data"
+        },
+        {
+          "name": "Canvas API",
+          "version": "HTML5 Standard",
+          "type": "Native Browser API",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API",
+          "license": "Open Web Standard",
+          "capabilities": {
+            "2d_drawing": "Draw shapes, lines, and images",
+            "waveform_display": "Real-time waveform visualization",
+            "spectrum_bars": "Frequency spectrum bar graphs",
+            "performance": "Hardware-accelerated 2D rendering",
+            "flexibility": "Complete control over pixel manipulation",
+            "animation": "requestAnimationFrame for smooth updates"
+          },
+          "limitations": [
+            "Lower-level than libraries like p5.js",
+            "No built-in audio capabilities",
+            "Requires more code for complex visualizations"
+          ],
+          "educational_value": {
+            "rating": "High",
+            "concepts_taught": [
+              "2D graphics programming",
+              "Coordinate systems and transformations",
+              "Real-time rendering",
+              "Data visualization principles",
+              "Animation techniques"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Moderate"
+          },
+          "integration_potential": {
+            "rating": "Excellent (Foundation)",
+            "use_cases": [
+              "Custom waveform displays",
+              "Frequency spectrum analyzers",
+              "Audio-reactive graphics",
+              "Lightweight visualizations",
+              "Performance-critical applications"
+            ],
+            "combines_well_with": ["Web Audio API", "Tone.js", "Howler.js"]
+          },
+          "documentation": "Comprehensive (MDN)",
+          "community_support": "Very large",
+          "browser_compatibility": "All modern browsers",
+          "installation": "Built into browsers",
+          "code_example": "const canvas = document.querySelector('canvas'); const ctx = canvas.getContext('2d'); ctx.fillRect(x, y, width, height);"
+        }
+      ]
+    },
+    "midi_libraries": {
+      "description": "Libraries for MIDI input/output and musical instrument integration",
+      "tools": [
+        {
+          "name": "Web MIDI API",
+          "version": "W3C Standard",
+          "type": "Native Browser API",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_MIDI_API",
+          "license": "Open Web Standard",
+          "capabilities": {
+            "midi_io": "Send and receive MIDI messages",
+            "device_access": "Connect to MIDI keyboards, controllers, synthesizers",
+            "low_level": "Complete MIDI specification support",
+            "real_time": "Low-latency MIDI communication",
+            "sysex": "System Exclusive messages support"
+          },
+          "limitations": [
+            "Low-level API (binary data manipulation)",
+            "Requires MIDI knowledge",
+            "Not supported in all browsers (Firefox requires polyfill)",
+            "Needs external MIDI hardware or virtual ports"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "MIDI protocol fundamentals",
+              "Musical instrument communication",
+              "Binary data and protocols",
+              "Real-time systems",
+              "Hardware-software integration"
+            ],
+            "grade_level": "10-12",
+            "learning_curve": "Steep"
+          },
+          "integration_potential": {
+            "rating": "Excellent (Foundation)",
+            "use_cases": [
+              "MIDI keyboard integration",
+              "Controller input for web instruments",
+              "MIDI file playback",
+              "Music notation software",
+              "DAW-style applications"
+            ],
+            "combines_well_with": ["Tone.js", "WEBMIDI.js", "JZZ"]
+          },
+          "documentation": "Comprehensive (MDN)",
+          "community_support": "Growing",
+          "browser_compatibility": "Chrome, Edge, Opera (Firefox with polyfill)",
+          "installation": "Built into browsers",
+          "code_example": "navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);"
+        },
+        {
+          "name": "WEBMIDI.js",
+          "version": "3.x",
+          "type": "MIDI Library",
+          "url": "https://webmidijs.org/",
+          "github": "https://github.com/djipco/webmidi",
+          "license": "Apache 2.0",
+          "capabilities": {
+            "high_level_api": "User-friendly functions (playNote, sendPitchBend)",
+            "event_listeners": "Simple event handling (noteon, pitchbend, controlchange)",
+            "node_support": "Works in Node.js (via JZZ)",
+            "abstraction": "Handles parsing of MIDI messages",
+            "midi_devices": "Easy device enumeration and access"
+          },
+          "limitations": [
+            "Adds abstraction layer (slight overhead)",
+            "Depends on Web MIDI API support",
+            "Learning curve for MIDI concepts"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "MIDI communication (easier than native API)",
+              "Musical instrument control",
+              "Event-driven programming",
+              "Music technology integration"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Moderate"
+          },
+          "integration_potential": {
+            "rating": "Excellent",
+            "use_cases": [
+              "MIDI keyboard input for web instruments",
+              "Controller mapping for beat makers",
+              "Music education software with hardware",
+              "Interactive music performance",
+              "MIDI learning applications"
+            ],
+            "combines_well_with": ["Tone.js", "Web Audio API", "NexusUI"]
+          },
+          "documentation": "Excellent with examples",
+          "community_support": "Active (4.4K+ monthly downloads)",
+          "browser_compatibility": "Same as Web MIDI API",
+          "installation": "npm install webmidi or CDN",
+          "code_example": "WebMidi.inputs[0].addListener('noteon', e => { console.log(e.note.name); });"
+        },
+        {
+          "name": "JZZ (Jazz-Soft MIDI)",
+          "version": "1.x",
+          "type": "MIDI Library & Polyfill",
+          "url": "https://jazz-soft.net/",
+          "github": "https://github.com/jazz-soft/JZZ",
+          "license": "MIT",
+          "capabilities": {
+            "polyfill": "Enables Web MIDI in browsers without native support",
+            "node_js": "Full Node.js support",
+            "virtual_ports": "JZZ.input.Kbd (keyboard), JZZ.synth.OSC",
+            "midi2": "MIDI 2.0 support via adapter",
+            "cross_platform": "Works on Linux, MacOS, Windows",
+            "extended": "More virtual MIDI ports than native API"
+          },
+          "limitations": [
+            "Additional dependency",
+            "May require plugins for full functionality",
+            "Slightly different API than native Web MIDI"
+          ],
+          "educational_value": {
+            "rating": "High",
+            "concepts_taught": [
+              "MIDI communication",
+              "Cross-platform development",
+              "Virtual MIDI devices",
+              "Music technology"
+            ],
+            "grade_level": "10-12",
+            "learning_curve": "Moderate"
+          },
+          "integration_potential": {
+            "rating": "Very Good",
+            "use_cases": [
+              "Cross-browser MIDI support",
+              "Node.js MIDI applications",
+              "Virtual MIDI devices",
+              "MIDI 2.0 experiments",
+              "Backend MIDI processing"
+            ],
+            "combines_well_with": ["WEBMIDI.js", "Tone.js", "Node.js servers"]
+          },
+          "documentation": "Good",
+          "community_support": "Active",
+          "browser_compatibility": "All browsers (with polyfill)",
+          "installation": "npm install jzz",
+          "code_example": "JZZ().openMidiOut().note(0, 'C5', 127, 500);"
+        }
+      ]
+    },
+    "music_theory_tools": {
+      "description": "JavaScript libraries for music theory concepts, scales, chords, and intervals",
+      "tools": [
+        {
+          "name": "Tonal.js",
+          "version": "5.x",
+          "type": "Music Theory Library",
+          "url": "https://tonaljs.github.io/tonal/",
+          "github": "https://github.com/tonaljs/tonal",
+          "license": "MIT",
+          "capabilities": {
+            "notes": "Note parsing, manipulation, and transposition",
+            "intervals": "Interval calculations and operations",
+            "scales": "Scale generation and analysis",
+            "chords": "Chord detection and generation",
+            "keys": "Key signature analysis",
+            "modular": "Individual npm packages for tree-shaking",
+            "functional": "Pure functions, no mutation",
+            "typescript": "Written in TypeScript with type definitions"
+          },
+          "limitations": [
+            "Focuses on Western music theory",
+            "No audio generation (theory only)",
+            "Requires JavaScript knowledge"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "Music theory fundamentals",
+              "Scales and modes",
+              "Chord progressions",
+              "Intervals and transposition",
+              "Key signatures",
+              "Functional programming concepts"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Moderate"
+          },
+          "integration_potential": {
+            "rating": "Excellent",
+            "use_cases": [
+              "Music theory educational apps",
+              "Chord progression generators",
+              "Scale practice tools",
+              "Composition assistants",
+              "Ear training applications",
+              "Interactive theory lessons"
+            ],
+            "combines_well_with": ["Tone.js", "WEBMIDI.js", "p5.js", "NexusUI"]
+          },
+          "documentation": "Comprehensive",
+          "community_support": "Active (3,810+ GitHub stars)",
+          "browser_compatibility": "All modern browsers, Node.js",
+          "installation": "npm install tonal or individual packages",
+          "code_example": "import { Scale, Chord } from 'tonal'; Scale.get('C major').notes; // ['C', 'D', 'E', 'F', 'G', 'A', 'B']"
+        },
+        {
+          "name": "Teoria.js",
+          "version": "2.x",
+          "type": "Music Theory Library",
+          "url": "https://saebekassebil.github.io/teoria/",
+          "github": "https://github.com/saebekassebil/teoria",
+          "license": "MIT",
+          "capabilities": {
+            "notes": "Note object with alterations, octaves, frequency",
+            "chords": "Jazz and classical chord support (Ab#5b9, F(#11))",
+            "scales": "Blues, flamenco, whole tone, double harmonic scales",
+            "intervals": "Interval calculations",
+            "solfege": "Solfège notation support",
+            "helmholtz": "Helmholtz notation",
+            "frequency": "Note to frequency conversion"
+          },
+          "limitations": [
+            "Object-oriented API (less modern than Tonal.js)",
+            "Older library, less active maintenance",
+            "Larger bundle size (monolithic)"
+          ],
+          "educational_value": {
+            "rating": "High",
+            "concepts_taught": [
+              "Music theory (jazz and classical)",
+              "Frequency relationships",
+              "Solfège system",
+              "Advanced chord theory",
+              "Non-Western scales"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Moderate"
+          },
+          "integration_potential": {
+            "rating": "Good",
+            "use_cases": [
+              "Jazz theory education",
+              "Advanced chord analysis",
+              "Solfège training",
+              "Frequency calculators",
+              "Multi-genre theory apps"
+            ],
+            "combines_well_with": ["Tone.js", "Web Audio API"]
+          },
+          "documentation": "Good",
+          "community_support": "Smaller, stable",
+          "browser_compatibility": "All modern browsers",
+          "installation": "npm install teoria",
+          "code_example": "var note = teoria.note('C4'); note.interval('M3'); // E4"
+        }
+      ]
+    },
+    "audio_processing": {
+      "description": "Libraries for audio effects, waveform visualization, and signal processing",
+      "tools": [
+        {
+          "name": "Pizzicato.js",
+          "version": "0.6.x",
+          "type": "Audio Effects Library",
+          "url": "https://alemangui.github.io/pizzicato/",
+          "github": "https://github.com/alemangui/pizzicato",
+          "license": "MIT",
+          "capabilities": {
+            "sound_creation": "From waveforms, files, microphone, or functions",
+            "effects": "Delay, reverb, distortion, flanger, tremolo, compression, filters",
+            "grouping": "Sound group management",
+            "simplicity": "Easy-to-use API",
+            "web_audio": "Built on Web Audio API"
+          },
+          "limitations": [
+            "Less comprehensive than Tone.js",
+            "Smaller effect library",
+            "Less active development"
+          ],
+          "educational_value": {
+            "rating": "High",
+            "concepts_taught": [
+              "Audio effects fundamentals",
+              "Signal processing concepts",
+              "Sound manipulation",
+              "Effects chain architecture"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Easy to Moderate"
+          },
+          "integration_potential": {
+            "rating": "Good",
+            "use_cases": [
+              "Simple effect processors",
+              "Beat maker effects chain",
+              "Audio manipulation demos",
+              "Effects education",
+              "Microphone input processing"
+            ],
+            "combines_well_with": ["Wavesurfer.js", "Howler.js", "p5.js"]
+          },
+          "documentation": "Clear and concise",
+          "community_support": "Moderate",
+          "browser_compatibility": "All modern browsers",
+          "installation": "npm install pizzicato or CDN",
+          "code_example": "var sound = new Pizzicato.Sound('sound.mp3'); sound.addEffect(new Pizzicato.Effects.Delay());"
+        },
+        {
+          "name": "Wavesurfer.js",
+          "version": "7.x",
+          "type": "Waveform Visualization Library",
+          "url": "https://wavesurfer.xyz/",
+          "github": "https://github.com/katspaugh/wavesurfer.js",
+          "license": "BSD-3-Clause",
+          "capabilities": {
+            "waveform": "Interactive audio waveform rendering",
+            "playback": "Audio player with controls",
+            "customization": "Highly customizable appearance",
+            "plugins": "Regions, Timeline, Minimap, Envelope, Record, Spectrogram",
+            "canvas_webgl": "Canvas and WebGL rendering options",
+            "events": "Rich event system"
+          },
+          "limitations": [
+            "Focused on visualization, not processing",
+            "Cannot add effects or manipulate audio",
+            "Player-centric design"
+          ],
+          "educational_value": {
+            "rating": "High",
+            "concepts_taught": [
+              "Waveform visualization",
+              "Audio playback concepts",
+              "Time-domain representation",
+              "Audio editing interfaces",
+              "Frequency spectrum (with plugin)"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Easy"
+          },
+          "integration_potential": {
+            "rating": "Very Good",
+            "use_cases": [
+              "Audio editor interfaces",
+              "Waveform display for beat makers",
+              "Audio analysis demonstrations",
+              "Recording applications",
+              "Podcast/music players"
+            ],
+            "combines_well_with": ["Pizzicato.js", "Tone.js", "Web Audio API"]
+          },
+          "documentation": "Excellent",
+          "community_support": "Very active",
+          "browser_compatibility": "All modern browsers",
+          "installation": "npm install wavesurfer.js or CDN",
+          "code_example": "const wavesurfer = WaveSurfer.create({ container: '#waveform' }); wavesurfer.load('audio.mp3');"
+        },
+        {
+          "name": "Audio Worklets",
+          "version": "Web Audio API Standard",
+          "type": "Audio Processing API",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet",
+          "license": "Open Web Standard",
+          "capabilities": {
+            "custom_processing": "Custom audio processors in JavaScript/WebAssembly",
+            "low_latency": "Runs in audio thread (zero additional latency)",
+            "real_time": "Sample-by-sample processing",
+            "performance": "No main thread blocking",
+            "advanced": "Custom effects, synthesis, analysis"
+          },
+          "limitations": [
+            "Complex API",
+            "Requires advanced JavaScript knowledge",
+            "Separate worklet file management",
+            "Debugging can be challenging"
+          ],
+          "educational_value": {
+            "rating": "Very High (Advanced)",
+            "concepts_taught": [
+              "Real-time audio processing",
+              "Digital signal processing",
+              "Threading and concurrency",
+              "Low-level audio programming",
+              "Advanced computer science concepts"
+            ],
+            "grade_level": "12 (advanced AP students)",
+            "learning_curve": "Very Steep"
+          },
+          "integration_potential": {
+            "rating": "Excellent (Advanced)",
+            "use_cases": [
+              "Custom audio effects",
+              "Advanced synthesis",
+              "Real-time audio analysis",
+              "High-performance processing",
+              "Research projects"
+            ],
+            "combines_well_with": ["Web Audio API", "Tone.js", "WebAssembly"]
+          },
+          "documentation": "Comprehensive (MDN, Chrome blog)",
+          "community_support": "Growing",
+          "browser_compatibility": "Chrome, Edge, Safari, Firefox",
+          "installation": "Built into browsers",
+          "code_example": "audioContext.audioWorklet.addModule('processor.js').then(() => { const node = new AudioWorkletNode(audioContext, 'processor'); });"
+        }
+      ]
+    },
+    "ui_controls": {
+      "description": "Interactive user interface controls for music applications",
+      "tools": [
+        {
+          "name": "NexusUI",
+          "version": "2.x",
+          "type": "Web Audio UI Toolkit",
+          "url": "https://nexus-js.github.io/ui/",
+          "github": "https://github.com/nexus-js/ui",
+          "license": "MIT",
+          "capabilities": {
+            "controls": "Dial, slider, button, toggle, keyboard, matrix, position",
+            "advanced": "Multislider, sequencer, envelope, spectrum",
+            "multitouch": "Touch-optimized interfaces",
+            "events": "JavaScript event listeners",
+            "helpers": "Tuning and timing utilities",
+            "modular": "Individual component instantiation"
+          },
+          "limitations": [
+            "No sound generation (UI only)",
+            "Requires integration with audio library",
+            "Limited customization of appearance"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "Music interface design",
+              "Control parameter mapping",
+              "User interaction patterns",
+              "Real-time control systems",
+              "Interface-audio integration"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Easy to Moderate"
+          },
+          "integration_potential": {
+            "rating": "Excellent",
+            "use_cases": [
+              "Beat maker interfaces",
+              "Synthesizer controls",
+              "Step sequencers",
+              "DJ-style interfaces",
+              "Interactive music apps",
+              "Parameter controllers"
+            ],
+            "combines_well_with": ["Tone.js", "Web Audio API", "WEBMIDI.js"]
+          },
+          "documentation": "Good with API reference",
+          "community_support": "Moderate",
+          "browser_compatibility": "All modern browsers, mobile-friendly",
+          "installation": "npm install nexusui or CDN",
+          "code_example": "var dial = new Nexus.Dial('#target'); dial.on('change', function(v) { synth.volume.value = v; });"
+        }
+      ]
+    },
+    "free_desktop_software": {
+      "description": "Free desktop applications for music production and audio editing",
+      "tools": [
+        {
+          "name": "Audacity",
+          "version": "3.x",
+          "type": "Audio Editor",
+          "url": "https://www.audacityteam.org/",
+          "license": "GPL v2+",
+          "capabilities": {
+            "recording": "Multi-track recording",
+            "editing": "Cut, copy, paste, delete audio",
+            "effects": "Built-in effects library",
+            "analysis": "Spectrum analysis, beat finding",
+            "formats": "Wide format support (WAV, MP3, OGG, FLAC)",
+            "plugins": "VST, LV2, Nyquist plugin support"
+          },
+          "limitations": [
+            "Not a DAW (limited MIDI)",
+            "Desktop-only (no web version)",
+            "No real-time effects during recording",
+            "Limited composition features"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "Audio editing fundamentals",
+              "Recording techniques",
+              "Effects processing",
+              "Audio file formats",
+              "Waveform analysis",
+              "Multi-track production basics"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Easy to Moderate"
+          },
+          "integration_potential": {
+            "rating": "Good",
+            "use_cases": [
+              "Audio sample preparation",
+              "Recording student performances",
+              "Podcast creation",
+              "Audio cleanup and mastering",
+              "Sound effect creation",
+              "Export files for web beat makers"
+            ],
+            "combines_well_with": ["LMMS", "Ardour", "Web-based tools"]
+          },
+          "documentation": "Excellent with manual and tutorials",
+          "community_support": "Very large and active",
+          "platform_support": "Windows, macOS, Linux",
+          "installation": "Download from website",
+          "workflow_integration": "Create/edit samples → export → use in web beat maker"
+        },
+        {
+          "name": "LMMS (Linux MultiMedia Studio)",
+          "version": "1.2.x",
+          "type": "Digital Audio Workstation (DAW)",
+          "url": "https://lmms.io/",
+          "github": "https://github.com/LMMS/lmms",
+          "license": "GPL",
+          "capabilities": {
+            "midi_sequencing": "Piano roll, pattern editor",
+            "synthesis": "Built-in synthesizers and samplers",
+            "composition": "Song editor with multiple tracks",
+            "effects": "Effects chains and mixing",
+            "vst_support": "VST plugin support",
+            "automation": "Parameter automation"
+          },
+          "limitations": [
+            "Desktop-only",
+            "Best for electronic/EDM music",
+            "Limited audio recording capabilities",
+            "Learning curve for beginners"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "Music production fundamentals",
+              "MIDI sequencing",
+              "Synthesis basics",
+              "Song structure and arrangement",
+              "Mixing and effects",
+              "Pattern-based composition"
+            ],
+            "grade_level": "9-12",
+            "learning_curve": "Moderate"
+          },
+          "integration_potential": {
+            "rating": "Good",
+            "use_cases": [
+              "Full composition creation",
+              "Beat and melody creation",
+              "Teaching DAW concepts",
+              "Electronic music production",
+              "MIDI file export for web apps",
+              "Sample rendering for web use"
+            ],
+            "combines_well_with": ["Audacity", "Web-based beat makers"]
+          },
+          "documentation": "Good with community tutorials",
+          "community_support": "Active",
+          "platform_support": "Windows, macOS, Linux",
+          "installation": "Download from website",
+          "workflow_integration": "Compose in LMMS → export audio/MIDI → integrate with web tools"
+        },
+        {
+          "name": "Ardour",
+          "version": "8.x",
+          "type": "Professional DAW",
+          "url": "https://ardour.org/",
+          "github": "https://github.com/Ardour/ardour",
+          "license": "GPL",
+          "capabilities": {
+            "recording": "Multi-track audio recording",
+            "mixing": "Professional mixing console",
+            "midi": "Full MIDI support and editing",
+            "plugins": "VST, LV2, AU plugin support",
+            "automation": "Comprehensive automation",
+            "mastering": "Mastering-grade tools"
+          },
+          "limitations": [
+            "Desktop-only",
+            "Steeper learning curve",
+            "More complex than needed for beginners",
+            "Resource-intensive"
+          ],
+          "educational_value": {
+            "rating": "Very High (Advanced)",
+            "concepts_taught": [
+              "Professional recording techniques",
+              "Advanced mixing and mastering",
+              "Signal flow and routing",
+              "MIDI production",
+              "Audio engineering principles",
+              "Studio workflow"
+            ],
+            "grade_level": "11-12",
+            "learning_curve": "Steep"
+          },
+          "integration_potential": {
+            "rating": "Good",
+            "use_cases": [
+              "Professional-quality recordings",
+              "Advanced production projects",
+              "Teaching pro audio concepts",
+              "Multi-track composition",
+              "Final mixing and mastering",
+              "Export high-quality audio for web"
+            ],
+            "combines_well_with": ["Audacity", "LMMS", "Web tools"]
+          },
+          "documentation": "Comprehensive manual",
+          "community_support": "Active professional community",
+          "platform_support": "Windows, macOS, Linux",
+          "installation": "Download from website (pay-what-you-want)",
+          "workflow_integration": "Professional production → export → web distribution/integration"
+        }
+      ]
+    },
+    "educational_frameworks": {
+      "description": "Complete educational platforms and curricula for music and coding",
+      "tools": [
+        {
+          "name": "EarSketch",
+          "version": "Current",
+          "type": "Music Education Platform",
+          "url": "https://earsketch.gatech.edu/",
+          "organization": "Georgia Tech Center for Music Technology",
+          "license": "Free for educational use",
+          "capabilities": {
+            "programming": "Python and JavaScript programming environments",
+            "daw": "Browser-based digital audio workstation",
+            "library": "Extensive audio loop library",
+            "curriculum": "Standards-aligned STEAM curriculum",
+            "composition": "Music composition and arrangement",
+            "learning": "Integrated learning modules"
+          },
+          "limitations": [
+            "Account creation required",
+            "Internet connection required",
+            "Focused on loop-based composition",
+            "May have server downtime"
+          ],
+          "educational_value": {
+            "rating": "Excellent",
+            "concepts_taught": [
+              "Computer science fundamentals",
+              "Music composition",
+              "Programming (Python/JavaScript)",
+              "STEAM integration",
+              "Computational thinking",
+              "Music technology"
+            ],
+            "grade_level": "6-12 (elementary through college)",
+            "learning_curve": "Easy to Moderate",
+            "curriculum_aligned": true
+          },
+          "integration_potential": {
+            "rating": "Excellent (Standalone + Integration)",
+            "use_cases": [
+              "Complete music + CS curriculum",
+              "Introductory computer science",
+              "Music technology classes",
+              "STEAM projects",
+              "Composition assignments",
+              "API for custom web apps"
+            ],
+            "combines_well_with": ["Custom web apps via API"]
+          },
+          "documentation": "Excellent with curriculum materials",
+          "community_support": "Very active educational community",
+          "browser_compatibility": "All modern browsers",
+          "usage_stats": "Used in all 50 states, 100+ countries",
+          "installation": "Browser-based, no installation",
+          "teacher_resources": "Comprehensive lesson plans and standards alignment"
+        },
+        {
+          "name": "Chrome Music Lab",
+          "version": "Current",
+          "type": "Interactive Music Experiments",
+          "url": "https://musiclab.chromeexperiments.com/",
+          "organization": "Google Chrome",
+          "license": "Free, open web technology",
+          "capabilities": {
+            "experiments": "Multiple music exploration tools",
+            "concepts": "Rhythm, scales, chords, arpeggios, harmonics",
+            "interactive": "Touch and mouse interaction",
+            "accessible": "No music knowledge required",
+            "technology": "Web Audio API, WebMIDI, Tone.js"
+          },
+          "limitations": [
+            "Individual experiments (not integrated platform)",
+            "No composition saving (most experiments)",
+            "Limited customization",
+            "No formal curriculum"
+          ],
+          "educational_value": {
+            "rating": "Very High",
+            "concepts_taught": [
+              "Music fundamentals in playful way",
+              "Sound wave visualization",
+              "Rhythm and melody basics",
+              "Harmony and chords",
+              "Experimental music concepts"
+            ],
+            "grade_level": "K-12",
+            "learning_curve": "Very Easy",
+            "curriculum_aligned": false
+          },
+          "integration_potential": {
+            "rating": "Good (Inspiration)",
+            "use_cases": [
+              "Music concept demonstrations",
+              "Interactive lesson supplements",
+              "Inspiration for custom tools",
+              "Quick music explorations",
+              "Introduction to music concepts"
+            ],
+            "combines_well_with": ["Custom educational apps"]
+          },
+          "documentation": "Minimal (designed for exploration)",
+          "community_support": "Large user base",
+          "browser_compatibility": "All modern browsers",
+          "installation": "Browser-based, no installation",
+          "source_inspiration": "Open source examples for building similar tools"
+        },
+        {
+          "name": "Web Audio School",
+          "version": "Current",
+          "type": "Interactive Tutorial Series",
+          "url": "https://github.com/mmckegg/web-audio-school",
+          "github": "https://github.com/mmckegg/web-audio-school",
+          "license": "ISC",
+          "capabilities": {
+            "workshops": "Self-guided workshop series",
+            "web_audio": "Web Audio API focused",
+            "interactive": "Hands-on coding exercises",
+            "progressive": "Builds skills incrementally",
+            "verification": "Automated verification of solutions"
+          },
+          "limitations": [
+            "Requires coding knowledge",
+            "Desktop-focused (Node.js required)",
+            "Not a complete curriculum",
+            "Less actively maintained"
+          ],
+          "educational_value": {
+            "rating": "High (For Coders)",
+            "concepts_taught": [
+              "Web Audio API fundamentals",
+              "Audio programming",
+              "Sound synthesis",
+              "Audio effects",
+              "Interactive coding"
+            ],
+            "grade_level": "10-12 (with programming experience)",
+            "learning_curve": "Moderate to Steep",
+            "curriculum_aligned": false
+          },
+          "integration_potential": {
+            "rating": "Good (Supplemental)",
+            "use_cases": [
+              "Programming-focused music lessons",
+              "Web Audio API training",
+              "Self-paced learning",
+              "Coding club activities",
+              "Advanced elective courses"
+            ],
+            "combines_well_with": ["Tone.js", "Web Audio API projects"]
+          },
+          "documentation": "Integrated tutorials",
+          "community_support": "Moderate",
+          "platform_support": "Requires Node.js installation",
+          "installation": "npm install -g web-audio-school",
+          "learning_format": "Interactive command-line workshops"
+        }
+      ]
+    }
+  },
+  "integration_recommendations": {
+    "beginner_high_school_framework": {
+      "grade_level": "9-10",
+      "focus": "Introduction to music technology and basic beat making",
+      "recommended_stack": [
+        {
+          "tool": "EarSketch",
+          "role": "Primary platform",
+          "reason": "Complete curriculum, easy entry, no installation"
+        },
+        {
+          "tool": "Chrome Music Lab",
+          "role": "Concept exploration",
+          "reason": "Playful introduction to music concepts"
+        },
+        {
+          "tool": "Audacity",
+          "role": "Audio editing",
+          "reason": "Simple, free, widely used"
+        },
+        {
+          "tool": "p5.js + p5.sound",
+          "role": "Creative coding",
+          "reason": "Easy visualization, creative expression"
+        }
+      ],
+      "sample_projects": [
+        "Create loops in EarSketch with Python",
+        "Visualize music with p5.js",
+        "Record and edit in Audacity",
+        "Explore Chrome Music Lab experiments"
+      ]
+    },
+    "intermediate_high_school_framework": {
+      "grade_level": "10-11",
+      "focus": "Web-based beat making and music composition",
+      "recommended_stack": [
+        {
+          "tool": "Tone.js",
+          "role": "Core audio framework",
+          "reason": "Comprehensive, industry-standard"
+        },
+        {
+          "tool": "NexusUI",
+          "role": "User interface",
+          "reason": "Ready-made music controls"
+        },
+        {
+          "tool": "Tonal.js",
+          "role": "Music theory",
+          "reason": "Learn theory while coding"
+        },
+        {
+          "tool": "Wavesurfer.js",
+          "role": "Visualization",
+          "reason": "Professional waveform display"
+        },
+        {
+          "tool": "LMMS",
+          "role": "Desktop production",
+          "reason": "Full DAW experience"
+        }
+      ],
+      "sample_projects": [
+        "Build a 4-track beat maker with Tone.js + NexusUI",
+        "Create scale practice app with Tonal.js",
+        "Compose full song in LMMS",
+        "Build audio editor interface with Wavesurfer.js"
+      ]
+    },
+    "advanced_high_school_framework": {
+      "grade_level": "11-12 / AP",
+      "focus": "Advanced music technology and computer science integration",
+      "recommended_stack": [
+        {
+          "tool": "Web Audio API",
+          "role": "Low-level control",
+          "reason": "Deep understanding of audio programming"
+        },
+        {
+          "tool": "Tone.js",
+          "role": "High-level framework",
+          "reason": "Complex synthesis and effects"
+        },
+        {
+          "tool": "WEBMIDI.js",
+          "role": "Hardware integration",
+          "reason": "Real instruments and controllers"
+        },
+        {
+          "tool": "Three.js",
+          "role": "3D visualization",
+          "reason": "Advanced audio-visual projects"
+        },
+        {
+          "tool": "Audio Worklets",
+          "role": "Custom processing",
+          "reason": "Real-time DSP programming"
+        },
+        {
+          "tool": "Ardour",
+          "role": "Professional production",
+          "reason": "Industry-grade workflow"
+        }
+      ],
+      "sample_projects": [
+        "Build custom synthesizer with Web Audio API",
+        "Create MIDI controller integration",
+        "Develop 3D audio visualizer with Three.js",
+        "Implement custom audio effect with Audio Worklets",
+        "Professional recording project in Ardour"
+      ]
+    },
+    "complete_beat_maker_stack": {
+      "purpose": "Build a full-featured web-based beat maker for high school",
+      "architecture": {
+        "frontend_framework": "React or Vue (optional, vanilla JS works)",
+        "audio_engine": "Tone.js",
+        "ui_controls": "NexusUI",
+        "visualization": "p5.js or Wavesurfer.js",
+        "music_theory": "Tonal.js",
+        "midi_support": "WEBMIDI.js (optional)",
+        "effects": "Tone.js built-in effects",
+        "storage": "localStorage or IndexedDB for saving projects"
+      },
+      "features_roadmap": [
+        {
+          "phase": "1 - Core Beat Maker",
+          "features": [
+            "16-step sequencer (drums)",
+            "4 drum tracks (kick, snare, hi-hat, clap)",
+            "Play/pause/stop controls",
+            "Tempo control (60-180 BPM)",
+            "Volume controls per track"
+          ],
+          "tools": "Tone.js + NexusUI + HTML/CSS/JS"
+        },
+        {
+          "phase": "2 - Melody and Harmony",
+          "features": [
+            "Piano roll interface",
+            "Synthesizer tracks",
+            "Scale helpers with Tonal.js",
+            "Chord suggestions",
+            "Multiple instrument sounds"
+          ],
+          "tools": "Add Tonal.js for theory"
+        },
+        {
+          "phase": "3 - Visualization",
+          "features": [
+            "Waveform display",
+            "Frequency spectrum analyzer",
+            "Beat indicators",
+            "Visual feedback for active steps"
+          ],
+          "tools": "Add p5.js or Wavesurfer.js"
+        },
+        {
+          "phase": "4 - Effects and Polish",
+          "features": [
+            "Reverb, delay, filter effects",
+            "Master effects chain",
+            "Project save/load",
+            "Export to WAV/MP3",
+            "MIDI keyboard support (optional)"
+          ],
+          "tools": "Tone.js effects + WEBMIDI.js + file export"
+        }
+      ],
+      "estimated_timeline": "1-2 semesters for complete implementation"
+    },
+    "licensing_summary": {
+      "for_educational_use": {
+        "fully_free_tools": [
+          "All Web APIs (Web Audio, Web MIDI, Canvas) - Open standards",
+          "Tone.js - MIT",
+          "Howler.js - MIT",
+          "Tonal.js - MIT",
+          "Teoria.js - MIT",
+          "p5.js - LGPL",
+          "NexusUI - MIT",
+          "JZZ - MIT",
+          "Pizzicato.js - MIT",
+          "Three.js - MIT"
+        ],
+        "note_on_lgpl": "p5.js uses LGPL which allows use in educational projects without restrictions",
+        "attribution_required": "Most MIT licenses require attribution in documentation",
+        "commercial_use": "All listed tools allow commercial use, important for student portfolios"
+      },
+      "desktop_software": {
+        "Audacity": "GPL v2+ - Free, open source, no restrictions",
+        "LMMS": "GPL - Free, open source, modify and distribute",
+        "Ardour": "GPL - Free download, pay-what-you-want model"
+      },
+      "educational_platforms": {
+        "EarSketch": "Free for educational use, account required",
+        "Chrome Music Lab": "Free, built with open web technology"
+      },
+      "best_practices": [
+        "Include attribution in project documentation",
+        "Teach students about open source licenses",
+        "Encourage contribution back to projects",
+        "Use licenses as teaching moment for software ethics"
+      ]
+    }
+  },
+  "implementation_guide": {
+    "getting_started_checklist": [
+      "1. Choose age-appropriate framework (see integration_recommendations)",
+      "2. Set up development environment (VS Code, browser, Node.js)",
+      "3. Start with simple project (Chrome Music Lab exploration)",
+      "4. Introduce coding gradually (p5.js → Tone.js → Web Audio API)",
+      "5. Combine desktop tools (Audacity/LMMS) with web tools",
+      "6. Build toward capstone project (custom beat maker)"
+    ],
+    "teacher_preparation": [
+      "Learn basics of JavaScript and Web Audio API",
+      "Explore all recommended tools hands-on",
+      "Review EarSketch curriculum materials",
+      "Set up classroom computers with required software",
+      "Plan integration with music theory curriculum",
+      "Prepare assessment rubrics for coding + music projects"
+    ],
+    "student_progression": [
+      "Semester 1: EarSketch + Chrome Music Lab + Audacity",
+      "Semester 2: p5.js + basic Tone.js + LMMS",
+      "Year 2: Advanced Tone.js + Web Audio API + custom projects",
+      "Capstone: Full beat maker application or original instrument"
+    ],
+    "assessment_ideas": [
+      "Create original composition using specific tools",
+      "Build functional music application",
+      "Demonstrate music theory knowledge through code",
+      "Present portfolio of music + code projects",
+      "Explain audio concepts (synthesis, effects, etc.)",
+      "Collaborate on group music technology project"
+    ]
+  },
+  "additional_resources": {
+    "online_tutorials": [
+      {
+        "name": "MDN Web Audio API Guide",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API",
+        "focus": "Comprehensive Web Audio documentation"
+      },
+      {
+        "name": "Tone.js Examples",
+        "url": "https://tonejs.github.io/examples/",
+        "focus": "Interactive Tone.js demos"
+      },
+      {
+        "name": "The Coding Train (p5.js sound)",
+        "url": "https://thecodingtrain.com/",
+        "focus": "Video tutorials for creative coding"
+      }
+    ],
+    "communities": [
+      "Web Audio Slack",
+      "Tone.js GitHub Discussions",
+      "p5.js Forum",
+      "LMMS Community",
+      "EarSketch Teacher Network"
+    ],
+    "books": [
+      {
+        "title": "JavaScript for Sound Artists",
+        "authors": "William Turner, Steve Leonard",
+        "focus": "Learn to Code with the Web Audio API"
+      }
+    ]
+  }
+}

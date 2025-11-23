@@ -1,0 +1,70 @@
+{
+  "hooks": {
+    "enabled": true,
+    "memory": {
+      "enabled": true,
+      "sessionKey": "music-framework/agentdb",
+      "persistPatterns": true,
+      "syncInterval": 5000
+    },
+    "preTask": {
+      "enabled": true,
+      "commands": [
+        "npx claude-flow@alpha hooks pre-task --description \"Music agent operation\"",
+        "npx claude-flow@alpha hooks session-restore --session-id \"music-agentdb-session\""
+      ]
+    },
+    "postTask": {
+      "enabled": true,
+      "commands": [
+        "npx claude-flow@alpha hooks post-task --task-id \"${TASK_ID}\"",
+        "npx claude-flow@alpha hooks post-edit --file \"${FILE_PATH}\" --memory-key \"music-framework/patterns/${AGENT_ID}\""
+      ]
+    },
+    "postEdit": {
+      "enabled": true,
+      "memoryKeys": {
+        "patterns": "music-framework/agentdb/patterns",
+        "beats": "music-framework/agentdb/beats",
+        "melodies": "music-framework/agentdb/melodies",
+        "progress": "music-framework/agentdb/progress"
+      },
+      "autoFormat": true,
+      "neuralTraining": false
+    },
+    "sessionEnd": {
+      "enabled": true,
+      "exportMetrics": true,
+      "commands": [
+        "npx claude-flow@alpha hooks session-end --export-metrics true --session-id \"music-agentdb-session\""
+      ]
+    },
+    "notifications": {
+      "enabled": true,
+      "events": [
+        "agent_registered",
+        "pattern_learned",
+        "beat_created",
+        "melody_generated",
+        "student_assessed"
+      ]
+    }
+  },
+  "agentCoordination": {
+    "memorySharing": true,
+    "conflictResolution": "confidence",
+    "priorityLevels": {
+      "critical": 5,
+      "high": 4,
+      "medium": 3,
+      "low": 2,
+      "background": 1
+    }
+  },
+  "performance": {
+    "caching": true,
+    "cacheTimeout": 300000,
+    "requestTimeout": 30000,
+    "cleanupInterval": 3600000
+  }
+}

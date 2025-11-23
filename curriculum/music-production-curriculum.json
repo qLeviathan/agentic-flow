@@ -1,0 +1,2282 @@
+{
+  "curriculum": {
+    "title": "Zordic Music Studio: High School Music Production Curriculum",
+    "version": "1.0.0",
+    "duration": "10 weeks",
+    "targetAudience": "High school students (ages 14-18)",
+    "prerequisites": "None - beginners welcome",
+    "framework": "Zordic Music Studio",
+    "learningApproach": "Agent-assisted, project-based learning",
+
+    "units": [
+      {
+        "unitNumber": 1,
+        "title": "Fundamentals of Sound and Music",
+        "weeks": "1-2",
+        "difficultyLevel": "Beginner",
+        "description": "Understanding the building blocks of music and sound",
+
+        "lessons": [
+          {
+            "lessonNumber": 1,
+            "title": "Introduction to Sound Waves",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand the physics of sound waves and how they create music",
+              "Identify frequency, amplitude, and wavelength in audio",
+              "Recognize how digital audio represents analog sound",
+              "Use Zordic's wave visualizer to see sound in real-time"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Wave Explorer",
+                "description": "Manipulate sine waves using Zordic's oscillator to hear frequency changes",
+                "agentAssist": "melody-agent",
+                "difficulty": 1,
+                "estimatedTime": "15 minutes"
+              },
+              {
+                "name": "Frequency Hunt",
+                "description": "Identify different frequencies in everyday sounds using spectrum analyzer",
+                "agentAssist": "analysis-agent",
+                "difficulty": 1,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Amplitude Control",
+                "description": "Create dynamic volume changes and understand decibels",
+                "agentAssist": "mix-agent",
+                "difficulty": 1,
+                "estimatedTime": "15 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "theory-agent",
+                "topic": "Sound wave basics",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "visualizations": ["waveform", "spectrum", "3D-wave"]
+              },
+              {
+                "agent": "demo-agent",
+                "topic": "Digital audio conversion",
+                "interactive": true,
+                "includes": ["sampling-rate-demo", "bit-depth-comparison"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Can explain frequency and amplitude",
+                  "Understands digital vs analog audio",
+                  "Identifies waveform characteristics"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Uses wave visualizer effectively",
+                  "Manipulates oscillator parameters",
+                  "Analyzes spectrum correctly"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Experiments with sound parameters",
+                  "Creates interesting wave combinations"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Create Your Sonic Signature",
+              "description": "Design a unique 5-second sound using only basic waveforms that represents your personality",
+              "requirements": [
+                "Use at least 3 different waveforms",
+                "Demonstrate frequency and amplitude control",
+                "Export with proper naming convention"
+              ],
+              "rubric": "assessments/lesson-1-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 2,
+            "title": "Rhythm, Beats, and Time",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand BPM (beats per minute) and its role in music",
+              "Identify common time signatures (4/4, 3/4, 6/8)",
+              "Create simple rhythmic patterns using Zordic's drum grid",
+              "Recognize rhythmic elements in popular music"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "BPM Explorer",
+                "description": "Feel different tempos and match them to music genres",
+                "agentAssist": "rhythm-agent",
+                "difficulty": 1,
+                "estimatedTime": "15 minutes"
+              },
+              {
+                "name": "Time Signature Detective",
+                "description": "Listen to songs and identify their time signatures",
+                "agentAssist": "analysis-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Grid Master",
+                "description": "Program beats on the Zordic grid sequencer",
+                "agentAssist": "beat-agent",
+                "difficulty": 1,
+                "estimatedTime": "25 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "rhythm-agent",
+                "topic": "Understanding rhythm fundamentals",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["metronome-practice", "subdivision-exercises"]
+              },
+              {
+                "agent": "beat-agent",
+                "topic": "Using the drum grid",
+                "interactive": true,
+                "stepByStep": true
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Explains BPM concept accurately",
+                  "Identifies time signatures",
+                  "Understands rhythm notation"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Programs beats accurately on grid",
+                  "Maintains consistent tempo",
+                  "Uses quantization effectively"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Creates interesting rhythmic patterns",
+                  "Experiments with different time signatures"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Rhythm Around the World",
+              "description": "Create a 16-bar rhythmic pattern inspired by a world music genre",
+              "requirements": [
+                "Research a specific cultural rhythm",
+                "Set appropriate BPM for the genre",
+                "Use at least 4 different percussion sounds",
+                "Include pattern variation"
+              ],
+              "rubric": "assessments/lesson-2-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 3,
+            "title": "Music Theory Fundamentals",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Identify notes on a musical keyboard and staff",
+              "Understand intervals and their emotional qualities",
+              "Learn major and minor scales",
+              "Apply theory concepts in Zordic's piano roll"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Note Navigator",
+                "description": "Learn note names and positions on keyboard",
+                "agentAssist": "theory-agent",
+                "difficulty": 1,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Interval Ear Training",
+                "description": "Identify intervals by sound and emotional quality",
+                "agentAssist": "melody-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Scale Builder",
+                "description": "Construct major and minor scales in different keys",
+                "agentAssist": "theory-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "theory-agent",
+                "topic": "Music theory basics",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "visualizations": ["keyboard", "staff", "circle-of-fifths"]
+              },
+              {
+                "agent": "melody-agent",
+                "topic": "Piano roll navigation",
+                "interactive": true,
+                "stepByStep": true
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 40,
+                "criteria": [
+                  "Identifies all notes on keyboard",
+                  "Explains interval relationships",
+                  "Knows scale formulas"
+                ]
+              },
+              "skills": {
+                "weight": 40,
+                "criteria": [
+                  "Uses piano roll effectively",
+                  "Constructs scales accurately",
+                  "Applies intervals musically"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Creates melodic phrases using scales",
+                  "Experiments with interval combinations"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Emotional Journey",
+              "description": "Create two 8-bar melodies: one happy (major) and one sad (minor)",
+              "requirements": [
+                "Use C major scale for happy melody",
+                "Use A minor scale for sad melody",
+                "Include at least one octave range",
+                "Demonstrate interval understanding"
+              ],
+              "rubric": "assessments/lesson-3-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 4,
+            "title": "Tones and Timbre",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand what makes instruments sound different",
+              "Identify harmonic content and overtones",
+              "Explore different synth waveforms and their timbres",
+              "Design basic sounds using Zordic's synthesizer"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Timbre Detective",
+                "description": "Identify instruments by their unique timbres",
+                "agentAssist": "analysis-agent",
+                "difficulty": 2,
+                "estimatedTime": "15 minutes"
+              },
+              {
+                "name": "Waveform Workshop",
+                "description": "Compare sine, square, sawtooth, and triangle waves",
+                "agentAssist": "synth-agent",
+                "difficulty": 1,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Sound Designer",
+                "description": "Create 5 different timbres using basic synthesis",
+                "agentAssist": "synth-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "synth-agent",
+                "topic": "Synthesizer basics",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["oscillator-types", "envelope-shaping", "filter-basics"]
+              },
+              {
+                "agent": "analysis-agent",
+                "topic": "Harmonic analysis",
+                "interactive": true,
+                "visualizations": ["spectrum-analyzer", "harmonic-series"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Explains timbre concept",
+                  "Identifies waveform characteristics",
+                  "Understands harmonics and overtones"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Uses synthesizer controls effectively",
+                  "Creates distinct timbres",
+                  "Analyzes harmonic content"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Designs unique sounds",
+                  "Shows experimentation with parameters"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Synth Sound Library",
+              "description": "Design a collection of 8 distinct synth sounds for different musical purposes",
+              "requirements": [
+                "Create: bass, lead, pad, pluck sounds (2 of each)",
+                "Use different waveforms for each category",
+                "Name and organize sounds logically",
+                "Document synthesis parameters"
+              ],
+              "rubric": "assessments/lesson-4-challenge-rubric.json"
+            }
+          }
+        ],
+
+        "unitProject": {
+          "title": "Sonic Foundation Portfolio",
+          "description": "Demonstrate mastery of sound fundamentals through a creative portfolio",
+          "duration": "1 week",
+          "deliverables": [
+            "Wave analysis report with visualizations",
+            "Rhythmic composition in 3 different time signatures",
+            "Melodic phrases showcasing scale knowledge",
+            "Custom sound library with 10 unique timbres"
+          ],
+          "assessmentWeight": 100,
+          "rubric": "assessments/unit-1-project-rubric.json"
+        }
+      },
+
+      {
+        "unitNumber": 2,
+        "title": "Beat Making and Production",
+        "weeks": "3-4",
+        "difficultyLevel": "Beginner-Intermediate",
+        "description": "Creating professional drum patterns and percussive grooves",
+
+        "lessons": [
+          {
+            "lessonNumber": 5,
+            "title": "Drum Patterns and Percussion",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Identify basic drum kit components (kick, snare, hi-hat)",
+              "Create foundational drum patterns for different genres",
+              "Understand drum programming in Zordic's step sequencer",
+              "Apply swing and groove to patterns"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Drum Kit Explorer",
+                "description": "Learn each drum element's role in a beat",
+                "agentAssist": "beat-agent",
+                "difficulty": 1,
+                "estimatedTime": "15 minutes"
+              },
+              {
+                "name": "Pattern Library",
+                "description": "Program classic drum patterns: rock, hip-hop, EDM",
+                "agentAssist": "beat-agent",
+                "difficulty": 2,
+                "estimatedTime": "30 minutes"
+              },
+              {
+                "name": "Groove Workshop",
+                "description": "Add swing and humanization to mechanical beats",
+                "agentAssist": "rhythm-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "beat-agent",
+                "topic": "Drum programming mastery",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["step-sequencer", "velocity-control", "pattern-chaining"]
+              },
+              {
+                "agent": "rhythm-agent",
+                "topic": "Creating groove and feel",
+                "interactive": true,
+                "includes": ["swing-settings", "humanization", "timing-variations"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 25,
+                "criteria": [
+                  "Identifies drum kit components",
+                  "Knows genre-specific patterns",
+                  "Understands groove concepts"
+                ]
+              },
+              "skills": {
+                "weight": 55,
+                "criteria": [
+                  "Programs accurate drum patterns",
+                  "Uses velocity effectively",
+                  "Applies swing and humanization",
+                  "Creates pattern variations"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Designs original patterns",
+                  "Shows rhythmic innovation"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Genre Mashup Beat",
+              "description": "Create a drum pattern that combines elements from 2 different genres",
+              "requirements": [
+                "Choose 2 genres (e.g., rock + hip-hop)",
+                "32-bar pattern with A and B sections",
+                "Include fills and transitions",
+                "Apply appropriate groove settings"
+              ],
+              "rubric": "assessments/lesson-5-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 6,
+            "title": "Layering Sounds",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand frequency ranges and layering strategy",
+              "Stack drum sounds for fuller impact",
+              "Use EQ to separate layered elements",
+              "Create cohesive multi-layer percussion"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Frequency Map",
+                "description": "Visualize where different sounds sit in the spectrum",
+                "agentAssist": "mix-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Kick Layering",
+                "description": "Combine multiple kick drums for powerful low end",
+                "agentAssist": "beat-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "EQ Carving",
+                "description": "Use EQ to make layered sounds work together",
+                "agentAssist": "mix-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "mix-agent",
+                "topic": "Frequency management in layering",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "visualizations": ["spectrum-analyzer", "frequency-chart"]
+              },
+              {
+                "agent": "beat-agent",
+                "topic": "Advanced drum layering",
+                "interactive": true,
+                "includes": ["sample-selection", "phase-alignment", "transient-shaping"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Understands frequency ranges",
+                  "Knows layering principles",
+                  "Explains EQ purpose"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Layers sounds effectively",
+                  "Uses EQ appropriately",
+                  "Manages frequency conflicts",
+                  "Creates balanced mixes"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Creates unique layered sounds",
+                  "Shows creative sample selection"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Super Drum Designer",
+              "description": "Design 3 custom drum sounds using layering techniques",
+              "requirements": [
+                "Create: super kick, mega snare, hybrid clap",
+                "Use 2-4 layers per sound",
+                "Apply EQ to each layer",
+                "Document layer choices and processing"
+              ],
+              "rubric": "assessments/lesson-6-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 7,
+            "title": "Creating Grooves",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand what makes a beat groove",
+              "Use ghost notes and accent patterns",
+              "Create variation and fills",
+              "Build energy through pattern evolution"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Groove Analysis",
+                "description": "Deconstruct famous grooves to understand their magic",
+                "agentAssist": "analysis-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Ghost Note Master",
+                "description": "Add subtle ghost notes to create movement",
+                "agentAssist": "rhythm-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Fill Factory",
+                "description": "Create effective drum fills and transitions",
+                "agentAssist": "beat-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "rhythm-agent",
+                "topic": "Advanced groove techniques",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["ghost-notes", "accents", "syncopation"]
+              },
+              {
+                "agent": "beat-agent",
+                "topic": "Building energy with patterns",
+                "interactive": true,
+                "includes": ["pattern-variation", "fill-design", "transition-techniques"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 25,
+                "criteria": [
+                  "Explains groove concepts",
+                  "Understands ghost notes and accents",
+                  "Knows fill placement strategies"
+                ]
+              },
+              "skills": {
+                "weight": 55,
+                "criteria": [
+                  "Creates groovy patterns",
+                  "Uses velocity for dynamics",
+                  "Designs effective fills",
+                  "Builds musical energy"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Shows rhythmic creativity",
+                  "Creates surprising variations"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "The Perfect Loop",
+              "description": "Create an 8-bar drum groove that loops seamlessly with maximum groove",
+              "requirements": [
+                "Include ghost notes and accents",
+                "Create 2 variations (A and B)",
+                "Design a fill that transitions between variations",
+                "Make it danceable and engaging"
+              ],
+              "rubric": "assessments/lesson-7-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 8,
+            "title": "Using Samplers",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand sampler functionality in Zordic",
+              "Record and edit audio samples",
+              "Create melodic instruments from samples",
+              "Apply sampler techniques to beat making"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Sample Safari",
+                "description": "Record and process environmental sounds",
+                "agentAssist": "sample-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Chop Shop",
+                "description": "Slice and rearrange audio samples creatively",
+                "agentAssist": "sample-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Melodic Sampler",
+                "description": "Create a playable instrument from a single sample",
+                "agentAssist": "synth-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "sample-agent",
+                "topic": "Sampler mastery",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["recording", "editing", "looping", "time-stretching"]
+              },
+              {
+                "agent": "beat-agent",
+                "topic": "Hip-hop sampling techniques",
+                "interactive": true,
+                "includes": ["chopping", "flipping", "resampling"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Understands sampler parameters",
+                  "Knows sample editing techniques",
+                  "Explains time-stretching and pitch-shifting"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Records clean samples",
+                  "Edits samples effectively",
+                  "Creates usable instruments",
+                  "Applies creative sampling techniques"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Sources unique samples",
+                  "Shows creative transformation"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Found Sound Beat",
+              "description": "Create a complete beat using only samples you recorded yourself",
+              "requirements": [
+                "Record at least 8 original samples",
+                "Create kick, snare, hi-hat from recordings",
+                "Include a melodic element from samples",
+                "16-bar composition with variation"
+              ],
+              "rubric": "assessments/lesson-8-challenge-rubric.json"
+            }
+          }
+        ],
+
+        "unitProject": {
+          "title": "Create a Simple Beat",
+          "description": "Produce a professional-quality beat demonstrating all beat-making skills",
+          "duration": "1 week",
+          "deliverables": [
+            "32-bar beat with intro, main sections, and outro",
+            "Layered drum sounds with proper EQ",
+            "Creative use of samples",
+            "Groove and energy progression",
+            "Exported stems and final mix"
+          ],
+          "assessmentWeight": 100,
+          "rubric": "assessments/unit-2-project-rubric.json"
+        }
+      },
+
+      {
+        "unitNumber": 3,
+        "title": "Melody Creation",
+        "weeks": "5-6",
+        "difficultyLevel": "Intermediate",
+        "description": "Composing memorable melodies and musical phrases",
+
+        "lessons": [
+          {
+            "lessonNumber": 9,
+            "title": "Scale Selection and Key",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand major, minor, and modal scales",
+              "Choose appropriate scales for different moods",
+              "Work within a key signature",
+              "Use Zordic's scale highlighting and snap features"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Scale Emotion Wheel",
+                "description": "Match scales to emotional qualities",
+                "agentAssist": "theory-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Modal Explorer",
+                "description": "Discover the character of each mode",
+                "agentAssist": "melody-agent",
+                "difficulty": 3,
+                "estimatedTime": "30 minutes"
+              },
+              {
+                "name": "Key Consistency",
+                "description": "Compose melodies that stay in key",
+                "agentAssist": "theory-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "theory-agent",
+                "topic": "Advanced scale theory",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["modes", "pentatonic", "blues-scale", "exotic-scales"]
+              },
+              {
+                "agent": "melody-agent",
+                "topic": "Scale-based composition",
+                "interactive": true,
+                "visualizations": ["scale-highlighter", "key-signature-display"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 35,
+                "criteria": [
+                  "Knows multiple scale types",
+                  "Understands key signatures",
+                  "Explains modal characteristics"
+                ]
+              },
+              "skills": {
+                "weight": 45,
+                "criteria": [
+                  "Stays in key when composing",
+                  "Uses scale tools effectively",
+                  "Chooses appropriate scales for mood"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Explores unusual scales",
+                  "Creates interesting scale combinations"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Modal Journey",
+              "description": "Create 7 short melodies, one in each mode of the major scale",
+              "requirements": [
+                "8 bars per mode",
+                "Demonstrate each mode's unique character",
+                "Same root note for all modes (e.g., all C)",
+                "Label each mode clearly"
+              ],
+              "rubric": "assessments/lesson-9-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 10,
+            "title": "Melodic Composition",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand melodic contour and phrasing",
+              "Create memorable melodic motifs",
+              "Develop melodies through repetition and variation",
+              "Balance predictability and surprise"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Motif Development",
+                "description": "Create and evolve a simple musical idea",
+                "agentAssist": "melody-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Contour Analysis",
+                "description": "Study and recreate melodic shapes from famous songs",
+                "agentAssist": "analysis-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Call and Response",
+                "description": "Create question-answer melodic phrases",
+                "agentAssist": "melody-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "melody-agent",
+                "topic": "Melodic composition techniques",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["motif-development", "sequence", "inversion", "retrograde"]
+              },
+              {
+                "agent": "theory-agent",
+                "topic": "Musical form and phrasing",
+                "interactive": true,
+                "includes": ["phrase-structure", "cadences", "tension-release"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Understands melodic principles",
+                  "Knows compositional techniques",
+                  "Explains form and phrasing"
+                ]
+              },
+              "skills": {
+                "weight": 45,
+                "criteria": [
+                  "Creates cohesive melodies",
+                  "Develops motifs effectively",
+                  "Uses repetition and variation",
+                  "Crafts memorable phrases"
+                ]
+              },
+              "creativity": {
+                "weight": 25,
+                "criteria": [
+                  "Shows melodic originality",
+                  "Balances familiarity and novelty"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "The Hook Challenge",
+              "description": "Compose a catchy 4-bar hook that people can't forget",
+              "requirements": [
+                "Create a memorable motif",
+                "Use repetition strategically",
+                "Include one surprising moment",
+                "Test on 3 people - can they sing it back?"
+              ],
+              "rubric": "assessments/lesson-10-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 11,
+            "title": "Lead and Bass Lines",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Distinguish between lead and bass line roles",
+              "Create compelling lead melodies",
+              "Design bass lines that support harmony",
+              "Balance lead and bass in a mix"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Lead Melody Workshop",
+                "description": "Craft expressive lead lines with dynamics",
+                "agentAssist": "melody-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Bass Line Builder",
+                "description": "Create groovy, foundational bass patterns",
+                "agentAssist": "bass-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Lead-Bass Interaction",
+                "description": "Make lead and bass complement each other",
+                "agentAssist": "arrangement-agent",
+                "difficulty": 3,
+                "estimatedTime": "20 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "melody-agent",
+                "topic": "Lead melody techniques",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["expression", "vibrato", "bends", "articulation"]
+              },
+              {
+                "agent": "bass-agent",
+                "topic": "Bass line construction",
+                "interactive": true,
+                "includes": ["root-motion", "walking-bass", "syncopated-bass", "sub-bass"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Understands lead vs bass roles",
+                  "Knows bass line theory",
+                  "Explains frequency relationships"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Creates expressive lead lines",
+                  "Designs solid bass foundations",
+                  "Balances lead and bass",
+                  "Uses appropriate sounds"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Shows creative bass patterns",
+                  "Creates memorable lead melodies"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Genre Fusion Instrumental",
+              "description": "Create a 16-bar instrumental with distinct lead and bass",
+              "requirements": [
+                "Catchy lead melody with clear phrasing",
+                "Groovy bass line that locks with drums",
+                "At least 2 sections showing variation",
+                "Proper sound design for both elements"
+              ],
+              "rubric": "assessments/lesson-11-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 12,
+            "title": "Synthesizer Basics",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand subtractive synthesis components",
+              "Use envelopes (ADSR) to shape sounds",
+              "Apply filters for tonal shaping",
+              "Design lead and bass sounds from scratch"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "ADSR Explorer",
+                "description": "Master envelope parameters for different sounds",
+                "agentAssist": "synth-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Filter Fundamentals",
+                "description": "Understand filter types and resonance",
+                "agentAssist": "synth-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Synth Recreation",
+                "description": "Recreate famous synth sounds by ear",
+                "agentAssist": "synth-agent",
+                "difficulty": 3,
+                "estimatedTime": "20 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "synth-agent",
+                "topic": "Subtractive synthesis deep dive",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["oscillators", "filters", "envelopes", "LFO", "modulation"]
+              },
+              {
+                "agent": "sound-design-agent",
+                "topic": "Practical sound design",
+                "interactive": true,
+                "includes": ["bass-design", "lead-design", "pad-design"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 35,
+                "criteria": [
+                  "Explains synthesis components",
+                  "Understands ADSR parameters",
+                  "Knows filter types and uses"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Designs sounds from scratch",
+                  "Uses envelopes effectively",
+                  "Applies filters musically",
+                  "Creates usable patches"
+                ]
+              },
+              "creativity": {
+                "weight": 15,
+                "criteria": [
+                  "Shows sound design creativity",
+                  "Experiments with parameters"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Synth Preset Pack",
+              "description": "Design a collection of 12 original synthesizer presets",
+              "requirements": [
+                "4 bass sounds (sub, mid, distorted, pluck)",
+                "4 lead sounds (bright, mellow, aggressive, unique)",
+                "4 pad sounds (warm, lush, dark, evolving)",
+                "Document synthesis approach for each"
+              ],
+              "rubric": "assessments/lesson-12-challenge-rubric.json"
+            }
+          }
+        ],
+
+        "unitProject": {
+          "title": "Compose a Melody",
+          "description": "Create an original instrumental composition showcasing melodic skills",
+          "duration": "1 week",
+          "deliverables": [
+            "32-bar melodic composition",
+            "Lead melody with variations",
+            "Supporting bass line",
+            "Custom synthesized sounds",
+            "Score/MIDI documentation",
+            "Mixed and mastered audio"
+          ],
+          "assessmentWeight": 100,
+          "rubric": "assessments/unit-3-project-rubric.json"
+        }
+      },
+
+      {
+        "unitNumber": 4,
+        "title": "Harmony & Arrangement",
+        "weeks": "7-8",
+        "difficultyLevel": "Intermediate-Advanced",
+        "description": "Building harmonic structures and arranging complete songs",
+
+        "lessons": [
+          {
+            "lessonNumber": 13,
+            "title": "Chord Progressions",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand chord construction (triads and 7th chords)",
+              "Learn common chord progressions (I-IV-V, ii-V-I, etc.)",
+              "Create progressions that support melodies",
+              "Use Zordic's chord tools for harmonic composition"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Chord Builder",
+                "description": "Construct chords from scales",
+                "agentAssist": "theory-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Progression Detective",
+                "description": "Identify progressions in popular songs",
+                "agentAssist": "analysis-agent",
+                "difficulty": 2,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Harmony Generator",
+                "description": "Create original progressions for different moods",
+                "agentAssist": "harmony-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "theory-agent",
+                "topic": "Harmony fundamentals",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["triads", "7th-chords", "extensions", "inversions"]
+              },
+              {
+                "agent": "harmony-agent",
+                "topic": "Chord progression composition",
+                "interactive": true,
+                "includes": ["common-progressions", "voice-leading", "modulation"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 35,
+                "criteria": [
+                  "Knows chord construction",
+                  "Understands diatonic harmony",
+                  "Explains progression function"
+                ]
+              },
+              "skills": {
+                "weight": 45,
+                "criteria": [
+                  "Builds chords accurately",
+                  "Creates functional progressions",
+                  "Harmonizes melodies",
+                  "Uses chord tools effectively"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Creates interesting progressions",
+                  "Shows harmonic creativity"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Progression Portfolio",
+              "description": "Create 5 chord progressions for different emotional contexts",
+              "requirements": [
+                "Happy, sad, mysterious, triumphant, relaxed",
+                "8 bars each with 4-6 unique chords",
+                "Include one borrowed chord or modal interchange",
+                "Provide harmonic analysis (Roman numerals)"
+              ],
+              "rubric": "assessments/lesson-13-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 14,
+            "title": "Harmonic Layering",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Layer harmonic elements effectively",
+              "Create chord voicings and inversions",
+              "Balance harmonic complexity and clarity",
+              "Use pads, chords, and arpeggios together"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Voicing Workshop",
+                "description": "Create different voicings of the same chord",
+                "agentAssist": "harmony-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Texture Builder",
+                "description": "Layer pads, chords, and arpeggios",
+                "agentAssist": "arrangement-agent",
+                "difficulty": 3,
+                "estimatedTime": "30 minutes"
+              },
+              {
+                "name": "Frequency Management",
+                "description": "EQ harmonic layers for clarity",
+                "agentAssist": "mix-agent",
+                "difficulty": 2,
+                "estimatedTime": "15 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "harmony-agent",
+                "topic": "Advanced voicing techniques",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["close-position", "open-position", "drop-voicings", "rootless-chords"]
+              },
+              {
+                "agent": "arrangement-agent",
+                "topic": "Harmonic layering",
+                "interactive": true,
+                "includes": ["texture-types", "register-spacing", "harmonic-rhythm"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Understands voicing concepts",
+                  "Knows layering principles",
+                  "Explains harmonic texture"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Creates effective voicings",
+                  "Layers harmonies clearly",
+                  "Manages frequency conflicts",
+                  "Balances harmonic elements"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Shows creative voicing choices",
+                  "Creates interesting textures"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Harmonic Landscape",
+              "description": "Create a 16-bar harmonic composition with multiple layers",
+              "requirements": [
+                "Pad layer (sustained chords)",
+                "Chord stabs (rhythmic chords)",
+                "Arpeggiated layer",
+                "Proper voicing for each layer",
+                "Clear frequency separation via EQ"
+              ],
+              "rubric": "assessments/lesson-14-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 15,
+            "title": "Song Structure",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand common song forms (verse-chorus, AABA, etc.)",
+              "Create effective transitions between sections",
+              "Build energy and dynamics throughout a song",
+              "Arrange sections for maximum impact"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Form Analysis",
+                "description": "Map the structure of popular songs",
+                "agentAssist": "analysis-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Transition Techniques",
+                "description": "Create smooth section transitions",
+                "agentAssist": "arrangement-agent",
+                "difficulty": 3,
+                "estimatedTime": "30 minutes"
+              },
+              {
+                "name": "Energy Architect",
+                "description": "Design energy flow across full song",
+                "agentAssist": "arrangement-agent",
+                "difficulty": 3,
+                "estimatedTime": "20 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "arrangement-agent",
+                "topic": "Song structure mastery",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["common-forms", "section-design", "contrast-principles"]
+              },
+              {
+                "agent": "production-agent",
+                "topic": "Arrangement techniques",
+                "interactive": true,
+                "includes": ["builds", "drops", "breakdowns", "transitions"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Knows common song forms",
+                  "Understands section functions",
+                  "Explains transition techniques"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Arranges sections effectively",
+                  "Creates smooth transitions",
+                  "Builds energy appropriately",
+                  "Maintains listener interest"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Shows creative structure choices",
+                  "Designs unique transitions"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Full Song Blueprint",
+              "description": "Design a complete song structure with detailed arrangement plan",
+              "requirements": [
+                "Intro-Verse-Chorus-Verse-Chorus-Bridge-Chorus-Outro",
+                "Specify instrumentation for each section",
+                "Plan energy curve and dynamics",
+                "Design 3 unique transitions",
+                "Document arrangement decisions"
+              ],
+              "rubric": "assessments/lesson-15-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 16,
+            "title": "Mixing Basics",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand mixing fundamentals (levels, panning, EQ)",
+              "Create space and depth in a mix",
+              "Balance multiple elements effectively",
+              "Use Zordic's mixer and effects"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Level Setting",
+                "description": "Create balanced volume relationships",
+                "agentAssist": "mix-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Panorama Placement",
+                "description": "Use stereo field for separation and width",
+                "agentAssist": "mix-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "EQ Fundamentals",
+                "description": "Use EQ to create clarity and space",
+                "agentAssist": "mix-agent",
+                "difficulty": 3,
+                "estimatedTime": "30 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "mix-agent",
+                "topic": "Mixing foundations",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["gain-staging", "panning", "EQ", "compression-basics"]
+              },
+              {
+                "agent": "production-agent",
+                "topic": "Creating professional mixes",
+                "interactive": true,
+                "includes": ["reference-tracks", "mix-bus", "automation"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Understands mixing concepts",
+                  "Knows EQ and panning principles",
+                  "Explains gain staging"
+                ]
+              },
+              "skills": {
+                "weight": 55,
+                "criteria": [
+                  "Sets appropriate levels",
+                  "Uses panning effectively",
+                  "Applies EQ correctly",
+                  "Creates balanced mixes"
+                ]
+              },
+              "creativity": {
+                "weight": 15,
+                "criteria": [
+                  "Shows creative mixing choices",
+                  "Demonstrates sonic awareness"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Mix Rescue",
+              "description": "Take a poorly mixed project and transform it into a professional mix",
+              "requirements": [
+                "Balance all elements clearly",
+                "Create stereo width and depth",
+                "Use EQ for separation",
+                "Compare before/after versions",
+                "Document mixing decisions"
+              ],
+              "rubric": "assessments/lesson-16-challenge-rubric.json"
+            }
+          }
+        ],
+
+        "unitProject": {
+          "title": "Full Song Production",
+          "description": "Produce a complete original song from start to finish",
+          "duration": "1 week",
+          "deliverables": [
+            "Complete song structure (3-4 minutes)",
+            "Multiple harmonic and melodic layers",
+            "Professional arrangement with transitions",
+            "Balanced and mixed to professional standard",
+            "Project file and stems",
+            "Mixing notes and creative statement"
+          ],
+          "assessmentWeight": 100,
+          "rubric": "assessments/unit-4-project-rubric.json"
+        }
+      },
+
+      {
+        "unitNumber": 5,
+        "title": "Advanced Techniques",
+        "weeks": "9-10",
+        "difficultyLevel": "Advanced",
+        "description": "Professional production techniques and genre-specific skills",
+
+        "lessons": [
+          {
+            "lessonNumber": 17,
+            "title": "Effects Processing",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand reverb, delay, and spatial effects",
+              "Apply compression and dynamics processing",
+              "Use modulation effects creatively",
+              "Master effects routing and sends in Zordic"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Reverb & Delay",
+                "description": "Create space and depth with time-based effects",
+                "agentAssist": "mix-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Compression Control",
+                "description": "Shape dynamics and add punch",
+                "agentAssist": "mix-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Modulation Magic",
+                "description": "Use chorus, phaser, flanger creatively",
+                "agentAssist": "effects-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "mix-agent",
+                "topic": "Effects processing mastery",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["reverb-types", "delay-patterns", "compression-techniques", "parallel-processing"]
+              },
+              {
+                "agent": "effects-agent",
+                "topic": "Creative effects usage",
+                "interactive": true,
+                "includes": ["effect-chains", "automation", "sound-design-effects"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Understands effect parameters",
+                  "Knows when to use each effect",
+                  "Explains signal routing"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Applies reverb appropriately",
+                  "Uses compression effectively",
+                  "Creates interesting effect chains",
+                  "Routes effects correctly"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Shows creative effect usage",
+                  "Designs unique processed sounds"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "FX Showcase",
+              "description": "Create 4 versions of the same melody, each with distinct effects character",
+              "requirements": [
+                "Dry version (no effects)",
+                "Spacious version (reverb/delay focus)",
+                "Punchy version (compression focus)",
+                "Experimental version (creative effects)",
+                "Document all effects settings"
+              ],
+              "rubric": "assessments/lesson-17-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 18,
+            "title": "Automation and Dynamics",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Use automation to add movement and interest",
+              "Create dynamic builds and drops",
+              "Automate effects parameters creatively",
+              "Understand musical dynamics and expression"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Volume Automation",
+                "description": "Create musical dynamics through level changes",
+                "agentAssist": "mix-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Filter Sweeps",
+                "description": "Automate filters for builds and transitions",
+                "agentAssist": "effects-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "Parameter Motion",
+                "description": "Automate multiple parameters for evolving sounds",
+                "agentAssist": "production-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "production-agent",
+                "topic": "Automation techniques",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["automation-modes", "drawing-curves", "automation-clips", "parameter-modulation"]
+              },
+              {
+                "agent": "arrangement-agent",
+                "topic": "Dynamic arrangement",
+                "interactive": true,
+                "includes": ["build-techniques", "drop-impact", "breakdown-creation"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 25,
+                "criteria": [
+                  "Understands automation types",
+                  "Knows when to automate",
+                  "Explains dynamic principles"
+                ]
+              },
+              "skills": {
+                "weight": 55,
+                "criteria": [
+                  "Creates smooth automation curves",
+                  "Automates multiple parameters",
+                  "Builds energy effectively",
+                  "Uses automation musically"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Shows creative automation ideas",
+                  "Designs unique dynamic moments"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "The Perfect Build",
+              "description": "Create an 8-bar build-up using only automation (no new elements)",
+              "requirements": [
+                "Start with full arrangement",
+                "Build tension through automation only",
+                "Automate at least 5 different parameters",
+                "Create maximum impact at the drop",
+                "Provide automation documentation"
+              ],
+              "rubric": "assessments/lesson-18-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 19,
+            "title": "Genre-Specific Production",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand production techniques for different genres",
+              "Apply genre-specific sound design and mixing",
+              "Recognize genre conventions and how to innovate",
+              "Produce in at least 3 different genres"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Genre Analysis",
+                "description": "Deconstruct production elements of different genres",
+                "agentAssist": "analysis-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              },
+              {
+                "name": "EDM Production",
+                "description": "Create signature EDM elements (drops, builds, bass)",
+                "agentAssist": "genre-agent",
+                "difficulty": 3,
+                "estimatedTime": "30 minutes"
+              },
+              {
+                "name": "Hip-Hop Beats",
+                "description": "Produce authentic hip-hop drums and sampling",
+                "agentAssist": "genre-agent",
+                "difficulty": 3,
+                "estimatedTime": "25 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "genre-agent",
+                "topic": "Multi-genre production",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["edm", "hip-hop", "pop", "rock", "lo-fi", "trap"]
+              },
+              {
+                "agent": "production-agent",
+                "topic": "Genre conventions and innovation",
+                "interactive": true,
+                "includes": ["reference-analysis", "sound-palette", "arrangement-styles"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 30,
+                "criteria": [
+                  "Knows genre characteristics",
+                  "Understands genre history",
+                  "Explains production differences"
+                ]
+              },
+              "skills": {
+                "weight": 50,
+                "criteria": [
+                  "Produces authentic genre sounds",
+                  "Applies genre-specific techniques",
+                  "Uses appropriate instrumentation",
+                  "Captures genre essence"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Shows genre innovation",
+                  "Creates interesting fusions"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Genre Mashup Track",
+              "description": "Create a track that authentically combines 2 different genres",
+              "requirements": [
+                "Choose 2 distinct genres",
+                "Incorporate signature elements from each",
+                "Create cohesive fusion (not just switching)",
+                "32-bar production",
+                "Written analysis of genre elements used"
+              ],
+              "rubric": "assessments/lesson-19-challenge-rubric.json"
+            }
+          },
+          {
+            "lessonNumber": 20,
+            "title": "Collaboration and Remixing",
+            "duration": "90 minutes",
+            "learningObjectives": [
+              "Understand collaborative workflow and file organization",
+              "Work with stems and project files from others",
+              "Create remixes that respect and transform originals",
+              "Use version control and project management"
+            ],
+            "interactiveExercises": [
+              {
+                "name": "Stem Management",
+                "description": "Organize and work with multi-track stems",
+                "agentAssist": "collaboration-agent",
+                "difficulty": 2,
+                "estimatedTime": "20 minutes"
+              },
+              {
+                "name": "Remix Techniques",
+                "description": "Transform existing material creatively",
+                "agentAssist": "production-agent",
+                "difficulty": 3,
+                "estimatedTime": "30 minutes"
+              },
+              {
+                "name": "Collaborative Project",
+                "description": "Work on shared project with classmates",
+                "agentAssist": "collaboration-agent",
+                "difficulty": 3,
+                "estimatedTime": "20 minutes"
+              }
+            ],
+            "agentTutorials": [
+              {
+                "agent": "collaboration-agent",
+                "topic": "Collaborative production",
+                "interactive": true,
+                "adaptiveDifficulty": true,
+                "includes": ["file-organization", "version-control", "feedback-loops", "credit-attribution"]
+              },
+              {
+                "agent": "production-agent",
+                "topic": "Remix production",
+                "interactive": true,
+                "includes": ["stem-editing", "tempo-matching", "creative-sampling", "arrangement-redesign"]
+              }
+            ],
+            "assessmentCriteria": {
+              "knowledge": {
+                "weight": 25,
+                "criteria": [
+                  "Understands collaboration workflow",
+                  "Knows file organization best practices",
+                  "Explains remix ethics"
+                ]
+              },
+              "skills": {
+                "weight": 55,
+                "criteria": [
+                  "Organizes projects effectively",
+                  "Works with stems professionally",
+                  "Creates quality remixes",
+                  "Collaborates productively"
+                ]
+              },
+              "creativity": {
+                "weight": 20,
+                "criteria": [
+                  "Shows creative remix ideas",
+                  "Adds unique perspective to originals"
+                ]
+              }
+            },
+            "creativeChallenge": {
+              "title": "Collaborative Remix Project",
+              "description": "Team up with 2 classmates to create a remix of a provided track",
+              "requirements": [
+                "Each student contributes unique elements",
+                "Maintain clear project organization",
+                "Document collaboration process",
+                "Create 3-minute professional remix",
+                "Present collaboration workflow to class"
+              ],
+              "rubric": "assessments/lesson-20-challenge-rubric.json"
+            }
+          }
+        ],
+
+        "unitProject": {
+          "title": "Advanced Production Portfolio",
+          "description": "Create a diverse portfolio demonstrating advanced production skills",
+          "duration": "1 week",
+          "deliverables": [
+            "3 genre-specific productions (different genres)",
+            "1 remix of provided material",
+            "1 collaborative track with peer(s)",
+            "Mixing documentation for all tracks",
+            "Production notes explaining techniques used",
+            "Portfolio presentation"
+          ],
+          "assessmentWeight": 100,
+          "rubric": "assessments/unit-5-project-rubric.json"
+        }
+      }
+    ],
+
+    "projectBasedLearning": [
+      {
+        "projectNumber": 1,
+        "title": "Create a Simple Beat",
+        "associatedUnit": 2,
+        "duration": "1 week",
+        "difficultyLevel": "Beginner-Intermediate",
+        "description": "Design and produce an original beat from scratch",
+        "learningObjectives": [
+          "Apply drum programming skills",
+          "Use layering for fuller sounds",
+          "Create groove and variation",
+          "Export professional-quality audio"
+        ],
+        "requirements": {
+          "technical": [
+            "16-32 bars in length",
+            "Tempo between 80-140 BPM",
+            "At least 3 layered drum elements",
+            "Include fills and transitions",
+            "Proper gain staging and levels"
+          ],
+          "creative": [
+            "Original rhythm pattern",
+            "Demonstrates groove understanding",
+            "Shows pattern variation",
+            "Musicially engaging"
+          ],
+          "deliverables": [
+            "Zordic project file",
+            "Exported WAV (24-bit, 48kHz)",
+            "Stems folder with individual elements",
+            "Written beat notes (BPM, inspiration, techniques)"
+          ]
+        },
+        "assessmentRubric": "assessments/project-1-rubric.json",
+        "agentSupport": ["beat-agent", "rhythm-agent", "mix-agent"]
+      },
+      {
+        "projectNumber": 2,
+        "title": "Compose a Melody",
+        "associatedUnit": 3,
+        "duration": "1 week",
+        "difficultyLevel": "Intermediate",
+        "description": "Create an original melodic composition with harmony",
+        "learningObjectives": [
+          "Apply melodic composition techniques",
+          "Use appropriate scales and keys",
+          "Design custom synthesizer sounds",
+          "Balance lead and supporting elements"
+        ],
+        "requirements": {
+          "technical": [
+            "24-32 bars",
+            "Lead melody with variations",
+            "Bass line supporting harmony",
+            "At least 2 synthesized sounds from scratch",
+            "Clear key and scale usage"
+          ],
+          "creative": [
+            "Memorable melodic motif",
+            "Musical phrasing and form",
+            "Effective use of dynamics",
+            "Original sound design"
+          ],
+          "deliverables": [
+            "Zordic project file",
+            "Exported audio (full mix and stems)",
+            "MIDI files of melodies",
+            "Score or note sheet",
+            "Synthesis documentation"
+          ]
+        },
+        "assessmentRubric": "assessments/project-2-rubric.json",
+        "agentSupport": ["melody-agent", "theory-agent", "synth-agent", "harmony-agent"]
+      },
+      {
+        "projectNumber": 3,
+        "title": "Full Song Production",
+        "associatedUnit": 4,
+        "duration": "2 weeks",
+        "difficultyLevel": "Intermediate-Advanced",
+        "description": "Produce a complete original song from concept to final mix",
+        "learningObjectives": [
+          "Apply complete production workflow",
+          "Create professional song structure",
+          "Balance multiple musical elements",
+          "Mix to commercial standards"
+        ],
+        "requirements": {
+          "technical": [
+            "2.5-4 minutes duration",
+            "Clear structure (intro, verse, chorus, bridge, outro)",
+            "At least 8 different tracks/elements",
+            "Professional mixing with EQ and dynamics",
+            "Automated parameters for interest"
+          ],
+          "creative": [
+            "Original composition (melody, harmony, rhythm)",
+            "Cohesive arrangement",
+            "Emotional arc and energy flow",
+            "Polished production quality"
+          ],
+          "deliverables": [
+            "Zordic project file (organized)",
+            "Final mix (WAV, 24-bit)",
+            "All stems (labeled clearly)",
+            "Mixing notes and automation documentation",
+            "Song analysis (structure, key, BPM, creative decisions)"
+          ]
+        },
+        "assessmentRubric": "assessments/project-3-rubric.json",
+        "agentSupport": ["production-agent", "arrangement-agent", "mix-agent", "all-agents"]
+      },
+      {
+        "projectNumber": 4,
+        "title": "Music Video with Visuals",
+        "associatedUnit": 5,
+        "duration": "2 weeks",
+        "difficultyLevel": "Advanced",
+        "description": "Create an audio-visual experience combining music production with synchronized visuals",
+        "learningObjectives": [
+          "Synchronize audio and visual elements",
+          "Create music that supports visual narrative",
+          "Understand multimedia production workflow",
+          "Deliver professional audio-visual content"
+        ],
+        "requirements": {
+          "technical": [
+            "1.5-3 minute original composition",
+            "Synchronized visual elements (Zordic's visual engine or external)",
+            "Professional audio mixing for video",
+            "Proper export formats for video",
+            "Time-locked audio and visual sync"
+          ],
+          "creative": [
+            "Cohesive audio-visual concept",
+            "Music supports visual narrative",
+            "Creative use of visual effects",
+            "Professional presentation quality"
+          ],
+          "deliverables": [
+            "Final video file (MP4, 1080p minimum)",
+            "Separated audio file",
+            "Zordic project file",
+            "Visual assets used",
+            "Creative statement (concept, workflow, challenges)"
+          ]
+        },
+        "assessmentRubric": "assessments/project-4-rubric.json",
+        "agentSupport": ["production-agent", "visual-agent", "arrangement-agent", "mix-agent"]
+      },
+      {
+        "projectNumber": 5,
+        "title": "Collaborative Remix Project",
+        "associatedUnit": 5,
+        "duration": "2 weeks",
+        "difficultyLevel": "Advanced",
+        "description": "Collaborate with peers to remix an existing track",
+        "learningObjectives": [
+          "Work effectively in a production team",
+          "Respect and transform original material",
+          "Manage collaborative workflow",
+          "Create professional remixes"
+        ],
+        "requirements": {
+          "technical": [
+            "Team of 2-3 students",
+            "Remix of instructor-provided stems",
+            "2-4 minutes duration",
+            "Professional mixing and mastering",
+            "Organized project files for collaboration"
+          ],
+          "creative": [
+            "Unique interpretation of original",
+            "Each member contributes distinct elements",
+            "Cohesive remix despite multiple contributors",
+            "Creative transformation of source material"
+          ],
+          "deliverables": [
+            "Final remix (WAV)",
+            "Stems from each contributor",
+            "Collaborative Zordic project",
+            "Workflow documentation",
+            "Individual contribution breakdown",
+            "Team presentation of process and decisions"
+          ]
+        },
+        "assessmentRubric": "assessments/project-5-rubric.json",
+        "agentSupport": ["collaboration-agent", "production-agent", "mix-agent"]
+      },
+      {
+        "projectNumber": 6,
+        "title": "Final Portfolio & Showcase",
+        "associatedUnit": "all",
+        "duration": "2 weeks",
+        "difficultyLevel": "Advanced",
+        "description": "Curate and present a comprehensive portfolio of work from the semester",
+        "learningObjectives": [
+          "Curate professional music portfolio",
+          "Present and discuss creative work",
+          "Reflect on learning journey",
+          "Demonstrate mastery of all concepts"
+        ],
+        "requirements": {
+          "technical": [
+            "3-5 best productions from semester",
+            "All projects professionally mixed and mastered",
+            "Consistent audio quality across portfolio",
+            "Professional presentation materials"
+          ],
+          "creative": [
+            "Demonstrates range and growth",
+            "Shows personal artistic voice",
+            "Includes variety of styles/genres",
+            "Portfolio cohesion and curation"
+          ],
+          "deliverables": [
+            "Portfolio audio files (all productions)",
+            "Portfolio website or presentation",
+            "Written reflection on learning journey",
+            "Live presentation to class (10-15 minutes)",
+            "Future goals and action plan"
+          ]
+        },
+        "assessmentRubric": "assessments/project-6-rubric.json",
+        "agentSupport": ["all-agents", "presentation-agent"]
+      }
+    ],
+
+    "assessmentFramework": {
+      "gradingScale": {
+        "A": "90-100% - Exceeds expectations, shows mastery and creativity",
+        "B": "80-89% - Meets all expectations, solid understanding",
+        "C": "70-79% - Meets most expectations, developing skills",
+        "D": "60-69% - Meets some expectations, needs improvement",
+        "F": "0-59% - Does not meet expectations"
+      },
+      "assessmentTypes": {
+        "formative": {
+          "weight": 30,
+          "includes": ["Interactive exercises", "Agent-assisted tutorials", "Daily practice"],
+          "purpose": "Monitor progress and provide feedback"
+        },
+        "creativeChallenges": {
+          "weight": 20,
+          "includes": ["Lesson creative challenges", "Experimental projects"],
+          "purpose": "Assess creativity and application"
+        },
+        "unitProjects": {
+          "weight": 30,
+          "includes": ["5 unit projects"],
+          "purpose": "Assess cumulative unit learning"
+        },
+        "finalPortfolio": {
+          "weight": 20,
+          "includes": ["Final portfolio presentation", "Reflection"],
+          "purpose": "Assess overall growth and mastery"
+        }
+      },
+      "rubricCategories": {
+        "technical": {
+          "weight": 40,
+          "criteria": [
+            "Proper use of tools and techniques",
+            "Technical execution quality",
+            "Understanding of concepts",
+            "Following best practices"
+          ]
+        },
+        "creative": {
+          "weight": 30,
+          "criteria": [
+            "Originality and innovation",
+            "Musical expression",
+            "Risk-taking and experimentation",
+            "Personal artistic voice"
+          ]
+        },
+        "professional": {
+          "weight": 20,
+          "criteria": [
+            "Project organization",
+            "Documentation quality",
+            "Meeting deadlines",
+            "Presentation and communication"
+          ]
+        },
+        "growth": {
+          "weight": 10,
+          "criteria": [
+            "Improvement over time",
+            "Response to feedback",
+            "Effort and engagement",
+            "Self-reflection"
+          ]
+        }
+      }
+    },
+
+    "agentIntegration": {
+      "availableAgents": [
+        {
+          "name": "theory-agent",
+          "purpose": "Music theory instruction and support",
+          "capabilities": ["Explain concepts", "Provide examples", "Interactive quizzes", "Adaptive difficulty"]
+        },
+        {
+          "name": "melody-agent",
+          "purpose": "Melodic composition assistance",
+          "capabilities": ["Melody analysis", "Composition suggestions", "Scale guidance", "Motif development"]
+        },
+        {
+          "name": "rhythm-agent",
+          "purpose": "Rhythm and timing support",
+          "capabilities": ["BPM guidance", "Groove analysis", "Timing correction", "Rhythm training"]
+        },
+        {
+          "name": "beat-agent",
+          "purpose": "Drum programming and beat making",
+          "capabilities": ["Pattern suggestions", "Drum sound selection", "Fill generation", "Genre patterns"]
+        },
+        {
+          "name": "harmony-agent",
+          "purpose": "Harmonic composition and chord progressions",
+          "capabilities": ["Chord suggestions", "Progression analysis", "Voicing help", "Theory application"]
+        },
+        {
+          "name": "synth-agent",
+          "purpose": "Synthesis and sound design",
+          "capabilities": ["Patch creation", "Parameter explanation", "Sound matching", "Synthesis tutorials"]
+        },
+        {
+          "name": "mix-agent",
+          "purpose": "Mixing and audio processing",
+          "capabilities": ["EQ suggestions", "Level balancing", "Panning guidance", "Compression help"]
+        },
+        {
+          "name": "arrangement-agent",
+          "purpose": "Song arrangement and structure",
+          "capabilities": ["Section suggestions", "Transition ideas", "Energy flow", "Instrumentation guidance"]
+        },
+        {
+          "name": "analysis-agent",
+          "purpose": "Audio and music analysis",
+          "capabilities": ["Track analysis", "Frequency visualization", "Pattern recognition", "Genre identification"]
+        },
+        {
+          "name": "production-agent",
+          "purpose": "Overall production guidance",
+          "capabilities": ["Workflow optimization", "Project management", "Creative direction", "Technical troubleshooting"]
+        },
+        {
+          "name": "collaboration-agent",
+          "purpose": "Collaborative workflow support",
+          "capabilities": ["File organization", "Version control", "Team coordination", "Feedback management"]
+        },
+        {
+          "name": "genre-agent",
+          "purpose": "Genre-specific production techniques",
+          "capabilities": ["Genre analysis", "Style guidance", "Reference comparison", "Technique suggestions"]
+        }
+      ],
+      "agentFeatures": {
+        "adaptiveDifficulty": "Agents adjust complexity based on student performance",
+        "personalizedFeedback": "Real-time, contextual feedback during exercises",
+        "progressTracking": "Agents monitor student progress and adjust recommendations",
+        "interactiveTutorials": "Step-by-step guided learning experiences",
+        "creativeSuggestions": "Agents offer creative ideas while respecting student vision",
+        "technicalAssistance": "On-demand help with Zordic tools and features"
+      }
+    },
+
+    "pedagogicalApproach": {
+      "learningTheory": "Constructivist, project-based learning with agent scaffolding",
+      "principles": [
+        "Learn by doing - hands-on production from day one",
+        "Progressive complexity - build skills incrementally",
+        "Creative expression - prioritize artistic voice alongside technical skills",
+        "Immediate feedback - agent-assisted real-time guidance",
+        "Collaborative learning - peer interaction and teamwork",
+        "Reflective practice - regular self-assessment and documentation",
+        "Real-world application - professional workflows and standards"
+      ],
+      "differentiation": {
+        "advanced": "Extension challenges, additional genre exploration, mentorship opportunities",
+        "onLevel": "Standard curriculum with agent adaptive support",
+        "support": "Additional scaffolding, simplified projects, extended timelines, increased agent assistance"
+      },
+      "inclusion": {
+        "accessibility": "Visual and audio feedback, adjustable interface, multiple learning modalities",
+        "culturalResponsiveness": "Diverse genre representation, culturally relevant examples",
+        "studentChoice": "Project topic flexibility, genre selection, creative direction autonomy"
+      }
+    },
+
+    "resources": {
+      "required": [
+        "Zordic Music Studio framework (provided)",
+        "Computer with audio capability",
+        "Headphones or studio monitors"
+      ],
+      "optional": [
+        "MIDI controller/keyboard",
+        "Audio interface",
+        "Microphone for sampling"
+      ],
+      "supplementary": [
+        "Reference tracks library",
+        "Sample packs (royalty-free)",
+        "Tutorial video library",
+        "Music theory workbook",
+        "Production templates"
+      ]
+    }
+  }
+}

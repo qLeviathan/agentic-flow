@@ -1,0 +1,340 @@
+{
+  "presets": {
+    "spectrum": [
+      {
+        "name": "Classic Bars",
+        "description": "Traditional vertical spectrum analyzer",
+        "visualizer": "SpectrumAnalyzer",
+        "parameters": {
+          "barCount": 64,
+          "barSpacing": 2,
+          "layout": "vertical",
+          "style": "bars",
+          "frequencyScale": "logarithmic",
+          "smoothing": 0.7,
+          "gradient": true,
+          "showPeaks": true,
+          "glowEffect": false,
+          "reflection": false
+        },
+        "mapper": {
+          "colorMapping": {
+            "mode": "frequency",
+            "saturationRange": [50, 100],
+            "lightnessRange": [30, 70],
+            "hueRotation": 0
+          },
+          "sizeMapping": {
+            "mode": "linear",
+            "baseSize": 10,
+            "scaleFactor": 80,
+            "maxSize": 300
+          }
+        }
+      },
+      {
+        "name": "Radial Spectrum",
+        "description": "Circular frequency visualization",
+        "visualizer": "SpectrumAnalyzer",
+        "parameters": {
+          "barCount": 128,
+          "barSpacing": 1,
+          "layout": "circular",
+          "style": "bars",
+          "frequencyScale": "logarithmic",
+          "smoothing": 0.8,
+          "gradient": true,
+          "showPeaks": false,
+          "glowEffect": true,
+          "reflection": false
+        },
+        "mapper": {
+          "colorMapping": {
+            "mode": "frequency",
+            "saturationRange": [70, 100],
+            "lightnessRange": [40, 80],
+            "hueRotation": 0
+          }
+        }
+      },
+      {
+        "name": "Mirrored Spectrum",
+        "description": "Symmetrical frequency bars",
+        "visualizer": "SpectrumAnalyzer",
+        "parameters": {
+          "barCount": 96,
+          "barSpacing": 2,
+          "layout": "mirrored",
+          "style": "filled",
+          "frequencyScale": "logarithmic",
+          "smoothing": 0.6,
+          "gradient": true,
+          "showPeaks": true,
+          "glowEffect": true,
+          "reflection": true
+        },
+        "mapper": {
+          "colorMapping": {
+            "mode": "hybrid",
+            "saturationRange": [60, 100],
+            "lightnessRange": [35, 75],
+            "hueRotation": 180
+          }
+        }
+      }
+    ],
+    "waveform": [
+      {
+        "name": "Classic Oscilloscope",
+        "description": "Traditional waveform display",
+        "visualizer": "Waveform",
+        "parameters": {
+          "mode": "waveform",
+          "lineWidth": 2,
+          "lineColor": "#00FF00",
+          "fillWaveform": true,
+          "fillOpacity": 0.3,
+          "smoothing": true,
+          "showGrid": false,
+          "symmetry": "none",
+          "amplification": 1.0
+        }
+      },
+      {
+        "name": "Lissajous Phase",
+        "description": "Stereo phase correlation display",
+        "visualizer": "Waveform",
+        "parameters": {
+          "mode": "phase",
+          "lineWidth": 3,
+          "lineColor": "#FF00FF",
+          "fillWaveform": false,
+          "fillOpacity": 0,
+          "smoothing": true,
+          "showGrid": true,
+          "symmetry": "none",
+          "amplification": 0.8
+        }
+      },
+      {
+        "name": "Scrolling Waveform",
+        "description": "Historical waveform display",
+        "visualizer": "Waveform",
+        "parameters": {
+          "mode": "scrolling",
+          "lineWidth": 1,
+          "lineColor": "#00FFFF",
+          "fillWaveform": false,
+          "fillOpacity": 0,
+          "smoothing": false,
+          "showGrid": true,
+          "symmetry": "none",
+          "amplification": 1.2
+        }
+      }
+    ],
+    "particles": [
+      {
+        "name": "Energy Burst",
+        "description": "Explosive particle effects on beats",
+        "visualizer": "ParticleSystem",
+        "parameters": {
+          "maxParticles": 2000,
+          "emissionRate": 50,
+          "particleLife": 2,
+          "particleSize": 3,
+          "sizeVariation": 0.5,
+          "velocityRange": [-150, 150],
+          "gravity": 30,
+          "audioReactive": {
+            "emission": true,
+            "velocity": true,
+            "color": true,
+            "size": true
+          },
+          "blendMode": "additive",
+          "shape": "circle",
+          "trail": true,
+          "trailLength": 15
+        },
+        "mapper": {
+          "triggerMapping": {
+            "beatSensitivity": 0.6,
+            "onsetSensitivity": 0.5,
+            "cooldownMs": 50
+          }
+        }
+      },
+      {
+        "name": "Star Field",
+        "description": "Floating star particles",
+        "visualizer": "ParticleSystem",
+        "parameters": {
+          "maxParticles": 500,
+          "emissionRate": 5,
+          "particleLife": 5,
+          "particleSize": 4,
+          "sizeVariation": 0.7,
+          "velocityRange": [-20, 20],
+          "gravity": 0,
+          "audioReactive": {
+            "emission": true,
+            "velocity": false,
+            "color": true,
+            "size": true
+          },
+          "blendMode": "additive",
+          "shape": "star",
+          "trail": false,
+          "trailLength": 1
+        }
+      },
+      {
+        "name": "Fireworks",
+        "description": "Explosive firework effects",
+        "visualizer": "ParticleSystem",
+        "parameters": {
+          "maxParticles": 5000,
+          "emissionRate": 10,
+          "particleLife": 3,
+          "particleSize": 2,
+          "sizeVariation": 0.3,
+          "velocityRange": [-300, 300],
+          "gravity": 100,
+          "audioReactive": {
+            "emission": true,
+            "velocity": true,
+            "color": true,
+            "size": false
+          },
+          "blendMode": "additive",
+          "shape": "circle",
+          "trail": true,
+          "trailLength": 20
+        }
+      }
+    ],
+    "combinations": [
+      {
+        "name": "Full Studio",
+        "description": "Spectrum + Waveform + Particles",
+        "layers": [
+          {
+            "visualizer": "SpectrumAnalyzer",
+            "preset": "Classic Bars",
+            "opacity": 0.7,
+            "blendMode": "normal"
+          },
+          {
+            "visualizer": "Waveform",
+            "preset": "Classic Oscilloscope",
+            "opacity": 0.5,
+            "blendMode": "additive"
+          },
+          {
+            "visualizer": "ParticleSystem",
+            "preset": "Energy Burst",
+            "opacity": 0.8,
+            "blendMode": "additive"
+          }
+        ]
+      },
+      {
+        "name": "Minimal",
+        "description": "Clean circular spectrum",
+        "layers": [
+          {
+            "visualizer": "SpectrumAnalyzer",
+            "preset": "Radial Spectrum",
+            "opacity": 1.0,
+            "blendMode": "normal"
+          }
+        ]
+      }
+    ]
+  },
+  "categories": {
+    "educational": [
+      {
+        "name": "Frequency Zones",
+        "description": "Visualize different frequency ranges",
+        "visualizer": "SpectrumAnalyzer",
+        "parameters": {
+          "barCount": 7,
+          "layout": "vertical",
+          "frequencyScale": "linear"
+        },
+        "annotations": [
+          { "bin": 0, "label": "Sub-Bass (20-60 Hz)" },
+          { "bin": 1, "label": "Bass (60-250 Hz)" },
+          { "bin": 2, "label": "Low-Mid (250-500 Hz)" },
+          { "bin": 3, "label": "Mid (500-2000 Hz)" },
+          { "bin": 4, "label": "High-Mid (2-6 kHz)" },
+          { "bin": 5, "label": "Presence (6-12 kHz)" },
+          { "bin": 6, "label": "Brilliance (12-20 kHz)" }
+        ]
+      },
+      {
+        "name": "Waveform Anatomy",
+        "description": "Understand waveform components",
+        "visualizer": "Waveform",
+        "parameters": {
+          "mode": "waveform",
+          "showGrid": true,
+          "amplification": 1.0
+        },
+        "annotations": [
+          { "position": "top", "label": "Peak (+1.0)" },
+          { "position": "center", "label": "Zero Crossing" },
+          { "position": "bottom", "label": "Trough (-1.0)" }
+        ]
+      }
+    ],
+    "performance": [
+      {
+        "name": "Low CPU",
+        "description": "Optimized for performance",
+        "visualizer": "SpectrumAnalyzer",
+        "parameters": {
+          "barCount": 32,
+          "smoothing": 0.9,
+          "glowEffect": false,
+          "reflection": false,
+          "showPeaks": false
+        }
+      }
+    ]
+  },
+  "export": {
+    "music-video": {
+      "name": "Music Video Quality",
+      "resolution": [1920, 1080],
+      "frameRate": 60,
+      "bitrate": 8000000,
+      "preset": "Full Studio"
+    },
+    "social-media": {
+      "instagram": {
+        "name": "Instagram Square",
+        "resolution": [1080, 1080],
+        "frameRate": 30,
+        "bitrate": 3000000,
+        "preset": "Minimal"
+      },
+      "tiktok": {
+        "name": "TikTok Vertical",
+        "resolution": [1080, 1920],
+        "frameRate": 30,
+        "bitrate": 3000000,
+        "preset": "Energy Burst"
+      },
+      "youtube": {
+        "name": "YouTube HD",
+        "resolution": [1920, 1080],
+        "frameRate": 60,
+        "bitrate": 8000000,
+        "preset": "Full Studio"
+      }
+    }
+  }
+}

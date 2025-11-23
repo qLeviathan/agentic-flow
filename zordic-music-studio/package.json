@@ -1,0 +1,74 @@
+{
+  "name": "zordic-music-studio",
+  "version": "1.0.0",
+  "description": "An Agentic Music-Making Framework for High School Artists",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "echo 'Backend build complete'",
+    "build:frontend": "cd frontend && npm run build",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "jest tests/unit --coverage",
+    "test:integration": "jest tests/integration",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write 'src/**/*.{js,json,md}'",
+    "agentdb:init": "node src/agentdb/music-db.js",
+    "agentdb:seed": "node scripts/seed-agentdb.js",
+    "docs": "jsdoc -c jsdoc.json",
+    "deploy": "npm run build && node scripts/deploy.js"
+  },
+  "keywords": [
+    "music",
+    "education",
+    "ai",
+    "agentdb",
+    "web-audio",
+    "music-production",
+    "high-school",
+    "curriculum",
+    "beat-maker",
+    "composition"
+  ],
+  "author": "Zordic Music Studio Team",
+  "license": "MIT",
+  "dependencies": {
+    "agentdb": "^2.0.0",
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "uuid": "^9.0.0",
+    "redis": "^4.6.5",
+    "pg": "^8.10.0",
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "winston": "^3.8.2",
+    "joi": "^17.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.40.0",
+    "prettier": "^2.8.8",
+    "jsdoc": "^4.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qLeviathan/agentic-flow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qLeviathan/agentic-flow/issues"
+  },
+  "homepage": "https://github.com/qLeviathan/agentic-flow#readme"
+}
