@@ -1,0 +1,187 @@
+# Docker Compose for Quantum Trading System
+# Development and local testing environment
+
+version: '3.8'
+
+services:
+  # Main quantum trading application
+  quantum-trading:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: development
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+    image: quantum-trading:latest
+    container_name: quantum-trading-dev
+    hostname: quantum-trading
+    restart: unless-stopped
+
+    # Volume mounts for development
+    volumes:
+      - ../src:/app/src:ro
+      - ../tests:/app/tests:ro
+      - agentdb-data:/app/data/agentdb
+      - cache-data:/app/data/cache
+      - logs-data:/app/logs
+      - outputs-data:/app/outputs
+
+    # Environment variables
+    environment:
+      - PYTHONPATH=/app
+      - AGENTDB_PATH=/app/data/agentdb/agentdb.db
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - CACHE_DIR=/app/data/cache
+      - TIINGO_API_KEY=${TIINGO_API_KEY:-}
+      - YAHOO_FINANCE_API_KEY=${YAHOO_FINANCE_API_KEY:-}
+      - FRED_API_KEY=${FRED_API_KEY:-}
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+
+    # Networking
+    networks:
+      - quantum-net
+
+    # Keep container running for development
+    command: tail -f /dev/null
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.path.insert(0, '/app'); from src.encoders.fibonacci_encoder import FibonacciEncoder"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Testing service - runs tests continuously
+  quantum-testing:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: testing
+    image: quantum-trading:testing
+    container_name: quantum-testing
+
+    volumes:
+      - ../src:/app/src:ro
+      - ../tests:/app/tests:ro
+      - test-coverage:/app/htmlcov
+      - agentdb-data:/app/data/agentdb
+
+    environment:
+      - PYTHONPATH=/app
+      - AGENTDB_PATH=/app/data/agentdb/agentdb.db
+      - PYTEST_ADDOPTS=--color=yes
+
+    networks:
+      - quantum-net
+
+    depends_on:
+      - quantum-trading
+
+    command: python -m pytest tests/ -v --cov=src --cov-report=html --cov-report=term
+
+  # AgentDB service for reflexion and memory
+  agentdb:
+    image: node:18-slim
+    container_name: quantum-agentdb
+    working_dir: /app
+
+    volumes:
+      - agentdb-data:/app/data
+      - ../src:/app/src:ro
+
+    environment:
+      - AGENTDB_PATH=/app/data/agentdb.db
+
+    networks:
+      - quantum-net
+
+    command: >
+      sh -c "npm install -g agentdb@latest &&
+             npx agentdb server --port 3000 --db /app/data/agentdb.db"
+
+    ports:
+      - "3000:3000"
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Jupyter notebook for interactive development
+  jupyter:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: development
+    image: quantum-trading:jupyter
+    container_name: quantum-jupyter
+
+    volumes:
+      - ../src:/app/src
+      - ../tests:/app/tests
+      - ../docs:/app/docs
+      - notebooks:/app/notebooks
+      - agentdb-data:/app/data/agentdb
+
+    environment:
+      - PYTHONPATH=/app
+      - AGENTDB_PATH=/app/data/agentdb/agentdb.db
+      - JUPYTER_ENABLE_LAB=yes
+
+    networks:
+      - quantum-net
+
+    ports:
+      - "8888:8888"
+
+    command: >
+      jupyter lab
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+
+# Named volumes for data persistence
+volumes:
+  agentdb-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${PWD}/data/agentdb
+
+  cache-data:
+    driver: local
+
+  logs-data:
+    driver: local
+
+  outputs-data:
+    driver: local
+
+  test-coverage:
+    driver: local
+
+  notebooks:
+    driver: local
+
+# Custom network
+networks:
+  quantum-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16

@@ -1,0 +1,1628 @@
+{
+  "validator": "Integer Operations Validator",
+  "agent": "Agent 8",
+  "zeckendorf_address": "10000",
+  "timestamp": "2025-11-24T23:35:48.604549",
+  "status": "FAIL",
+  "statistics": {
+    "files_scanned": 7,
+    "total_lines": 2423,
+    "critical_errors": 133,
+    "total_errors": 133,
+    "warnings": 53
+  },
+  "validation_steps": {
+    "float_leakage_scan": "completed",
+    "scaling_factors": "completed",
+    "fibonacci_validation": "completed",
+    "lucas_validation": "completed",
+    "zeckendorf_validation": "completed"
+  },
+  "errors": [
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 5,
+      "column": 10,
+      "pattern": "\\bfloat\\b",
+      "context": "Scans for float leakage, verifies scaling factors, and validates OEIS sequence outputs.",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 24,
+      "column": 9,
+      "pattern": "\\bfloat\\b",
+      "context": "- No float/decimal operations",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 24,
+      "column": 14,
+      "pattern": "/\\s*[^/]",
+      "context": "- No float/decimal operations",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 33,
+      "column": 43,
+      "pattern": "\\bfloat\\b",
+      "context": "r'\\bfloat\\b',                    # float keyword",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 34,
+      "column": 43,
+      "pattern": "\\bdouble\\b",
+      "context": "r'\\bdouble\\b',                   # double keyword",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 35,
+      "column": 48,
+      "pattern": "\\bfloat\\b",
+      "context": "r'\\bnp\\.float\\w*\\b',            # numpy float types",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 36,
+      "column": 42,
+      "pattern": "\\bastype\\([\"\\']float",
+      "context": "r'\\bastype\\([\"\\']float',        # astype('float')",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 37,
+      "column": 66,
+      "pattern": "\\d+\\.\\d+",
+      "context": "r'\\d+\\.\\d+',                    # decimal literals (e.g., 123.45)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 37,
+      "column": 69,
+      "pattern": "\\.\\d+",
+      "context": "r'\\d+\\.\\d+',                    # decimal literals (e.g., 123.45)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 37,
+      "column": 66,
+      "pattern": "\\d+\\.",
+      "context": "r'\\d+\\.\\d+',                    # decimal literals (e.g., 123.45)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 38,
+      "column": 74,
+      "pattern": "\\.\\d+",
+      "context": "r'\\.\\d+',                       # decimals starting with . (e.g., .5)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 39,
+      "column": 72,
+      "pattern": "\\d+\\.",
+      "context": "r'\\d+\\.',                       # decimals ending with . (e.g., 5.)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 40,
+      "column": 73,
+      "pattern": "\\bfloat\\b",
+      "context": "r'/\\s*[^/]',                    # division operator (may produce float)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 42,
+      "column": 57,
+      "pattern": "\\bfloat\\b",
+      "context": "r'\\.mean\\(\\)',                  # mean (produces float)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 43,
+      "column": 56,
+      "pattern": "\\bfloat\\b",
+      "context": "r'\\.std\\(\\)',                   # std (produces float)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 44,
+      "column": 61,
+      "pattern": "\\bfloat\\b",
+      "context": "r'\\.var\\(\\)',                   # variance (produces float)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 45,
+      "column": 57,
+      "pattern": "\\bfloat\\b",
+      "context": "r'math\\.sqrt',                  # sqrt (produces float)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 83,
+      "column": 39,
+      "pattern": "/\\s*[^/]",
+      "context": "Validation report with PASS/FAIL status",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 122,
+      "column": 36,
+      "pattern": "/\\s*[^/]",
+      "context": "src_dir = self.project_root / \"src\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 210,
+      "column": 36,
+      "pattern": "/\\s*[^/]",
+      "context": "src_dir = self.project_root / \"src\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 254,
+      "column": 15,
+      "pattern": "/\\s*[^/]",
+      "context": "n //= 10",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 259,
+      "column": 37,
+      "pattern": "/\\s*[^/]",
+      "context": "fib_file = self.project_root / \"src\" / \"encoders\" / \"fibonacci_encoder.py\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 259,
+      "column": 45,
+      "pattern": "/\\s*[^/]",
+      "context": "fib_file = self.project_root / \"src\" / \"encoders\" / \"fibonacci_encoder.py\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 259,
+      "column": 58,
+      "pattern": "/\\s*[^/]",
+      "context": "fib_file = self.project_root / \"src\" / \"encoders\" / \"fibonacci_encoder.py\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 294,
+      "column": 39,
+      "pattern": "/\\s*[^/]",
+      "context": "lucas_file = self.project_root / \"src\" / \"encoders\" / \"lucas_encoder.py\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 294,
+      "column": 47,
+      "pattern": "/\\s*[^/]",
+      "context": "lucas_file = self.project_root / \"src\" / \"encoders\" / \"lucas_encoder.py\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 294,
+      "column": 60,
+      "pattern": "/\\s*[^/]",
+      "context": "lucas_file = self.project_root / \"src\" / \"encoders\" / \"lucas_encoder.py\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 329,
+      "column": 38,
+      "pattern": "/\\s*[^/]",
+      "context": "zeck_file = self.project_root / \"src\" / \"encoders\" / \"zeckendorf_compressor.py\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 329,
+      "column": 46,
+      "pattern": "/\\s*[^/]",
+      "context": "zeck_file = self.project_root / \"src\" / \"encoders\" / \"zeckendorf_compressor.py\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 329,
+      "column": 59,
+      "pattern": "/\\s*[^/]",
+      "context": "zeck_file = self.project_root / \"src\" / \"encoders\" / \"zeckendorf_compressor.py\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 435,
+      "column": 44,
+      "pattern": "/\\s*[^/]",
+      "context": "output_path = self.project_root / \"team-outputs\" / \"team2\" / \"integer_validation_report.json\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 435,
+      "column": 61,
+      "pattern": "/\\s*[^/]",
+      "context": "output_path = self.project_root / \"team-outputs\" / \"team2\" / \"integer_validation_report.json\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/integer_validator.py",
+      "line": 435,
+      "column": 71,
+      "pattern": "/\\s*[^/]",
+      "context": "output_path = self.project_root / \"team-outputs\" / \"team2\" / \"integer_validation_report.json\"",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/lucas_encoder.py",
+      "line": 12,
+      "column": 23,
+      "pattern": "/\\s*[^/]",
+      "context": "OEIS Reference: https://oeis.org/A000032",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/lucas_encoder.py",
+      "line": 12,
+      "column": 32,
+      "pattern": "/\\s*[^/]",
+      "context": "OEIS Reference: https://oeis.org/A000032",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/lucas_encoder.py",
+      "line": 15,
+      "column": 47,
+      "pattern": "/\\s*[^/]",
+      "context": "- L(n) = \u03c6\u207f + \u03c8\u207f where \u03c6 = golden ratio, \u03c8 = -1/\u03c6",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/encoders/lucas_encoder.py",
+      "line": 81,
+      "column": 56,
+      "pattern": "\\d+\\.",
+      "context": "Validate generated Lucas sequence against OEIS A000032.",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 2,
+      "column": 2,
+      "pattern": "/\\s*[^/]",
+      "context": "Xi/Psi Phase Space Dynamics Model",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 7,
+      "column": 56,
+      "pattern": "/\\s*[^/]",
+      "context": "- Psi (\u03c8): Momentum operator - represents price velocity/trends",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 30,
+      "column": 30,
+      "pattern": "\\d+\\.\\d+",
+      "context": "COHERENCE_THRESHOLD = 8000  # 0.80 scaled",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 30,
+      "column": 31,
+      "pattern": "\\.\\d+",
+      "context": "COHERENCE_THRESHOLD = 8000  # 0.80 scaled",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 30,
+      "column": 30,
+      "pattern": "\\d+\\.",
+      "context": "COHERENCE_THRESHOLD = 8000  # 0.80 scaled",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 112,
+      "column": 28,
+      "pattern": "/\\s*[^/]",
+      "context": "return sum(prices) // len(prices)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 129,
+      "column": 35,
+      "pattern": "/\\s*[^/]",
+      "context": "return sum(squared_diffs) // len(squared_diffs)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 134,
+      "column": 48,
+      "pattern": "/\\s*[^/]",
+      "context": "Momentum operator Psi (\u03c8) for price velocity/trends.",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 136,
+      "column": 38,
+      "pattern": "/\\s*[^/]",
+      "context": "In quantum mechanics: p\u0302\u03c8 = -i\u210f(d\u03c8/dx)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 147,
+      "column": 26,
+      "pattern": "/\\s*[^/]",
+      "context": "Momentum = \u0394price / \u0394time (Lucas-encoded)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 161,
+      "column": 47,
+      "pattern": "/\\s*[^/]",
+      "context": "momentum = (delta_price * self.scale) // lucas_dt",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 182,
+      "column": 45,
+      "pattern": "/\\s*[^/]",
+      "context": "momentum = (delta * self.scale) // lucas_dt",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 185,
+      "column": 29,
+      "pattern": "/\\s*[^/]",
+      "context": "return sum(momenta) // len(momenta) if momenta else 0",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 204,
+      "column": 45,
+      "pattern": "/\\s*[^/]",
+      "context": "momentum = (delta * self.scale) // lucas_dt",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 211,
+      "column": 35,
+      "pattern": "/\\s*[^/]",
+      "context": "return sum(squared_diffs) // len(squared_diffs)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 216,
+      "column": 15,
+      "pattern": "/\\s*[^/]",
+      "context": "Complete Xi/Psi phase space dynamics model.",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 300,
+      "column": 30,
+      "pattern": "/\\s*[^/]",
+      "context": "Coherence = exp(-|\u0394\u03be|\u00b2/\u03c3\u00b2) scaled to [0, 10000]",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 325,
+      "column": 61,
+      "pattern": "/\\s*[^/]",
+      "context": "normalized_uncertainty = (delta_xi_sq * self.scale) // (xi_var + 1)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 326,
+      "column": 47,
+      "pattern": "/\\s*[^/]",
+      "context": "coherence = (self.scale * self.scale) // (self.scale + normalized_uncertainty)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 351,
+      "column": 41,
+      "pattern": "/\\s*[^/]",
+      "context": "momentum_threshold = self.scale // 20",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 356,
+      "column": 41,
+      "pattern": "/\\s*[^/]",
+      "context": "mean_price = sum(recent_prices) // len(recent_prices)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 357,
+      "column": 49,
+      "pattern": "/\\s*[^/]",
+      "context": "volatility = (price_range * self.scale) // (mean_price + 1)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 363,
+      "column": 38,
+      "pattern": "/\\s*[^/]",
+      "context": "elif volatility < self.scale // 10:  # < 10% volatility",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 436,
+      "column": 36,
+      "pattern": "/\\s*[^/]",
+      "context": "tolerance = self.scale // 10  # 10% tolerance",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 485,
+      "column": 64,
+      "pattern": "/\\s*[^/]",
+      "context": "i = int(((point.xi - xi_min) * (grid_size - 1)) / (xi_max - xi_min))",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 487,
+      "column": 31,
+      "pattern": "/\\s*[^/]",
+      "context": "i = grid_size // 2",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 490,
+      "column": 66,
+      "pattern": "/\\s*[^/]",
+      "context": "j = int(((point.psi - psi_min) * (grid_size - 1)) / (psi_max - psi_min))",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 492,
+      "column": 31,
+      "pattern": "/\\s*[^/]",
+      "context": "j = grid_size // 2",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 499,
+      "column": 79,
+      "pattern": "/\\s*[^/]",
+      "context": "coherence_map[i, j] = (coherence_map[i, j] + point.coherence) // 2",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 511,
+      "column": 61,
+      "pattern": "\\d+\\.",
+      "context": "Compute Heisenberg uncertainty relation: \u0394\u03be * \u0394\u03c8 \u2265 \u210f/2.",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 511,
+      "column": 60,
+      "pattern": "/\\s*[^/]",
+      "context": "Compute Heisenberg uncertainty relation: \u0394\u03be * \u0394\u03c8 \u2265 \u210f/2.",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 521,
+      "column": 23,
+      "pattern": "np\\.sqrt",
+      "context": "delta_xi = int(np.sqrt(self.xi_op.variance(price_series)))",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 524,
+      "column": 24,
+      "pattern": "np\\.sqrt",
+      "context": "delta_psi = int(np.sqrt(self.psi_op.variance(price_series, lucas_times)))",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 527,
+      "column": 42,
+      "pattern": "/\\s*[^/]",
+      "context": "product = (delta_xi * delta_psi) // self.scale",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 561,
+      "column": 70,
+      "pattern": "/\\s*[^/]",
+      "context": "profit_factor = ((current_price - entry_price) * self.scale) // entry_price",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 566,
+      "column": 39,
+      "pattern": "/\\s*[^/]",
+      "context": "threshold_profit = self.scale // 50  # 2%",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 567,
+      "column": 39,
+      "pattern": "/\\s*[^/]",
+      "context": "threshold_loss = -(self.scale // 20)  # -5%",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/xi_psi.py",
+      "line": 620,
+      "column": 69,
+      "pattern": "/\\s*[^/]",
+      "context": "'mean_coherence': sum(p.coherence for p in portrait.points) // len(portrait.points),",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 5,
+      "column": 48,
+      "pattern": "\\d+\\.",
+      "context": "All operations use integer arithmetic scaled by 10000.",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 46,
+      "column": 24,
+      "pattern": "/\\s*[^/]",
+      "context": "return (result // self.scale).astype(np.int64)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 60,
+      "column": 51,
+      "pattern": "/\\s*[^/]",
+      "context": "cos_approx = self.scale - (theta * theta) // (2 * self.scale)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 65,
+      "column": 70,
+      "pattern": "/\\s*[^/]",
+      "context": "self.operator[i, i] = (self.operator[i, i] * cos_approx) // self.scale",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 88,
+      "column": 49,
+      "pattern": "/\\s*[^/]",
+      "context": "self.weights = np.random.randint(-scale // 10, scale // 10,",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 88,
+      "column": 62,
+      "pattern": "/\\s*[^/]",
+      "context": "self.weights = np.random.randint(-scale // 10, scale // 10,",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 111,
+      "column": 26,
+      "pattern": "/\\s*[^/]",
+      "context": "output = (output // self.scale).astype(np.int64)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 125,
+      "column": 73,
+      "pattern": "\\d+\\.\\d+",
+      "context": "learning_rate: Learning rate (scaled integer, default: 100 = 0.01)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 125,
+      "column": 74,
+      "pattern": "\\.\\d+",
+      "context": "learning_rate: Learning rate (scaled integer, default: 100 = 0.01)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 125,
+      "column": 73,
+      "pattern": "\\d+\\.",
+      "context": "learning_rate: Learning rate (scaled integer, default: 100 = 0.01)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 133,
+      "column": 41,
+      "pattern": "/\\s*[^/]",
+      "context": "delta = (outer * learning_rate) // (self.scale * self.scale)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 141,
+      "column": 62,
+      "pattern": "/\\s*[^/]",
+      "context": "self.weights = (self.weights * self.scale * 100) // max_weight",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 187,
+      "column": 39,
+      "pattern": "/\\s*[^/]",
+      "context": "phase_rad = (phase * 314) // 18000  # phase * \u03c0/180 scaled",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 187,
+      "column": 59,
+      "pattern": "/\\s*[^/]",
+      "context": "phase_rad = (phase * 314) // 18000  # phase * \u03c0/180 scaled",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 188,
+      "column": 62,
+      "pattern": "/\\s*[^/]",
+      "context": "cos_phase = self.scale - (phase_rad * phase_rad) // (2 * self.scale)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 192,
+      "column": 51,
+      "pattern": "/\\s*[^/]",
+      "context": "similarity = (similarity * cos_phase) // (self.scale * self.scale)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 198,
+      "column": 64,
+      "pattern": "/\\s*[^/]",
+      "context": "attended = (value * attention_weight * self.scale) // self.scale",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 202,
+      "column": 42,
+      "pattern": "/\\s*[^/]",
+      "context": "output = np.sum(outputs, axis=0) // self.num_heads",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 236,
+      "column": 21,
+      "pattern": "/\\s*[^/]",
+      "context": "k2 = f(t + dt/2, y + dt*k1/2)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 236,
+      "column": 34,
+      "pattern": "/\\s*[^/]",
+      "context": "k2 = f(t + dt/2, y + dt*k1/2)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 251,
+      "column": 39,
+      "pattern": "/\\s*[^/]",
+      "context": "half_step = state + (dt * k1) // (2 * self.scale)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 255,
+      "column": 39,
+      "pattern": "/\\s*[^/]",
+      "context": "new_state = state + (dt * k2) // self.scale",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 317,
+      "column": 31,
+      "pattern": "\\d+\\.",
+      "context": "h1 = self.hebbian_layer1.forward(x)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 323,
+      "column": 31,
+      "pattern": "\\d+\\.",
+      "context": "h2 = self.hebbian_layer2.forward(h1)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 331,
+      "column": 48,
+      "pattern": "\\d+\\.\\d+",
+      "context": "lambda_decay = self.scale // 100  # 0.01",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 331,
+      "column": 49,
+      "pattern": "\\.\\d+",
+      "context": "lambda_decay = self.scale // 100  # 0.01",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 331,
+      "column": 48,
+      "pattern": "\\d+\\.",
+      "context": "lambda_decay = self.scale // 100  # 0.01",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 331,
+      "column": 39,
+      "pattern": "/\\s*[^/]",
+      "context": "lambda_decay = self.scale // 100  # 0.01",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 332,
+      "column": 44,
+      "pattern": "/\\s*[^/]",
+      "context": "return -(lambda_decay * state) // self.scale",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 334,
+      "column": 33,
+      "pattern": "\\d+\\.\\d+",
+      "context": "dt = self.scale // 10  # 0.1",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 334,
+      "column": 34,
+      "pattern": "\\.\\d+",
+      "context": "dt = self.scale // 10  # 0.1",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 334,
+      "column": 33,
+      "pattern": "\\d+\\.",
+      "context": "dt = self.scale // 10  # 0.1",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 334,
+      "column": 25,
+      "pattern": "/\\s*[^/]",
+      "context": "dt = self.scale // 10  # 0.1",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 338,
+      "column": 35,
+      "pattern": "\\d+\\.",
+      "context": "output = self.hebbian_layer3.forward(h2_integrated)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 350,
+      "column": 65,
+      "pattern": "\\d+\\.\\d+",
+      "context": "learning_rate: Learning rate (scaled, default: 100 = 0.01)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 350,
+      "column": 66,
+      "pattern": "\\.\\d+",
+      "context": "learning_rate: Learning rate (scaled, default: 100 = 0.01)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 350,
+      "column": 65,
+      "pattern": "\\d+\\.",
+      "context": "learning_rate: Learning rate (scaled, default: 100 = 0.01)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 360,
+      "column": 38,
+      "pattern": "/\\s*[^/]",
+      "context": "loss = np.sum(error * error) // len(error)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 363,
+      "column": 26,
+      "pattern": "\\d+\\.",
+      "context": "self.hebbian_layer1.hebbian_update(learning_rate)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 364,
+      "column": 26,
+      "pattern": "\\d+\\.",
+      "context": "self.hebbian_layer2.hebbian_update(learning_rate)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 365,
+      "column": 26,
+      "pattern": "\\d+\\.",
+      "context": "self.hebbian_layer3.hebbian_update(learning_rate)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 373,
+      "column": 50,
+      "pattern": "/\\s*[^/]",
+      "context": "self.field_operator.evolve(learning_rate // 10)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 402,
+      "column": 35,
+      "pattern": "/\\s*[^/]",
+      "context": "avg_loss = total_loss // len(X_train)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 442,
+      "column": 51,
+      "pattern": "\\d+\\.",
+      "context": "'hebbian_weights_1': self.hebbian_layer1.weights.tolist(),",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 443,
+      "column": 51,
+      "pattern": "\\d+\\.",
+      "context": "'hebbian_weights_2': self.hebbian_layer2.weights.tolist(),",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 444,
+      "column": 51,
+      "pattern": "\\d+\\.",
+      "context": "'hebbian_weights_3': self.hebbian_layer3.weights.tolist(),",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 473,
+      "column": 26,
+      "pattern": "\\d+\\.",
+      "context": "self.hebbian_layer1.weights = np.array(checkpoint['hebbian_weights_1'], dtype=np.int64)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 474,
+      "column": 26,
+      "pattern": "\\d+\\.",
+      "context": "self.hebbian_layer2.weights = np.array(checkpoint['hebbian_weights_2'], dtype=np.int64)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 475,
+      "column": 26,
+      "pattern": "\\d+\\.",
+      "context": "self.hebbian_layer3.weights = np.array(checkpoint['hebbian_weights_3'], dtype=np.int64)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 508,
+      "column": 34,
+      "pattern": "\\d+\\.",
+      "context": "self.hebbian_layer1.weights.size +",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 509,
+      "column": 34,
+      "pattern": "\\d+\\.",
+      "context": "self.hebbian_layer2.weights.size +",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/models/qfnn.py",
+      "line": 510,
+      "column": 34,
+      "pattern": "\\d+\\.",
+      "context": "self.hebbian_layer3.weights.size +",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/data/fred_fetcher.py",
+      "line": 182,
+      "column": 34,
+      "pattern": "\\bfloat\\b",
+      "context": "float_value = float(value_str)",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/data/fred_fetcher.py",
+      "line": 208,
+      "column": 35,
+      "pattern": "/\\s*[^/]",
+      "context": "filepath = self.output_dir / filename",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/data/fred_fetcher.py",
+      "line": 244,
+      "column": 16,
+      "pattern": "\\d+\\.\\d+",
+      "context": "delay = 60.0 / max_requests_per_minute",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/data/fred_fetcher.py",
+      "line": 244,
+      "column": 18,
+      "pattern": "\\.\\d+",
+      "context": "delay = 60.0 / max_requests_per_minute",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/data/fred_fetcher.py",
+      "line": 244,
+      "column": 16,
+      "pattern": "\\d+\\.",
+      "context": "delay = 60.0 / max_requests_per_minute",
+      "severity": "critical"
+    },
+    {
+      "type": "float_leakage",
+      "file": "src/data/fred_fetcher.py",
+      "line": 244,
+      "column": 21,
+      "pattern": "/\\s*[^/]",
+      "context": "delay = 60.0 / max_requests_per_minute",
+      "severity": "critical"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 144,
+      "message": "Non-power-of-10 scaling factor: 144",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 233,
+      "message": "Non-power-of-10 scaling factor: 233",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 377,
+      "message": "Non-power-of-10 scaling factor: 377",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 610,
+      "message": "Non-power-of-10 scaling factor: 610",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 987,
+      "message": "Non-power-of-10 scaling factor: 987",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 1597,
+      "message": "Non-power-of-10 scaling factor: 1597",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 123,
+      "message": "Non-power-of-10 scaling factor: 123",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 199,
+      "message": "Non-power-of-10 scaling factor: 199",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 322,
+      "message": "Non-power-of-10 scaling factor: 322",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 521,
+      "message": "Non-power-of-10 scaling factor: 521",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 843,
+      "message": "Non-power-of-10 scaling factor: 843",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 1364,
+      "message": "Non-power-of-10 scaling factor: 1364",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/integer_validator.py",
+      "value": 2207,
+      "message": "Non-power-of-10 scaling factor: 2207",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 123,
+      "message": "Non-power-of-10 scaling factor: 123",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 199,
+      "message": "Non-power-of-10 scaling factor: 199",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 322,
+      "message": "Non-power-of-10 scaling factor: 322",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 521,
+      "message": "Non-power-of-10 scaling factor: 521",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 843,
+      "message": "Non-power-of-10 scaling factor: 843",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 1364,
+      "message": "Non-power-of-10 scaling factor: 1364",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 2207,
+      "message": "Non-power-of-10 scaling factor: 2207",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 3571,
+      "message": "Non-power-of-10 scaling factor: 3571",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 5778,
+      "message": "Non-power-of-10 scaling factor: 5778",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 9349,
+      "message": "Non-power-of-10 scaling factor: 9349",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 15127,
+      "message": "Non-power-of-10 scaling factor: 15127",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 24476,
+      "message": "Non-power-of-10 scaling factor: 24476",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 39603,
+      "message": "Non-power-of-10 scaling factor: 39603",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 64079,
+      "message": "Non-power-of-10 scaling factor: 64079",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 103682,
+      "message": "Non-power-of-10 scaling factor: 103682",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 167761,
+      "message": "Non-power-of-10 scaling factor: 167761",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 271443,
+      "message": "Non-power-of-10 scaling factor: 271443",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 439204,
+      "message": "Non-power-of-10 scaling factor: 439204",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 710647,
+      "message": "Non-power-of-10 scaling factor: 710647",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 1149851,
+      "message": "Non-power-of-10 scaling factor: 1149851",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 123,
+      "message": "Non-power-of-10 scaling factor: 123",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 86400,
+      "message": "Non-power-of-10 scaling factor: 86400",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 1700000000,
+      "message": "Non-power-of-10 scaling factor: 1700000000",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 250,
+      "message": "Non-power-of-10 scaling factor: 250",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 500,
+      "message": "Non-power-of-10 scaling factor: 500",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 2024,
+      "message": "Non-power-of-10 scaling factor: 2024",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/encoders/lucas_encoder.py",
+      "value": 2024,
+      "message": "Non-power-of-10 scaling factor: 2024",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/xi_psi.py",
+      "value": 8000,
+      "message": "Non-power-of-10 scaling factor: 8000",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/xi_psi.py",
+      "value": 123,
+      "message": "Non-power-of-10 scaling factor: 123",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/xi_psi.py",
+      "value": 199,
+      "message": "Non-power-of-10 scaling factor: 199",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/xi_psi.py",
+      "value": 322,
+      "message": "Non-power-of-10 scaling factor: 322",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/xi_psi.py",
+      "value": 521,
+      "message": "Non-power-of-10 scaling factor: 521",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/xi_psi.py",
+      "value": 843,
+      "message": "Non-power-of-10 scaling factor: 843",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/qfnn.py",
+      "value": 360,
+      "message": "Non-power-of-10 scaling factor: 360",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/qfnn.py",
+      "value": 360,
+      "message": "Non-power-of-10 scaling factor: 360",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/qfnn.py",
+      "value": 18000,
+      "message": "Non-power-of-10 scaling factor: 18000",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/models/qfnn.py",
+      "value": 314,
+      "message": "Non-power-of-10 scaling factor: 314",
+      "severity": "warning"
+    },
+    {
+      "type": "scaling_factor",
+      "file": "src/data/fred_fetcher.py",
+      "value": 120,
+      "message": "Non-power-of-10 scaling factor: 120",
+      "severity": "warning"
+    },
+    {
+      "type": "missing_file",
+      "file": "src/encoders/fibonacci_encoder.py",
+      "message": "Fibonacci encoder not found (Agent 5 may not have completed)",
+      "severity": "info"
+    },
+    {
+      "type": "missing_file",
+      "file": "src/encoders/zeckendorf_compressor.py",
+      "message": "Zeckendorf compressor not found (Agent 7 may not have completed)",
+      "severity": "info"
+    }
+  ],
+  "scaling_factors": {
+    "valid": [
+      100,
+      1000,
+      10000,
+      100000,
+      1000000
+    ],
+    "all_powers_of_10": true
+  },
+  "oeis_sequences": {
+    "fibonacci_a000045": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34
+    ],
+    "lucas_a000032": [
+      2,
+      1,
+      3,
+      4,
+      7,
+      11,
+      18,
+      29,
+      47,
+      76
+    ]
+  },
+  "recommendation": "\u274c INTEGER VALIDATION FAIL: 133 critical float leakage(s) detected. Must fix before deployment."
+}

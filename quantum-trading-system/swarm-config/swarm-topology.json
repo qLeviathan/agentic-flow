@@ -1,0 +1,109 @@
+{
+  "swarmId": "quantum-trading-32-agent-mesh",
+  "topology": "adaptive-mesh",
+  "totalAgents": 32,
+  "coordinationProtocol": "agentdb-reflexion",
+  "addressingScheme": "zeckendorf-bits",
+  "memoryNamespace": "coordination",
+
+  "teams": [
+    {
+      "teamId": 1,
+      "name": "Data Acquisition",
+      "agents": [
+        {"id": 1, "role": "tiingo-api-specialist", "zeckendorf": "1", "dependencies": []},
+        {"id": 2, "role": "fred-api-specialist", "zeckendorf": "10", "dependencies": []},
+        {"id": 3, "role": "yahoo-finance-specialist", "zeckendorf": "100", "dependencies": []},
+        {"id": 4, "role": "data-validation-specialist", "zeckendorf": "101", "dependencies": [1, 2, 3]}
+      ]
+    },
+    {
+      "teamId": 2,
+      "name": "Mathematical Framework",
+      "agents": [
+        {"id": 5, "role": "fibonacci-encoder", "zeckendorf": "1000", "dependencies": [4], "oeis": "A000045"},
+        {"id": 6, "role": "lucas-encoder", "zeckendorf": "1001", "dependencies": [4], "oeis": "A000032"},
+        {"id": 7, "role": "zeckendorf-compressor", "zeckendorf": "1010", "dependencies": [5, 6], "oeis": "A003714"},
+        {"id": 8, "role": "integer-validator", "zeckendorf": "10000", "dependencies": [5, 6, 7]}
+      ]
+    },
+    {
+      "teamId": 3,
+      "name": "Quantum Models",
+      "agents": [
+        {"id": 9, "role": "qfnn-implementation", "zeckendorf": "10001", "dependencies": [5, 6, 7, 8]},
+        {"id": 10, "role": "xi-psi-model", "zeckendorf": "10010", "dependencies": [5, 6, 8]},
+        {"id": 11, "role": "options-pricing", "zeckendorf": "10100", "dependencies": [9, 10]},
+        {"id": 12, "role": "model-validation", "zeckendorf": "10101", "dependencies": [9, 10, 11]}
+      ]
+    },
+    {
+      "teamId": 4,
+      "name": "Trading Strategies",
+      "agents": [
+        {"id": 13, "role": "fibonacci-strategy", "zeckendorf": "10000000", "dependencies": [5, 9, 12]},
+        {"id": 14, "role": "lucas-timing", "zeckendorf": "10000001", "dependencies": [6, 10, 12]},
+        {"id": 15, "role": "momentum-strategy", "zeckendorf": "10000010", "dependencies": [8, 9, 12]},
+        {"id": 16, "role": "mean-reversion", "zeckendorf": "10000100", "dependencies": [8, 10, 12]}
+      ]
+    },
+    {
+      "teamId": 5,
+      "name": "Backtesting & Analysis",
+      "agents": [
+        {"id": 17, "role": "backtesting-engine", "zeckendorf": "10000101", "dependencies": [4, 13, 14, 15, 16]},
+        {"id": 18, "role": "performance-analytics", "zeckendorf": "10000000000", "dependencies": [17]},
+        {"id": 19, "role": "risk-management", "zeckendorf": "10000000001", "dependencies": [17, 18]},
+        {"id": 20, "role": "statistical-validation", "zeckendorf": "10000000010", "dependencies": [17, 18, 19]}
+      ]
+    },
+    {
+      "teamId": 6,
+      "name": "Visualization & Dashboards",
+      "agents": [
+        {"id": 21, "role": "waterfall-chart-specialist", "zeckendorf": "10000000100", "dependencies": [18]},
+        {"id": 22, "role": "gmv-tracker", "zeckendorf": "10000000101", "dependencies": [17, 18]},
+        {"id": 23, "role": "interactive-dashboard", "zeckendorf": "10000001000", "dependencies": [21, 22]},
+        {"id": 24, "role": "pine-script-generator", "zeckendorf": "10000001001", "dependencies": [13, 14, 15, 16]}
+      ]
+    },
+    {
+      "teamId": 7,
+      "name": "Infrastructure",
+      "agents": [
+        {"id": 25, "role": "docker-specialist", "zeckendorf": "10000001010", "dependencies": []},
+        {"id": 26, "role": "jupyter-architect", "zeckendorf": "10000010000", "dependencies": []},
+        {"id": 27, "role": "agentdb-coordinator", "zeckendorf": "10000010001", "dependencies": []},
+        {"id": 28, "role": "testing-specialist", "zeckendorf": "10000010010", "dependencies": []}
+      ]
+    },
+    {
+      "teamId": 8,
+      "name": "Integration & Delivery",
+      "agents": [
+        {"id": 29, "role": "notebook-compiler", "zeckendorf": "10000010100", "dependencies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]},
+        {"id": 30, "role": "documentation-specialist", "zeckendorf": "10000010101", "dependencies": [29]},
+        {"id": 31, "role": "validation-specialist", "zeckendorf": "10000100000", "dependencies": [29, 30]},
+        {"id": 32, "role": "deployment-specialist", "zeckendorf": "10000100001", "dependencies": [29, 30, 31]}
+      ]
+    }
+  ],
+
+  "coordinationSettings": {
+    "memoryProtocol": {
+      "preTask": "npx agentdb reflexion store [agent-id] [task] [score] [success] [message]",
+      "postEdit": "npx agentdb causal add-edge [source] [target] [weight] [confidence]",
+      "skillShare": "npx agentdb skill create [skill-name] [description]"
+    },
+    "synchronization": {
+      "checkInterval": 30,
+      "maxRetries": 3,
+      "timeoutSeconds": 300
+    },
+    "performance": {
+      "targetThroughput": "84.8% solve rate",
+      "tokenOptimization": "32.3% reduction",
+      "speedImprovement": "2.8-4.4x baseline"
+    }
+  }
+}

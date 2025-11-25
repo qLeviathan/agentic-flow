@@ -1,0 +1,119 @@
+# Quantum Trading System - Python Dependencies
+# Integer-Only Algorithmic Trading Framework
+# Version: 1.0.0
+# Agent 32: Deployment Specialist
+# Date: 2024-11-25
+
+# ===============================================================================
+# CORE DEPENDENCIES
+# ===============================================================================
+
+# HTTP requests for data fetching
+requests>=2.31.0
+
+# Date and time utilities
+python-dateutil>=2.8.2
+
+# ===============================================================================
+# DATA PROCESSING
+# ===============================================================================
+
+# Numerical computing (integer operations)
+numpy>=1.24.0
+
+# Data manipulation and analysis
+pandas>=2.0.0
+
+# ===============================================================================
+# VISUALIZATION
+# ===============================================================================
+
+# Interactive plotting
+plotly>=5.0.0
+
+# Static image export for Plotly
+kaleido>=0.2.0
+
+# ===============================================================================
+# TESTING
+# ===============================================================================
+
+# Testing framework
+pytest>=7.4.0
+
+# Coverage reporting
+pytest-cov>=4.1.0
+
+# Mocking for tests
+pytest-mock>=3.11.1
+
+# Parallel test execution
+pytest-xdist>=3.3.0
+
+# ===============================================================================
+# DEVELOPMENT TOOLS
+# ===============================================================================
+
+# Code formatting
+black>=23.0.0
+
+# Linting
+flake8>=6.0.0
+
+# Type checking
+mypy>=1.5.0
+
+# ===============================================================================
+# DOCUMENTATION
+# ===============================================================================
+
+# Documentation generation
+sphinx>=7.0.0
+
+# Sphinx theme
+sphinx-rtd-theme>=1.3.0
+
+# ===============================================================================
+# JUPYTER NOTEBOOKS
+# ===============================================================================
+
+# Jupyter core
+jupyter>=1.0.0
+
+# JupyterLab
+jupyterlab>=4.0.0
+
+# Notebook format
+nbformat>=5.9.0
+
+# Interactive widgets
+ipywidgets>=8.1.0
+
+# ===============================================================================
+# OPTIONAL DEPENDENCIES
+# ===============================================================================
+
+# Machine Learning (for advanced QFNN)
+# scikit-learn>=1.3.0
+# tensorflow>=2.13.0
+
+# Database (for advanced storage)
+# sqlalchemy>=2.0.0
+
+# ===============================================================================
+# NOTES
+# ===============================================================================
+#
+# Installation:
+#   pip install -r requirements.txt
+#
+# Development:
+#   pip install -r requirements.txt black flake8 mypy pytest-xdist
+#
+# Production:
+#   pip install --no-dev -r requirements.txt
+#
+# Docker:
+#   Requirements are installed automatically during Docker build
+#
+# ===============================================================================

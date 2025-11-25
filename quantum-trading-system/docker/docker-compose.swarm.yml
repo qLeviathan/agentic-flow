@@ -1,0 +1,219 @@
+# Docker Swarm deployment for Quantum Trading System
+# Production-ready orchestration with high availability
+
+version: '3.8'
+
+services:
+  quantum-trading:
+    image: quantum-trading:latest
+
+    deploy:
+      mode: replicated
+      replicas: 3
+
+      # Update configuration
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+        monitor: 30s
+
+      # Rollback configuration
+      rollback_config:
+        parallelism: 1
+        delay: 5s
+        failure_action: pause
+
+      # Restart policy
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+      # Resource limits
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+
+      # Placement constraints
+      placement:
+        constraints:
+          - node.role == worker
+          - node.labels.type == compute
+        preferences:
+          - spread: node.labels.zone
+
+      # Labels for service discovery
+      labels:
+        - "com.quantum.service=trading"
+        - "com.quantum.version=1.0.0"
+
+    # Volumes with named volumes
+    volumes:
+      - type: volume
+        source: agentdb-data
+        target: /app/data/agentdb
+        volume:
+          nocopy: true
+      - type: volume
+        source: cache-data
+        target: /app/data/cache
+      - type: volume
+        source: logs-data
+        target: /app/logs
+
+    # Environment configuration
+    environment:
+      - PYTHONPATH=/app
+      - AGENTDB_PATH=/app/data/agentdb/agentdb.db
+      - LOG_LEVEL=INFO
+      - CACHE_DIR=/app/data/cache
+
+    # Secrets management
+    secrets:
+      - tiingo_api_key
+      - yahoo_api_key
+      - fred_api_key
+
+    # Networks
+    networks:
+      - quantum-overlay
+      - monitoring
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.path.insert(0, '/app'); from src.encoders.fibonacci_encoder import FibonacciEncoder"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "com.quantum.service,com.quantum.version"
+
+  # AgentDB coordination service
+  agentdb-coordinator:
+    image: node:18-slim
+
+    deploy:
+      mode: replicated
+      replicas: 1
+
+      placement:
+        constraints:
+          - node.role == manager
+
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+    volumes:
+      - type: volume
+        source: agentdb-data
+        target: /app/data
+
+    networks:
+      - quantum-overlay
+
+    command: >
+      sh -c "npm install -g agentdb@latest &&
+             npx agentdb server --port 3000 --db /app/data/agentdb.db"
+
+    ports:
+      - target: 3000
+        published: 3000
+        protocol: tcp
+        mode: host
+
+  # Load balancer / API Gateway (optional)
+  nginx-lb:
+    image: nginx:alpine
+
+    deploy:
+      mode: global
+
+      placement:
+        constraints:
+          - node.role == worker
+
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+    configs:
+      - source: nginx_config
+        target: /etc/nginx/nginx.conf
+
+    networks:
+      - quantum-overlay
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+# Swarm-wide volumes
+volumes:
+  agentdb-data:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=nfs-server.local,rw
+      device: ":/quantum/agentdb"
+
+  cache-data:
+    driver: local
+
+  logs-data:
+    driver: local
+
+# Overlay networks for swarm
+networks:
+  quantum-overlay:
+    driver: overlay
+    attachable: true
+    ipam:
+      config:
+        - subnet: 10.0.9.0/24
+    driver_opts:
+      encrypted: "true"
+
+  monitoring:
+    driver: overlay
+    attachable: true
+
+# Secrets (stored in Docker Swarm)
+secrets:
+  tiingo_api_key:
+    external: true
+  yahoo_api_key:
+    external: true
+  fred_api_key:
+    external: true
+
+# Configs
+configs:
+  nginx_config:
+    external: true

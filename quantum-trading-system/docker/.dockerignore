@@ -1,0 +1,118 @@
+# Docker ignore file for Quantum Trading System
+# Optimizes build context and reduces image size
+
+# Version control
+.git
+.gitignore
+.gitattributes
+.github
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+*.cover
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Documentation
+docs/_build/
+*.md
+!docker/README.md
+
+# Data files (should not be in image)
+*.csv
+*.json
+*.db
+*.sqlite
+*.sqlite3
+agentdb.db
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Outputs and cache
+outputs/
+cache/
+.cache/
+*.cache
+
+# Docker files
+docker-compose*.yml
+Dockerfile*
+.dockerignore
+
+# CI/CD
+.travis.yml
+.gitlab-ci.yml
+.circleci/
+.github/
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Project specific
+team-outputs/
+coordination/
+memory-logs/
+swarm-config/
+data/
+examples/
+AGENT_*.txt
+AGENT_*.md
+*.SUMMARY.txt
+QUICKSTART*.md
+README_*.md
+TIINGO_*.md

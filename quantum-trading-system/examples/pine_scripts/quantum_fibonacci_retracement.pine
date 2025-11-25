@@ -1,0 +1,165 @@
+// This Pine Script source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © Quantum Trading System - Agent 24 (Zeckendorf: 10000001001)
+
+//@version=5
+indicator("Quantum Fibonacci Retracement - Agent 13", overlay=true)
+
+// OEIS A000045 Fibonacci retracement levels with golden pocket detection
+// Generated: 2025-11-25 00:00:22
+// Integer-only arithmetic for quantum coherence
+
+// ============================================================================
+// FIBONACCI RETRACEMENT LEVELS - Integer-Only Arithmetic
+// ============================================================================
+
+// Lookback period for swing points
+lookback = input.int(20, "Lookback Period", minval=5, maxval=100)
+
+// Fibonacci ratios (scaled by 1000 for integer precision)
+f236 = 236  // 23.6%
+f382 = 382  // 38.2%
+f500 = 500  // 50.0%
+f618 = 618  // 61.8%
+f786 = 786  // 78.6%
+f1000 = 1000 // 100%
+
+// Extension ratios
+ext618 = 618   // 61.8% extension
+ext1000 = 1000  // 100% extension
+ext1618 = 1618  // 161.8% extension (golden ratio)
+ext2618 = 2618  // 261.8% extension
+
+// Find swing high and low
+swingHigh = ta.highest(high, lookback)
+swingLow = ta.lowest(low, lookback)
+
+// Calculate price range (integer only)
+priceRange = swingHigh - swingLow
+
+// Calculate retracement levels using integer division
+// Formula: level = high - (range × ratio / 1000)
+level_236 = swingHigh - (priceRange * f236 / 1000)
+level_382 = swingHigh - (priceRange * f382 / 1000)
+level_500 = swingHigh - (priceRange * f500 / 1000)
+level_618 = swingHigh - (priceRange * f618 / 1000)
+level_786 = swingHigh - (priceRange * f786 / 1000)
+level_1000 = swingLow
+
+// Golden pocket zone (50-61.8%)
+goldenPocketHigh = level_500
+goldenPocketLow = level_618
+
+// Calculate extension levels
+// Formula: extension = high + (range × ratio / 1000)
+ext_level_618 = swingHigh + (priceRange * ext618 / 1000)
+ext_level_1000 = swingHigh + (priceRange * ext1000 / 1000)
+ext_level_1618 = swingHigh + (priceRange * ext1618 / 1000)
+ext_level_2618 = swingHigh + (priceRange * ext2618 / 1000)
+
+// ============================================================================
+// PLOTTING
+// ============================================================================
+
+// Plot retracement levels
+plot(level_236, "23.6%", color=color.new(color.red, 70), linewidth=1)
+plot(level_382, "38.2%", color=color.new(color.orange, 70), linewidth=1)
+plot(level_500, "50.0%", color=color.new(color.yellow, 50), linewidth=2)
+plot(level_618, "61.8%", color=color.new(color.green, 50), linewidth=2)
+plot(level_786, "78.6%", color=color.new(color.blue, 70), linewidth=1)
+
+// Highlight golden pocket zone
+goldenPocketFill = fill(
+    plot(goldenPocketHigh, display=display.none),
+    plot(goldenPocketLow, display=display.none),
+    color=color.new(color.green, 90),
+    title="Golden Pocket (50-61.8%)"
+)
+
+// Plot extension levels (profit targets)
+plot(ext_level_618, "Ext 61.8%", color=color.new(color.purple, 70), linewidth=1, style=plot.style_circles)
+plot(ext_level_1618, "Ext 161.8%", color=color.new(color.fuchsia, 50), linewidth=2, style=plot.style_circles)
+
+// ============================================================================
+// ENTRY SIGNALS
+// ============================================================================
+
+// Tolerance for level detection (50 cents = 0.50)
+tolerance = 0.50
+
+// Check if price is at a Fibonacci level
+atLevel618 = math.abs(close - level_618) <= tolerance
+atLevel500 = math.abs(close - level_500) <= tolerance
+atLevel382 = math.abs(close - level_382) <= tolerance
+inGoldenPocket = close >= goldenPocketLow and close <= goldenPocketHigh
+
+// Signal strength (1-4)
+signalStrength =
+    inGoldenPocket ? 4 :
+    atLevel618 ? 3 :
+    atLevel500 ? 2 :
+    atLevel382 ? 1 : 0
+
+// Plot entry signals
+plotshape(
+    signalStrength >= 3,
+    "Strong Entry",
+    shape.triangleup,
+    location.belowbar,
+    color.new(color.green, 0),
+    size=size.small
+)
+
+plotshape(
+    signalStrength == 2,
+    "Medium Entry",
+    shape.circle,
+    location.belowbar,
+    color.new(color.yellow, 0),
+    size=size.tiny
+)
+
+// ============================================================================
+// ALERTS
+// ============================================================================
+
+alertcondition(inGoldenPocket, "Golden Pocket Entry", "Price entered golden pocket (50-61.8%)")
+alertcondition(atLevel618, "61.8% Level", "Price at 61.8% Fibonacci retracement")
+alertcondition(close >= ext_level_1618, "Golden Extension", "Price reached 161.8% extension target")
+
+// ============================================================================
+// TABLE - Display current levels
+// ============================================================================
+
+var table levelsTable = table.new(position.top_right, 2, 9, border_width=1)
+
+if barstate.islast
+    table.cell(levelsTable, 0, 0, "Fibonacci Levels", bgcolor=color.new(color.gray, 70), text_color=color.white)
+    table.cell(levelsTable, 1, 0, "Price", bgcolor=color.new(color.gray, 70), text_color=color.white)
+
+    table.cell(levelsTable, 0, 1, "78.6%", text_color=color.blue)
+    table.cell(levelsTable, 1, 1, str.tostring(level_786, "#.##"), text_color=color.blue)
+
+    table.cell(levelsTable, 0, 2, "61.8% (Golden)", text_color=color.green)
+    table.cell(levelsTable, 1, 2, str.tostring(level_618, "#.##"), text_color=color.green)
+
+    table.cell(levelsTable, 0, 3, "50.0%", text_color=color.yellow)
+    table.cell(levelsTable, 1, 3, str.tostring(level_500, "#.##"), text_color=color.yellow)
+
+    table.cell(levelsTable, 0, 4, "38.2%", text_color=color.orange)
+    table.cell(levelsTable, 1, 4, str.tostring(level_382, "#.##"), text_color=color.orange)
+
+    table.cell(levelsTable, 0, 5, "23.6%", text_color=color.red)
+    table.cell(levelsTable, 1, 5, str.tostring(level_236, "#.##"), text_color=color.red)
+
+    table.cell(levelsTable, 0, 6, "---", text_color=color.gray)
+    table.cell(levelsTable, 1, 6, "---", text_color=color.gray)
+
+    table.cell(levelsTable, 0, 7, "Signal Strength", text_color=color.white)
+    table.cell(levelsTable, 1, 7, str.tostring(signalStrength) + "/4",
+        text_color=signalStrength >= 3 ? color.green : signalStrength >= 2 ? color.yellow : color.gray)
+
+    table.cell(levelsTable, 0, 8, "Golden Pocket",
+        bgcolor=inGoldenPocket ? color.new(color.green, 70) : color.new(color.gray, 90),
+        text_color=color.white)
+    table.cell(levelsTable, 1, 8, inGoldenPocket ? "ACTIVE" : "---",
+        text_color=inGoldenPocket ? color.green : color.gray)

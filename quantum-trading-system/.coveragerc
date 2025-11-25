@@ -1,0 +1,69 @@
+# Coverage Configuration
+# Quantum Trading System - Test Suite Specialist (Agent 28)
+
+[run]
+source = src
+branch = True
+parallel = False
+concurrency = thread
+
+omit =
+    */tests/*
+    */test_*.py
+    */__pycache__/*
+    */venv/*
+    */env/*
+    */examples/*
+    */docs/*
+    */team-outputs/*
+    */.pytest_cache/*
+    */site-packages/*
+
+[report]
+precision = 2
+show_missing = True
+skip_covered = False
+skip_empty = True
+sort = Cover
+
+# Lines to exclude from coverage
+exclude_lines =
+    # Have to re-enable the standard pragma
+    pragma: no cover
+
+    # Don't complain about missing debug-only code
+    def __repr__
+    def __str__
+
+    # Don't complain if tests don't hit defensive assertion code
+    raise AssertionError
+    raise NotImplementedError
+
+    # Don't complain if non-runnable code isn't run
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+
+    # Don't complain about abstract methods
+    @abstractmethod
+    @abc.abstractmethod
+
+    # Don't complain about pass statements
+    pass
+
+    # Don't complain about ellipsis
+    \.\.\.
+
+ignore_errors = False
+fail_under = 90.0
+
+[html]
+directory = htmlcov
+title = Quantum Trading System - Test Coverage Report
+
+[json]
+output = coverage.json
+pretty_print = True
+show_contexts = True
+
+[xml]
+output = coverage.xml

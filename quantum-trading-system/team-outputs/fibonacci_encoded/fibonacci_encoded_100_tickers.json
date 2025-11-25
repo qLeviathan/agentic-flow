@@ -1,0 +1,3502 @@
+{
+  "AAPL": {
+    "current_price": 100,
+    "current_index": 11,
+    "high": 1502,
+    "low": 100,
+    "retracements": {
+      "level_236": 1172,
+      "level_382": 967,
+      "level_500": 801,
+      "level_618": 636,
+      "level_786": 401,
+      "level_1000": 100,
+      "golden_pocket_high": 801,
+      "golden_pocket_low": 636
+    },
+    "extensions": {
+      "ext_618": 2368,
+      "ext_1000": 2904,
+      "ext_1618": 3770,
+      "ext_2618": 5172
+    },
+    "support_resistance": {
+      "support": [
+        55,
+        34,
+        21
+      ],
+      "resistance": [
+        144,
+        233,
+        377
+      ]
+    },
+    "log_space": 1123595
+  },
+  "MSFT": {
+    "current_price": 1840,
+    "current_index": 17,
+    "high": 2205,
+    "low": 1010,
+    "retracements": {
+      "level_236": 1923,
+      "level_382": 1749,
+      "level_500": 1608,
+      "level_618": 1467,
+      "level_786": 1266,
+      "level_1000": 1010,
+      "golden_pocket_high": 1608,
+      "golden_pocket_low": 1467
+    },
+    "extensions": {
+      "ext_618": 2943,
+      "ext_1000": 3400,
+      "ext_1618": 4138,
+      "ext_2618": 5333
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1152160
+  },
+  "GOOGL": {
+    "current_price": 1308,
+    "current_index": 16,
+    "high": 1548,
+    "low": 698,
+    "retracements": {
+      "level_236": 1348,
+      "level_382": 1224,
+      "level_500": 1123,
+      "level_618": 1023,
+      "level_786": 880,
+      "level_1000": 698,
+      "golden_pocket_high": 1123,
+      "golden_pocket_low": 1023
+    },
+    "extensions": {
+      "ext_618": 2073,
+      "ext_1000": 2398,
+      "ext_1618": 2923,
+      "ext_2618": 3773
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1325227
+  },
+  "AMZN": {
+    "current_price": 968,
+    "current_index": 15,
+    "high": 1898,
+    "low": 702,
+    "retracements": {
+      "level_236": 1616,
+      "level_382": 1442,
+      "level_500": 1300,
+      "level_618": 1159,
+      "level_786": 958,
+      "level_1000": 702,
+      "golden_pocket_high": 1300,
+      "golden_pocket_low": 1159
+    },
+    "extensions": {
+      "ext_618": 2637,
+      "ext_1000": 3094,
+      "ext_1618": 3833,
+      "ext_2618": 5029
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1586885
+  },
+  "NVDA": {
+    "current_price": 736,
+    "current_index": 15,
+    "high": 1622,
+    "low": 332,
+    "retracements": {
+      "level_236": 1318,
+      "level_382": 1130,
+      "level_500": 977,
+      "level_618": 825,
+      "level_786": 609,
+      "level_1000": 332,
+      "golden_pocket_high": 977,
+      "golden_pocket_low": 825
+    },
+    "extensions": {
+      "ext_618": 2419,
+      "ext_1000": 2912,
+      "ext_1618": 3709,
+      "ext_2618": 4999
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1206557
+  },
+  "META": {
+    "current_price": 300,
+    "current_index": 13,
+    "high": 1600,
+    "low": 100,
+    "retracements": {
+      "level_236": 1246,
+      "level_382": 1027,
+      "level_500": 850,
+      "level_618": 673,
+      "level_786": 421,
+      "level_1000": 100,
+      "golden_pocket_high": 850,
+      "golden_pocket_low": 673
+    },
+    "extensions": {
+      "ext_618": 2527,
+      "ext_1000": 3100,
+      "ext_1618": 4027,
+      "ext_2618": 5527
+    },
+    "support_resistance": {
+      "support": [
+        144,
+        89,
+        55
+      ],
+      "resistance": [
+        377,
+        610,
+        987
+      ]
+    },
+    "log_space": 1287553
+  },
+  "TSLA": {
+    "current_price": 1404,
+    "current_index": 16,
+    "high": 1944,
+    "low": 856,
+    "retracements": {
+      "level_236": 1688,
+      "level_382": 1529,
+      "level_500": 1400,
+      "level_618": 1272,
+      "level_786": 1089,
+      "level_1000": 856,
+      "golden_pocket_high": 1400,
+      "golden_pocket_low": 1272
+    },
+    "extensions": {
+      "ext_618": 2616,
+      "ext_1000": 3032,
+      "ext_1618": 3704,
+      "ext_2618": 4792
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1422492
+  },
+  "BRK.B": {
+    "current_price": 890,
+    "current_index": 15,
+    "high": 1368,
+    "low": 100,
+    "retracements": {
+      "level_236": 1069,
+      "level_382": 884,
+      "level_500": 734,
+      "level_618": 585,
+      "level_786": 372,
+      "level_1000": 100,
+      "golden_pocket_high": 734,
+      "golden_pocket_low": 585
+    },
+    "extensions": {
+      "ext_618": 2151,
+      "ext_1000": 2636,
+      "ext_1618": 3419,
+      "ext_2618": 4687
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1459016
+  },
+  "UNH": {
+    "current_price": 1448,
+    "current_index": 16,
+    "high": 2291,
+    "low": 972,
+    "retracements": {
+      "level_236": 1980,
+      "level_382": 1788,
+      "level_500": 1632,
+      "level_618": 1476,
+      "level_786": 1255,
+      "level_1000": 972,
+      "golden_pocket_high": 1632,
+      "golden_pocket_low": 1476
+    },
+    "extensions": {
+      "ext_618": 3106,
+      "ext_1000": 3610,
+      "ext_1618": 4425,
+      "ext_2618": 5744
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1467071
+  },
+  "JNJ": {
+    "current_price": 1960,
+    "current_index": 17,
+    "high": 2110,
+    "low": 910,
+    "retracements": {
+      "level_236": 1827,
+      "level_382": 1652,
+      "level_500": 1510,
+      "level_618": 1369,
+      "level_786": 1167,
+      "level_1000": 910,
+      "golden_pocket_high": 1510,
+      "golden_pocket_low": 1369
+    },
+    "extensions": {
+      "ext_618": 2851,
+      "ext_1000": 3310,
+      "ext_1618": 4051,
+      "ext_2618": 5251
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1227301
+  },
+  "V": {
+    "current_price": 664,
+    "current_index": 15,
+    "high": 1440,
+    "low": 100,
+    "retracements": {
+      "level_236": 1124,
+      "level_382": 929,
+      "level_500": 770,
+      "level_618": 612,
+      "level_786": 387,
+      "level_1000": 100,
+      "golden_pocket_high": 770,
+      "golden_pocket_low": 612
+    },
+    "extensions": {
+      "ext_618": 2268,
+      "ext_1000": 2780,
+      "ext_1618": 3608,
+      "ext_2618": 4948
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1088524
+  },
+  "WMT": {
+    "current_price": 1424,
+    "current_index": 16,
+    "high": 1661,
+    "low": 328,
+    "retracements": {
+      "level_236": 1347,
+      "level_382": 1152,
+      "level_500": 995,
+      "level_618": 838,
+      "level_786": 614,
+      "level_1000": 328,
+      "golden_pocket_high": 995,
+      "golden_pocket_low": 838
+    },
+    "extensions": {
+      "ext_618": 2484,
+      "ext_1000": 2994,
+      "ext_1618": 3817,
+      "ext_2618": 5150
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1442755
+  },
+  "XOM": {
+    "current_price": 324,
+    "current_index": 13,
+    "high": 1292,
+    "low": 100,
+    "retracements": {
+      "level_236": 1011,
+      "level_382": 837,
+      "level_500": 696,
+      "level_618": 556,
+      "level_786": 356,
+      "level_1000": 100,
+      "golden_pocket_high": 696,
+      "golden_pocket_low": 556
+    },
+    "extensions": {
+      "ext_618": 2028,
+      "ext_1000": 2484,
+      "ext_1618": 3220,
+      "ext_2618": 4412
+    },
+    "support_resistance": {
+      "support": [
+        144,
+        89,
+        55
+      ],
+      "resistance": [
+        377,
+        610,
+        987
+      ]
+    },
+    "log_space": 1390557
+  },
+  "JPM": {
+    "current_price": 1884,
+    "current_index": 17,
+    "high": 2484,
+    "low": 976,
+    "retracements": {
+      "level_236": 2129,
+      "level_382": 1908,
+      "level_500": 1730,
+      "level_618": 1553,
+      "level_786": 1299,
+      "level_1000": 976,
+      "golden_pocket_high": 1730,
+      "golden_pocket_low": 1553
+    },
+    "extensions": {
+      "ext_618": 3415,
+      "ext_1000": 3992,
+      "ext_1618": 4923,
+      "ext_2618": 6431
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1179711
+  },
+  "PG": {
+    "current_price": 2440,
+    "current_index": 17,
+    "high": 2665,
+    "low": 655,
+    "retracements": {
+      "level_236": 2191,
+      "level_382": 1898,
+      "level_500": 1660,
+      "level_618": 1423,
+      "level_786": 1086,
+      "level_1000": 655,
+      "golden_pocket_high": 1660,
+      "golden_pocket_low": 1423
+    },
+    "extensions": {
+      "ext_618": 3907,
+      "ext_1000": 4675,
+      "ext_1618": 5917,
+      "ext_2618": 7927
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1527864
+  },
+  "MA": {
+    "current_price": 952,
+    "current_index": 15,
+    "high": 1682,
+    "low": 497,
+    "retracements": {
+      "level_236": 1403,
+      "level_382": 1230,
+      "level_500": 1090,
+      "level_618": 950,
+      "level_786": 751,
+      "level_1000": 497,
+      "golden_pocket_high": 1090,
+      "golden_pocket_low": 950
+    },
+    "extensions": {
+      "ext_618": 2414,
+      "ext_1000": 2867,
+      "ext_1618": 3599,
+      "ext_2618": 4784
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1560655
+  },
+  "HD": {
+    "current_price": 516,
+    "current_index": 14,
+    "high": 1432,
+    "low": 372,
+    "retracements": {
+      "level_236": 1182,
+      "level_382": 1028,
+      "level_500": 902,
+      "level_618": 777,
+      "level_786": 599,
+      "level_1000": 372,
+      "golden_pocket_high": 902,
+      "golden_pocket_low": 777
+    },
+    "extensions": {
+      "ext_618": 2087,
+      "ext_1000": 2492,
+      "ext_1618": 3147,
+      "ext_2618": 4207
+    },
+    "support_resistance": {
+      "support": [
+        233,
+        144,
+        89
+      ],
+      "resistance": [
+        610,
+        987,
+        1597
+      ]
+    },
+    "log_space": 1368700
+  },
+  "CVX": {
+    "current_price": 988,
+    "current_index": 16,
+    "high": 1306,
+    "low": 232,
+    "retracements": {
+      "level_236": 1053,
+      "level_382": 896,
+      "level_500": 769,
+      "level_618": 643,
+      "level_786": 462,
+      "level_1000": 232,
+      "golden_pocket_high": 769,
+      "golden_pocket_low": 643
+    },
+    "extensions": {
+      "ext_618": 1969,
+      "ext_1000": 2380,
+      "ext_1618": 3043,
+      "ext_2618": 4117
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1001013
+  },
+  "MRK": {
+    "current_price": 100,
+    "current_index": 11,
+    "high": 1264,
+    "low": 100,
+    "retracements": {
+      "level_236": 990,
+      "level_382": 820,
+      "level_500": 682,
+      "level_618": 545,
+      "level_786": 350,
+      "level_1000": 100,
+      "golden_pocket_high": 682,
+      "golden_pocket_low": 545
+    },
+    "extensions": {
+      "ext_618": 1983,
+      "ext_1000": 2428,
+      "ext_1618": 3147,
+      "ext_2618": 4311
+    },
+    "support_resistance": {
+      "support": [
+        55,
+        34,
+        21
+      ],
+      "resistance": [
+        144,
+        233,
+        377
+      ]
+    },
+    "log_space": 1123595
+  },
+  "ABBV": {
+    "current_price": 1172,
+    "current_index": 16,
+    "high": 1644,
+    "low": 564,
+    "retracements": {
+      "level_236": 1390,
+      "level_382": 1232,
+      "level_500": 1104,
+      "level_618": 977,
+      "level_786": 796,
+      "level_1000": 564,
+      "golden_pocket_high": 1104,
+      "golden_pocket_low": 977
+    },
+    "extensions": {
+      "ext_618": 2311,
+      "ext_1000": 2724,
+      "ext_1618": 3391,
+      "ext_2618": 4471
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1187436
+  },
+  "PEP": {
+    "current_price": 4064,
+    "current_index": 18,
+    "high": 4343,
+    "low": 996,
+    "retracements": {
+      "level_236": 3554,
+      "level_382": 3065,
+      "level_500": 2670,
+      "level_618": 2275,
+      "level_786": 1713,
+      "level_1000": 996,
+      "golden_pocket_high": 2670,
+      "golden_pocket_low": 2275
+    },
+    "extensions": {
+      "ext_618": 6411,
+      "ext_1000": 7690,
+      "ext_1618": 9758,
+      "ext_2618": 13105
+    },
+    "support_resistance": {
+      "support": [
+        1597,
+        987,
+        610
+      ],
+      "resistance": [
+        4181,
+        6765,
+        10946
+      ]
+    },
+    "log_space": 1572755
+  },
+  "COST": {
+    "current_price": 286,
+    "current_index": 13,
+    "high": 1336,
+    "low": 100,
+    "retracements": {
+      "level_236": 1045,
+      "level_382": 864,
+      "level_500": 718,
+      "level_618": 573,
+      "level_786": 365,
+      "level_1000": 100,
+      "golden_pocket_high": 718,
+      "golden_pocket_low": 573
+    },
+    "extensions": {
+      "ext_618": 2099,
+      "ext_1000": 2572,
+      "ext_1618": 3335,
+      "ext_2618": 4571
+    },
+    "support_resistance": {
+      "support": [
+        144,
+        89,
+        55
+      ],
+      "resistance": [
+        377,
+        610,
+        987
+      ]
+    },
+    "log_space": 1227467
+  },
+  "KO": {
+    "current_price": 1236,
+    "current_index": 16,
+    "high": 1704,
+    "low": 512,
+    "retracements": {
+      "level_236": 1423,
+      "level_382": 1249,
+      "level_500": 1108,
+      "level_618": 968,
+      "level_786": 768,
+      "level_1000": 512,
+      "golden_pocket_high": 1108,
+      "golden_pocket_low": 968
+    },
+    "extensions": {
+      "ext_618": 2440,
+      "ext_1000": 2896,
+      "ext_1618": 3632,
+      "ext_2618": 4824
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1252279
+  },
+  "AVGO": {
+    "current_price": 1764,
+    "current_index": 17,
+    "high": 2728,
+    "low": 1148,
+    "retracements": {
+      "level_236": 2356,
+      "level_382": 2125,
+      "level_500": 1938,
+      "level_618": 1752,
+      "level_786": 1487,
+      "level_1000": 1148,
+      "golden_pocket_high": 1938,
+      "golden_pocket_low": 1752
+    },
+    "extensions": {
+      "ext_618": 3704,
+      "ext_1000": 4308,
+      "ext_1618": 5284,
+      "ext_2618": 6864
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1104571
+  },
+  "MCD": {
+    "current_price": 1396,
+    "current_index": 16,
+    "high": 1732,
+    "low": 576,
+    "retracements": {
+      "level_236": 1460,
+      "level_382": 1291,
+      "level_500": 1154,
+      "level_618": 1018,
+      "level_786": 824,
+      "level_1000": 576,
+      "golden_pocket_high": 1154,
+      "golden_pocket_low": 1018
+    },
+    "extensions": {
+      "ext_618": 2446,
+      "ext_1000": 2888,
+      "ext_1618": 3602,
+      "ext_2618": 4758
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1414387
+  },
+  "CSCO": {
+    "current_price": 1456,
+    "current_index": 16,
+    "high": 2359,
+    "low": 992,
+    "retracements": {
+      "level_236": 2037,
+      "level_382": 1837,
+      "level_500": 1676,
+      "level_618": 1515,
+      "level_786": 1285,
+      "level_1000": 992,
+      "golden_pocket_high": 1676,
+      "golden_pocket_low": 1515
+    },
+    "extensions": {
+      "ext_618": 3203,
+      "ext_1000": 3726,
+      "ext_1618": 4570,
+      "ext_2618": 5937
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1475177
+  },
+  "TMO": {
+    "current_price": 1476,
+    "current_index": 16,
+    "high": 1752,
+    "low": 736,
+    "retracements": {
+      "level_236": 1513,
+      "level_382": 1364,
+      "level_500": 1244,
+      "level_618": 1125,
+      "level_786": 954,
+      "level_1000": 736,
+      "golden_pocket_high": 1244,
+      "golden_pocket_low": 1125
+    },
+    "extensions": {
+      "ext_618": 2379,
+      "ext_1000": 2768,
+      "ext_1618": 3395,
+      "ext_2618": 4411
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1495440
+  },
+  "ACN": {
+    "current_price": 1832,
+    "current_index": 17,
+    "high": 1832,
+    "low": 764,
+    "retracements": {
+      "level_236": 1580,
+      "level_382": 1425,
+      "level_500": 1298,
+      "level_618": 1172,
+      "level_786": 993,
+      "level_1000": 764,
+      "golden_pocket_high": 1298,
+      "golden_pocket_low": 1172
+    },
+    "extensions": {
+      "ext_618": 2492,
+      "ext_1000": 2900,
+      "ext_1618": 3560,
+      "ext_2618": 4628
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1147150
+  },
+  "LLY": {
+    "current_price": 1784,
+    "current_index": 17,
+    "high": 1784,
+    "low": 759,
+    "retracements": {
+      "level_236": 1543,
+      "level_382": 1393,
+      "level_500": 1272,
+      "level_618": 1151,
+      "level_786": 979,
+      "level_1000": 759,
+      "golden_pocket_high": 1272,
+      "golden_pocket_low": 1151
+    },
+    "extensions": {
+      "ext_618": 2417,
+      "ext_1000": 2809,
+      "ext_1618": 3442,
+      "ext_2618": 4467
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1117094
+  },
+  "DHR": {
+    "current_price": 100,
+    "current_index": 11,
+    "high": 1257,
+    "low": 100,
+    "retracements": {
+      "level_236": 984,
+      "level_382": 816,
+      "level_500": 679,
+      "level_618": 542,
+      "level_786": 348,
+      "level_1000": 100,
+      "golden_pocket_high": 679,
+      "golden_pocket_low": 542
+    },
+    "extensions": {
+      "ext_618": 1972,
+      "ext_1000": 2414,
+      "ext_1618": 3129,
+      "ext_2618": 4286
+    },
+    "support_resistance": {
+      "support": [
+        55,
+        34,
+        21
+      ],
+      "resistance": [
+        144,
+        233,
+        377
+      ]
+    },
+    "log_space": 1123595
+  },
+  "ADBE": {
+    "current_price": 1428,
+    "current_index": 16,
+    "high": 2046,
+    "low": 1026,
+    "retracements": {
+      "level_236": 1806,
+      "level_382": 1657,
+      "level_500": 1536,
+      "level_618": 1416,
+      "level_786": 1245,
+      "level_1000": 1026,
+      "golden_pocket_high": 1536,
+      "golden_pocket_low": 1416
+    },
+    "extensions": {
+      "ext_618": 2676,
+      "ext_1000": 3066,
+      "ext_1618": 3696,
+      "ext_2618": 4716
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1446808
+  },
+  "NKE": {
+    "current_price": 100,
+    "current_index": 11,
+    "high": 1271,
+    "low": 100,
+    "retracements": {
+      "level_236": 995,
+      "level_382": 824,
+      "level_500": 686,
+      "level_618": 548,
+      "level_786": 351,
+      "level_1000": 100,
+      "golden_pocket_high": 686,
+      "golden_pocket_low": 548
+    },
+    "extensions": {
+      "ext_618": 1994,
+      "ext_1000": 2442,
+      "ext_1618": 3165,
+      "ext_2618": 4336
+    },
+    "support_resistance": {
+      "support": [
+        55,
+        34,
+        21
+      ],
+      "resistance": [
+        144,
+        233,
+        377
+      ]
+    },
+    "log_space": 1123595
+  },
+  "NEE": {
+    "current_price": 3628,
+    "current_index": 18,
+    "high": 3936,
+    "low": 992,
+    "retracements": {
+      "level_236": 3242,
+      "level_382": 2812,
+      "level_500": 2464,
+      "level_618": 2117,
+      "level_786": 1623,
+      "level_1000": 992,
+      "golden_pocket_high": 2464,
+      "golden_pocket_low": 2117
+    },
+    "extensions": {
+      "ext_618": 5755,
+      "ext_1000": 6880,
+      "ext_1618": 8699,
+      "ext_2618": 11643
+    },
+    "support_resistance": {
+      "support": [
+        1597,
+        987,
+        610
+      ],
+      "resistance": [
+        4181,
+        6765,
+        10946
+      ]
+    },
+    "log_space": 1404024
+  },
+  "TXN": {
+    "current_price": 1888,
+    "current_index": 17,
+    "high": 2183,
+    "low": 1028,
+    "retracements": {
+      "level_236": 1911,
+      "level_382": 1742,
+      "level_500": 1606,
+      "level_618": 1470,
+      "level_786": 1276,
+      "level_1000": 1028,
+      "golden_pocket_high": 1606,
+      "golden_pocket_low": 1470
+    },
+    "extensions": {
+      "ext_618": 2896,
+      "ext_1000": 3338,
+      "ext_1618": 4051,
+      "ext_2618": 5206
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1182216
+  },
+  "CRM": {
+    "current_price": 860,
+    "current_index": 15,
+    "high": 1520,
+    "low": 420,
+    "retracements": {
+      "level_236": 1261,
+      "level_382": 1100,
+      "level_500": 970,
+      "level_618": 841,
+      "level_786": 656,
+      "level_1000": 420,
+      "golden_pocket_high": 970,
+      "golden_pocket_low": 841
+    },
+    "extensions": {
+      "ext_618": 2199,
+      "ext_1000": 2620,
+      "ext_1618": 3299,
+      "ext_2618": 4399
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1409836
+  },
+  "ABT": {
+    "current_price": 100,
+    "current_index": 11,
+    "high": 1250,
+    "low": 100,
+    "retracements": {
+      "level_236": 979,
+      "level_382": 811,
+      "level_500": 675,
+      "level_618": 540,
+      "level_786": 347,
+      "level_1000": 100,
+      "golden_pocket_high": 675,
+      "golden_pocket_low": 540
+    },
+    "extensions": {
+      "ext_618": 1960,
+      "ext_1000": 2400,
+      "ext_1618": 3110,
+      "ext_2618": 4260
+    },
+    "support_resistance": {
+      "support": [
+        55,
+        34,
+        21
+      ],
+      "resistance": [
+        144,
+        233,
+        377
+      ]
+    },
+    "log_space": 1123595
+  },
+  "VZ": {
+    "current_price": 932,
+    "current_index": 15,
+    "high": 1472,
+    "low": 612,
+    "retracements": {
+      "level_236": 1270,
+      "level_382": 1144,
+      "level_500": 1042,
+      "level_618": 941,
+      "level_786": 797,
+      "level_1000": 612,
+      "golden_pocket_high": 1042,
+      "golden_pocket_low": 941
+    },
+    "extensions": {
+      "ext_618": 2003,
+      "ext_1000": 2332,
+      "ext_1618": 2863,
+      "ext_2618": 3723
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1527868
+  },
+  "CMCSA": {
+    "current_price": 2156,
+    "current_index": 17,
+    "high": 2596,
+    "low": 1272,
+    "retracements": {
+      "level_236": 2284,
+      "level_382": 2091,
+      "level_500": 1934,
+      "level_618": 1778,
+      "level_786": 1556,
+      "level_1000": 1272,
+      "golden_pocket_high": 1934,
+      "golden_pocket_low": 1778
+    },
+    "extensions": {
+      "ext_618": 3414,
+      "ext_1000": 3920,
+      "ext_1618": 4738,
+      "ext_2618": 6062
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1350031
+  },
+  "PM": {
+    "current_price": 1520,
+    "current_index": 16,
+    "high": 2145,
+    "low": 780,
+    "retracements": {
+      "level_236": 1823,
+      "level_382": 1624,
+      "level_500": 1463,
+      "level_618": 1302,
+      "level_786": 1073,
+      "level_1000": 780,
+      "golden_pocket_high": 1463,
+      "golden_pocket_low": 1302
+    },
+    "extensions": {
+      "ext_618": 2988,
+      "ext_1000": 3510,
+      "ext_1618": 4353,
+      "ext_2618": 5718
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1540020
+  },
+  "UPS": {
+    "current_price": 100,
+    "current_index": 11,
+    "high": 1509,
+    "low": 100,
+    "retracements": {
+      "level_236": 1177,
+      "level_382": 971,
+      "level_500": 805,
+      "level_618": 639,
+      "level_786": 402,
+      "level_1000": 100,
+      "golden_pocket_high": 805,
+      "golden_pocket_low": 639
+    },
+    "extensions": {
+      "ext_618": 2379,
+      "ext_1000": 2918,
+      "ext_1618": 3788,
+      "ext_2618": 5197
+    },
+    "support_resistance": {
+      "support": [
+        55,
+        34,
+        21
+      ],
+      "resistance": [
+        144,
+        233,
+        377
+      ]
+    },
+    "log_space": 1123595
+  },
+  "ORCL": {
+    "current_price": 1484,
+    "current_index": 16,
+    "high": 1484,
+    "low": 124,
+    "retracements": {
+      "level_236": 1164,
+      "level_382": 965,
+      "level_500": 804,
+      "level_618": 644,
+      "level_786": 416,
+      "level_1000": 124,
+      "golden_pocket_high": 804,
+      "golden_pocket_low": 644
+    },
+    "extensions": {
+      "ext_618": 2324,
+      "ext_1000": 2844,
+      "ext_1618": 3684,
+      "ext_2618": 5044
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1503546
+  },
+  "INTC": {
+    "current_price": 1157,
+    "current_index": 16,
+    "high": 1372,
+    "low": 100,
+    "retracements": {
+      "level_236": 1072,
+      "level_382": 887,
+      "level_500": 736,
+      "level_618": 586,
+      "level_786": 373,
+      "level_1000": 100,
+      "golden_pocket_high": 736,
+      "golden_pocket_low": 586
+    },
+    "extensions": {
+      "ext_618": 2158,
+      "ext_1000": 2644,
+      "ext_1618": 3430,
+      "ext_2618": 4702
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1172239
+  },
+  "T": {
+    "current_price": 282,
+    "current_index": 13,
+    "high": 1154,
+    "low": 100,
+    "retracements": {
+      "level_236": 906,
+      "level_382": 752,
+      "level_500": 627,
+      "level_618": 503,
+      "level_786": 326,
+      "level_1000": 100,
+      "golden_pocket_high": 627,
+      "golden_pocket_low": 503
+    },
+    "extensions": {
+      "ext_618": 1805,
+      "ext_1000": 2208,
+      "ext_1618": 2859,
+      "ext_2618": 3913
+    },
+    "support_resistance": {
+      "support": [
+        144,
+        89,
+        55
+      ],
+      "resistance": [
+        377,
+        610,
+        987
+      ]
+    },
+    "log_space": 1210300
+  },
+  "AMD": {
+    "current_price": 100,
+    "current_index": 11,
+    "high": 1271,
+    "low": 100,
+    "retracements": {
+      "level_236": 995,
+      "level_382": 824,
+      "level_500": 686,
+      "level_618": 548,
+      "level_786": 351,
+      "level_1000": 100,
+      "golden_pocket_high": 686,
+      "golden_pocket_low": 548
+    },
+    "extensions": {
+      "ext_618": 1994,
+      "ext_1000": 2442,
+      "ext_1618": 3165,
+      "ext_2618": 4336
+    },
+    "support_resistance": {
+      "support": [
+        55,
+        34,
+        21
+      ],
+      "resistance": [
+        144,
+        233,
+        377
+      ]
+    },
+    "log_space": 1123595
+  },
+  "HON": {
+    "current_price": 661,
+    "current_index": 15,
+    "high": 1417,
+    "low": 100,
+    "retracements": {
+      "level_236": 1107,
+      "level_382": 914,
+      "level_500": 759,
+      "level_618": 604,
+      "level_786": 382,
+      "level_1000": 100,
+      "golden_pocket_high": 759,
+      "golden_pocket_low": 604
+    },
+    "extensions": {
+      "ext_618": 2230,
+      "ext_1000": 2734,
+      "ext_1618": 3547,
+      "ext_2618": 4864
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1083606
+  },
+  "COP": {
+    "current_price": 1656,
+    "current_index": 17,
+    "high": 1846,
+    "low": 836,
+    "retracements": {
+      "level_236": 1608,
+      "level_382": 1461,
+      "level_500": 1341,
+      "level_618": 1222,
+      "level_786": 1053,
+      "level_1000": 836,
+      "golden_pocket_high": 1341,
+      "golden_pocket_low": 1222
+    },
+    "extensions": {
+      "ext_618": 2470,
+      "ext_1000": 2856,
+      "ext_1618": 3480,
+      "ext_2618": 4490
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1036944
+  },
+  "RTX": {
+    "current_price": 300,
+    "current_index": 13,
+    "high": 1600,
+    "low": 100,
+    "retracements": {
+      "level_236": 1246,
+      "level_382": 1027,
+      "level_500": 850,
+      "level_618": 673,
+      "level_786": 421,
+      "level_1000": 100,
+      "golden_pocket_high": 850,
+      "golden_pocket_low": 673
+    },
+    "extensions": {
+      "ext_618": 2527,
+      "ext_1000": 3100,
+      "ext_1618": 4027,
+      "ext_2618": 5527
+    },
+    "support_resistance": {
+      "support": [
+        144,
+        89,
+        55
+      ],
+      "resistance": [
+        377,
+        610,
+        987
+      ]
+    },
+    "log_space": 1287553
+  },
+  "QCOM": {
+    "current_price": 536,
+    "current_index": 14,
+    "high": 1554,
+    "low": 529,
+    "retracements": {
+      "level_236": 1313,
+      "level_382": 1163,
+      "level_500": 1042,
+      "level_618": 921,
+      "level_786": 749,
+      "level_1000": 529,
+      "golden_pocket_high": 1042,
+      "golden_pocket_low": 921
+    },
+    "extensions": {
+      "ext_618": 2187,
+      "ext_1000": 2579,
+      "ext_1618": 3212,
+      "ext_2618": 4237
+    },
+    "support_resistance": {
+      "support": [
+        233,
+        144,
+        89
+      ],
+      "resistance": [
+        610,
+        987,
+        1597
+      ]
+    },
+    "log_space": 1421750
+  },
+  "LOW": {
+    "current_price": 940,
+    "current_index": 15,
+    "high": 1530,
+    "low": 590,
+    "retracements": {
+      "level_236": 1309,
+      "level_382": 1171,
+      "level_500": 1060,
+      "level_618": 950,
+      "level_786": 792,
+      "level_1000": 590,
+      "golden_pocket_high": 1060,
+      "golden_pocket_low": 950
+    },
+    "extensions": {
+      "ext_618": 2110,
+      "ext_1000": 2470,
+      "ext_1618": 3050,
+      "ext_2618": 3990
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1540983
+  },
+  "INTU": {
+    "current_price": 1384,
+    "current_index": 16,
+    "high": 1664,
+    "low": 713,
+    "retracements": {
+      "level_236": 1440,
+      "level_382": 1301,
+      "level_500": 1189,
+      "level_618": 1077,
+      "level_786": 917,
+      "level_1000": 713,
+      "golden_pocket_high": 1189,
+      "golden_pocket_low": 1077
+    },
+    "extensions": {
+      "ext_618": 2251,
+      "ext_1000": 2615,
+      "ext_1618": 3202,
+      "ext_2618": 4153
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1402228
+  },
+  "GS": {
+    "current_price": 736,
+    "current_index": 15,
+    "high": 1244,
+    "low": 100,
+    "retracements": {
+      "level_236": 975,
+      "level_382": 807,
+      "level_500": 672,
+      "level_618": 538,
+      "level_786": 345,
+      "level_1000": 100,
+      "golden_pocket_high": 672,
+      "golden_pocket_low": 538
+    },
+    "extensions": {
+      "ext_618": 1950,
+      "ext_1000": 2388,
+      "ext_1618": 3094,
+      "ext_2618": 4238
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1206557
+  },
+  "BA": {
+    "current_price": 170,
+    "current_index": 12,
+    "high": 1412,
+    "low": 100,
+    "retracements": {
+      "level_236": 1103,
+      "level_382": 911,
+      "level_500": 756,
+      "level_618": 602,
+      "level_786": 381,
+      "level_1000": 100,
+      "golden_pocket_high": 756,
+      "golden_pocket_low": 602
+    },
+    "extensions": {
+      "ext_618": 2222,
+      "ext_1000": 2724,
+      "ext_1618": 3534,
+      "ext_2618": 4846
+    },
+    "support_resistance": {
+      "support": [
+        89,
+        55,
+        34
+      ],
+      "resistance": [
+        233,
+        377,
+        610
+      ]
+    },
+    "log_space": 1180555
+  },
+  "CAT": {
+    "current_price": 1348,
+    "current_index": 16,
+    "high": 1456,
+    "low": 548,
+    "retracements": {
+      "level_236": 1242,
+      "level_382": 1110,
+      "level_500": 1002,
+      "level_618": 895,
+      "level_786": 743,
+      "level_1000": 548,
+      "golden_pocket_high": 1002,
+      "golden_pocket_low": 895
+    },
+    "extensions": {
+      "ext_618": 2017,
+      "ext_1000": 2364,
+      "ext_1618": 2925,
+      "ext_2618": 3833
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1365754
+  },
+  "AXP": {
+    "current_price": 100,
+    "current_index": 11,
+    "high": 1502,
+    "low": 100,
+    "retracements": {
+      "level_236": 1172,
+      "level_382": 967,
+      "level_500": 801,
+      "level_618": 636,
+      "level_786": 401,
+      "level_1000": 100,
+      "golden_pocket_high": 801,
+      "golden_pocket_low": 636
+    },
+    "extensions": {
+      "ext_618": 2368,
+      "ext_1000": 2904,
+      "ext_1618": 3770,
+      "ext_2618": 5172
+    },
+    "support_resistance": {
+      "support": [
+        55,
+        34,
+        21
+      ],
+      "resistance": [
+        144,
+        233,
+        377
+      ]
+    },
+    "log_space": 1123595
+  },
+  "DE": {
+    "current_price": 776,
+    "current_index": 15,
+    "high": 1696,
+    "low": 407,
+    "retracements": {
+      "level_236": 1392,
+      "level_382": 1204,
+      "level_500": 1052,
+      "level_618": 900,
+      "level_786": 683,
+      "level_1000": 407,
+      "golden_pocket_high": 1052,
+      "golden_pocket_low": 900
+    },
+    "extensions": {
+      "ext_618": 2492,
+      "ext_1000": 2985,
+      "ext_1618": 3781,
+      "ext_2618": 5070
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1272131
+  },
+  "MMM": {
+    "current_price": 100,
+    "current_index": 11,
+    "high": 1502,
+    "low": 100,
+    "retracements": {
+      "level_236": 1172,
+      "level_382": 967,
+      "level_500": 801,
+      "level_618": 636,
+      "level_786": 401,
+      "level_1000": 100,
+      "golden_pocket_high": 801,
+      "golden_pocket_low": 636
+    },
+    "extensions": {
+      "ext_618": 2368,
+      "ext_1000": 2904,
+      "ext_1618": 3770,
+      "ext_2618": 5172
+    },
+    "support_resistance": {
+      "support": [
+        55,
+        34,
+        21
+      ],
+      "resistance": [
+        144,
+        233,
+        377
+      ]
+    },
+    "log_space": 1123595
+  },
+  "IBM": {
+    "current_price": 2092,
+    "current_index": 17,
+    "high": 2172,
+    "low": 852,
+    "retracements": {
+      "level_236": 1861,
+      "level_382": 1668,
+      "level_500": 1512,
+      "level_618": 1357,
+      "level_786": 1135,
+      "level_1000": 852,
+      "golden_pocket_high": 1512,
+      "golden_pocket_low": 1357
+    },
+    "extensions": {
+      "ext_618": 2987,
+      "ext_1000": 3492,
+      "ext_1618": 4307,
+      "ext_2618": 5627
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1309956
+  },
+  "GE": {
+    "current_price": 2392,
+    "current_index": 17,
+    "high": 2722,
+    "low": 788,
+    "retracements": {
+      "level_236": 2266,
+      "level_382": 1984,
+      "level_500": 1755,
+      "level_618": 1527,
+      "level_786": 1202,
+      "level_1000": 788,
+      "golden_pocket_high": 1755,
+      "golden_pocket_low": 1527
+    },
+    "extensions": {
+      "ext_618": 3917,
+      "ext_1000": 4656,
+      "ext_1618": 5851,
+      "ext_2618": 7785
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1497808
+  },
+  "AMGN": {
+    "current_price": 664,
+    "current_index": 15,
+    "high": 1646,
+    "low": 544,
+    "retracements": {
+      "level_236": 1386,
+      "level_382": 1226,
+      "level_500": 1095,
+      "level_618": 965,
+      "level_786": 780,
+      "level_1000": 544,
+      "golden_pocket_high": 1095,
+      "golden_pocket_low": 965
+    },
+    "extensions": {
+      "ext_618": 2327,
+      "ext_1000": 2748,
+      "ext_1618": 3429,
+      "ext_2618": 4531
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1088524
+  },
+  "NOW": {
+    "current_price": 1608,
+    "current_index": 17,
+    "high": 1666,
+    "low": 796,
+    "retracements": {
+      "level_236": 1461,
+      "level_382": 1334,
+      "level_500": 1231,
+      "level_618": 1129,
+      "level_786": 983,
+      "level_1000": 796,
+      "golden_pocket_high": 1231,
+      "golden_pocket_low": 1129
+    },
+    "extensions": {
+      "ext_618": 2203,
+      "ext_1000": 2536,
+      "ext_1618": 3073,
+      "ext_2618": 3943
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1006887
+  },
+  "SPGI": {
+    "current_price": 1512,
+    "current_index": 16,
+    "high": 1644,
+    "low": 902,
+    "retracements": {
+      "level_236": 1469,
+      "level_382": 1361,
+      "level_500": 1273,
+      "level_618": 1186,
+      "level_786": 1061,
+      "level_1000": 902,
+      "golden_pocket_high": 1273,
+      "golden_pocket_low": 1186
+    },
+    "extensions": {
+      "ext_618": 2102,
+      "ext_1000": 2386,
+      "ext_1618": 2844,
+      "ext_2618": 3586
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1531914
+  },
+  "BLK": {
+    "current_price": 708,
+    "current_index": 15,
+    "high": 1568,
+    "low": 506,
+    "retracements": {
+      "level_236": 1318,
+      "level_382": 1163,
+      "level_500": 1037,
+      "level_618": 912,
+      "level_786": 734,
+      "level_1000": 506,
+      "golden_pocket_high": 1037,
+      "golden_pocket_low": 912
+    },
+    "extensions": {
+      "ext_618": 2224,
+      "ext_1000": 2630,
+      "ext_1618": 3286,
+      "ext_2618": 4348
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1160655
+  },
+  "SCHW": {
+    "current_price": 1256,
+    "current_index": 16,
+    "high": 1827,
+    "low": 997,
+    "retracements": {
+      "level_236": 1632,
+      "level_382": 1510,
+      "level_500": 1412,
+      "level_618": 1315,
+      "level_786": 1175,
+      "level_1000": 997,
+      "golden_pocket_high": 1412,
+      "golden_pocket_low": 1315
+    },
+    "extensions": {
+      "ext_618": 2339,
+      "ext_1000": 2657,
+      "ext_1618": 3169,
+      "ext_2618": 3999
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1272543
+  },
+  "TGT": {
+    "current_price": 1172,
+    "current_index": 16,
+    "high": 1644,
+    "low": 564,
+    "retracements": {
+      "level_236": 1390,
+      "level_382": 1232,
+      "level_500": 1104,
+      "level_618": 977,
+      "level_786": 796,
+      "level_1000": 564,
+      "golden_pocket_high": 1104,
+      "golden_pocket_low": 977
+    },
+    "extensions": {
+      "ext_618": 2311,
+      "ext_1000": 2724,
+      "ext_1618": 3391,
+      "ext_2618": 4471
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1187436
+  },
+  "CVS": {
+    "current_price": 300,
+    "current_index": 13,
+    "high": 1600,
+    "low": 100,
+    "retracements": {
+      "level_236": 1246,
+      "level_382": 1027,
+      "level_500": 850,
+      "level_618": 673,
+      "level_786": 421,
+      "level_1000": 100,
+      "golden_pocket_high": 850,
+      "golden_pocket_low": 673
+    },
+    "extensions": {
+      "ext_618": 2527,
+      "ext_1000": 3100,
+      "ext_1618": 4027,
+      "ext_2618": 5527
+    },
+    "support_resistance": {
+      "support": [
+        144,
+        89,
+        55
+      ],
+      "resistance": [
+        377,
+        610,
+        987
+      ]
+    },
+    "log_space": 1287553
+  },
+  "LMT": {
+    "current_price": 1172,
+    "current_index": 16,
+    "high": 1644,
+    "low": 564,
+    "retracements": {
+      "level_236": 1390,
+      "level_382": 1232,
+      "level_500": 1104,
+      "level_618": 977,
+      "level_786": 796,
+      "level_1000": 564,
+      "golden_pocket_high": 1104,
+      "golden_pocket_low": 977
+    },
+    "extensions": {
+      "ext_618": 2311,
+      "ext_1000": 2724,
+      "ext_1618": 3391,
+      "ext_2618": 4471
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1187436
+  },
+  "SYK": {
+    "current_price": 968,
+    "current_index": 15,
+    "high": 1898,
+    "low": 702,
+    "retracements": {
+      "level_236": 1616,
+      "level_382": 1442,
+      "level_500": 1300,
+      "level_618": 1159,
+      "level_786": 958,
+      "level_1000": 702,
+      "golden_pocket_high": 1300,
+      "golden_pocket_low": 1159
+    },
+    "extensions": {
+      "ext_618": 2637,
+      "ext_1000": 3094,
+      "ext_1618": 3833,
+      "ext_2618": 5029
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1586885
+  },
+  "CI": {
+    "current_price": 752,
+    "current_index": 15,
+    "high": 1307,
+    "low": 353,
+    "retracements": {
+      "level_236": 1082,
+      "level_382": 943,
+      "level_500": 830,
+      "level_618": 718,
+      "level_786": 558,
+      "level_1000": 353,
+      "golden_pocket_high": 830,
+      "golden_pocket_low": 718
+    },
+    "extensions": {
+      "ext_618": 1896,
+      "ext_1000": 2261,
+      "ext_1618": 2850,
+      "ext_2618": 3804
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1232786
+  },
+  "MDLZ": {
+    "current_price": 1744,
+    "current_index": 17,
+    "high": 1744,
+    "low": 866,
+    "retracements": {
+      "level_236": 1537,
+      "level_382": 1409,
+      "level_500": 1305,
+      "level_618": 1202,
+      "level_786": 1054,
+      "level_1000": 866,
+      "golden_pocket_high": 1305,
+      "golden_pocket_low": 1202
+    },
+    "extensions": {
+      "ext_618": 2286,
+      "ext_1000": 2622,
+      "ext_1618": 3164,
+      "ext_2618": 4042
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1092047
+  },
+  "PLD": {
+    "current_price": 1248,
+    "current_index": 16,
+    "high": 1823,
+    "low": 841,
+    "retracements": {
+      "level_236": 1592,
+      "level_382": 1448,
+      "level_500": 1332,
+      "level_618": 1217,
+      "level_786": 1052,
+      "level_1000": 841,
+      "golden_pocket_high": 1332,
+      "golden_pocket_low": 1217
+    },
+    "extensions": {
+      "ext_618": 2429,
+      "ext_1000": 2805,
+      "ext_1618": 3411,
+      "ext_2618": 4393
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1264437
+  },
+  "GILD": {
+    "current_price": 588,
+    "current_index": 14,
+    "high": 1486,
+    "low": 538,
+    "retracements": {
+      "level_236": 1263,
+      "level_382": 1124,
+      "level_500": 1012,
+      "level_618": 901,
+      "level_786": 741,
+      "level_1000": 538,
+      "golden_pocket_high": 1012,
+      "golden_pocket_low": 901
+    },
+    "extensions": {
+      "ext_618": 2071,
+      "ext_1000": 2434,
+      "ext_1618": 3019,
+      "ext_2618": 3967
+    },
+    "support_resistance": {
+      "support": [
+        233,
+        144,
+        89
+      ],
+      "resistance": [
+        610,
+        987,
+        1597
+      ]
+    },
+    "log_space": 1559681
+  },
+  "ADP": {
+    "current_price": 2324,
+    "current_index": 17,
+    "high": 2588,
+    "low": 1044,
+    "retracements": {
+      "level_236": 2224,
+      "level_382": 1999,
+      "level_500": 1816,
+      "level_618": 1634,
+      "level_786": 1375,
+      "level_1000": 1044,
+      "golden_pocket_high": 1816,
+      "golden_pocket_low": 1634
+    },
+    "extensions": {
+      "ext_618": 3542,
+      "ext_1000": 4132,
+      "ext_1618": 5086,
+      "ext_2618": 6630
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1455228
+  },
+  "ISRG": {
+    "current_price": 616,
+    "current_index": 15,
+    "high": 1601,
+    "low": 616,
+    "retracements": {
+      "level_236": 1369,
+      "level_382": 1225,
+      "level_500": 1109,
+      "level_618": 993,
+      "level_786": 827,
+      "level_1000": 616,
+      "golden_pocket_high": 1109,
+      "golden_pocket_low": 993
+    },
+    "extensions": {
+      "ext_618": 2209,
+      "ext_1000": 2586,
+      "ext_1618": 3194,
+      "ext_2618": 4179
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1009836
+  },
+  "BKNG": {
+    "current_price": 1768,
+    "current_index": 17,
+    "high": 2263,
+    "low": 986,
+    "retracements": {
+      "level_236": 1962,
+      "level_382": 1776,
+      "level_500": 1625,
+      "level_618": 1474,
+      "level_786": 1260,
+      "level_1000": 986,
+      "golden_pocket_high": 1625,
+      "golden_pocket_low": 1474
+    },
+    "extensions": {
+      "ext_618": 3052,
+      "ext_1000": 3540,
+      "ext_1618": 4329,
+      "ext_2618": 5606
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1107075
+  },
+  "ADI": {
+    "current_price": 580,
+    "current_index": 14,
+    "high": 1680,
+    "low": 560,
+    "retracements": {
+      "level_236": 1416,
+      "level_382": 1253,
+      "level_500": 1120,
+      "level_618": 988,
+      "level_786": 800,
+      "level_1000": 560,
+      "golden_pocket_high": 1120,
+      "golden_pocket_low": 988
+    },
+    "extensions": {
+      "ext_618": 2372,
+      "ext_1000": 2800,
+      "ext_1618": 3492,
+      "ext_2618": 4612
+    },
+    "support_resistance": {
+      "support": [
+        233,
+        144,
+        89
+      ],
+      "resistance": [
+        610,
+        987,
+        1597
+      ]
+    },
+    "log_space": 1538461
+  },
+  "TJX": {
+    "current_price": 1456,
+    "current_index": 16,
+    "high": 2359,
+    "low": 992,
+    "retracements": {
+      "level_236": 2037,
+      "level_382": 1837,
+      "level_500": 1676,
+      "level_618": 1515,
+      "level_786": 1285,
+      "level_1000": 992,
+      "golden_pocket_high": 1676,
+      "golden_pocket_low": 1515
+    },
+    "extensions": {
+      "ext_618": 3203,
+      "ext_1000": 3726,
+      "ext_1618": 4570,
+      "ext_2618": 5937
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1475177
+  },
+  "ZTS": {
+    "current_price": 5688,
+    "current_index": 19,
+    "high": 5707,
+    "low": 1166,
+    "retracements": {
+      "level_236": 4636,
+      "level_382": 3973,
+      "level_500": 3437,
+      "level_618": 2901,
+      "level_786": 2138,
+      "level_1000": 1166,
+      "golden_pocket_high": 3437,
+      "golden_pocket_low": 2901
+    },
+    "extensions": {
+      "ext_618": 8513,
+      "ext_1000": 10248,
+      "ext_1618": 13054,
+      "ext_2618": 17595
+    },
+    "support_resistance": {
+      "support": [
+        2584,
+        1597,
+        987
+      ],
+      "resistance": [
+        6765,
+        10946,
+        17711
+      ]
+    },
+    "log_space": 1360440
+  },
+  "CB": {
+    "current_price": 1060,
+    "current_index": 16,
+    "high": 1670,
+    "low": 570,
+    "retracements": {
+      "level_236": 1411,
+      "level_382": 1250,
+      "level_500": 1120,
+      "level_618": 991,
+      "level_786": 806,
+      "level_1000": 570,
+      "golden_pocket_high": 1120,
+      "golden_pocket_low": 991
+    },
+    "extensions": {
+      "ext_618": 2349,
+      "ext_1000": 2770,
+      "ext_1618": 3449,
+      "ext_2618": 4549
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1073961
+  },
+  "DUK": {
+    "current_price": 1916,
+    "current_index": 17,
+    "high": 1946,
+    "low": 1002,
+    "retracements": {
+      "level_236": 1724,
+      "level_382": 1586,
+      "level_500": 1474,
+      "level_618": 1363,
+      "level_786": 1205,
+      "level_1000": 1002,
+      "golden_pocket_high": 1474,
+      "golden_pocket_low": 1363
+    },
+    "extensions": {
+      "ext_618": 2529,
+      "ext_1000": 2890,
+      "ext_1618": 3473,
+      "ext_2618": 4417
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1199749
+  },
+  "SO": {
+    "current_price": 1576,
+    "current_index": 16,
+    "high": 2039,
+    "low": 832,
+    "retracements": {
+      "level_236": 1755,
+      "level_382": 1578,
+      "level_500": 1436,
+      "level_618": 1294,
+      "level_786": 1091,
+      "level_1000": 832,
+      "golden_pocket_high": 1436,
+      "golden_pocket_low": 1294
+    },
+    "extensions": {
+      "ext_618": 2784,
+      "ext_1000": 3246,
+      "ext_1618": 3991,
+      "ext_2618": 5198
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1596757
+  },
+  "MO": {
+    "current_price": 1396,
+    "current_index": 16,
+    "high": 1732,
+    "low": 576,
+    "retracements": {
+      "level_236": 1460,
+      "level_382": 1291,
+      "level_500": 1154,
+      "level_618": 1018,
+      "level_786": 824,
+      "level_1000": 576,
+      "golden_pocket_high": 1154,
+      "golden_pocket_low": 1018
+    },
+    "extensions": {
+      "ext_618": 2446,
+      "ext_1000": 2888,
+      "ext_1618": 3602,
+      "ext_2618": 4758
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1414387
+  },
+  "BDX": {
+    "current_price": 1608,
+    "current_index": 17,
+    "high": 1666,
+    "low": 796,
+    "retracements": {
+      "level_236": 1461,
+      "level_382": 1334,
+      "level_500": 1231,
+      "level_618": 1129,
+      "level_786": 983,
+      "level_1000": 796,
+      "golden_pocket_high": 1231,
+      "golden_pocket_low": 1129
+    },
+    "extensions": {
+      "ext_618": 2203,
+      "ext_1000": 2536,
+      "ext_1618": 3073,
+      "ext_2618": 3943
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1006887
+  },
+  "MMC": {
+    "current_price": 1608,
+    "current_index": 17,
+    "high": 1666,
+    "low": 796,
+    "retracements": {
+      "level_236": 1461,
+      "level_382": 1334,
+      "level_500": 1231,
+      "level_618": 1129,
+      "level_786": 983,
+      "level_1000": 796,
+      "golden_pocket_high": 1231,
+      "golden_pocket_low": 1129
+    },
+    "extensions": {
+      "ext_618": 2203,
+      "ext_1000": 2536,
+      "ext_1618": 3073,
+      "ext_2618": 3943
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1006887
+  },
+  "REGN": {
+    "current_price": 1488,
+    "current_index": 16,
+    "high": 1881,
+    "low": 1118,
+    "retracements": {
+      "level_236": 1701,
+      "level_382": 1590,
+      "level_500": 1500,
+      "level_618": 1410,
+      "level_786": 1282,
+      "level_1000": 1118,
+      "golden_pocket_high": 1500,
+      "golden_pocket_low": 1410
+    },
+    "extensions": {
+      "ext_618": 2352,
+      "ext_1000": 2644,
+      "ext_1618": 3115,
+      "ext_2618": 3878
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1507598
+  },
+  "EOG": {
+    "current_price": 1608,
+    "current_index": 17,
+    "high": 1666,
+    "low": 796,
+    "retracements": {
+      "level_236": 1461,
+      "level_382": 1334,
+      "level_500": 1231,
+      "level_618": 1129,
+      "level_786": 983,
+      "level_1000": 796,
+      "golden_pocket_high": 1231,
+      "golden_pocket_low": 1129
+    },
+    "extensions": {
+      "ext_618": 2203,
+      "ext_1000": 2536,
+      "ext_1618": 3073,
+      "ext_2618": 3943
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1006887
+  },
+  "CL": {
+    "current_price": 908,
+    "current_index": 15,
+    "high": 1612,
+    "low": 628,
+    "retracements": {
+      "level_236": 1380,
+      "level_382": 1237,
+      "level_500": 1120,
+      "level_618": 1004,
+      "level_786": 839,
+      "level_1000": 628,
+      "golden_pocket_high": 1120,
+      "golden_pocket_low": 1004
+    },
+    "extensions": {
+      "ext_618": 2220,
+      "ext_1000": 2596,
+      "ext_1618": 3204,
+      "ext_2618": 4188
+    },
+    "support_resistance": {
+      "support": [
+        377,
+        233,
+        144
+      ],
+      "resistance": [
+        987,
+        1597,
+        2584
+      ]
+    },
+    "log_space": 1488524
+  },
+  "PNC": {
+    "current_price": 1096,
+    "current_index": 16,
+    "high": 1994,
+    "low": 966,
+    "retracements": {
+      "level_236": 1752,
+      "level_382": 1602,
+      "level_500": 1480,
+      "level_618": 1359,
+      "level_786": 1186,
+      "level_1000": 966,
+      "golden_pocket_high": 1480,
+      "golden_pocket_low": 1359
+    },
+    "extensions": {
+      "ext_618": 2629,
+      "ext_1000": 3022,
+      "ext_1618": 3657,
+      "ext_2618": 4685
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1110435
+  },
+  "ITW": {
+    "current_price": 4816,
+    "current_index": 19,
+    "high": 4949,
+    "low": 1162,
+    "retracements": {
+      "level_236": 4056,
+      "level_382": 3503,
+      "level_500": 3056,
+      "level_618": 2609,
+      "level_786": 1973,
+      "level_1000": 1162,
+      "golden_pocket_high": 3056,
+      "golden_pocket_low": 2609
+    },
+    "extensions": {
+      "ext_618": 7289,
+      "ext_1000": 8736,
+      "ext_1618": 11076,
+      "ext_2618": 14863
+    },
+    "support_resistance": {
+      "support": [
+        2584,
+        1597,
+        987
+      ],
+      "resistance": [
+        6765,
+        10946,
+        17711
+      ]
+    },
+    "log_space": 1151877
+  },
+  "SHW": {
+    "current_price": 4380,
+    "current_index": 19,
+    "high": 4570,
+    "low": 1160,
+    "retracements": {
+      "level_236": 3766,
+      "level_382": 3268,
+      "level_500": 2865,
+      "level_618": 2463,
+      "level_786": 1890,
+      "level_1000": 1160,
+      "golden_pocket_high": 2865,
+      "golden_pocket_low": 2463
+    },
+    "extensions": {
+      "ext_618": 6677,
+      "ext_1000": 7980,
+      "ext_1618": 10087,
+      "ext_2618": 13497
+    },
+    "support_resistance": {
+      "support": [
+        2584,
+        1597,
+        987
+      ],
+      "resistance": [
+        6765,
+        10946,
+        17711
+      ]
+    },
+    "log_space": 1047596
+  },
+  "AON": {
+    "current_price": 1096,
+    "current_index": 16,
+    "high": 1994,
+    "low": 966,
+    "retracements": {
+      "level_236": 1752,
+      "level_382": 1602,
+      "level_500": 1480,
+      "level_618": 1359,
+      "level_786": 1186,
+      "level_1000": 966,
+      "golden_pocket_high": 1480,
+      "golden_pocket_low": 1359
+    },
+    "extensions": {
+      "ext_618": 2629,
+      "ext_1000": 3022,
+      "ext_1618": 3657,
+      "ext_2618": 4685
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1110435
+  },
+  "APD": {
+    "current_price": 1608,
+    "current_index": 17,
+    "high": 1666,
+    "low": 796,
+    "retracements": {
+      "level_236": 1461,
+      "level_382": 1334,
+      "level_500": 1231,
+      "level_618": 1129,
+      "level_786": 983,
+      "level_1000": 796,
+      "golden_pocket_high": 1231,
+      "golden_pocket_low": 1129
+    },
+    "extensions": {
+      "ext_618": 2203,
+      "ext_1000": 2536,
+      "ext_1618": 3073,
+      "ext_2618": 3943
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1006887
+  },
+  "CME": {
+    "current_price": 2044,
+    "current_index": 17,
+    "high": 2044,
+    "low": 868,
+    "retracements": {
+      "level_236": 1767,
+      "level_382": 1595,
+      "level_500": 1456,
+      "level_618": 1318,
+      "level_786": 1120,
+      "level_1000": 868,
+      "golden_pocket_high": 1456,
+      "golden_pocket_low": 1318
+    },
+    "extensions": {
+      "ext_618": 2770,
+      "ext_1000": 3220,
+      "ext_1618": 3946,
+      "ext_2618": 5122
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1279899
+  },
+  "BSX": {
+    "current_price": 3944,
+    "current_index": 18,
+    "high": 4191,
+    "low": 1158,
+    "retracements": {
+      "level_236": 3476,
+      "level_382": 3033,
+      "level_500": 2675,
+      "level_618": 2317,
+      "level_786": 1808,
+      "level_1000": 1158,
+      "golden_pocket_high": 2675,
+      "golden_pocket_low": 2317
+    },
+    "extensions": {
+      "ext_618": 6065,
+      "ext_1000": 7224,
+      "ext_1618": 9098,
+      "ext_2618": 12131
+    },
+    "support_resistance": {
+      "support": [
+        1597,
+        987,
+        610
+      ],
+      "resistance": [
+        4181,
+        6765,
+        10946
+      ]
+    },
+    "log_space": 1526315
+  },
+  "MCO": {
+    "current_price": 1276,
+    "current_index": 16,
+    "high": 2036,
+    "low": 676,
+    "retracements": {
+      "level_236": 1716,
+      "level_382": 1517,
+      "level_500": 1356,
+      "level_618": 1196,
+      "level_786": 968,
+      "level_1000": 676,
+      "golden_pocket_high": 1356,
+      "golden_pocket_low": 1196
+    },
+    "extensions": {
+      "ext_618": 2876,
+      "ext_1000": 3396,
+      "ext_1618": 4236,
+      "ext_2618": 5596
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1292806
+  },
+  "USB": {
+    "current_price": 3508,
+    "current_index": 18,
+    "high": 3812,
+    "low": 1156,
+    "retracements": {
+      "level_236": 3186,
+      "level_382": 2798,
+      "level_500": 2484,
+      "level_618": 2171,
+      "level_786": 1725,
+      "level_1000": 1156,
+      "golden_pocket_high": 2484,
+      "golden_pocket_low": 2171
+    },
+    "extensions": {
+      "ext_618": 5453,
+      "ext_1000": 6468,
+      "ext_1618": 8109,
+      "ext_2618": 10765
+    },
+    "support_resistance": {
+      "support": [
+        1597,
+        987,
+        610
+      ],
+      "resistance": [
+        4181,
+        6765,
+        10946
+      ]
+    },
+    "log_space": 1357585
+  },
+  "F": {
+    "current_price": 2440,
+    "current_index": 17,
+    "high": 2665,
+    "low": 655,
+    "retracements": {
+      "level_236": 2191,
+      "level_382": 1898,
+      "level_500": 1660,
+      "level_618": 1423,
+      "level_786": 1086,
+      "level_1000": 655,
+      "golden_pocket_high": 1660,
+      "golden_pocket_low": 1423
+    },
+    "extensions": {
+      "ext_618": 3907,
+      "ext_1000": 4675,
+      "ext_1618": 5917,
+      "ext_2618": 7927
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1527864
+  },
+  "GM": {
+    "current_price": 1884,
+    "current_index": 17,
+    "high": 2484,
+    "low": 976,
+    "retracements": {
+      "level_236": 2129,
+      "level_382": 1908,
+      "level_500": 1730,
+      "level_618": 1553,
+      "level_786": 1299,
+      "level_1000": 976,
+      "golden_pocket_high": 1730,
+      "golden_pocket_low": 1553
+    },
+    "extensions": {
+      "ext_618": 3415,
+      "ext_1000": 3992,
+      "ext_1618": 4923,
+      "ext_2618": 6431
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1179711
+  },
+  "RIVN": {
+    "current_price": 1876,
+    "current_index": 17,
+    "high": 2432,
+    "low": 1152,
+    "retracements": {
+      "level_236": 2130,
+      "level_382": 1944,
+      "level_500": 1792,
+      "level_618": 1641,
+      "level_786": 1426,
+      "level_1000": 1152,
+      "golden_pocket_high": 1792,
+      "golden_pocket_low": 1641
+    },
+    "extensions": {
+      "ext_618": 3223,
+      "ext_1000": 3712,
+      "ext_1618": 4503,
+      "ext_2618": 5783
+    },
+    "support_resistance": {
+      "support": [
+        987,
+        610,
+        377
+      ],
+      "resistance": [
+        2584,
+        4181,
+        6765
+      ]
+    },
+    "log_space": 1174702
+  },
+  "LCID": {
+    "current_price": 1052,
+    "current_index": 16,
+    "high": 1722,
+    "low": 982,
+    "retracements": {
+      "level_236": 1548,
+      "level_382": 1440,
+      "level_500": 1352,
+      "level_618": 1265,
+      "level_786": 1141,
+      "level_1000": 982,
+      "golden_pocket_high": 1352,
+      "golden_pocket_low": 1265
+    },
+    "extensions": {
+      "ext_618": 2179,
+      "ext_1000": 2462,
+      "ext_1618": 2919,
+      "ext_2618": 3659
+    },
+    "support_resistance": {
+      "support": [
+        610,
+        377,
+        233
+      ],
+      "resistance": [
+        1597,
+        2584,
+        4181
+      ]
+    },
+    "log_space": 1065856
+  },
+  "NIO": {
+    "current_price": 3944,
+    "current_index": 18,
+    "high": 4191,
+    "low": 1158,
+    "retracements": {
+      "level_236": 3476,
+      "level_382": 3033,
+      "level_500": 2675,
+      "level_618": 2317,
+      "level_786": 1808,
+      "level_1000": 1158,
+      "golden_pocket_high": 2675,
+      "golden_pocket_low": 2317
+    },
+    "extensions": {
+      "ext_618": 6065,
+      "ext_1000": 7224,
+      "ext_1618": 9098,
+      "ext_2618": 12131
+    },
+    "support_resistance": {
+      "support": [
+        1597,
+        987,
+        610
+      ],
+      "resistance": [
+        4181,
+        6765,
+        10946
+      ]
+    },
+    "log_space": 1526315
+  }
+}

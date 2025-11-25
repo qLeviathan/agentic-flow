@@ -1,0 +1,275 @@
+{
+  "created": 1764030272.2264407,
+  "duration": 10.350985288619995,
+  "exitcode": 0,
+  "root": "/home/user/agentic-flow/quantum-trading-system",
+  "environment": {},
+  "summary": {
+    "passed": 3,
+    "total": 3,
+    "collected": 25,
+    "deselected": 22
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_coordinator_initialization",
+          "type": "Function",
+          "lineno": 107,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_schema_verification",
+          "type": "Function",
+          "lineno": 114,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_all_agents_registered",
+          "type": "Function",
+          "lineno": 126,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_store_episode_success",
+          "type": "Function",
+          "lineno": 144,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_store_episode_failure",
+          "type": "Function",
+          "lineno": 168,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_retrieve_relevant_episodes",
+          "type": "Function",
+          "lineno": 195,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_get_critique_summary",
+          "type": "Function",
+          "lineno": 230,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_add_causal_edge",
+          "type": "Function",
+          "lineno": 272
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_get_agent_dependencies",
+          "type": "Function",
+          "lineno": 291,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_get_causal_graph",
+          "type": "Function",
+          "lineno": 325,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_create_skill",
+          "type": "Function",
+          "lineno": 347
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_consolidate_episodes_to_skills",
+          "type": "Function",
+          "lineno": 373,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_get_agent_skills",
+          "type": "Function",
+          "lineno": 409,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_consolidate_memory",
+          "type": "Function",
+          "lineno": 443,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_broadcast_message",
+          "type": "Function",
+          "lineno": 492,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_broadcast_to_all_agents",
+          "type": "Function",
+          "lineno": 512,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_get_agent_messages",
+          "type": "Function",
+          "lineno": 522,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_get_agent_stats",
+          "type": "Function",
+          "lineno": 546,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_get_system_stats",
+          "type": "Function",
+          "lineno": 572,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_context_manager",
+          "type": "Function",
+          "lineno": 596,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_full_agent_workflow",
+          "type": "Function",
+          "lineno": 620
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_multi_agent_coordination",
+          "type": "Function",
+          "lineno": 672,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_integer_only_compatibility",
+          "type": "Function",
+          "lineno": 719,
+          "deselected": true
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_agentdb_coordinator.py::TestPerformanceBenchmarks",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestPerformanceBenchmarks::test_retrieval_performance",
+          "type": "Function",
+          "lineno": 771,
+          "deselected": true
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestPerformanceBenchmarks::test_stats_performance",
+          "type": "Function",
+          "lineno": 786,
+          "deselected": true
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_agentdb_coordinator.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator",
+          "type": "Class"
+        },
+        {
+          "nodeid": "tests/test_agentdb_coordinator.py::TestPerformanceBenchmarks",
+          "type": "Class"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_add_causal_edge",
+      "lineno": 272,
+      "outcome": "passed",
+      "keywords": [
+        "test_add_causal_edge",
+        "TestAgentDBCoordinator",
+        "test_agentdb_coordinator.py",
+        "tests",
+        "quantum-trading-system",
+        ""
+      ],
+      "setup": {
+        "duration": 0.035385902000598435,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.008666921000440198,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.001150243000665796,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_create_skill",
+      "lineno": 347,
+      "outcome": "passed",
+      "keywords": [
+        "test_create_skill",
+        "TestAgentDBCoordinator",
+        "test_agentdb_coordinator.py",
+        "tests",
+        "quantum-trading-system",
+        ""
+      ],
+      "setup": {
+        "duration": 0.0318478530007269,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.01306244199986395,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0012541309997686767,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_agentdb_coordinator.py::TestAgentDBCoordinator::test_full_agent_workflow",
+      "lineno": 620,
+      "outcome": "passed",
+      "keywords": [
+        "test_full_agent_workflow",
+        "TestAgentDBCoordinator",
+        "test_agentdb_coordinator.py",
+        "tests",
+        "quantum-trading-system",
+        ""
+      ],
+      "setup": {
+        "duration": 0.029141074000108347,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 9.919873608999296,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.001865649000137637,
+        "outcome": "passed"
+      }
+    }
+  ]
+}
