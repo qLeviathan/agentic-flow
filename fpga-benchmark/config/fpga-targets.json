@@ -1,0 +1,85 @@
+{
+  "targets": {
+    "xilinx-artix7": {
+      "name": "Xilinx Artix-7",
+      "family": "artix7",
+      "part": "xc7a100tcsg324-1",
+      "vendor": "xilinx",
+      "tool": "vivado",
+      "maxFrequency": 200,
+      "resources": {
+        "luts": 63400,
+        "ffs": 126800,
+        "bram": 135,
+        "dsp": 240
+      }
+    },
+    "xilinx-zynq": {
+      "name": "Xilinx Zynq-7000",
+      "family": "zynq",
+      "part": "xc7z020clg400-1",
+      "vendor": "xilinx",
+      "tool": "vivado",
+      "maxFrequency": 250,
+      "resources": {
+        "luts": 53200,
+        "ffs": 106400,
+        "bram": 140,
+        "dsp": 220
+      }
+    },
+    "intel-cyclone10lp": {
+      "name": "Intel Cyclone 10 LP",
+      "family": "cyclone10lp",
+      "part": "10CL025YU256C8G",
+      "vendor": "intel",
+      "tool": "quartus",
+      "maxFrequency": 180,
+      "resources": {
+        "les": 25000,
+        "ffs": 25000,
+        "ram": 66,
+        "mult": 50
+      }
+    },
+    "lattice-ecp5": {
+      "name": "Lattice ECP5",
+      "family": "ecp5",
+      "part": "LFE5U-45F-8BG381C",
+      "vendor": "lattice",
+      "tool": "diamond",
+      "maxFrequency": 150,
+      "resources": {
+        "luts": 44000,
+        "ffs": 44000,
+        "bram": 108,
+        "dsp": 72
+      }
+    },
+    "lattice-ice40": {
+      "name": "Lattice iCE40 HX8K",
+      "family": "ice40",
+      "part": "ice40-hx8k-ct256",
+      "vendor": "lattice",
+      "tool": "yosys",
+      "maxFrequency": 100,
+      "resources": {
+        "luts": 7680,
+        "ffs": 7680,
+        "bram": 32,
+        "dsp": 0
+      }
+    }
+  },
+  "defaultTarget": "xilinx-artix7",
+  "architecture": {
+    "phiWidth": 48,
+    "tokenWidth": 32,
+    "vocabSize": 4096,
+    "contextDepth": 16,
+    "numPartitions": 8,
+    "cascadeStages": 6,
+    "encoderStages": 4,
+    "attentionHeads": 8
+  }
+}

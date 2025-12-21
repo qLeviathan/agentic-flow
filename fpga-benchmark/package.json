@@ -1,0 +1,56 @@
+{
+  "name": "zeckendorf-fpga-benchmark",
+  "version": "1.0.0",
+  "description": "FPGA Verilog Benchmark Suite for Zeckendorf φ-space Computation Architecture",
+  "main": "scripts/build.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:luts": "node scripts/generate-luts.js",
+    "lint": "node scripts/lint-verilog.js",
+    "sim": "node scripts/simulate.js",
+    "sim:all": "node scripts/simulate.js --all",
+    "sim:cascade": "node scripts/simulate.js --module cascade_engine",
+    "sim:encoder": "node scripts/simulate.js --module zeckendorf_encoder",
+    "sim:attention": "node scripts/simulate.js --module attention_unit",
+    "benchmark": "node scripts/benchmark.js",
+    "benchmark:latency": "node scripts/benchmark.js --type latency",
+    "benchmark:throughput": "node scripts/benchmark.js --type throughput",
+    "benchmark:resources": "node scripts/benchmark.js --type resources",
+    "synth": "node scripts/synthesize.js",
+    "synth:xilinx": "node scripts/synthesize.js --target xilinx",
+    "synth:intel": "node scripts/synthesize.js --target intel",
+    "report": "node scripts/generate-report.js",
+    "clean": "node scripts/clean.js",
+    "test": "npm run sim:all && npm run benchmark",
+    "verify": "node scripts/formal-verify.js"
+  },
+  "keywords": [
+    "fpga",
+    "verilog",
+    "zeckendorf",
+    "fibonacci",
+    "phi-space",
+    "cascade",
+    "benchmark",
+    "hardware",
+    "attention",
+    "neural"
+  ],
+  "author": "Agentic-Flow",
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "glob": "^10.3.10",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "fpga": {
+    "targets": ["xilinx-artix7", "xilinx-zynq", "intel-cyclone", "lattice-ecp5"],
+    "defaultWidth": 32,
+    "maxShells": 47,
+    "fibonacciDepth": 48
+  }
+}
